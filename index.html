@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
 <script>
 /* Supabase project settings (Project Settings → API) */
 window.APP_CONFIG = {
@@ -155,6 +155,9 @@ td .field{width:auto}
 .dpcard .av{width:18px;height:18px;font-size:9.5px;flex:none}
 .dpalert{font-size:13px;font-weight:600} .dpalert.open{color:var(--warn)} .dpalert.late{color:var(--bad)} .dpalert.closed{color:var(--ok)} .dpalert.empty{color:var(--muted);font-weight:500}
 @media (max-width:640px){ .calc{height:58px;padding:5px} .calc .ct{display:none} .calc .dn{font-size:13px;flex-direction:column;align-items:flex-start} .cal{gap:4px} .dpcols{grid-template-columns:minmax(0,1fr)} .mnav h2{min-width:0;font-size:16px} }
+#netBar{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:999;background:var(--warn);color:#fff;font-weight:700;font-size:13px;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.18);display:flex;gap:10px;align-items:center}
+#netBar[hidden]{display:none}
+#netBar button{background:#fff;color:var(--warn);border:0;border-radius:999px;padding:3px 10px;font:inherit;font-size:12px;cursor:pointer}
 .daybanner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;border-radius:10px;padding:9px 14px;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:13.5px}
 .meter{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;min-width:60px;display:flex}
 .meter i{display:block;height:100%}
@@ -299,7 +302,7 @@ en:{
  pendingTitle:"Your request is under review",pendingTxt:"An administrator will review your request and set your access. The board opens automatically once you're approved.",
  yourName:"Your name",updateMe:"Update my details",disabledTitle:"Access disabled",disabledTxt:"Your account is disabled. Contact your hotel's system administrator.",
  setupTitle:"Setting up your account",setupTxt:"If this message stays, make sure the database setup was run.",
- cfgTitle:"Setup needed",cfgTxt:"Add your Supabase URL and key at the top of index.html.",loadErr:"Couldn't load the data",retry:"Try again",
+ cfgTitle:"Setup needed",cfgTxt:"Add your Supabase URL and key at the top of index.html.",loadErr:"Couldn't load the data",netLost:"Connection lost — reconnecting…",netRetry:"Retry now",retry:"Try again",
  taskDetails:"Task details",newTaskT:"New task",delegateT:"Delegate a subtask",del:"Delete",close:"Close",open:"Open",
  partOf:"Part of task",titlePh:"Task title, e.g. Water leak in room 214 bathroom",descPh:"Details, steps, guest notes…",
  location:"Location / room",locationPh:"Room 214 · Lobby · Kitchen",assignee:"Assigned to",priority:"Priority",dueAt:"Due",shift:"Shift",estimate:"Estimated time (hours)",
@@ -363,7 +366,7 @@ ar:{
  pendingTitle:"طلبك قيد المراجعة",pendingTxt:"الإدارة هتراجع طلبك وتحدد صلاحيتك. اللوحة هتفتح لوحدها أول ما يتوافق عليك.",
  yourName:"اسمك",updateMe:"تحديث بياناتي",disabledTitle:"الوصول متوقف",disabledTxt:"حسابك موقوف. تواصل مع إدارة الفندق.",
  setupTitle:"جارٍ تجهيز حسابك",setupTxt:"لو الرسالة دي فضلت ظاهرة، اتأكد إن إعداد قاعدة البيانات اتشغّل.",
- cfgTitle:"البرنامج محتاج إعداد",cfgTxt:"حط رابط Supabase والمفتاح في أول ملف index.html.",loadErr:"تعذّر تحميل البيانات",retry:"إعادة المحاولة",
+ cfgTitle:"البرنامج محتاج إعداد",cfgTxt:"حط رابط Supabase والمفتاح في أول ملف index.html.",loadErr:"تعذّر تحميل البيانات",netLost:"الاتصال اتقطع — بنرجّعه تلقائي…",netRetry:"حاول دلوقتي",retry:"إعادة المحاولة",
  taskDetails:"تفاصيل المهمة",newTaskT:"مهمة جديدة",delegateT:"توزيع مهمة فرعية",del:"حذف",close:"إغلاق",open:"فتح",
  partOf:"جزء من المهمة",titlePh:"عنوان المهمة، مثال: تسريب مياه في حمام غرفة 214",descPh:"التفاصيل، الخطوات المطلوبة، ملاحظات الضيف…",
  location:"الموقع / رقم الغرفة",locationPh:"غرفة 214 · اللوبي · المطبخ",assignee:"المسؤول عن التنفيذ",priority:"الأولوية",dueAt:"موعد التسليم",shift:"الوردية",estimate:"الوقت المقدّر (ساعات)",
@@ -471,7 +474,7 @@ async function loadTasks(){ if(!isMember()){S.tasks=[];return;} const {data,erro
 async function loadThread(id){ const [c,e]=await Promise.all([S.sb.from("task_comments").select("*").eq("task_id",id).order("created_at"),S.sb.from("task_events").select("*").eq("task_id",id).order("created_at")]);
   if(S.openId!==id) return; S.thread={comments:c.data||[],events:e.data||[]}; renderSheetSide(); }
 async function loadAll(){ try{ await loadProfiles(); await loadMeta(); await loadTasks(); S.ready=true; render(); subscribe(); if(S.pendingOpen&&isMember()){ const id=S.pendingOpen; S.pendingOpen=null; try{history.replaceState(null,"","#"+S.view);}catch(e){} if(T(id)) openTask(id); else toast(t("tGone")); } }
-  catch(e){ $("#main").innerHTML=`<div class="gate"><h2>${esc(t("loadErr"))}</h2><p>${esc(errText(e))}</p><div><button class="btn" onclick="location.reload()">${esc(t("retry"))}</button></div></div>`; } }
+  catch(e){ netState(false); clearTimeout(S.retryT); S.retryT=setTimeout(()=>{ if(!S.ready) loadAll(); },6000); $("#main").innerHTML=`<div class="gate"><h2>${esc(t("loadErr"))}</h2><p>${esc(errText(e))}</p><div><button class="btn" onclick="location.reload()">${esc(t("retry"))}</button></div></div>`; } }
 let chan=null, timers={};
 function later(k,fn){ clearTimeout(timers[k]); timers[k]=setTimeout(fn,350); }
 function subscribe(){ if(chan) return;
@@ -482,8 +485,25 @@ function subscribe(){ if(chan) return;
    .on("postgres_changes",{event:"INSERT",schema:"public",table:"task_comments"},p=>{ if(p.new&&p.new.task_id===S.openId) later("c",()=>loadThread(S.openId)); })
    .on("postgres_changes",{event:"INSERT",schema:"public",table:"task_events"},p=>{ if(p.new&&p.new.task_id===S.openId) later("c",()=>loadThread(S.openId)); })
    .subscribe();
-  setInterval(async()=>{ if(document.hidden) return; try{ const was=isMember(); await loadProfiles(); if(isMember()){ if(!was) await loadMeta(); await loadTasks(); } render(); }catch(e){} },60000);
+  if(!S.pollOn){ S.pollOn=true; setInterval(async()=>{ if(document.hidden) return; try{ const was=isMember(); await loadProfiles(); if(isMember()){ if(!was) await loadMeta(); await loadTasks(); } netState(true); render(); }catch(e){ netState(false); heal("poll"); } },60000); }
 }
+function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; }
+  if(!b){ b=document.createElement("div"); b.id="netBar"; document.body.appendChild(b); }
+  b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
+let healing=false, lastHeal=0;
+async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
+  try{
+    const {data,error}=await S.sb.auth.getSession(); if(error) throw error;
+    let ses=data.session;
+    if(ses&&ses.expires_at&&ses.expires_at*1000-Date.now()<60000){ const r=await S.sb.auth.refreshSession(); if(r.error) throw r.error; ses=r.data.session; }
+    if(!ses){ if(S.session){ S.session=null; S.uid=null; S.ready=false; render(); } netState(true); return; }
+    S.session=ses;
+    if(!S.ready){ await loadAll(); }
+    else { const was=isMember(); await loadProfiles(); if(isMember()){ if(!was) await loadMeta(); await loadTasks(); } render(); }
+    if(chan&&chan.state!=="joined"&&chan.state!=="joining"){ try{ S.sb.removeChannel(chan); }catch(e){} chan=null; subscribe(); }
+    netState(true);
+  }catch(e){ netState(false); clearTimeout(S.healT); S.healT=setTimeout(()=>heal("retry",true),10000); }
+  finally{ healing=false; } }
 
 /* ================= task rules ================= */
 const isLate=x=>x.due&&(x.status==="done"?(x.completedAt||0)>x.due:Date.now()>x.due);
@@ -927,7 +947,11 @@ function boot(){
   applyLangChrome();
   const h=(location.hash||"").slice(1); if(["board","days","list","approvals","reports","team","depts"].includes(h)) S.view=h; { const mt=/^t=(\d+)$/.exec(h); if(mt) S.pendingOpen=+mt[1]; }
   if(!window.supabase||!CFG.SUPABASE_URL||CFG.SUPABASE_URL.includes("YOUR-PROJECT")){ $("#main").innerHTML=`<div class="gate"><h2>${esc(t("cfgTitle"))}</h2><p>${esc(t("cfgTxt"))}</p></div>`; return; }
-  S.sb=supabase.createClient(CFG.SUPABASE_URL,CFG.SUPABASE_ANON_KEY);
+  const tfetch=(u,o={})=>{ const c=new AbortController(); const tm=setTimeout(()=>c.abort(),20000); if(o.signal){ if(o.signal.aborted) c.abort(); else o.signal.addEventListener("abort",()=>c.abort()); } return fetch(u,Object.assign({},o,{signal:c.signal})).finally(()=>clearTimeout(tm)); };
+  S.sb=supabase.createClient(CFG.SUPABASE_URL,CFG.SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true},global:{fetch:tfetch},realtime:{heartbeatIntervalMs:15000}});
+  document.addEventListener("visibilitychange",()=>{ if(!document.hidden) heal("visible"); });
+  window.addEventListener("online",()=>heal("online"));
+  window.addEventListener("focus",()=>heal("focus"));
   loadMeta().then(()=>{ if(!S.session) render(); });
   S.sb.auth.onAuthStateChange((ev,session)=>{
     if(ev==="PASSWORD_RECOVERY"){ S.authMode="reset"; S.session=null; setTimeout(render,0); return; }
