@@ -273,7 +273,7 @@ en:{
  st_todo:"New",st_progress:"In progress",st_review:"Awaiting approval",st_rejected:"Rejected",st_done:"Done & approved",
  p_urgent:"Urgent",p_high:"High",p_normal:"Normal",p_low:"Low",
  sh_:"None",sh_morning:"Morning",sh_evening:"Evening",sh_night:"Night",
- r_admin:"System admin",r_supervisor:"Supervisor",r_manager:"Department head",r_staff:"Staff",r_pending:"Pending",
+ r_admin:"System admin",r_supervisor:"Supervisor",r_manager:"Department manager",r_staff:"Staff",r_gm:"Hotel manager",noTransfer:"Locked — can't be transferred to anyone else",lockedChip:"🔒 Locked",lockedNote:"This task is locked: whoever has it can't transfer it. Only the creator, the hotel manager or the admin can.",f_lock:"transfer lock",e_transfer_locked:"This task is locked and can't be transferred.",r_pending:"Pending",
  noTasks:"No tasks yet",noTasksHint:"Add the first task: a room repair, a VIP suite setup, or a laundry inventory. It appears under “New” and is followed up until approval.",addFirst:"+ Add the first task",
  emptyCol:"Nothing here",doneOn:"Done",dueOn:"Due",overdue:"Overdue",since:"for",
  delegated:"Delegated: {d}/{n} done",trFrom:"Transferred: {n} → {m}",trTitle:"Transfer this task",trHint:"Hand the task to someone else. It stays one task (no copy) and shows who it moved from and to. You keep following it and can approve or reject it.",trTo:"Transfer to…",trNote:"Note for them (optional)",trBtn:"Transfer",trDone:"Transferred to {n}",trInfo:"Transferred from {f} to {t} by {b}",ev_transfer:"transferred the task",splitHint:"Need to split it into separate parts for several people? Use this only then.",subOf:"Part of {k}",rejectedTimes:"Rejected {n}×",
@@ -288,7 +288,7 @@ en:{
  lgDone:"Done",lgOpen:"Open",lgLate:"Overdue",reportsTo:"reports to",
  reqTitle:"Join requests",reqHint:"Anyone who signs up stays locked out and sees nothing until approved here. Set their hotel, role, department and direct manager, then approve. If you don't know them, reject.",
  reqNone:"No new requests",requests:"wants",approveReq:"Approve",rejectReq:"Reject",mgrPick:"Direct manager…",
- teamTitle:"Team members",teamHint:"<b>System admin</b> sees all hotels and assigns supervisors. <b>Supervisor</b> approves and manages the people of their hotel. <b>Department head</b> distributes work to their team and can send tasks to other department heads in the same hotel. <b>Staff</b> works on their own tasks. Each hotel sees only itself.",
+ teamTitle:"Team members",teamHint:"<b>System admin</b> sees all hotels. <b>Hotel manager</b> has full control of their hotel: sees every task, approves, transfers, and manages everyone except other hotel managers. <b>Supervisor</b> approves and manages the staff of their hotel. <b>Department manager</b> has full control of their department: sees all its tasks, approves, transfers and accepts new staff for it — above the supervisor. <b>Staff</b> works on their own tasks. Each hotel sees only itself. Task details are visible only to whoever created it, whoever has it, their bosses and the hotel manager.",
  tName:"Employee",tHotel:"Hotel",tTitle:"Job title",tDept:"Department",tBoss:"Direct manager",tUnder:"Team",tRole:"Role",tOpen:"Open",tAccess:"Access",
  none:"— None —",you:"You",disable:"Disable access",enable:"Re-enable",rejectedReq:"Rejected request",
  settings:"Settings",depts:"Departments",deptEn:"Name (English)",deptAr:"Name (Arabic)",addDept:"Add department",prefix:"Task number prefix",save:"Save",
@@ -337,7 +337,7 @@ ar:{
  st_todo:"جديدة",st_progress:"قيد التنفيذ",st_review:"بانتظار الموافقة",st_rejected:"مرفوضة",st_done:"مكتملة ومعتمدة",
  p_urgent:"عاجلة",p_high:"عالية",p_normal:"عادية",p_low:"منخفضة",
  sh_:"بدون",sh_morning:"صباحي",sh_evening:"مسائي",sh_night:"ليلي",
- r_admin:"مدير النظام",r_supervisor:"مشرف",r_manager:"مدير قسم",r_staff:"موظف",r_pending:"بانتظار الموافقة",
+ r_admin:"مدير النظام",r_supervisor:"مشرف",r_manager:"مدير إدارة",r_staff:"موظف",r_gm:"مدير الفندق",noTransfer:"ممنوع التحويل — المسؤول مايقدرش يحوّلها لحد تاني",lockedChip:"🔒 ممنوع التحويل",lockedNote:"المهمة دي ممنوع تحويلها: المسؤول عنها مايقدرش يحوّلها لحد. اللي يقدر يحوّلها بس اللي عملها أو مدير الفندق أو مدير النظام.",f_lock:"منع التحويل",e_transfer_locked:"المهمة دي ممنوع تحويلها.",r_pending:"بانتظار الموافقة",
  noTasks:"لا توجد مهام بعد",noTasksHint:"ابدأ بأول مهمة: صيانة غرفة، تجهيز جناح لضيف مهم، أو جرد للمغسلة. هتظهر في «جديدة» وتتتابع لحد الاعتماد.",addFirst:"+ إضافة أول مهمة",
  emptyCol:"لا توجد مهام هنا",doneOn:"أُنجزت",dueOn:"موعد",overdue:"متأخرة",since:"منذ",
  delegated:"موزّعة: {d}/{n} خلصت",trFrom:"منقولة من {n} إلى {m}",trTitle:"تحويل المهمة",trHint:"سلّم المهمة لحد تاني. هتفضل مهمة واحدة من غير تكرار، ومكتوب عليها منقولة من مين لمين، وانت تفضل متابعها وتقدر تعتمدها أو ترفضها.",trTo:"حوّلها لـ…",trNote:"ملاحظة ليه (اختياري)",trBtn:"تحويل",trDone:"تم التحويل إلى {n}",trInfo:"منقولة من {f} إلى {t} بواسطة {b}",ev_transfer:"حوّل المهمة",splitHint:"عايز تقسمها لأجزاء منفصلة على كذا حد؟ استخدم ده بس في الحالة دي.",subOf:"فرعية من {k}",rejectedTimes:"رُفضت {n}×",
@@ -352,7 +352,7 @@ ar:{
  lgDone:"منجزة",lgOpen:"مفتوحة",lgLate:"متأخرة",reportsTo:"تبع",
  reqTitle:"طلبات الانضمام",reqHint:"أي حد يعمل حساب بيفضل مقفول عليه ومايشوفش أي حاجة لحد ما توافق عليه هنا. حدد فندقه ودوره وقسمه ومديره المباشر، وبعدين وافق. لو مش عارفه، دوس رفض.",
  reqNone:"لا توجد طلبات جديدة",requests:"يطلب",approveReq:"موافقة",rejectReq:"رفض",mgrPick:"المدير المباشر…",
- teamTitle:"أعضاء الفريق",teamHint:"<b>مدير النظام</b> يشوف كل الفنادق ويعيّن المشرفين. <b>المشرف</b> يوافق على ناس فندقه ويديرهم. <b>مدير القسم</b> يوزّع الشغل على فريقه، ويقدر يبعت مهام لمديري الأقسام التانية في نفس الفندق. <b>الموظف</b> ينفّذ مهامه. كل فندق يشوف نفسه بس.",
+ teamTitle:"أعضاء الفريق",teamHint:"<b>مدير النظام</b> يشوف كل الفنادق. <b>مدير الفندق</b> ليه كل الصلاحيات في فندقه: يشوف كل المهام ويعتمد ويحوّل ويدير كل الناس ما عدا مديري الفنادق. <b>المشرف</b> يوافق على الموظفين في فندقه ويديرهم. <b>مدير الإدارة</b> ليه كل الصلاحيات جوه إدارته: يشوف كل مهامها ويعتمد ويحوّل ويوافق على موظفيها الجداد — وأعلى من المشرف. <b>الموظف</b> ينفّذ مهامه. كل فندق يشوف نفسه بس. تفاصيل أي مهمة بتظهر بس للي عملها وللمسؤول عنها ولمديرينه ولمدير الفندق.",
  tName:"الموظف",tHotel:"الفندق",tTitle:"المسمى الوظيفي",tDept:"القسم",tBoss:"المدير المباشر",tUnder:"الفريق",tRole:"الدور",tOpen:"مفتوحة",tAccess:"الوصول",
  none:"— بدون —",you:"أنت",disable:"إيقاف الوصول",enable:"إعادة التفعيل",rejectedReq:"طلب مرفوض",
  settings:"الإعدادات",depts:"الأقسام",deptEn:"الاسم بالإنجليزي",deptAr:"الاسم بالعربي",addDept:"إضافة قسم",prefix:"بادئة رقم المهمة",save:"حفظ",
@@ -409,7 +409,7 @@ const STATUSES=[{k:"todo",c:"var(--muted)"},{k:"progress",c:"var(--info)"},{k:"r
 const ST=Object.fromEntries(STATUSES.map(s=>[s.k,s])); const stL=k=>t("st_"+k);
 const PRI={urgent:{c:"bad",o:0},high:{c:"warn",o:1},normal:{c:"info",o:2},low:{c:"",o:3}}; const priL=k=>t("p_"+k);
 const SHIFTS=["","morning","evening","night"];
-const ROLE_KEYS=["admin","supervisor","manager","staff"]; const roleL=r=>t("r_"+r);
+const ROLE_KEYS=["admin","gm","manager","supervisor","staff"]; const roleL=r=>t("r_"+r);
 
 const S={sb:null,session:null,uid:null,me:null,profiles:{},tasks:[],deptRows:[],hotelRows:[],settings:{prefix:"HTL"},
   view:"board",f:{q:"",dept:"",as:"",pri:"",hotel:"",mine:false,late:false},range:"30",repHotel:"",sort:{k:"createdAt",d:-1},
@@ -426,7 +426,7 @@ function dur(x){ if(x==null||isNaN(x)) return "—"; x=Math.max(0,x); const m=Ma
 const toLocal=x=>{ if(!x) return ""; const d=new Date(x); return new Date(x-d.getTimezoneOffset()*60000).toISOString().slice(0,16); };
 let toastT;
 function toast(msg,err){ let el=$(".toast"); if(!el){el=document.createElement("div");document.body.appendChild(el);} el.className="toast"+(err?" err":""); el.textContent=msg; clearTimeout(toastT); toastT=setTimeout(()=>el.remove(),3500); }
-const ERRK=["not_allowed","reason_required","assign_not_allowed","other_hotel","hotel_required","bad_assignee","cannot_change_self","not_found","same_status","hierarchy_cycle","boss_not_manager","supervisor_limit","bad_dept","dept_in_use","use_transfer"];
+const ERRK=["not_allowed","reason_required","assign_not_allowed","other_hotel","hotel_required","bad_assignee","cannot_change_self","not_found","same_status","hierarchy_cycle","boss_not_manager","supervisor_limit","bad_dept","dept_in_use","use_transfer","transfer_locked"];
 function errText(e){ const m=(e&&(e.message||e.error_description))||""; for(const k of ERRK) if(m.includes(k)) return t("e_"+k);
   if(/row-level security|permission denied/i.test(m)) return t("e_not_allowed");
   if(/Invalid login credentials/i.test(m)) return t("e_login"); if(/Email not confirmed/i.test(m)) return t("e_confirm");
@@ -436,21 +436,23 @@ async function call(p,okMsg){ try{ const r=await p; if(r&&r.error) throw r.error
 
 /* ================= roles & permissions (mirror of the server rules) ================= */
 const myRole=()=>S.me&&S.me.active&&S.me.role!=="pending"?S.me.role:null;
-const isAdmin=()=>myRole()==="admin"; const isSup=()=>myRole()==="supervisor"; const isManager=()=>myRole()==="manager";
+const isAdmin=()=>myRole()==="admin"; const isGM=()=>myRole()==="gm"; const isSup=()=>myRole()==="supervisor"; const isManager=()=>myRole()==="manager";
 const isMember=()=>!!myRole(); const myDept=()=>(S.me&&S.me.dept)||""; const myHotel=()=>(S.me&&S.me.hotel)||"";
-const canManageMembers=()=>isAdmin()||isSup();
+const canManageMembers=()=>isAdmin()||isGM()||isSup()||(isManager()&&!!myDept());
+const assignableRoles=()=>isAdmin()?ROLE_KEYS:isGM()?["manager","supervisor","staff"]:["staff"];
+const isDeptBoss=id=>{ const p=S.profiles[id]; return isManager()&&!!myDept()&&!!p&&p.dept===myDept()&&p.hotel===myHotel(); };
 const nameOf=id=>!id?t("unassigned"):(S.profiles[id]&&S.profiles[id].full_name)||t("someone");
 const deptL=c=>{ const r=S.deptRows.find(d=>d.name===c); return r?(LANG==="ar"?r.label_ar:r.label_en)||c:(c||""); };
 const hotelL=c=>{ const r=S.hotelRows.find(h=>h.code===c); return r?(LANG==="ar"?r.name_ar:r.name_en):(c||""); };
 function isAbove(boss,emp){ if(!boss||!emp) return false; let cur=S.profiles[emp], n=0; while(cur&&cur.reports_to&&n<25){ if(cur.reports_to===boss) return true; cur=S.profiles[cur.reports_to]; n++; } return false; }
 const activeMembers=()=>Object.values(S.profiles).filter(p=>p.active&&p.role!=="pending").map(p=>p.id).sort((a,b)=>nameOf(a).localeCompare(nameOf(b),LANG));
-const subordinates=()=>(isManager()||isSup()||isAdmin())?activeMembers().filter(id=>isAbove(S.uid,id)):[];
+const subordinates=()=>(isManager()||isSup()||isGM()||isAdmin())?activeMembers().filter(id=>isAbove(S.uid,id)):[];
 function canAssignTo(id,hotel){ const p=S.profiles[id]; if(!p||!p.active||p.role==="pending"||p.role==="admin") return false; if(isAdmin()) return !hotel||p.hotel===hotel;
-  if(p.hotel!==myHotel()) return false; if(isSup()||id===S.uid) return true;
-  return isManager()&&(isAbove(S.uid,id)||["manager","supervisor"].includes(p.role)); }
-const canApprove=x=>isAdmin()||(x.hotel===myHotel()&&(isSup()||isAbove(S.uid,x.assignee)||(x.reporter===S.uid&&!!x.assignee&&x.assignee!==S.uid)||(!!x.assignee&&x.assignee!==S.uid&&(x.prevAssignees||[]).includes(S.uid))));
-const canEditFields=x=>!x||isAdmin()||(isSup()&&x.hotel===myHotel())||x.reporter===S.uid;
-const heads=hotel=>activeMembers().filter(id=>{ const p=S.profiles[id]; return p.role==="admin"||(["manager","supervisor"].includes(p.role)&&p.hotel===hotel); });
+  if(p.hotel!==myHotel()) return false; if(isGM()||isSup()||id===S.uid) return true;
+  return isManager()&&(isAbove(S.uid,id)||(!!p.dept&&p.dept===myDept())||["manager","supervisor","gm"].includes(p.role)); }
+const canApprove=x=>isAdmin()||(x.hotel===myHotel()&&(isGM()||isAbove(S.uid,x.assignee)||(!!x.assignee&&isDeptBoss(x.assignee))||(x.reporter===S.uid&&!!x.assignee&&x.assignee!==S.uid)||(!!x.assignee&&x.assignee!==S.uid&&(x.prevAssignees||[]).includes(S.uid))));
+const canEditFields=x=>!x||isAdmin()||(isGM()&&x.hotel===myHotel())||x.reporter===S.uid;
+const heads=hotel=>activeMembers().filter(id=>{ const p=S.profiles[id]; return p.role==="admin"||(["manager","supervisor","gm"].includes(p.role)&&p.hotel===hotel); });
 const colorOf=id=>{ let h=0; for(const c of String(id||"x")) h=(h*31+c.charCodeAt(0))%360; return `hsl(${h} 38% 42%)`; };
 const av=(id,lg)=>`<span class="av${lg?" lg":""}" style="background:${colorOf(id)}">${esc((nameOf(id).trim().charAt(0))||"?")}</span>`;
 const who=(id,lg)=>`<span class="who">${id?av(id,lg):`<span class="av${lg?" lg":""}" style="background:var(--line)"></span>`}<span class="n">${esc(nameOf(id))}</span></span>`;
@@ -461,7 +463,7 @@ const hotelOpts=(sel,blank)=>(blank!=null?opt("",blank,sel):"")+S.hotelRows.map(
 /* ================= data ================= */
 function normTask(r){ return {id:r.id,num:r.id,title:r.title,desc:r.descr,dept:r.dept,hotel:r.hotel,location:r.location,assignee:r.assignee,reporter:r.reporter,
   priority:r.priority,status:r.status,due:ms(r.due),shift:r.shift,estimate:r.estimate,needsApproval:r.needs_approval,rejections:r.rejections,
-  prevAssignees:r.prev_assignees||[],
+  prevAssignees:r.prev_assignees||[], noTransfer:!!r.no_transfer,
   transfer:r.transferred_at?{from:r.transferred_from,by:r.transferred_by,at:ms(r.transferred_at)}:null,
   lastReject:r.last_reject_at?{by:r.last_reject_by,at:ms(r.last_reject_at),note:r.last_reject_note}:null,
   approval:r.approval_at?{by:r.approval_by,at:ms(r.approval_at),note:r.approval_note}:null,
@@ -702,6 +704,7 @@ function subBadge(x){ const kids=childrenOf(x.id); const par=x.parentId?T(x.pare
   if(kids.length){ const d=kids.filter(k=>k.status==="done").length; out.push(`<span class="chip info">${esc(t("delegated",{d,n:kids.length}))}</span>`); }
   if(x.parentId) out.push(`<span class="chip">${esc(t("subOf",{k:par?keyOf(par):"#"+x.parentId}))}</span>`);
   if(x.transfer&&x.transfer.from) out.push(`<span class="chip info">↪ ${esc(t("trFrom",{n:nameOf(x.transfer.from),m:nameOf(x.assignee)}))}</span>`);
+  if(x.noTransfer) out.push(`<span class="chip warn">${esc(t("lockedChip"))}</span>`);
   return out.length?`<div class="row">${out.join("")}</div>`:""; }
 function cardHTML(x){ const p=PRI[x.priority]||PRI.normal; const late=isLate(x)&&x.status!=="done"; const dragOk=STATUSES.some(s=>allowed(x,s.k));
   return `<article class="card" data-id="${x.id}" data-pri="${esc(x.priority)}" draggable="${dragOk}" tabindex="0">
@@ -765,7 +768,7 @@ function bindApprovals(){ const m=$("#main");
 let statsSeq=0;
 function renderReports(){ const m=$("#main"); const seq=++statsSeq;
   const rb=(v,l)=>`<button class="btn sm ${S.range===v?"primary":""}" data-rg="${v}">${esc(t(l))}</button>`;
-  const scope=isAdmin()?(S.repHotel?hotelL(S.repHotel)+".":t("repAll")):isSup()?t("repHotel"):t("repDept");
+  const scope=isAdmin()?(S.repHotel?hotelL(S.repHotel)+".":t("repAll")):(isSup()||isGM())?t("repHotel"):t("repDept");
   const head=`<div class="row" style="margin-top:16px;justify-content:space-between"><h2 class="h2" style="margin:0">${esc(t("repTitle"))}</h2><div class="actions">${isAdmin()?`<select class="field" id="repHotel" style="width:auto">${hotelOpts(S.repHotel,t("allHotels"))}</select>`:""}${rb("1","today")}${rb("7","d7")}${rb("30","d30")}${rb("all","all")}</div></div>
   <p class="sub" style="margin-top:6px">${esc(scope)} ${esc(t("repNote"))}</p>`;
   if(S.builtView!=="reports"||!S.statsCache){ m.innerHTML=head+`<div class="loading">${esc(t("calc"))}</div>`; S.builtView="reports"; }
@@ -776,7 +779,7 @@ function renderReports(){ const m=$("#main"); const seq=++statsSeq;
     S.statsCache=data; m.innerHTML=head+statsHTML(data); bindReports(); }); }
 function statsHTML(rows){
   const by={}; (rows||[]).forEach(r=>by[r.user_id]=r);
-  let ids=activeMembers().filter(id=>{ const p=S.profiles[id]; if(p.role==="admin") return false; if(isAdmin()) return !S.repHotel||p.hotel===S.repHotel; if(isSup()) return p.hotel===myHotel(); return p.hotel===myHotel()&&(p.dept===myDept()||id===S.uid); });
+  let ids=activeMembers().filter(id=>{ const p=S.profiles[id]; if(p.role==="admin") return false; if(isAdmin()) return !S.repHotel||p.hotel===S.repHotel; if(isSup()||isGM()) return p.hotel===myHotel(); return p.hotel===myHotel()&&(p.dept===myDept()||id===S.uid); });
   Object.keys(by).forEach(id=>{ if(!ids.includes(id)) ids.push(id); });
   const z={open_count:0,review_count:0,done_count:0,late_count:0,rejections:0,with_due:0,on_time:0,avg_work_sec:null,avg_start_sec:null};
   const R=ids.map(id=>Object.assign({id},z,by[id]||{}));
@@ -809,16 +812,16 @@ function renderTeam(){ const m=$("#main");
     <div class="panel tablewrap" id="tMembers"></div>`;
     const hf=$("#tHotelF"); if(hf) hf.onchange=()=>{ S.teamHotel=hf.value; renderTeam(); };
   }
-  const roleOptsFor=(p)=>{ const keys=isAdmin()?ROLE_KEYS:["manager","staff"]; return keys.map(k=>opt(k,roleL(k),p.role)).join(""); };
-  const canEditRow=p=>isAdmin()||(isSup()&&p.hotel===myHotel()&&!["admin","supervisor"].includes(p.role));
+  const roleOptsFor=(p)=>{ const keys=assignableRoles(); return keys.map(k=>opt(k,roleL(k),p.role)).join(""); };
+  const canEditRow=p=>isAdmin()||(isGM()&&p.hotel===myHotel()&&!["admin","gm"].includes(p.role))||(isSup()&&p.hotel===myHotel()&&!["admin","gm","manager","supervisor"].includes(p.role))||(isManager()&&!!myDept()&&p.hotel===myHotel()&&["staff","pending"].includes(p.role)&&(p.dept===myDept()||p.requested_dept===myDept()));
   const bossSel=(p,attr,sel)=>{ const opts=heads(p.hotel).filter(id=>id!==p.id&&!isAbove(p.id,id)); return `<select class="field" ${attr}><option value="">${esc(sel===undefined?t("none"):t("mgrPick"))}</option>${opts.map(id=>opt(id,nameOf(id)+(S.profiles[id].dept?" — "+deptL(S.profiles[id].dept):""),sel||p.reports_to||"")).join("")}</select>`; };
   const P=Object.values(S.profiles).filter(p=>!isAdmin()||!S.teamHotel||p.hotel===S.teamHotel||p.role==="admin");
   const rqs=P.filter(p=>p.role==="pending"&&p.active);
   $("#tRq").innerHTML=rqs.length?`<div class="appr">${rqs.map(p=>`<div class="apcard"><div style="display:grid;gap:4px">${who(p.id,true)}<div class="meta">${esc(p.title)}${p.hotel?" · "+esc(hotelL(p.hotel)):""}${p.requested_dept?" · "+esc(t("requests"))+" "+esc(deptL(p.requested_dept)):""} · ${esc(fmt(ms(p.created_at)))}</div></div>
-     <div class="actions">${isAdmin()?`<select class="field" data-rqhotel="${p.id}" style="width:auto">${hotelOpts(p.hotel||"",t("chooseHotel"))}</select>`:""}<select class="field" data-rqrole="${p.id}" style="width:auto">${(isAdmin()?ROLE_KEYS:["manager","staff"]).map(k=>opt(k,roleL(k),"staff")).join("")}</select>
+     <div class="actions">${isAdmin()?`<select class="field" data-rqhotel="${p.id}" style="width:auto">${hotelOpts(p.hotel||"",t("chooseHotel"))}</select>`:""}<select class="field" data-rqrole="${p.id}" style="width:auto">${assignableRoles().map(k=>opt(k,roleL(k),"staff")).join("")}</select>
      <select class="field" data-rqdept="${p.id}" style="width:auto">${deptOpts(p.requested_dept||p.dept||"",t("chooseDept"))}</select>${bossSel(p,`data-rqboss="${p.id}" style="width:auto"`,"")}
      <button class="btn ok sm" data-rqok="${p.id}">${esc(t("approveReq"))}</button><button class="btn bad sm" data-rqno="${p.id}">${esc(t("rejectReq"))}</button></div></div>`).join("")}</div>`:`<div class="empty-col">${esc(t("reqNone"))}</div>`;
-  const ord={admin:0,supervisor:1,manager:2,staff:3,pending:4};
+  const ord={admin:0,gm:1,manager:2,supervisor:3,staff:4,pending:5};
   const mem=P.filter(p=>p.role!=="pending"||!p.active).sort((a,b)=>String(a.hotel||"").localeCompare(String(b.hotel||""))||(ord[a.role]-ord[b.role])||nameOf(a.id).localeCompare(nameOf(b.id),LANG));
   $("#tMembers").innerHTML=`<table><thead><tr><th>${esc(t("tName"))}</th>${isAdmin()?`<th>${esc(t("tHotel"))}</th>`:""}<th>${esc(t("tTitle"))}</th><th>${esc(t("tDept"))}</th><th>${esc(t("tBoss"))}</th><th>${esc(t("tUnder"))}</th><th>${esc(t("tRole"))}</th><th>${esc(t("tOpen"))}</th><th>${esc(t("tAccess"))}</th></tr></thead><tbody>
    ${mem.map(p=>{const self=p.id===S.uid; const ed=canEditRow(p)&&!self; const openN=S.tasks.filter(x=>x.assignee===p.id&&x.status!=="done").length; const dis=ed?"":" disabled";
@@ -852,13 +855,13 @@ function renderTeam(){ const m=$("#main");
 function assigneeOptions(hotel,cur,par,isNew){ let list=activeMembers().filter(id=>canAssignTo(id,hotel));
   if(par&&isNew&&par.assignee===S.uid&&subordinates().length) list=list.filter(id=>id!==S.uid);
   if(cur&&!list.includes(cur)) list.push(cur);
-  return opt("",t("unassigned"),cur||"")+list.map(id=>{const p=S.profiles[id]; return opt(id,nameOf(id)+(p&&p.dept?" — "+deptL(p.dept):"")+(p&&["manager","supervisor"].includes(p.role)?" ("+roleL(p.role)+")":"")+(isAdmin()&&!hotel&&p&&p.hotel?" · "+hotelL(p.hotel):""),cur||"");}).join(""); }
+  return opt("",t("unassigned"),cur||"")+list.map(id=>{const p=S.profiles[id]; return opt(id,nameOf(id)+(p&&p.dept?" — "+deptL(p.dept):"")+(p&&["manager","supervisor","gm"].includes(p.role)?" ("+roleL(p.role)+")":"")+(isAdmin()&&!hotel&&p&&p.hotel?" · "+hotelL(p.hotel):""),cur||"");}).join(""); }
 function openTask(id,parentId){ const x=id?T(id):null; if(id&&!x) return; closeSheet(); S.openId=x?x.id:null; S.newParent=x?null:(parentId||null); S.thread={comments:[],events:[]};
   const par=x?(x.parentId?T(x.parentId):null):(parentId?T(parentId):null);
   const ov=document.createElement("div"); ov.className="overlay"; ov.id="ov";
   const ed=canEditFields(x), dis=ed?"":" disabled";
   const hotel=x?x.hotel:(par?par.hotel:(isAdmin()?(S.f.hotel||""):myHotel()));
-  const cur=x?x.assignee||"":((isAdmin()||isSup()||(isManager()&&subordinates().length))?"":S.uid);
+  const cur=x?x.assignee||"":((isAdmin()||isGM()||isSup()||(isManager()&&subordinates().length))?"":S.uid);
   ov.innerHTML=`<div class="sheet" role="dialog" aria-modal="true" aria-label="${esc(t("taskDetails"))}">
    <div class="sheethead wrap"><span class="mono meta">${x?esc(keyOf(x)):"+"}</span><h3>${esc(t(x?"taskDetails":par?"delegateT":"newTaskT"))}</h3>${x&&canEditFields(x)?`<button class="btn ghost sm" id="delT" style="color:var(--bad)">${esc(t("del"))}</button>`:""}<button class="btn" id="closeT">${esc(t("close"))}</button></div>
    <div class="sheetbody wrap"><form class="form" id="tf">
@@ -874,7 +877,8 @@ function openTask(id,parentId){ const x=id?T(id):null; if(id&&!x) return; closeS
       <label class="lb">${esc(t("dueAt"))}<input class="field" type="datetime-local" id="fDue" value="${toLocal(x&&x.due)}"${dis}></label>
       <label class="lb">${esc(t("shift"))}<select class="field" id="fSh"${dis}>${SHIFTS.map(k=>opt(k,t("sh_"+k),x?x.shift:"")).join("")}</select></label>
       <label class="lb">${esc(t("estimate"))}<input class="field num" type="number" min="0" step="0.25" id="fEst" value="${x&&x.estimate!=null?x.estimate:""}"${dis}></label>
-      <label class="chk" style="align-self:end;padding-bottom:8px"><input type="checkbox" id="fNA"${(!x||x.needsApproval!==false)?" checked":""}${dis}> ${esc(t("needsAppr"))}</label></div>
+      <label class="chk" style="align-self:end;padding-bottom:8px"><input type="checkbox" id="fNA"${(!x||x.needsApproval!==false)?" checked":""}${dis}> ${esc(t("needsAppr"))}</label>
+      <label class="chk" style="align-self:end;padding-bottom:8px"><input type="checkbox" id="fNT"${x&&x.noTransfer?" checked":""}${dis}> ${esc(t("noTransfer"))}</label></div>
      ${ed?`<div class="actions"><button class="btn primary" type="submit" id="saveT">${esc(t(x?"saveChanges":"create"))}</button>${x?"":`<button class="btn" type="button" id="cancelT">${esc(t("cancel"))}</button>`}</div>`:`<p class="meta" style="margin:0">${esc(t("editOnly"))}</p>`}
      ${x?transferBox(x):""}
      ${x?subtasksBox(x):""}
@@ -894,13 +898,14 @@ function openTask(id,parentId){ const x=id?T(id):null; if(id&&!x) return; closeS
   const tb=$("#trBtn"); if(tb) tb.onclick=()=>doTransfer(x);
   ov.querySelectorAll("[data-sub]").forEach(b=>b.onclick=()=>openTask(b.dataset.sub));
   renderSheetSide(); if(x) loadThread(x.id); else setTimeout(()=>{ const f=$("#fTitle"); if(f) f.focus(); },30); }
-function canTransfer(x){ return !!x&&x.status!=="done"&&myRole()!=="staff"&&(isAdmin()||(isSup()&&x.hotel===myHotel())||x.assignee===S.uid||x.reporter===S.uid||(x.assignee&&isAbove(S.uid,x.assignee))); }
+function canTransfer(x){ if(x&&x.noTransfer&&!(isAdmin()||(isGM()&&x.hotel===myHotel())||x.reporter===S.uid)) return false; return !!x&&x.status!=="done"&&myRole()!=="staff"&&(isAdmin()||(isGM()&&x.hotel===myHotel())||x.assignee===S.uid||x.reporter===S.uid||(x.assignee&&isAbove(S.uid,x.assignee))||(x.assignee&&isDeptBoss(x.assignee))); }
 function transferTargets(x){ return activeMembers().filter(id=>id!==x.assignee&&S.profiles[id].role!=="admin"&&S.profiles[id].hotel===x.hotel&&canAssignTo(id,x.hotel)); }
 function transferBox(x){ const info=x.transfer&&x.transfer.from?`<div class="note info">↪ ${esc(t("trInfo",{f:nameOf(x.transfer.from),t:nameOf(x.assignee),b:nameOf(x.transfer.by)}))} · <span class="num">${esc(fmt(x.transfer.at))}</span></div>`:"";
+  const lockN=x.noTransfer?`<div class="note">${esc(t("lockedNote"))}</div>`:"";
   const list=canTransfer(x)?transferTargets(x):[];
-  if(!list.length) return info;
-  return `${info}<div class="box"><h4>${esc(t("trTitle"))}</h4><div class="meta">${esc(t("trHint"))}</div>
-   <div class="row"><select class="field" id="trTo" style="flex:1 1 200px;width:auto"><option value="">${esc(t("trTo"))}</option>${list.map(id=>{const p=S.profiles[id]; return opt(id,nameOf(id)+(p.dept?" — "+deptL(p.dept):"")+(["manager","supervisor"].includes(p.role)?" ("+roleL(p.role)+")":""),"");}).join("")}</select>
+  if(!list.length) return info+lockN;
+  return `${info}${lockN}<div class="box"><h4>${esc(t("trTitle"))}</h4><div class="meta">${esc(t("trHint"))}</div>
+   <div class="row"><select class="field" id="trTo" style="flex:1 1 200px;width:auto"><option value="">${esc(t("trTo"))}</option>${list.map(id=>{const p=S.profiles[id]; return opt(id,nameOf(id)+(p.dept?" — "+deptL(p.dept):"")+(["manager","supervisor","gm"].includes(p.role)?" ("+roleL(p.role)+")":""),"");}).join("")}</select>
    <input class="field" id="trNote" placeholder="${esc(t("trNote"))}" maxlength="300" style="flex:2 1 200px;width:auto"><button type="button" class="btn primary" id="trBtn">${esc(t("trBtn"))}</button></div></div>`; }
 async function doTransfer(x){ const to=$("#trTo").value; if(!to){ $("#trTo").focus(); return; } const b=$("#trBtn"); b.disabled=true;
   try{ await call(S.sb.rpc("transfer_task",{p_id:x.id,p_to:to,p_note:$("#trNote").value.trim()||null}),t("trDone",{n:nameOf(to)})); await loadTasks(); render(); if(T(x.id)) openTask(x.id); else closeSheet(); }catch(e){ b.disabled=false; } }
@@ -913,7 +918,7 @@ function closeSheet(){ const o=$("#ov"); if(o) o.remove(); document.body.style.o
 async function saveTask(e){ e.preventDefault(); const x=S.openId?T(S.openId):null; const title=$("#fTitle").value.trim(); if(!title){$("#fTitle").focus();return;}
   const dueV=$("#fDue").value, est=$("#fEst").value;
   const p={title,descr:$("#fDesc").value.trim(),dept:$("#fD").value,location:$("#fLoc").value.trim(),assignee:$("#fA").value||"",priority:$("#fP").value,
-    due:dueV?new Date(dueV).toISOString():"",shift:$("#fSh").value,estimate:est===""?"":String(Number(est)),needs_approval:$("#fNA").checked};
+    due:dueV?new Date(dueV).toISOString():"",shift:$("#fSh").value,estimate:est===""?"":String(Number(est)),needs_approval:$("#fNA").checked,no_transfer:$("#fNT").checked};
   if(!x&&S.newParent) p.parent_id=String(S.newParent);
   const fh=$("#fH"); if(!x&&fh){ const hv=fh.value||(p.assignee&&S.profiles[p.assignee]?S.profiles[p.assignee].hotel:""); if(!hv){ toast(t("e_hotel_required"),true); return; } p.hotel=hv; }
   const btn=$("#saveT"); if(btn) btn.disabled=true;
