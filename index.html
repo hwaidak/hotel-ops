@@ -288,7 +288,7 @@ en:{
  lgDone:"Done",lgOpen:"Open",lgLate:"Overdue",reportsTo:"reports to",
  reqTitle:"Join requests",reqHint:"Anyone who signs up stays locked out and sees nothing until approved here. Set their hotel, role, department and direct manager, then approve. If you don't know them, reject.",
  reqNone:"No new requests",requests:"wants",approveReq:"Approve",rejectReq:"Reject",mgrPick:"Direct manager…",
- teamTitle:"Team members",teamHint:"<b>System admin</b> sees all hotels. <b>Hotel manager</b> has full control of their hotel: sees every task, approves, transfers, and manages everyone except other hotel managers. <b>Supervisor</b> approves and manages the staff of their hotel. <b>Department manager</b> has full control of their department: sees all its tasks, approves, transfers and accepts new staff for it — above the supervisor. <b>Staff</b> works on their own tasks. Each hotel sees only itself. Task details are visible only to whoever created it, whoever has it, their bosses and the hotel manager.",
+ teamTitle:"Team members",teamHint:"<b>System admin</b> sees all hotels. <b>Hotel manager</b> has full control of their hotel: sees every task, approves, transfers, and manages everyone except other hotel managers. <b>Supervisor</b> works inside their hotel — and only their department if they have one: sees and approves its tasks and accepts its new staff. <b>Department manager</b> has full control inside their hotel — and only their department if they have one: sees all its tasks, approves, transfers, manages its staff and supervisors — above the supervisor. <b>Staff</b> works on their own tasks. Each hotel sees only itself. Task details are visible only to whoever created it, whoever has it, their bosses and the hotel manager.",
  tName:"Employee",tHotel:"Hotel",tTitle:"Job title",tDept:"Department",tBoss:"Direct manager",tUnder:"Team",tRole:"Role",tOpen:"Open",tAccess:"Access",
  none:"— None —",you:"You",disable:"Disable access",enable:"Re-enable",rejectedReq:"Rejected request",
  settings:"Settings",depts:"Departments",deptEn:"Name (English)",deptAr:"Name (Arabic)",addDept:"Add department",prefix:"Task number prefix",save:"Save",
@@ -352,7 +352,7 @@ ar:{
  lgDone:"منجزة",lgOpen:"مفتوحة",lgLate:"متأخرة",reportsTo:"تبع",
  reqTitle:"طلبات الانضمام",reqHint:"أي حد يعمل حساب بيفضل مقفول عليه ومايشوفش أي حاجة لحد ما توافق عليه هنا. حدد فندقه ودوره وقسمه ومديره المباشر، وبعدين وافق. لو مش عارفه، دوس رفض.",
  reqNone:"لا توجد طلبات جديدة",requests:"يطلب",approveReq:"موافقة",rejectReq:"رفض",mgrPick:"المدير المباشر…",
- teamTitle:"أعضاء الفريق",teamHint:"<b>مدير النظام</b> يشوف كل الفنادق. <b>مدير الفندق</b> ليه كل الصلاحيات في فندقه: يشوف كل المهام ويعتمد ويحوّل ويدير كل الناس ما عدا مديري الفنادق. <b>المشرف</b> يوافق على الموظفين في فندقه ويديرهم. <b>مدير الإدارة</b> ليه كل الصلاحيات جوه إدارته: يشوف كل مهامها ويعتمد ويحوّل ويوافق على موظفيها الجداد — وأعلى من المشرف. <b>الموظف</b> ينفّذ مهامه. كل فندق يشوف نفسه بس. تفاصيل أي مهمة بتظهر بس للي عملها وللمسؤول عنها ولمديرينه ولمدير الفندق.",
+ teamTitle:"أعضاء الفريق",teamHint:"<b>مدير النظام</b> يشوف كل الفنادق. <b>مدير الفندق</b> ليه كل الصلاحيات في فندقه: يشوف كل المهام ويعتمد ويحوّل ويدير كل الناس ما عدا مديري الفنادق. <b>المشرف</b> شغله جوه فندقه — وإدارته بس لو محددله إدارة: يشوف مهامها ويعتمدها ويوافق على موظفيها الجداد. <b>مدير الإدارة</b> ليه كل الصلاحيات جوه فندقه — وإدارته بس لو محددله إدارة: يشوف كل مهامها ويعتمد ويحوّل ويدير موظفيها ومشرفيها — وأعلى من المشرف. <b>الموظف</b> ينفّذ مهامه. كل فندق يشوف نفسه بس. تفاصيل أي مهمة بتظهر بس للي عملها وللمسؤول عنها ولمديرينه ولمدير الفندق.",
  tName:"الموظف",tHotel:"الفندق",tTitle:"المسمى الوظيفي",tDept:"القسم",tBoss:"المدير المباشر",tUnder:"الفريق",tRole:"الدور",tOpen:"مفتوحة",tAccess:"الوصول",
  none:"— بدون —",you:"أنت",disable:"إيقاف الوصول",enable:"إعادة التفعيل",rejectedReq:"طلب مرفوض",
  settings:"الإعدادات",depts:"الأقسام",deptEn:"الاسم بالإنجليزي",deptAr:"الاسم بالعربي",addDept:"إضافة قسم",prefix:"بادئة رقم المهمة",save:"حفظ",
@@ -438,9 +438,10 @@ async function call(p,okMsg){ try{ const r=await p; if(r&&r.error) throw r.error
 const myRole=()=>S.me&&S.me.active&&S.me.role!=="pending"?S.me.role:null;
 const isAdmin=()=>myRole()==="admin"; const isGM=()=>myRole()==="gm"; const isSup=()=>myRole()==="supervisor"; const isManager=()=>myRole()==="manager";
 const isMember=()=>!!myRole(); const myDept=()=>(S.me&&S.me.dept)||""; const myHotel=()=>(S.me&&S.me.hotel)||"";
-const canManageMembers=()=>isAdmin()||isGM()||isSup()||(isManager()&&!!myDept());
-const assignableRoles=()=>isAdmin()?ROLE_KEYS:isGM()?["manager","supervisor","staff"]:["staff"];
-const isDeptBoss=id=>{ const p=S.profiles[id]; return isManager()&&!!myDept()&&!!p&&p.dept===myDept()&&p.hotel===myHotel(); };
+const canManageMembers=()=>isAdmin()||isGM()||isSup()||isManager();
+const assignableRoles=()=>isAdmin()?ROLE_KEYS:isGM()?["manager","supervisor","staff"]:isManager()?["supervisor","staff"]:["staff"];
+const inScope=id=>{ const p=S.profiles[id]; return !!p&&p.hotel===myHotel()&&(!myDept()||p.dept===myDept()); };
+const isDeptBoss=id=>(isManager()||isSup())&&inScope(id);
 const nameOf=id=>!id?t("unassigned"):(S.profiles[id]&&S.profiles[id].full_name)||t("someone");
 const deptL=c=>{ const r=S.deptRows.find(d=>d.name===c); return r?(LANG==="ar"?r.label_ar:r.label_en)||c:(c||""); };
 const hotelL=c=>{ const r=S.hotelRows.find(h=>h.code===c); return r?(LANG==="ar"?r.name_ar:r.name_en):(c||""); };
@@ -448,8 +449,8 @@ function isAbove(boss,emp){ if(!boss||!emp) return false; let cur=S.profiles[emp
 const activeMembers=()=>Object.values(S.profiles).filter(p=>p.active&&p.role!=="pending").map(p=>p.id).sort((a,b)=>nameOf(a).localeCompare(nameOf(b),LANG));
 const subordinates=()=>(isManager()||isSup()||isGM()||isAdmin())?activeMembers().filter(id=>isAbove(S.uid,id)):[];
 function canAssignTo(id,hotel){ const p=S.profiles[id]; if(!p||!p.active||p.role==="pending"||p.role==="admin") return false; if(isAdmin()) return !hotel||p.hotel===hotel;
-  if(p.hotel!==myHotel()) return false; if(isGM()||isSup()||id===S.uid) return true;
-  return isManager()&&(isAbove(S.uid,id)||(!!p.dept&&p.dept===myDept())||["manager","supervisor","gm"].includes(p.role)); }
+  if(p.hotel!==myHotel()) return false; if(isGM()||id===S.uid) return true;
+  return (isManager()||isSup())&&(isAbove(S.uid,id)||inScope(id)||["manager","supervisor","gm"].includes(p.role)); }
 const canApprove=x=>isAdmin()||(x.hotel===myHotel()&&(isGM()||isAbove(S.uid,x.assignee)||(!!x.assignee&&isDeptBoss(x.assignee))||(x.reporter===S.uid&&!!x.assignee&&x.assignee!==S.uid)||(!!x.assignee&&x.assignee!==S.uid&&(x.prevAssignees||[]).includes(S.uid))));
 const canEditFields=x=>!x||isAdmin()||(isGM()&&x.hotel===myHotel())||x.reporter===S.uid;
 const heads=hotel=>activeMembers().filter(id=>{ const p=S.profiles[id]; return p.role==="admin"||(["manager","supervisor","gm"].includes(p.role)&&p.hotel===hotel); });
@@ -813,7 +814,7 @@ function renderTeam(){ const m=$("#main");
     const hf=$("#tHotelF"); if(hf) hf.onchange=()=>{ S.teamHotel=hf.value; renderTeam(); };
   }
   const roleOptsFor=(p)=>{ const keys=assignableRoles(); return keys.map(k=>opt(k,roleL(k),p.role)).join(""); };
-  const canEditRow=p=>isAdmin()||(isGM()&&p.hotel===myHotel()&&!["admin","gm"].includes(p.role))||(isSup()&&p.hotel===myHotel()&&!["admin","gm","manager","supervisor"].includes(p.role))||(isManager()&&!!myDept()&&p.hotel===myHotel()&&["staff","pending"].includes(p.role)&&(p.dept===myDept()||p.requested_dept===myDept()));
+  const canEditRow=p=>isAdmin()||(isGM()&&p.hotel===myHotel()&&!["admin","gm"].includes(p.role))||((isManager()||isSup())&&p.hotel===myHotel()&&(isManager()?["staff","pending","supervisor"]:["staff","pending"]).includes(p.role)&&(!myDept()||p.dept===myDept()||(p.role==="pending"&&p.requested_dept===myDept())));
   const bossSel=(p,attr,sel)=>{ const opts=heads(p.hotel).filter(id=>id!==p.id&&!isAbove(p.id,id)); return `<select class="field" ${attr}><option value="">${esc(sel===undefined?t("none"):t("mgrPick"))}</option>${opts.map(id=>opt(id,nameOf(id)+(S.profiles[id].dept?" — "+deptL(S.profiles[id].dept):""),sel||p.reports_to||"")).join("")}</select>`; };
   const P=Object.values(S.profiles).filter(p=>!isAdmin()||!S.teamHotel||p.hotel===S.teamHotel||p.role==="admin");
   const rqs=P.filter(p=>p.role==="pending"&&p.active);
