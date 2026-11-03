@@ -227,6 +227,40 @@ tr.grp i{font-style:normal;font-weight:500;color:var(--muted);font-size:12px;mar
  .lstable tr.grp{display:block} .lstable tr.grp td{display:block}
  .mbar{width:100%;justify-content:space-between} .ststrip{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px} .stb{flex:none}
 }
+/* approvals page */
+.aphero{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0 10px}
+.aptile{--c:var(--muted);--s:var(--surface-2);position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center;text-align:start;padding:16px 18px;border-radius:18px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;font:inherit;color:var(--fg);transition:transform .15s,border-color .15s}
+.aptile.brass{--c:var(--brass);--s:var(--brass-soft)} .aptile.bad{--c:var(--bad);--s:var(--bad-soft)} .aptile.ok{--c:var(--ok);--s:var(--ok-soft)} .aptile.info{--c:var(--info);--s:var(--info-soft)}
+.aptile i{grid-row:1/3;width:48px;height:48px;border-radius:14px;background:var(--s);color:var(--c);display:grid;place-items:center;font-style:normal;font-size:22px;font-weight:800}
+.aptile b{font-size:30px;line-height:1;font-variant-numeric:tabular-nums;color:var(--c)} .aptile span{font-size:13px;color:var(--muted);font-weight:600}
+.aptile:hover{border-color:var(--c);transform:translateY(-1px)}
+.aptile.on{background:var(--s);border-color:var(--c)} .aptile.on i{background:var(--c);color:var(--surface)} .aptile.on span{color:var(--fg)}
+.aptile.on::after{content:"";position:absolute;inset-inline:18px;bottom:0;height:4px;border-radius:4px 4px 0 0;background:var(--c)}
+.aphint{color:var(--muted);font-size:13px;margin:4px 2px 14px}
+.apgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.apc{--pc:var(--line);background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;border-top:4px solid var(--pc);min-width:0}
+.apc.pr-bad{--pc:var(--bad)} .apc.pr-warn{--pc:var(--warn)} .apc.pr-info{--pc:var(--info)}
+.apc header{display:flex;align-items:center;gap:8px} .apkey{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-inline-end:auto}
+.apc h3{margin:0;font-size:16.5px;line-height:1.4;cursor:pointer} .apc h3:hover{color:var(--accent)}
+.aptags{display:flex;flex-wrap:wrap;gap:6px} .aptags span{font-size:11.5px;background:var(--surface-2);color:var(--muted);padding:3px 9px;border-radius:999px}
+.apwho{font-size:13.5px;font-weight:600}
+.apstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));background:var(--bg);border-radius:12px;overflow:hidden}
+.apst{padding:9px 12px;display:grid;gap:2px} .apst+.apst{border-inline-start:1px solid var(--line)}
+.apst span{font-size:11px;color:var(--muted)} .apst b{font-size:13.5px;font-variant-numeric:tabular-nums} .apst.bad b{color:var(--bad)}
+.apact{display:flex;gap:8px;margin-top:auto}
+.apbtn{flex:1;border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;color:var(--fg)}
+.apbtn:hover{border-color:var(--accent);color:var(--accent)}
+.apbtn.ok{background:var(--ok);border-color:var(--ok);color:#fff} .apbtn.ok:hover{filter:brightness(1.08);color:#fff}
+.apbtn.bad{background:var(--bad-soft);border-color:transparent;color:var(--bad)} .apbtn.bad:hover{border-color:var(--bad);color:var(--bad)}
+.apnote{background:var(--bad-soft);color:var(--bad);border-radius:12px;padding:10px 12px;font-size:13px;font-weight:500}
+.apby{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:13px;background:var(--ok-soft);border-radius:12px;padding:9px 12px;margin-top:auto}
+.apby .apok{width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800}
+.apby em{flex-basis:100%;color:var(--muted);font-size:12.5px}
+.apc.done{border-top-color:var(--ok)} .apc.rej{border-top-color:var(--bad)}
+.apempty{background:var(--surface);border:1.5px dashed var(--line);border-radius:18px;padding:46px 20px;display:grid;justify-items:center;gap:8px;text-align:center}
+.apemc{width:64px;height:64px;border-radius:50%;background:var(--ok-soft);color:var(--ok);display:grid;place-items:center;font-size:30px;font-weight:800}
+.apempty b{font-size:16px} .apempty span{color:var(--muted);font-size:13px}
+@media (max-width:600px){ .aphero{grid-template-columns:1fr 1fr;gap:8px} .aptile{padding:12px;column-gap:10px} .aptile i{width:38px;height:38px;font-size:18px} .aptile b{font-size:24px} .aptile span{font-size:11.5px} .apgrid{grid-template-columns:minmax(0,1fr)} }
 @media (max-width:640px){ .dpcols{grid-template-columns:minmax(0,1fr)} .calc{border-radius:8px;padding:4px} .calc .tk{display:none} .calc .lf{bottom:3px;inset-inline-end:3px;height:15px;min-width:15px;font-size:9.5px;padding:0 3px} .dpnum{font-size:40px} .dpbar>div{padding:10px} .dpbar b{font-size:18px} }
 .daybanner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;border-radius:10px;padding:9px 14px;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:13.5px}
 .meter{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;min-width:60px;display:flex}
@@ -350,6 +384,7 @@ en:{
  lsTasks:"Tasks",lsPeople:"Staff by month",lsAllM:"All months",lsAll:"All",lsLate:"Overdue",lsCount:"{n} tasks",lsPeopleHint:"How many tasks each person got in each month (by the day the task was created). Click a number to see those tasks.",lsPerson:"Person",lsTotal:"Total",lsDoneN:"{n} done",lsLateN:"{n} overdue",lsNoPeople:"No tasks in these months",lsDoneRate:"Done rate",
  colKey:"No.",colTask:"Task",colDept:"Department",colHotel:"Hotel",colAssignee:"Assignee",colPri:"Priority",colStatus:"Status",colDue:"Due",colCreated:"Created",colWork:"Work time",noMatch:"No tasks match the filters",
  apprTitle:"Waiting for your approval",apprHint:"Tasks of your team, or tasks you assigned. Approve to close them, or reject with a clear reason so they go back.",apprNone:"Nothing waiting for your approval",
+ apNow:"just now",apAgo:"{d} ago",apHintRej:"Tasks sent back with a reason. The person fixes them and submits again.",apHintMine:"Tasks you finished and submitted. They wait for your manager to approve.",apHintDone:"The latest approved and closed tasks.",apAllGood:"You are all caught up.",
  mySubmitted:"My submitted tasks awaiting approval",rejTitle:"Rejected, needs rework",rejNone:"No rejected tasks",recentTitle:"Recently approved",recentNone:"Nothing approved yet",
  approve:"Approve",reject:"Reject",withdraw:"Withdraw to edit",redo:"Rework",workTime:"work time",submitted:"submitted",due:"due",pastDue:"Past due",rejReason:"Reason for rejection",approvedBy:"Approved by {n}",
  repTitle:"Team performance",repAll:"All hotels.",repHotel:"Your hotel.",repDept:"Your department only.",repNote:"Numbers here are counts and times only. Task details are visible only to the employee, their managers and the supervisor.",
@@ -415,6 +450,7 @@ ar:{
  lsTasks:"المهام",lsPeople:"الموظفين بالشهر",lsAllM:"كل الشهور",lsAll:"الكل",lsLate:"متأخرة",lsCount:"{n} مهمة",lsPeopleHint:"عدد المهام اللي اتعملت لكل موظف في كل شهر (حسب يوم إنشاء المهمة). دوس على أي رقم عشان تشوف المهام دي.",lsPerson:"الموظف",lsTotal:"الإجمالي",lsDoneN:"{n} خلصت",lsLateN:"{n} متأخرة",lsNoPeople:"مافيش مهام في الشهور دي",lsDoneRate:"نسبة الإنجاز",
  colKey:"الرقم",colTask:"المهمة",colDept:"القسم",colHotel:"الفندق",colAssignee:"المسؤول",colPri:"الأولوية",colStatus:"الحالة",colDue:"الموعد",colCreated:"أُنشئت",colWork:"زمن العمل",noMatch:"لا توجد مهام تطابق الفلاتر",
  apprTitle:"بانتظار موافقتك",apprHint:"مهام فريقك، أو المهام اللي انت كلّفت بيها. اعتمدها عشان تتقفل، أو ارفضها بسبب واضح عشان ترجع للموظف.",apprNone:"لا توجد مهام بانتظار موافقتك",
+ apNow:"دلوقتي",apAgo:"من {d}",apHintRej:"مهام رجعت بسبب واضح. الموظف بيصلّحها ويسلّمها تاني.",apHintMine:"مهام انت خلصتها وسلّمتها، مستنية مديرك يعتمدها.",apHintDone:"آخر المهام اللي اتعمدت واتقفلت.",apAllGood:"كله تمام، مافيش حاجة مستنياك.",
  mySubmitted:"مهامي المسلّمة ومستنية الموافقة",rejTitle:"مرفوضة وتحتاج إعادة عمل",rejNone:"لا توجد مهام مرفوضة",recentTitle:"آخر ما تم اعتماده",recentNone:"لم تُعتمد مهام بعد",
  approve:"اعتماد",reject:"رفض",withdraw:"سحب للتعديل",redo:"إعادة العمل",workTime:"زمن العمل",submitted:"سُلّمت",due:"الموعد",pastDue:"تجاوزت الموعد",rejReason:"سبب الرفض",approvedBy:"اعتمدها {n}",
  repTitle:"أداء الفريق",repAll:"كل الفنادق.",repHotel:"فندقك.",repDept:"قسمك بس.",repNote:"الأرقام هنا عدد المهام والوقت بس. تفاصيل المهام بتظهر للموظف ومديريه والمشرف فقط.",
@@ -890,23 +926,43 @@ function bindList(){ const m=$("#main"); m.querySelectorAll("tr.click").forEach(
   m.querySelectorAll(".hcb").forEach(b=>b.onclick=()=>{ S.f.as=b.dataset.pid; S.lsMonth=b.dataset.pm; S.lsSt="all"; S.lsMode="tasks"; S.sort={k:"createdAt",d:-1}; fillFilters(); renderMain(); }); }
 
 /* ================= approvals ================= */
+const agoTxt=ts=>{ if(!ts) return ""; const m=Math.max(0,Math.round((Date.now()-ts)/60000)); return m<1?t("apNow"):t("apAgo",{d:dur(m*60000)}); };
 function approvalsHTML(){
   const rev=S.tasks.filter(x=>x.status==="review"&&canApprove(x)).sort((a,b)=>(a.submittedAt||0)-(b.submittedAt||0));
   const myRev=S.tasks.filter(x=>x.status==="review"&&x.assignee===S.uid&&!canApprove(x));
   const rej=S.tasks.filter(x=>x.status==="rejected"&&(x.assignee===S.uid||canApprove(x)));
-  const recent=S.tasks.filter(x=>x.status==="done"&&x.approval&&(x.assignee===S.uid||canApprove(x))).sort((a,b)=>(b.completedAt||0)-(a.completedAt||0)).slice(0,8);
-  const item=(x,btns)=>{const p=PRI[x.priority]||PRI.normal; return `<div class="apcard"><div style="display:grid;gap:6px;min-width:0"><div class="row"><span class="mono meta">${esc(keyOf(x))}</span><span class="chip ${p.c}">${esc(priL(x.priority))}</span><span class="meta">${esc(deptL(x.dept))}${x.location?" · "+esc(x.location):""}${isAdmin()?" · "+esc(hotelL(x.hotel)):""}</span></div>
-    <div class="t" data-open="${x.id}">${esc(x.title)}</div>
-    <div class="row meta">${who(x.assignee)}<span>· ${esc(t("workTime"))} <b class="num" style="color:var(--fg)">${dur(workTime(x))}</b></span>${x.status==="review"?`<span>· ${esc(t("submitted"))} ${esc(fmt(x.submittedAt))}</span>`:""}${x.due?`<span>· ${esc(t("due"))} ${esc(fmt(x.due))}</span>`:""}${isLate(x)?`<span class="chip bad">${esc(t("pastDue"))}</span>`:""}</div>
-    ${x.status==="rejected"&&x.lastReject?`<div class="note bad">${esc(t("rejReason"))}: ${esc(x.lastReject.note)}</div>`:""}
-    ${x.status==="done"&&x.approval?`<div class="meta">${esc(t("approvedBy",{n:nameOf(x.approval.by)}))} · ${esc(fmt(x.approval.at))}${x.approval.note?" · "+esc(x.approval.note):""}</div>`:""}</div><div class="actions">${btns}</div></div>`;};
-  return `<h2 class="h2">${esc(t("apprTitle"))} <span class="meta num">(${rev.length})</span></h2><p class="sub">${esc(t("apprHint"))}</p>
-  <div class="appr">${rev.map(x=>item(x,`<button class="btn ok sm" data-ap="${x.id}">${esc(t("approve"))}</button><button class="btn bad sm" data-rj="${x.id}">${esc(t("reject"))}</button>`)).join("")||`<div class="empty-col">${esc(t("apprNone"))}</div>`}</div>
-  ${myRev.length?`<h2 class="h2">${esc(t("mySubmitted"))} <span class="meta num">(${myRev.length})</span></h2><div class="appr">${myRev.map(x=>item(x,`<button class="btn sm" data-wd="${x.id}">${esc(t("withdraw"))}</button>`)).join("")}</div>`:""}
-  <h2 class="h2">${esc(t("rejTitle"))} <span class="meta num">(${rej.length})</span></h2>
-  <div class="appr">${rej.map(x=>item(x,allowed(x,"progress")?`<button class="btn sm" data-wd="${x.id}">${esc(t("redo"))}</button>`:"")).join("")||`<div class="empty-col">${esc(t("rejNone"))}</div>`}</div>
-  <h2 class="h2">${esc(t("recentTitle"))}</h2><div class="appr">${recent.map(x=>item(x,"")).join("")||`<div class="empty-col">${esc(t("recentNone"))}</div>`}</div>`; }
+  const doneAll=S.tasks.filter(x=>x.status==="done"&&x.approval&&(x.assignee===S.uid||canApprove(x))).sort((a,b)=>(b.completedAt||0)-(a.completedAt||0));
+  const recent=doneAll.slice(0,S.apMore?60:12);
+  const tabs=[{k:"rev",n:rev.length,l:"apprTitle",c:"brass",ic:"⏳"},{k:"mine",n:myRev.length,l:"mySubmitted",c:"info",ic:"📤",hide:!myRev.length},{k:"rej",n:rej.length,l:"rejTitle",c:"bad",ic:"↩"},{k:"done",n:doneAll.length,l:"recentTitle",c:"ok",ic:"✓"}].filter(x=>!x.hide);
+  if(!S.apTab||!tabs.find(x=>x.k===S.apTab)) S.apTab=rev.length?"rev":rej.length?"rej":"done";
+  const tab=S.apTab;
+  const card=(x,mode)=>{ const p=PRI[x.priority]||PRI.normal; const late=isLate(x)&&x.status!=="done";
+    const tags=[isAdmin()?hotelL(x.hotel):"",deptL(x.dept),x.location||""].filter(Boolean);
+    const stat=(l,v,cls)=>`<div class="apst${cls?" "+cls:""}"><span>${esc(t(l))}</span><b>${v}</b></div>`;
+    let stats=stat("workTime",esc(dur(workTime(x))));
+    if((mode==="rev"||mode==="mine")&&x.submittedAt) stats+=stat("submitted",esc(agoTxt(x.submittedAt)));
+    stats+=x.due?stat("due",esc(fmt(x.due)),late?"bad":""):"";
+    let foot="";
+    if(mode==="rev") foot=`<div class="apact"><button class="apbtn ok" data-ap="${x.id}">✓ ${esc(t("approve"))}</button><button class="apbtn bad" data-rj="${x.id}">✕ ${esc(t("reject"))}</button></div>`;
+    else if(mode==="mine") foot=`<div class="apact"><button class="apbtn" data-wd="${x.id}">${esc(t("withdraw"))}</button></div>`;
+    else if(mode==="rej") foot=(x.lastReject?`<div class="apnote">${esc(t("rejReason"))}: ${esc(x.lastReject.note)}</div>`:"")+(allowed(x,"progress")?`<div class="apact"><button class="apbtn" data-wd="${x.id}">↻ ${esc(t("redo"))}</button></div>`:"");
+    else if(mode==="done") foot=`<div class="apby"><span class="apok">✓</span><span>${esc(t("approvedBy",{n:nameOf(x.approval.by)}))}</span><span class="meta">${esc(fmt(x.approval.at))}</span>${x.approval.note?`<em>${esc(x.approval.note)}</em>`:""}</div>`;
+    return `<article class="apc ${mode} pr-${p.c||"low"}">
+      <header><span class="apkey">${esc(keyOf(x))}</span><span class="pri ${p.c}">${esc(priL(x.priority))}</span>${late?`<span class="pri bad">${esc(t("pastDue"))}</span>`:""}</header>
+      <h3 data-open="${x.id}">${esc(x.title)}</h3>
+      <div class="aptags">${tags.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
+      <div class="apwho">${who(x.assignee,true)}</div>
+      <div class="apstats">${stats}</div>${foot}</article>`; };
+  const list=tab==="rev"?rev:tab==="mine"?myRev:tab==="rej"?rej:recent;
+  const emptyK=tab==="rev"?"apprNone":tab==="rej"?"rejNone":"recentNone";
+  const hint=tab==="rev"?t("apprHint"):tab==="rej"?t("apHintRej"):tab==="mine"?t("apHintMine"):t("apHintDone");
+  return `<div class="aphero">${tabs.map(x=>`<button class="aptile ${x.c}${tab===x.k?" on":""}" data-apt="${x.k}"><i>${x.ic}</i><b>${x.n}</b><span>${esc(t(x.l))}</span></button>`).join("")}</div>
+  <p class="aphint">${esc(hint)}</p>
+  ${list.length?`<div class="apgrid">${list.map(x=>card(x,tab)).join("")}</div>`:`<div class="apempty"><div class="apemc">✓</div><b>${esc(t(emptyK))}</b>${tab==="done"?"":`<span>${esc(t("apAllGood"))}</span>`}</div>`}
+  ${tab==="done"&&doneAll.length>12?`<div style="text-align:center;margin-top:14px"><button class="btn" id="apMore">${esc(S.apMore?t("doneLess"):t("doneMore",{n:Math.min(48,doneAll.length-12),m:doneAll.length-12}))}</button></div>`:""}`; }
 function bindApprovals(){ const m=$("#main");
+  m.querySelectorAll("[data-apt]").forEach(b=>b.onclick=()=>{ S.apTab=b.dataset.apt; renderMain(); });
+  const mo=$("#apMore"); if(mo) mo.onclick=()=>{ S.apMore=!S.apMore; renderMain(); };
   m.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openTask(b.dataset.open));
   m.querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>requestTransition(T(b.dataset.ap),"done"));
   m.querySelectorAll("[data-rj]").forEach(b=>b.onclick=()=>requestTransition(T(b.dataset.rj),"rejected"));
