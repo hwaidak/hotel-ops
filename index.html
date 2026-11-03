@@ -353,6 +353,26 @@ tr.grp i{font-style:normal;font-weight:500;color:var(--muted);font-size:12px;mar
 .dchips .ok{background:var(--ok-soft);color:var(--ok)} .dchips .info{background:var(--info-soft);color:var(--info)} .dchips .bad{background:var(--bad-soft);color:var(--bad)}
 @media (max-width:1100px){ .rpcols{grid-template-columns:minmax(0,1fr)} }
 @media (max-width:760px){ .rphero{grid-template-columns:minmax(0,1fr)} .rpring{width:auto;padding:12px} .rpring::before{width:120px;height:120px} .rpring b{font-size:26px} .rpks{grid-template-columns:repeat(2,minmax(0,1fr))} .rphls{grid-template-columns:minmax(0,1fr)} .rpk{padding:10px 12px;gap:8px} .rpk i{width:34px;height:34px;font-size:15px} .rpk b{font-size:19px} .rppl{grid-template-columns:minmax(0,1fr)} .seg.rg button{padding:7px 10px} }
+/* supervisors & targets */
+.spsec{margin-top:16px}
+.sphead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.sphead .rph3{margin:0}
+.spgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:12px}
+.spc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;display:grid;gap:12px;min-width:0}
+.spc header{display:flex;align-items:center;gap:10px}
+.spk{font-size:12px;font-weight:700;color:var(--brass);background:var(--brass-soft);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.spmain{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.dring.big{width:104px;height:104px} .dring.big span{width:84px;height:84px;display:grid;place-items:center;align-content:center;gap:0} .dring.big b{font-size:22px;line-height:1} .dring.big small{font-size:10px;color:var(--muted);font-weight:600}
+.spnums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 6px}
+.spnums div{display:grid;gap:1px;min-width:0} .spnums b{font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap} .spnums b small{font-size:12px;color:var(--muted)} .spnums b.bad{color:var(--bad)} .spnums span{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sppd{font-size:12px;color:var(--muted);font-weight:600}
+.steam{display:grid;gap:6px;background:var(--bg);border-radius:14px;padding:10px 12px} .steam>small{font-size:11.5px;color:var(--muted);font-weight:700}
+.stm{display:grid;grid-template-columns:auto minmax(0,1fr) 90px auto;gap:8px;align-items:center;font-size:12.5px} .stm .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .stm .pbar{height:7px} .stm b{font-size:12px;font-variant-numeric:tabular-nums}
+.stm .av{width:22px;height:22px;font-size:10px}
+.shist{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;height:70px;align-items:end}
+.sh{display:grid;grid-template-rows:1fr auto;height:100%;gap:3px;text-align:center} .sh i{align-self:end;display:block;background:var(--accent);border-radius:6px 6px 2px 2px;opacity:.75} .sh:last-child i{opacity:1} .sh small{font-size:10.5px;color:var(--muted)}
+.stctl{display:grid;grid-template-columns:auto 1fr auto;gap:6px;padding-top:10px;border-top:1px dashed var(--line)} .stctl .field{border-radius:10px}
+@media (max-width:760px){ .spgrid{grid-template-columns:minmax(0,1fr)} .spmain{grid-template-columns:minmax(0,1fr);justify-items:center} .spnums{width:100%} }
 @media (max-width:640px){ .dpcols{grid-template-columns:minmax(0,1fr)} .calc{border-radius:8px;padding:4px} .calc .tk{display:none} .calc .lf{bottom:3px;inset-inline-end:3px;height:15px;min-width:15px;font-size:9.5px;padding:0 3px} .dpnum{font-size:40px} .dpbar>div{padding:10px} .dpbar b{font-size:18px} }
 .daybanner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;border-radius:10px;padding:9px 14px;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:13.5px}
 .meter{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;min-width:60px;display:flex}
@@ -482,7 +502,7 @@ en:{
  repTitle:"Team performance",repAll:"All hotels.",repHotel:"Your hotel.",repDept:"Your department only.",repNote:"Numbers here are counts and times only. Task details are visible only to the employee, their managers and the supervisor.",
  today:"Today",d7:"7 days",d30:"30 days",all:"All",calc:"Calculating…",
  kOpen:"Open tasks",kWait:"Awaiting approval",kLate:"Overdue",kDone:"Done & approved",kOnTime:"On-time rate",kAvg:"Avg. completion time",
- rpTrend:"Last {n} days",psOn:"On time",psAvg:"Avg. finish",psStart:"Avg. start",psRej:"Rejected",rpCreated:"Created",rpFinished:"Finished",rpNobody:"Nobody yet",rpTop:"Most tasks finished",rpTopV:"{n} tasks finished",rpFast:"Fastest to finish",rpFastV:"{d} on average",rpAttn:"Needs follow-up",rpAttnV:"{l} overdue, {r} rejections",rpTasks:"tasks",rpOfAll:"{p}% of all tasks",rpDeptLine:"{p} people, {n} tasks",byPerson:"By employee",byDept:"By department",cOpen:"Open",cDone:"Done",cLate:"Overdue",cOnTime:"On time",cAvg:"Avg. completion",cStart:"Avg. start delay",cRej:"Rejections",noData:"No data",
+ spTitle:"Supervisors and targets",spHint:"Each supervisor gets credit for the tasks on them and every task they created, transferred or handed out to their staff, so the speed of their team counts for them. Department and hotel managers set a monthly or weekly target for each supervisor.",spMonth:"Monthly",spWeek:"Weekly",spMonthly:"Target {n} / month",spWeekly:"Target {n} / week",spNoTarget:"No target yet",spTargetPh:"Number of tasks (0 removes it)",spOfTarget:"of target",spDoneRate:"done",spHandled:"Total",spTeam:"Who did the work",spHimself:"Himself",spNone:"No tasks in this period",spNow:"This period",spBack:"{n} period(s) back",spSaved:"Target saved",rpTrend:"Last {n} days",psOn:"On time",psAvg:"Avg. finish",psStart:"Avg. start",psRej:"Rejected",rpCreated:"Created",rpFinished:"Finished",rpNobody:"Nobody yet",rpTop:"Most tasks finished",rpTopV:"{n} tasks finished",rpFast:"Fastest to finish",rpFastV:"{d} on average",rpAttn:"Needs follow-up",rpAttnV:"{l} overdue, {r} rejections",rpTasks:"tasks",rpOfAll:"{p}% of all tasks",rpDeptLine:"{p} people, {n} tasks",byPerson:"By employee",byDept:"By department",cOpen:"Open",cDone:"Done",cLate:"Overdue",cOnTime:"On time",cAvg:"Avg. completion",cStart:"Avg. start delay",cRej:"Rejections",noData:"No data",
  lgDone:"Done",lgOpen:"Open",lgLate:"Overdue",reportsTo:"reports to",
  reqTitle:"Join requests",reqHint:"Anyone who signs up stays locked out and sees nothing until approved here. Set their hotel, role, department and direct manager, then approve. If you don't know them, reject.",
  reqNone:"No new requests",requests:"wants",approveReq:"Approve",rejectReq:"Reject",mgrPick:"Direct manager…",
@@ -548,7 +568,7 @@ ar:{
  repTitle:"أداء الفريق",repAll:"كل الفنادق.",repHotel:"فندقك.",repDept:"قسمك بس.",repNote:"الأرقام هنا عدد المهام والوقت بس. تفاصيل المهام بتظهر للموظف ومديريه والمشرف فقط.",
  today:"اليوم",d7:"7 أيام",d30:"30 يومًا",all:"الكل",calc:"جارٍ حساب الإحصائيات…",
  kOpen:"مهام مفتوحة",kWait:"بانتظار الموافقة",kLate:"متأخرة عن الموعد",kDone:"أُنجزت واعتُمدت",kOnTime:"الالتزام بالمواعيد",kAvg:"متوسط زمن الإنجاز",
- rpTrend:"آخر {n} يوم",psOn:"في الموعد",psAvg:"وقت الإنجاز",psStart:"وقت البدء",psRej:"الرفض",rpCreated:"اتعملت",rpFinished:"خلصت",rpNobody:"لسه محدش",rpTop:"الأكتر إنجازًا",rpTopV:"خلّص {n} مهمة",rpFast:"الأسرع في التنفيذ",rpFastV:"متوسط {d}",rpAttn:"محتاج متابعة",rpAttnV:"{l} متأخرة، {r} مرات رفض",rpTasks:"مهمة",rpOfAll:"{p}% من كل المهام",rpDeptLine:"{p} موظف، {n} مهمة",byPerson:"حسب الموظف",byDept:"حسب القسم",cOpen:"مفتوحة",cDone:"منجزة",cLate:"متأخرة",cOnTime:"في الموعد",cAvg:"متوسط الإنجاز",cStart:"متوسط وقت البدء",cRej:"مرات الرفض",noData:"لا توجد بيانات",
+ spTitle:"المشرفين والأهداف",spHint:"كل مشرف بيتحسبله المهام اللي عليه وكل مهمة عملها أو حوّلها أو وزّعها على موظفينه، فسرعة فريقه بتتحسب له. مدير الإدارة ومدير الفندق بيحددوا لكل مشرف هدف شهري أو أسبوعي.",spMonth:"شهري",spWeek:"أسبوعي",spMonthly:"الهدف {n} في الشهر",spWeekly:"الهدف {n} في الأسبوع",spNoTarget:"لسه مالوش هدف",spTargetPh:"عدد المهام (0 يشيل الهدف)",spOfTarget:"من الهدف",spDoneRate:"اتنجز",spHandled:"الإجمالي",spTeam:"مين اشتغل عليها",spHimself:"هو نفسه",spNone:"مافيش مهام في الفترة دي",spNow:"الفترة الحالية",spBack:"من {n} فترة فاتت",spSaved:"تم حفظ الهدف",rpTrend:"آخر {n} يوم",psOn:"في الموعد",psAvg:"وقت الإنجاز",psStart:"وقت البدء",psRej:"الرفض",rpCreated:"اتعملت",rpFinished:"خلصت",rpNobody:"لسه محدش",rpTop:"الأكتر إنجازًا",rpTopV:"خلّص {n} مهمة",rpFast:"الأسرع في التنفيذ",rpFastV:"متوسط {d}",rpAttn:"محتاج متابعة",rpAttnV:"{l} متأخرة، {r} مرات رفض",rpTasks:"مهمة",rpOfAll:"{p}% من كل المهام",rpDeptLine:"{p} موظف، {n} مهمة",byPerson:"حسب الموظف",byDept:"حسب القسم",cOpen:"مفتوحة",cDone:"منجزة",cLate:"متأخرة",cOnTime:"في الموعد",cAvg:"متوسط الإنجاز",cStart:"متوسط وقت البدء",cRej:"مرات الرفض",noData:"لا توجد بيانات",
  lgDone:"منجزة",lgOpen:"مفتوحة",lgLate:"متأخرة",reportsTo:"تبع",
  reqTitle:"طلبات الانضمام",reqHint:"أي حد يعمل حساب بيفضل مقفول عليه ومايشوفش أي حاجة لحد ما توافق عليه هنا. حدد فندقه ودوره وقسمه ومديره المباشر، وبعدين وافق. لو مش عارفه، دوس رفض.",
  reqNone:"لا توجد طلبات جديدة",requests:"يطلب",approveReq:"موافقة",rejectReq:"رفض",mgrPick:"المدير المباشر…",
@@ -672,8 +692,10 @@ function normTask(r){ return {id:r.id,num:r.id,title:r.title,desc:r.descr,dept:r
   approval:r.approval_at?{by:r.approval_by,at:ms(r.approval_at),note:r.approval_note}:null,
   parentId:r.parent_id||null,createdAt:ms(r.created_at),updatedAt:ms(r.updated_at),statusAt:ms(r.status_at),startedAt:ms(r.started_at),submittedAt:ms(r.submitted_at),completedAt:ms(r.completed_at)}; }
 async function loadProfiles(){ const {data,error}=await S.sb.from("profiles").select("*"); if(error) throw error; const m={}; data.forEach(p=>m[p.id]=p); S.profiles=m; S.me=m[S.uid]||null; }
+async function loadTargets(){ try{ const r=await S.sb.from("sup_targets").select("*"); if(!r.error){ S.targets={}; (r.data||[]).forEach(x=>S.targets[x.supervisor]=x); } }catch(e){} }
 async function loadMeta(){ const [d,h,s]=await Promise.all([S.sb.from("departments").select("name,label_en,label_ar,sort").order("sort").order("name"),
   S.sb.from("hotels").select("*").order("sort"),S.sb.from("settings").select("*").eq("id",1).maybeSingle()]);
+  loadTargets();
   if(!d.error) S.deptRows=d.data; if(!h.error) S.hotelRows=h.data; if(!s.error&&s.data) S.settings=s.data; }
 async function loadTasks(){ if(!isMember()){S.tasks=[];return;} const {data,error}=await S.sb.from("tasks").select("*").order("created_at",{ascending:false}).limit(2000); if(error) throw error; S.tasks=data.map(normTask); }
 async function loadThread(id){ const [c,e]=await Promise.all([S.sb.from("task_comments").select("*").eq("task_id",id).order("created_at"),S.sb.from("task_events").select("*").eq("task_id",id).order("created_at")]);
@@ -1127,9 +1149,48 @@ function statsHTML(rows){
    <div class="rpks">${tile("◷",open,"kOpen","info")}${tile("⧗",wait,"kWait","brass")}${tile("!",late,"kLate",late?"bad":"")}${tile("✓",done,"kDone","ok",all?t("rpOfAll",{p:Math.round(done/all*100)}):"")}${tile("⏱",dur(wavg("avg_work_sec","done_count")),"kAvg","")}${tile("▶",dur(wavg("avg_start_sec","open_count")),"cStart","")}</div></div>
   <div class="rphls">${hl("ok","★","rpTop",top,top?t("rpTopV",{n:top.done_count}):"")}${hl("info","⚡","rpFast",fast,fast?t("rpFastV",{d:dur(fast.avg_work_sec*1000)}):"")}${hl("bad","⚑","rpAttn",attn,attn?t("rpAttnV",{l:attn.late_count,r:attn.rejections}):"")}</div>
   ${trendHTML()}
+  ${supHTML()}
   <div class="rpcols"><section><h3 class="rph3">${esc(t("byPerson"))} <small>${R.length}</small></h3><div class="rppl">${people||`<div class="apempty"><b>${esc(t("noData"))}</b></div>`}</div></section>
   <section><h3 class="rph3">${esc(t("byDept"))} <small>${Object.keys(depts).length}</small></h3><div class="rpcard rpds">${dl||`<div class="meta">${esc(t("noData"))}</div>`}</div></section></div>`; }
-function bindReports(){ const m=$("#main"); m.querySelectorAll("[data-rg]").forEach(b=>b.onclick=()=>{S.range=b.dataset.rg;S.statsCache=null;S.builtView=null;renderReports();});
+/* supervisors: targets + everything they handle or hand out */
+const canSetTarget=id=>{ const p=S.profiles[id]; return !!p&&p.role==="supervisor"&&(isAdmin()||(isGM()&&p.hotel===myHotel())||(isManager()&&inScope(id))); };
+function periodRange(kind,off){ const n=new Date(); let a,b;
+  if(kind==="week"){ const d=new Date(n.getFullYear(),n.getMonth(),n.getDate()); d.setDate(d.getDate()-((d.getDay()+1)%7)+off*7); a=d; b=new Date(d); b.setDate(b.getDate()+7); }
+  else { a=new Date(n.getFullYear(),n.getMonth()+off,1); b=new Date(n.getFullYear(),n.getMonth()+off+1,1); }
+  return {a:a.getTime(),b:b.getTime()}; }
+const periodLabel=(kind,r)=>kind==="week"?fmtD(r.a)+" – "+fmtD(r.b-864e5):new Intl.DateTimeFormat(loc(),{month:"long",year:"numeric"}).format(new Date(r.a));
+const supOwns=(sid,x)=>x.assignee===sid||x.reporter===sid||(x.transfer&&x.transfer.by===sid)||(x.parentId&&(T(x.parentId)||{}).assignee===sid);
+function supStats(sid,r){ const ts=S.tasks.filter(x=>(x.createdAt||0)>=r.a&&(x.createdAt||0)<r.b&&supOwns(sid,x));
+  const done=ts.filter(x=>x.status==="done"); const late=ts.filter(x=>isLate(x)&&x.status!=="done").length;
+  const wk=done.map(workTime).filter(v=>v!=null); const st=ts.filter(x=>x.startedAt).map(x=>x.startedAt-(x.createdAt||x.startedAt));
+  const wd=done.filter(x=>x.due); const ot=wd.filter(x=>(x.completedAt||0)<=x.due).length;
+  const avg=a=>a.length?a.reduce((p,c)=>p+c,0)/a.length:null;
+  const team={}; ts.forEach(x=>{ if(!x.assignee) return; const k=x.assignee; const o=team[k]=team[k]||{n:0,d:0}; o.n++; if(x.status==="done") o.d++; });
+  return {n:ts.length,d:done.length,late,open:ts.length-done.length,avgWork:avg(wk),avgStart:avg(st),onTime:wd.length?Math.round(ot/wd.length*100):null,team}; }
+function supHTML(){ if(!(isAdmin()||isGM()||isManager()||isSup())) return "";
+  const sups=activeMembers().filter(id=>{ const p=S.profiles[id]; if(p.role!=="supervisor") return false; if(isAdmin()) return !S.repHotel||p.hotel===S.repHotel; if(isGM()) return p.hotel===myHotel(); if(isManager()) return inScope(id); return id===S.uid; });
+  if(!sups.length) return "";
+  const off=S.supOff||0;
+  const cards=sups.map(id=>{ const p=S.profiles[id]; const tg=(S.targets||{})[id]; const kind=tg?tg.period:"month"; const r=periodRange(kind,off); const st=supStats(id,r);
+    const pct=tg?Math.round(st.d/tg.target*100):null; const load=tg?Math.round(st.n/tg.target*100):null; const col=pct==null?"var(--line)":pct>=100?"var(--ok)":pct>=60?"var(--warn)":"var(--bad)";
+    const hist=[3,2,1,0].map(k=>{ const rr=periodRange(kind,off-k); const ss=supStats(id,rr); const h=tg?Math.min(100,Math.round(ss.d/tg.target*100)):(ss.n?Math.round(ss.d/ss.n*100):0); return `<div class="sh" title="${esc(periodLabel(kind,rr))}: ${ss.d}/${tg?tg.target:ss.n}"><i style="height:${Math.max(4,h)}%"></i><small>${esc(kind==="week"?fmtD(rr.a):new Intl.DateTimeFormat(loc(),{month:"short"}).format(new Date(rr.a)))}</small></div>`; }).join("");
+    const teamRows=Object.entries(st.team).sort((a,b)=>b[1].n-a[1].n).slice(0,6).map(([u,o])=>`<div class="stm">${av(u)}<span class="nm">${esc(u===id?t("spHimself"):nameOf(u))}</span><div class="pbar"><i style="flex:${o.d};background:var(--ok)"></i><i style="flex:${o.n-o.d};background:var(--info)"></i></div><b>${o.d}/${o.n}</b></div>`).join("");
+    const ctl=canSetTarget(id)?`<div class="stctl"><select class="field" data-tgp="${id}">${opt("month",t("spMonth"),kind)}${opt("week",t("spWeek"),kind)}</select><input class="field" type="number" min="0" max="10000" data-tgn="${id}" value="${tg?tg.target:""}" placeholder="${esc(t("spTargetPh"))}"><button class="btn sm primary" data-tgs="${id}">${esc(t("save"))}</button></div>`:"";
+    return `<article class="spc"><header>${av(id,true)}<div class="pn"><b>${esc(nameOf(id))}</b><small>${esc([deptL(p.dept),isAdmin()?hotelL(p.hotel):""].filter(Boolean).join(" / "))}</small></div>
+      <span class="spk">${esc(tg?t(kind==="week"?"spWeekly":"spMonthly",{n:tg.target}):t("spNoTarget"))}</span></header>
+      <div class="spmain"><div class="dring big" style="--p:${Math.min(100,pct==null?(st.n?Math.round(st.d/st.n*100):0):pct)};--c:${pct==null?"var(--accent)":col}"><span><b>${pct==null?(st.n?Math.round(st.d/st.n*100)+"%":"—"):pct+"%"}</b><small>${esc(t(pct==null?"spDoneRate":"spOfTarget"))}</small></span></div>
+       <div class="spnums"><div><b>${st.d}${tg?`<small>/${tg.target}</small>`:""}</b><span>${esc(t("lgDone"))}</span></div><div><b>${st.n}</b><span>${esc(t("spHandled"))}${load!=null?` (${load}%)`:""}</span></div><div><b class="${st.late?"bad":""}">${st.late}</b><span>${esc(t("lgLate"))}</span></div>
+        <div><b>${st.avgWork!=null?dur(st.avgWork):"—"}</b><span>${esc(t("psAvg"))}</span></div><div><b>${st.avgStart!=null?dur(st.avgStart):"—"}</b><span>${esc(t("psStart"))}</span></div><div><b>${st.onTime==null?"—":st.onTime+"%"}</b><span>${esc(t("psOn"))}</span></div></div></div>
+      <div class="sppd">${esc(periodLabel(kind,r))}</div>
+      ${teamRows?`<div class="steam"><small>${esc(t("spTeam"))}</small>${teamRows}</div>`:`<div class="meta">${esc(t("spNone"))}</div>`}
+      <div class="shist">${hist}</div>${ctl}</article>`; }).join("");
+  return `<section class="spsec"><div class="sphead"><h3 class="rph3">${esc(t("spTitle"))} <small>${sups.length}</small></h3>
+    <div class="mbar"><button class="icbtn" data-spo="-1">${LANG==="ar"?"›":"‹"}</button><b class="mbname">${esc(off===0?t("spNow"):t("spBack",{n:-off}))}</b><button class="icbtn" data-spo="1"${off>=0?" disabled":""}>${LANG==="ar"?"‹":"›"}</button></div></div>
+    <p class="aphint">${esc(t("spHint"))}</p><div class="spgrid">${cards}</div></section>`; }
+function bindReports(){ const m=$("#main");
+  m.querySelectorAll("[data-spo]").forEach(b=>b.onclick=()=>{ S.supOff=Math.min(0,(S.supOff||0)+Number(b.dataset.spo)); renderReports(); });
+  m.querySelectorAll("[data-tgs]").forEach(b=>b.onclick=async()=>{ const id=b.dataset.tgs; const per=m.querySelector(`[data-tgp="${id}"]`).value; const n=parseInt(m.querySelector(`[data-tgn="${id}"]`).value||"0",10)||0;
+    b.disabled=true; try{ await call(S.sb.rpc("set_sup_target",{p_sup:id,p_period:per,p_target:n}),t("spSaved")); await loadTargets(); S.builtView=null; renderReports(); }catch(e){ b.disabled=false; } }); m.querySelectorAll("[data-rg]").forEach(b=>b.onclick=()=>{S.range=b.dataset.rg;S.statsCache=null;S.builtView=null;renderReports();});
   const rh=m.querySelector("#repHotel"); if(rh) rh.onchange=()=>{S.repHotel=rh.value;S.statsCache=null;S.builtView=null;renderReports();}; }
 
 /* ================= team & access ================= */
