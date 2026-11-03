@@ -486,7 +486,7 @@ en:{
  lgDone:"Done",lgOpen:"Open",lgLate:"Overdue",reportsTo:"reports to",
  reqTitle:"Join requests",reqHint:"Anyone who signs up stays locked out and sees nothing until approved here. Set their hotel, role, department and direct manager, then approve. If you don't know them, reject.",
  reqNone:"No new requests",requests:"wants",approveReq:"Approve",rejectReq:"Reject",mgrPick:"Direct manager…",
- teamTitle:"Team members",teamHint:"<b>System admin</b> sees all hotels. <b>Hotel manager</b> has full control of their hotel: sees every task, approves, transfers, and manages everyone except other hotel managers. <b>Supervisor</b> works inside their hotel — and only their department if they have one: sees and approves its tasks and accepts its new staff. <b>Department manager</b> has full control inside their hotel — and only their department if they have one: sees all its tasks, approves, transfers, manages its staff and supervisors — above the supervisor. <b>Staff</b> works on their own tasks. Each hotel sees only itself. Task details are visible only to whoever created it, whoever has it, their bosses and the hotel manager.",
+ teamTitle:"Team members",teamHint:"<b>System admin</b> sees and manages everything in every hotel. <b>Hotel manager</b> sees only their own hotel and manages everyone under them there: department managers, supervisors and staff. <b>Department manager</b> sees only their own hotel and department, and manages only the supervisors and staff under them. <b>Supervisor</b> and <b>staff</b> cannot change anyone. Task details are visible only to whoever created it, whoever has it, their bosses and the hotel manager.",
  tName:"Employee",tHotel:"Hotel",tTitle:"Job title",tDept:"Department",tBoss:"Direct manager",tUnder:"Team",tRole:"Role",tOpen:"Open",tAccess:"Access",
  none:"— None —",you:"You",disable:"Disable access",enable:"Re-enable",rejectedReq:"Rejected request",
  settings:"Settings",depts:"Departments",deptEn:"Name (English)",deptAr:"Name (Arabic)",addDept:"Add department",prefix:"Task number prefix",save:"Save",
@@ -552,7 +552,7 @@ ar:{
  lgDone:"منجزة",lgOpen:"مفتوحة",lgLate:"متأخرة",reportsTo:"تبع",
  reqTitle:"طلبات الانضمام",reqHint:"أي حد يعمل حساب بيفضل مقفول عليه ومايشوفش أي حاجة لحد ما توافق عليه هنا. حدد فندقه ودوره وقسمه ومديره المباشر، وبعدين وافق. لو مش عارفه، دوس رفض.",
  reqNone:"لا توجد طلبات جديدة",requests:"يطلب",approveReq:"موافقة",rejectReq:"رفض",mgrPick:"المدير المباشر…",
- teamTitle:"أعضاء الفريق",teamHint:"<b>مدير النظام</b> يشوف كل الفنادق. <b>مدير الفندق</b> ليه كل الصلاحيات في فندقه: يشوف كل المهام ويعتمد ويحوّل ويدير كل الناس ما عدا مديري الفنادق. <b>المشرف</b> شغله جوه فندقه — وإدارته بس لو محددله إدارة: يشوف مهامها ويعتمدها ويوافق على موظفيها الجداد. <b>مدير الإدارة</b> ليه كل الصلاحيات جوه فندقه — وإدارته بس لو محددله إدارة: يشوف كل مهامها ويعتمد ويحوّل ويدير موظفيها ومشرفيها — وأعلى من المشرف. <b>الموظف</b> ينفّذ مهامه. كل فندق يشوف نفسه بس. تفاصيل أي مهمة بتظهر بس للي عملها وللمسؤول عنها ولمديرينه ولمدير الفندق.",
+ teamTitle:"أعضاء الفريق",teamHint:"<b>مدير النظام</b> يشوف ويعدّل كل حاجة في كل الفنادق. <b>مدير الفندق</b> يشوف فندقه بس، ويعدّل على كل اللي تحته فيه: مديري الإدارات والمشرفين والموظفين. <b>مدير الإدارة</b> يشوف فندقه وإدارته بس، ويعدّل على المشرفين والموظفين اللي تحته بس. <b>المشرف</b> و<b>الموظف</b> مايقدروش يعدّلوا على حد. تفاصيل أي مهمة بتظهر بس للي عملها وللمسؤول عنها ولمديرينه ولمدير الفندق.",
  tName:"الموظف",tHotel:"الفندق",tTitle:"المسمى الوظيفي",tDept:"القسم",tBoss:"المدير المباشر",tUnder:"الفريق",tRole:"الدور",tOpen:"مفتوحة",tAccess:"الوصول",
  none:"— بدون —",you:"أنت",disable:"إيقاف الوصول",enable:"إعادة التفعيل",rejectedReq:"طلب مرفوض",
  settings:"الإعدادات",depts:"الأقسام",deptEn:"الاسم بالإنجليزي",deptAr:"الاسم بالعربي",addDept:"إضافة قسم",prefix:"بادئة رقم المهمة",save:"حفظ",
@@ -638,7 +638,7 @@ async function call(p,okMsg){ try{ const r=await p; if(r&&r.error) throw r.error
 const myRole=()=>S.me&&S.me.active&&S.me.role!=="pending"?S.me.role:null;
 const isAdmin=()=>myRole()==="admin"; const isGM=()=>myRole()==="gm"; const isSup=()=>myRole()==="supervisor"; const isManager=()=>myRole()==="manager";
 const isMember=()=>!!myRole(); const myDept=()=>(S.me&&S.me.dept)||""; const myHotel=()=>(S.me&&S.me.hotel)||"";
-const canManageMembers=()=>isAdmin()||isGM()||isSup()||isManager();
+const canManageMembers=()=>isAdmin()||isGM()||isManager();
 const assignableRoles=()=>isAdmin()?ROLE_KEYS:isGM()?["manager","supervisor","staff"]:isManager()?["supervisor","staff"]:["staff"];
 const inScope=id=>{ const p=S.profiles[id]; return !!p&&p.hotel===myHotel()&&(!myDept()||p.dept===myDept()); };
 const isDeptBoss=id=>(isManager()||isSup())&&inScope(id);
@@ -651,7 +651,9 @@ const subordinates=()=>(isManager()||isSup()||isGM()||isAdmin())?activeMembers()
 function canAssignTo(id,hotel){ const p=S.profiles[id]; if(!p||!p.active||p.role==="pending"||p.role==="admin") return false; if(isAdmin()) return !hotel||p.hotel===hotel;
   if(p.hotel!==myHotel()) return false; if(isGM()||id===S.uid) return true;
   return (isManager()||isSup())&&(isAbove(S.uid,id)||inScope(id)||["manager","supervisor","gm"].includes(p.role)); }
-const canApprove=x=>isAdmin()||(x.hotel===myHotel()&&(isGM()||isAbove(S.uid,x.assignee)||(!!x.assignee&&isDeptBoss(x.assignee))||(x.reporter===S.uid&&!!x.assignee&&x.assignee!==S.uid)||(!!x.assignee&&x.assignee!==S.uid&&(x.prevAssignees||[]).includes(S.uid))));
+const RANK={admin:5,gm:4,manager:3,supervisor:2,staff:1}; const rankOf=id=>RANK[(S.profiles[id]||{}).role]||0;
+const needsBoss=x=>!!x.assignee&&!!x.reporter&&x.assignee!==x.reporter&&(S.profiles[x.assignee]||{}).role==="supervisor"&&["manager","gm","admin"].includes((S.profiles[x.reporter]||{}).role);
+const canApprove=x=>isAdmin()||(x.hotel===myHotel()&&(isGM()||(!!x.assignee&&x.assignee!==S.uid&&(isAbove(S.uid,x.assignee)||(isDeptBoss(x.assignee)&&(RANK[myRole()]||0)>rankOf(x.assignee))||x.reporter===S.uid||(x.prevAssignees||[]).includes(S.uid)))));
 const canEditFields=x=>!x||isAdmin()||(isGM()&&x.hotel===myHotel())||x.reporter===S.uid;
 const heads=hotel=>activeMembers().filter(id=>{ const p=S.profiles[id]; return p.role==="admin"||(["manager","supervisor","gm"].includes(p.role)&&p.hotel===hotel); });
 const colorOf=id=>{ let h=0; for(const c of String(id||"x")) h=(h*31+c.charCodeAt(0))%360; return `hsl(${h} 38% 42%)`; };
@@ -716,7 +718,7 @@ const T=id=>S.tasks.find(x=>String(x.id)===String(id));
 const childrenOf=id=>S.tasks.filter(x=>x.parentId===id);
 function allowed(x,to){ if(!x||x.status===to) return false; const from=x.status;
   if(canApprove(x)&&(to!=="rejected"||from==="review")) return true;
-  if(x.assignee!==S.uid) return false; const na=x.needsApproval!==false;
+  if(x.assignee!==S.uid) return false; const na=x.needsApproval!==false||needsBoss(x);
   return (from==="todo"&&to==="progress")||(from==="rejected"&&to==="progress")||(from==="progress"&&to==="review"&&na)||(from==="progress"&&to==="done"&&!na)||(from==="review"&&to==="progress"); }
 function actLabel(x,to){ const f=x.status;
   if(to==="progress") return t(f==="todo"?"a_start":f==="rejected"?"a_redo":f==="review"?"a_withdraw":"a_reopen");
@@ -1140,13 +1142,18 @@ function renderTeam(){ const m=$("#main");
     const hf=$("#tHotelF"); if(hf) hf.onchange=()=>{ S.teamHotel=hf.value; renderTeam(); };
   }
   const roleOptsFor=(p)=>{ const keys=assignableRoles(); return keys.map(k=>opt(k,roleL(k),p.role)).join(""); };
-  const canEditRow=p=>isAdmin()||(isGM()&&p.hotel===myHotel()&&!["admin","gm"].includes(p.role))||((isManager()||isSup())&&p.hotel===myHotel()&&(isManager()?["staff","pending","supervisor"]:["staff","pending"]).includes(p.role)&&(!myDept()||p.dept===myDept()||(p.role==="pending"&&p.requested_dept===myDept())));
-  const bossSel=(p,attr,sel)=>{ const opts=heads(p.hotel).filter(id=>id!==p.id&&!isAbove(p.id,id)); return `<select class="field" ${attr}><option value="">${esc(sel===undefined?t("none"):t("mgrPick"))}</option>${opts.map(id=>opt(id,nameOf(id)+(S.profiles[id].dept?" — "+deptL(S.profiles[id].dept):""),sel||p.reports_to||"")).join("")}</select>`; };
-  const P=Object.values(S.profiles).filter(p=>!isAdmin()||!S.teamHotel||p.hotel===S.teamHotel||p.role==="admin");
+  const underMe=p=>{ if(isAdmin()) return true; if(p.hotel!==myHotel()) return false;
+    if(isGM()) return ["manager","supervisor","staff","pending"].includes(p.role);
+    if(isManager()) return ["supervisor","staff","pending"].includes(p.role)&&(!myDept()||p.dept===myDept()||(p.role==="pending"&&p.requested_dept===myDept()));
+    return false; };
+  const canEditRow=p=>p.id!==S.uid&&underMe(p);
+  const deptChoices=(cur,ph)=>isManager()&&myDept()?opt(myDept(),deptL(myDept()),cur||myDept()):deptOpts(cur,ph);
+  const bossSel=(p,attr,sel)=>{ const opts=heads(p.hotel).filter(id=>id!==p.id&&!isAbove(p.id,id)&&(isAdmin()||isGM()||id===S.uid||(S.profiles[id].role==="supervisor"&&underMe(S.profiles[id])))); return `<select class="field" ${attr}><option value="">${esc(sel===undefined?t("none"):t("mgrPick"))}</option>${opts.map(id=>opt(id,nameOf(id)+(S.profiles[id].dept?" — "+deptL(S.profiles[id].dept):""),sel||p.reports_to||"")).join("")}</select>`; };
+  const P=Object.values(S.profiles).filter(p=>isAdmin()?(!S.teamHotel||p.hotel===S.teamHotel||p.role==="admin"):(p.id===S.uid||underMe(p)));
   const rqs=P.filter(p=>p.role==="pending"&&p.active);
   $("#tRq").innerHTML=rqs.length?`<div class="appr">${rqs.map(p=>`<div class="apcard"><div style="display:grid;gap:4px">${who(p.id,true)}<div class="meta">${esc(p.title)}${p.hotel?" · "+esc(hotelL(p.hotel)):""}${p.requested_dept?" · "+esc(t("requests"))+" "+esc(deptL(p.requested_dept)):""} · ${esc(fmt(ms(p.created_at)))}</div></div>
      <div class="actions">${isAdmin()?`<select class="field" data-rqhotel="${p.id}" style="width:auto">${hotelOpts(p.hotel||"",t("chooseHotel"))}</select>`:""}<select class="field" data-rqrole="${p.id}" style="width:auto">${assignableRoles().map(k=>opt(k,roleL(k),"staff")).join("")}</select>
-     <select class="field" data-rqdept="${p.id}" style="width:auto">${deptOpts(p.requested_dept||p.dept||"",t("chooseDept"))}</select>${bossSel(p,`data-rqboss="${p.id}" style="width:auto"`,"")}
+     <select class="field" data-rqdept="${p.id}" style="width:auto">${deptChoices(p.requested_dept||p.dept||"",t("chooseDept"))}</select>${bossSel(p,`data-rqboss="${p.id}" style="width:auto"`,"")}
      <button class="btn ok sm" data-rqok="${p.id}">${esc(t("approveReq"))}</button><button class="btn bad sm" data-rqno="${p.id}">${esc(t("rejectReq"))}</button></div></div>`).join("")}</div>`:`<div class="empty-col">${esc(t("reqNone"))}</div>`;
   const ord={admin:0,gm:1,manager:2,supervisor:3,staff:4,pending:5};
   const mem=P.filter(p=>p.role!=="pending"||!p.active).sort((a,b)=>String(a.hotel||"").localeCompare(String(b.hotel||""))||(ord[a.role]-ord[b.role])||nameOf(a.id).localeCompare(nameOf(b.id),LANG));
@@ -1154,8 +1161,8 @@ function renderTeam(){ const m=$("#main");
    ${mem.map(p=>{const self=p.id===S.uid; const ed=canEditRow(p)&&!self; const openN=S.tasks.filter(x=>x.assignee===p.id&&x.status!=="done").length; const dis=ed?"":" disabled";
      return `<tr style="${p.active?"":"opacity:.55"}"><td>${who(p.id)}</td>
      ${isAdmin()?`<td>${p.role==="admin"?"—":`<select class="field" data-mhotel="${p.id}"${dis}>${hotelOpts(p.hotel||"",t("chooseHotel"))}</select>`}</td>`:""}
-     <td><input class="field" style="width:140px" data-mtitle="${p.id}" value="${esc(p.title)}"${canEditRow(p)?"":" disabled"}></td>
-     <td><select class="field" data-mdept="${p.id}"${canEditRow(p)?"":" disabled"}>${deptOpts(p.dept||"","—")}</select></td>
+     <td><input class="field" style="width:140px" data-mtitle="${p.id}" value="${esc(p.title)}"${dis}></td>
+     <td><select class="field" data-mdept="${p.id}"${dis}>${ed?deptChoices(p.dept||"","—"):deptOpts(p.dept||"","—")}</select></td>
      <td>${p.role==="pending"||p.role==="admin"?"—":ed?bossSel(p,`data-mboss="${p.id}"`):esc(p.reports_to?nameOf(p.reports_to):"—")}</td>
      <td class="num">${Object.values(S.profiles).filter(x=>x.reports_to===p.id&&x.active).length||"—"}</td>
      <td>${p.role==="pending"?`<span class="chip">${esc(t("rejectedReq"))}</span>`:ed?`<select class="field" data-mrole="${p.id}">${roleOptsFor(p)}</select>`:`<span class="rolepill">${esc(roleL(p.role))}</span>`}</td><td class="num">${openN}</td>
