@@ -175,6 +175,58 @@ td .field{width:auto}
 .dpempty{padding:40px 20px;text-align:center;color:var(--muted);display:grid;gap:10px;justify-items:center}
 .dpnone{font-size:12.5px;color:var(--muted);padding:10px 2px}
 @media (max-width:1000px){ .dlayout{grid-template-columns:minmax(0,1fr)} .calcard{position:static} .dpbar{grid-template-columns:repeat(4,minmax(0,1fr))} .dpbar>div:last-child{grid-column:1/-1;border-inline-start:0;border-top:1px solid var(--line)} }
+/* list page */
+.lstop{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.seg{display:inline-flex;background:var(--surface-2);border-radius:12px;padding:4px;gap:2px}
+.seg button{border:0;background:none;font:inherit;font-weight:600;font-size:13.5px;color:var(--muted);padding:8px 16px;border-radius:9px;cursor:pointer}
+.seg button[aria-selected="true"]{background:var(--surface);color:var(--accent);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.lsbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.mbar{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px}
+.mbname{min-width:130px;text-align:center;font-size:14.5px}
+.nowbtn.off{background:var(--surface-2);color:var(--fg)}
+.ststrip{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.stb{display:flex;align-items:baseline;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:7px 12px;font:inherit;cursor:pointer;color:var(--muted);border-top:3px solid var(--c)}
+.stb b{font-size:17px;color:var(--fg);font-variant-numeric:tabular-nums} .stb span{font-size:12.5px}
+.stb:hover{border-color:var(--c)} .stb.on{background:var(--accent-soft);border-color:var(--accent);border-top-color:var(--c)} .stb.on span{color:var(--accent);font-weight:600}
+.lstable,.pptable{border-radius:16px}
+.lstable table{font-size:13.5px}
+.lstable th{position:sticky;top:0;z-index:1;background:var(--surface-2);padding:10px 14px} .lstable th.on{color:var(--accent)}
+.lstable td{padding:11px 14px}
+.lrow{cursor:pointer;transition:background .12s} .lrow:hover{background:var(--surface-2)}
+.lrow.late td:first-child{box-shadow:inset -3px 0 0 var(--bad)} [dir=ltr] .lrow.late td:first-child{box-shadow:inset 3px 0 0 var(--bad)}
+.kcol{font-family:var(--f-mono,monospace);font-size:12px;color:var(--muted);white-space:nowrap;width:1%}
+.tcol{min-width:240px} .tcol .t{font-weight:700;font-size:14px;line-height:1.35}
+.sub2{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:3px;font-size:12px;color:var(--muted);align-items:center}
+.sub2 span+span:not(.chip)::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--line);margin-inline-end:10px;vertical-align:middle}
+.acol{white-space:nowrap;max-width:220px} .dcol,.wcol{white-space:nowrap} .dcol .meta{font-size:11px;margin-top:2px}
+.stc{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;white-space:nowrap;color:var(--c)}
+.stc::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
+.pri{font-size:12px;font-weight:600;white-space:nowrap;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted)}
+.pri.bad{background:var(--bad-soft);color:var(--bad)} .pri.warn{background:var(--warn-soft);color:var(--warn)} .pri.info{background:var(--info-soft);color:var(--info)}
+.lateTxt{color:var(--bad);font-weight:700}
+tr.grp td{background:var(--bg);padding:14px 14px 6px;border-bottom:1px solid var(--line);font-weight:700;font-size:13.5px}
+tr.grp em{font-style:normal;font-size:11.5px;background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:999px;margin-inline-start:6px}
+tr.grp i{font-style:normal;font-weight:500;color:var(--muted);font-size:12px;margin-inline-start:10px}
+.lsempty{text-align:center;color:var(--muted);padding:40px!important}
+.lshint{margin:0;color:var(--muted);font-size:12.5px;flex:1;min-width:220px}
+.pptable th,.pptable td{padding:10px 12px}
+.pptable thead th{background:var(--surface-2)} .pptable th.cur{color:var(--accent)}
+.pcol{min-width:200px;width:26%;white-space:nowrap} .pcol .meta{margin-top:2px;margin-inline-start:34px}
+.hc{text-align:center;width:84px} .hc.zero{color:var(--line)}
+.hcb{display:grid;gap:1px;width:100%;min-width:62px;border:0;border-radius:10px;padding:6px 4px;cursor:pointer;font:inherit;color:var(--fg);background:rgb(30 90 72 / var(--a))}
+.hcb b{font-size:17px;font-variant-numeric:tabular-nums} .hcb span{font-size:10.5px;color:var(--fg);opacity:.75}
+.hcb:hover{outline:2px solid var(--accent)}
+.ptot{text-align:center;font-size:15px}
+.prate{min-width:130px;width:200px} .prate span{font-size:12px;color:var(--muted)} .prate em{font-style:normal;color:var(--bad);margin-inline-start:6px}
+.rbar{height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden;margin-bottom:4px} .rbar i{display:block;height:100%;background:var(--ok);border-radius:4px}
+.pptable tfoot td{background:var(--surface-2);font-weight:700;border-bottom:0}
+@media (max-width:760px){
+ .lstable thead{display:none} .lstable table,.lstable tbody{display:block}
+ .lstable tr.lrow{display:grid;grid-template-columns:1fr auto;gap:6px 10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+ .lstable tr.lrow td{border:0;padding:0} .lstable .tcol{grid-column:1/-1;min-width:0;order:-1} .lstable .kcol{order:-2;grid-column:1/-1}
+ .lstable tr.grp{display:block} .lstable tr.grp td{display:block}
+ .mbar{width:100%;justify-content:space-between} .ststrip{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px} .stb{flex:none}
+}
 @media (max-width:640px){ .dpcols{grid-template-columns:minmax(0,1fr)} .calc{border-radius:8px;padding:4px} .calc .tk{display:none} .calc .lf{bottom:3px;inset-inline-end:3px;height:15px;min-width:15px;font-size:9.5px;padding:0 3px} .dpnum{font-size:40px} .dpbar>div{padding:10px} .dpbar b{font-size:18px} }
 .daybanner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;border-radius:10px;padding:9px 14px;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:13.5px}
 .meter{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;min-width:60px;display:flex}
@@ -295,6 +347,7 @@ en:{
  noTasks:"No tasks yet",noTasksHint:"Add the first task: a room repair, a VIP suite setup, or a laundry inventory. It appears under “New” and is followed up until approval.",addFirst:"+ Add the first task",
  emptyCol:"Nothing here",doneOn:"Done",dueOn:"Due",overdue:"Overdue",since:"for",
  delegated:"Delegated: {d}/{n} done",trFrom:"Transferred: {n} → {m}",trTitle:"Transfer this task",trHint:"Hand the task to someone else. It stays one task (no copy) and shows who it moved from and to. You keep following it and can approve or reject it.",trTo:"Transfer to…",trNote:"Note for them (optional)",trBtn:"Transfer",trDone:"Transferred to {n}",trInfo:"Transferred from {f} to {t} by {b}",ev_transfer:"transferred the task",splitHint:"Need to split it into separate parts for several people? Use this only then.",subOf:"Part of {k}",rejectedTimes:"Rejected {n}×",
+ lsTasks:"Tasks",lsPeople:"Staff by month",lsAllM:"All months",lsAll:"All",lsLate:"Overdue",lsCount:"{n} tasks",lsPeopleHint:"How many tasks each person got in each month (by the day the task was created). Click a number to see those tasks.",lsPerson:"Person",lsTotal:"Total",lsDoneN:"{n} done",lsLateN:"{n} overdue",lsNoPeople:"No tasks in these months",lsDoneRate:"Done rate",
  colKey:"No.",colTask:"Task",colDept:"Department",colHotel:"Hotel",colAssignee:"Assignee",colPri:"Priority",colStatus:"Status",colDue:"Due",colCreated:"Created",colWork:"Work time",noMatch:"No tasks match the filters",
  apprTitle:"Waiting for your approval",apprHint:"Tasks of your team, or tasks you assigned. Approve to close them, or reject with a clear reason so they go back.",apprNone:"Nothing waiting for your approval",
  mySubmitted:"My submitted tasks awaiting approval",rejTitle:"Rejected, needs rework",rejNone:"No rejected tasks",recentTitle:"Recently approved",recentNone:"Nothing approved yet",
@@ -359,6 +412,7 @@ ar:{
  noTasks:"لا توجد مهام بعد",noTasksHint:"ابدأ بأول مهمة: صيانة غرفة، تجهيز جناح لضيف مهم، أو جرد للمغسلة. هتظهر في «جديدة» وتتتابع لحد الاعتماد.",addFirst:"+ إضافة أول مهمة",
  emptyCol:"لا توجد مهام هنا",doneOn:"أُنجزت",dueOn:"موعد",overdue:"متأخرة",since:"منذ",
  delegated:"موزّعة: {d}/{n} خلصت",trFrom:"منقولة من {n} إلى {m}",trTitle:"تحويل المهمة",trHint:"سلّم المهمة لحد تاني. هتفضل مهمة واحدة من غير تكرار، ومكتوب عليها منقولة من مين لمين، وانت تفضل متابعها وتقدر تعتمدها أو ترفضها.",trTo:"حوّلها لـ…",trNote:"ملاحظة ليه (اختياري)",trBtn:"تحويل",trDone:"تم التحويل إلى {n}",trInfo:"منقولة من {f} إلى {t} بواسطة {b}",ev_transfer:"حوّل المهمة",splitHint:"عايز تقسمها لأجزاء منفصلة على كذا حد؟ استخدم ده بس في الحالة دي.",subOf:"فرعية من {k}",rejectedTimes:"رُفضت {n}×",
+ lsTasks:"المهام",lsPeople:"الموظفين بالشهر",lsAllM:"كل الشهور",lsAll:"الكل",lsLate:"متأخرة",lsCount:"{n} مهمة",lsPeopleHint:"عدد المهام اللي اتعملت لكل موظف في كل شهر (حسب يوم إنشاء المهمة). دوس على أي رقم عشان تشوف المهام دي.",lsPerson:"الموظف",lsTotal:"الإجمالي",lsDoneN:"{n} خلصت",lsLateN:"{n} متأخرة",lsNoPeople:"مافيش مهام في الشهور دي",lsDoneRate:"نسبة الإنجاز",
  colKey:"الرقم",colTask:"المهمة",colDept:"القسم",colHotel:"الفندق",colAssignee:"المسؤول",colPri:"الأولوية",colStatus:"الحالة",colDue:"الموعد",colCreated:"أُنشئت",colWork:"زمن العمل",noMatch:"لا توجد مهام تطابق الفلاتر",
  apprTitle:"بانتظار موافقتك",apprHint:"مهام فريقك، أو المهام اللي انت كلّفت بيها. اعتمدها عشان تتقفل، أو ارفضها بسبب واضح عشان ترجع للموظف.",apprNone:"لا توجد مهام بانتظار موافقتك",
  mySubmitted:"مهامي المسلّمة ومستنية الموافقة",rejTitle:"مرفوضة وتحتاج إعادة عمل",rejNone:"لا توجد مهام مرفوضة",recentTitle:"آخر ما تم اعتماده",recentNone:"لم تُعتمد مهام بعد",
@@ -769,17 +823,71 @@ function bindBoard(){ const m=$("#main"); const en=m.querySelector("#emptyNew");
     col.addEventListener("drop",e=>{ e.preventDefault(); col.classList.remove("drop"); const x=T(S.dragId); if(x) requestTransition(x,col.dataset.st); }); }); }
 
 /* ================= list ================= */
-function listHTML(){ const list=filtered().slice(); const k=S.sort.k,d=S.sort.d;
+const LS_ST=["all","todo","progress","review","rejected","done","late"];
+const lsMatch=(x,s)=>s==="all"?true:s==="late"?(isLate(x)&&x.status!=="done"):x.status===s;
+function lsTop(){ const mode=S.lsMode||"tasks";
+  return `<div class="lstop"><div class="seg" role="tablist">${["tasks","people"].map(k=>`<button role="tab" data-lsm="${k}" aria-selected="${mode===k}">${esc(t(k==="tasks"?"lsTasks":"lsPeople"))}</button>`).join("")}</div></div>`; }
+function monthBar(mk,firstM,curM,allOn){ const prev=LANG==="ar"?"›":"‹", next=LANG==="ar"?"‹":"›";
+  return `<div class="mbar"><button class="icbtn" data-lmstep="-1"${allOn||mk<=firstM?" disabled":""} aria-label="${esc(t("dyPrevM"))}">${prev}</button>
+   <b class="mbname">${esc(allOn?t("lsAllM"):monthName(mk))}</b>
+   <button class="icbtn" data-lmstep="1"${allOn||mk>=curM?" disabled":""} aria-label="${esc(t("dyNextM"))}">${next}</button>
+   <button class="nowbtn${allOn?" off":""}" id="lmAll">${esc(allOn?t("dyThisM"):t("lsAllM"))}</button></div>`; }
+function listHTML(){ const curM=monthKey(dayKey(Date.now())); const base=filtered();
+  const firstM=base.length?monthKey(dayKey(Math.min(...base.map(x=>x.createdAt||Date.now())))):curM;
+  if(!S.lsMonth) S.lsMonth=curM; if(S.lsMonth!=="all"&&S.lsMonth>curM) S.lsMonth=curM;
+  if((S.lsMode||"tasks")==="people") return lsTop()+peopleHTML(base,firstM,curM);
+  const allOn=S.lsMonth==="all"; const mk=allOn?curM:S.lsMonth;
+  const inM=allOn?base:base.filter(x=>monthKey(dayKey(x.createdAt||Date.now()))===mk);
+  const st=S.lsSt||"all"; const list=inM.filter(x=>lsMatch(x,st));
+  const k=S.sort.k,d=S.sort.d;
   const val=x=>k==="key"?x.num:k==="priority"?(PRI[x.priority]||PRI.normal).o:k==="assignee"?nameOf(x.assignee):k==="status"?STATUSES.findIndex(s=>s.k===x.status):k==="work"?(workTime(x)||0):(x[k]||0);
   list.sort((a,b)=>{const x=val(a),y=val(b); return (typeof x==="string"?x.localeCompare(y,LANG):x-y)*d;});
-  const th=(key,l)=>`<th class="sort" data-k="${key}">${esc(t(l))}${S.sort.k===key?(S.sort.d>0?" ↑":" ↓"):""}</th>`;
-  return `<div class="panel tablewrap"><table><thead><tr>${th("key","colKey")}<th>${esc(t("colTask"))}</th>${isAdmin()?`<th>${esc(t("colHotel"))}</th>`:""}<th>${esc(t("colDept"))}</th>${th("assignee","colAssignee")}${th("priority","colPri")}${th("status","colStatus")}${th("due","colDue")}${th("createdAt","colCreated")}${th("work","colWork")}</tr></thead>
-  <tbody>${list.map(x=>{const p=PRI[x.priority]||PRI.normal; const late=isLate(x);
-   return `<tr class="click" data-id="${x.id}"><td class="mono meta">${esc(keyOf(x))}</td><td><div class="t">${esc(x.title)}</div>${x.location?`<span class="meta">${esc(x.location)}</span>`:""}${x.transfer&&x.transfer.from?` <span class="chip info" style="font-size:11px">↪ ${esc(t("trFrom",{n:nameOf(x.transfer.from),m:nameOf(x.assignee)}))}</span>`:""}</td>${isAdmin()?`<td>${esc(hotelL(x.hotel))}</td>`:""}<td>${esc(deptL(x.dept))}</td><td>${who(x.assignee)}</td>
-   <td><span class="chip ${p.c}">${esc(priL(x.priority))}</span></td><td><span class="chip" style="color:${ST[x.status].c}">${esc(stL(x.status))}</span></td>
-   <td class="num">${x.due?`<span class="${late?"chip bad":""}">${esc(fmt(x.due))}</span>`:"—"}</td><td class="num meta">${esc(fmt(x.createdAt))}</td><td class="num">${x.startedAt?dur(workTime(x)):"—"}</td></tr>`;}).join("")||`<tr><td colspan="10" class="meta" style="text-align:center;padding:30px">${esc(t("noMatch"))}</td></tr>`}</tbody></table></div>`; }
+  const grouped=k==="createdAt";
+  const strip=`<div class="ststrip">${LS_ST.map(s=>{ const n=inM.filter(x=>lsMatch(x,s)).length; const c=s==="all"?"var(--fg)":s==="late"?"var(--bad)":ST[s].c;
+     return `<button class="stb${st===s?" on":""}" data-lst="${s}" style="--c:${c}"><b>${n}</b><span>${esc(s==="all"?t("lsAll"):s==="late"?t("lsLate"):stL(s))}</span></button>`; }).join("")}</div>`;
+  const th=(key,l)=>`<th class="sort${S.sort.k===key?" on":""}" data-k="${key}">${esc(t(l))}${S.sort.k===key?(S.sort.d>0?" ↑":" ↓"):""}</th>`;
+  let rows="", last=null;
+  list.forEach(x=>{ if(grouped){ const dk=dayKey(x.createdAt||Date.now()); if(dk!==last){ last=dk; const L=dayLabel(dk); const n=list.filter(y=>dayKey(y.createdAt||Date.now())===dk).length;
+      rows+=`<tr class="grp"><td colspan="7"><span>${esc(L.main)}</span>${L.tag?` <em>${esc(L.tag)}</em>`:""}<i>${esc(t("lsCount",{n}))}</i></td></tr>`; } }
+    const p=PRI[x.priority]||PRI.normal; const late=isLate(x)&&x.status!=="done"; const sub=[isAdmin()?hotelL(x.hotel):"",deptL(x.dept),x.location||""].filter(Boolean);
+    rows+=`<tr class="click lrow${late?" late":""}" data-id="${x.id}"><td class="kcol">${esc(keyOf(x))}</td>
+     <td class="tcol"><div class="t">${esc(x.title)}</div><div class="sub2">${sub.map(s=>`<span>${esc(s)}</span>`).join("")}${x.transfer&&x.transfer.from?`<span class="chip info">↪ ${esc(t("trFrom",{n:nameOf(x.transfer.from),m:nameOf(x.assignee)}))}</span>`:""}</div></td>
+     <td class="acol">${who(x.assignee)}</td>
+     <td><span class="stc" style="--c:${ST[x.status].c}">${esc(stL(x.status))}</span></td>
+     <td><span class="pri ${p.c}">${esc(priL(x.priority))}</span></td>
+     <td class="num dcol">${x.due?`<span class="${late?"lateTxt":""}">${esc(fmt(x.due))}</span>`:"—"}<div class="meta">${esc(t("colCreated"))}: ${esc(grouped?new Intl.DateTimeFormat(loc(),{hour:"numeric",minute:"2-digit"}).format(new Date(x.createdAt||Date.now())):fmt(x.createdAt))}</div></td>
+     <td class="num wcol">${x.startedAt?dur(workTime(x)):"—"}</td></tr>`; });
+  if(!rows) rows=`<tr><td colspan="7" class="lsempty">${esc(t("noMatch"))}</td></tr>`;
+  return lsTop()+`<div class="lsbar">${monthBar(mk,firstM,curM,allOn)}${strip}</div>
+  <div class="panel tablewrap lstable"><table><thead><tr>${th("key","colKey")}<th>${esc(t("colTask"))}</th>${th("assignee","colAssignee")}${th("status","colStatus")}${th("priority","colPri")}${th("due","colDue")}${th("work","colWork")}</tr></thead><tbody>${rows}</tbody></table></div>`; }
+function peopleHTML(base,firstM,curM){ if(!S.pplEnd||S.pplEnd>curM) S.pplEnd=curM;
+  const N=6, end=S.pplEnd; const months=[...Array(N)].map((_,i)=>shiftMonth(end,i-N+1));
+  const M={}; base.forEach(x=>{ if(!x.assignee) return; const mk=monthKey(dayKey(x.createdAt||Date.now())); if(!months.includes(mk)) return;
+    const r=M[x.assignee]=M[x.assignee]||{tot:0,done:0,late:0,m:{}}; const c=r.m[mk]=r.m[mk]||{n:0,d:0};
+    c.n++; r.tot++; if(x.status==="done"){c.d++; r.done++;} if(isLate(x)&&x.status!=="done") r.late++; });
+  const ids=Object.keys(M).sort((a,b)=>M[b].tot-M[a].tot||nameOf(a).localeCompare(nameOf(b),LANG));
+  const mx=Math.max(1,...ids.flatMap(id=>Object.values(M[id].m).map(c=>c.n)));
+  const colTot=months.map(mk=>ids.reduce((a,id)=>a+((M[id].m[mk]||{}).n||0),0));
+  const short=mk=>{ const [y,m]=mk.split("-").map(Number); return new Intl.DateTimeFormat(loc(),{month:"short"}).format(new Date(y,m-1,1)); };
+  const prev=LANG==="ar"?"›":"‹", next=LANG==="ar"?"‹":"›";
+  const head=`<div class="mbar"><button class="icbtn" data-pstep="-1"${months[0]<=firstM?" disabled":""}>${prev}</button><b class="mbname">${esc(monthName(months[0]))} – ${esc(monthName(end))}</b><button class="icbtn" data-pstep="1"${end>=curM?" disabled":""}>${next}</button></div>`;
+  const body=ids.map(id=>{ const r=M[id]; const p=S.profiles[id]||{}; const rate=r.tot?Math.round(r.done/r.tot*100):0;
+    return `<tr><td class="pcol">${who(id)}<div class="meta">${esc([isAdmin()?hotelL(p.hotel):"",deptL(p.dept)].filter(Boolean).join(" / "))}</div></td>
+     ${months.map(mk=>{ const c=r.m[mk]; if(!c) return `<td class="hc zero">—</td>`; const a=(0.12+0.6*c.n/mx).toFixed(2);
+       return `<td class="hc"><button class="hcb" data-pid="${id}" data-pm="${mk}" style="--a:${a}" title="${esc(nameOf(id)+" — "+monthName(mk))}"><b>${c.n}</b><span>${esc(t("lsDoneN",{n:c.d}))}</span></button></td>`; }).join("")}
+     <td class="ptot"><b>${r.tot}</b></td><td class="prate"><div class="rbar"><i style="width:${rate}%"></i></div><span>${rate}%${r.late?` <em>${esc(t("lsLateN",{n:r.late}))}</em>`:""}</span></td></tr>`; }).join("");
+  return `<div class="lsbar">${head}<p class="lshint">${esc(t("lsPeopleHint"))}</p></div>
+  <div class="panel tablewrap pptable"><table><thead><tr><th>${esc(t("lsPerson"))}</th>${months.map(mk=>`<th class="hc${mk===curM?" cur":""}">${esc(short(mk))}</th>`).join("")}<th class="ptot">${esc(t("lsTotal"))}</th><th>${esc(t("lsDoneRate"))}</th></tr></thead>
+  <tbody>${body||`<tr><td colspan="${N+3}" class="lsempty">${esc(t("lsNoPeople"))}</td></tr>`}</tbody>
+  ${ids.length?`<tfoot><tr><td>${esc(t("lsTotal"))}</td>${colTot.map(n=>`<td class="hc"><b>${n}</b></td>`).join("")}<td class="ptot"><b>${colTot.reduce((a,b)=>a+b,0)}</b></td><td></td></tr></tfoot>`:""}</table></div>`; }
 function bindList(){ const m=$("#main"); m.querySelectorAll("tr.click").forEach(r=>r.onclick=()=>openTask(r.dataset.id));
-  m.querySelectorAll("th.sort").forEach(h=>h.onclick=()=>{ if(S.sort.k===h.dataset.k) S.sort.d*=-1; else S.sort={k:h.dataset.k,d:-1}; renderMain(); }); }
+  m.querySelectorAll("th.sort").forEach(h=>h.onclick=()=>{ if(S.sort.k===h.dataset.k) S.sort.d*=-1; else S.sort={k:h.dataset.k,d:-1}; renderMain(); });
+  m.querySelectorAll("[data-lsm]").forEach(b=>b.onclick=()=>{ S.lsMode=b.dataset.lsm; renderMain(); });
+  m.querySelectorAll("[data-lst]").forEach(b=>b.onclick=()=>{ S.lsSt=b.dataset.lst; renderMain(); });
+  m.querySelectorAll("[data-lmstep]").forEach(b=>b.onclick=()=>{ S.lsMonth=shiftMonth(S.lsMonth,+b.dataset.lmstep); renderMain(); });
+  m.querySelectorAll("[data-pstep]").forEach(b=>b.onclick=()=>{ S.pplEnd=shiftMonth(S.pplEnd,+b.dataset.pstep); renderMain(); });
+  const a=$("#lmAll"); if(a) a.onclick=()=>{ S.lsMonth=S.lsMonth==="all"?monthKey(dayKey(Date.now())):"all"; renderMain(); };
+  m.querySelectorAll(".hcb").forEach(b=>b.onclick=()=>{ S.f.as=b.dataset.pid; S.lsMonth=b.dataset.pm; S.lsSt="all"; S.lsMode="tasks"; S.sort={k:"createdAt",d:-1}; fillFilters(); renderMain(); }); }
 
 /* ================= approvals ================= */
 function approvalsHTML(){
