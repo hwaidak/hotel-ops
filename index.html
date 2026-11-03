@@ -123,42 +123,59 @@ td .field{width:auto}
 .kpi b{display:block;font-family:var(--f-display);font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
 .kpi span{color:var(--muted);font-size:12.5px}
 .kpi.alert b{color:var(--bad)} .kpi.wait b{color:var(--brass)}
-.mbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
-.mnav{display:flex;align-items:center;gap:6px} .mnav h2{margin:0 6px;font-size:18px;min-width:150px;text-align:center}
-.mnav .btn[disabled]{opacity:.35;cursor:default}
-.mlegend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)} .mlegend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:5px;vertical-align:-1px}
-.mwarn{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.mwarn button{border:1px solid var(--bad);background:var(--bad-soft);color:var(--bad);border-radius:999px;padding:5px 12px;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer}
-.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
-.calh{font-size:12px;color:var(--muted);text-align:center;padding:2px 0 4px;font-weight:600}
-.calc{min-width:0;height:80px;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:7px 8px;display:flex;flex-direction:column;gap:4px;text-align:start;font:inherit;color:inherit;cursor:pointer;position:relative;overflow:hidden}
-.calc:hover{border-color:var(--accent)} .calc.blank{visibility:hidden} .calc.future{background:transparent;cursor:default;opacity:.55}
-.calc .dn{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;display:flex;justify-content:space-between;align-items:center;gap:4px}
-.calc .dn small{font-size:10.5px;font-weight:600;border-radius:999px;padding:0 6px;line-height:17px}
-.calc .ct{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.calc .cbar{margin-top:auto;height:4px;flex:none;border-radius:2px;background:color-mix(in srgb,var(--line) 70%,transparent);overflow:hidden;display:block} .calc .cbar i{display:block;height:4px;background:var(--ok)}
-.calc.open{border-color:var(--warn);background:var(--warn-soft)} .calc.open .dn small{background:var(--warn);color:#fff}
-.calc.late{border-color:var(--bad);background:var(--bad-soft)} .calc.late .dn small{background:var(--bad);color:#fff}
-.calc.closed{border-color:color-mix(in srgb,var(--ok) 45%,var(--line))} .calc.closed .dn small{background:var(--ok-soft);color:var(--ok)}
-.calc.today{box-shadow:0 0 0 2px var(--accent) inset}
-.calc.sel{outline:3px solid var(--accent);outline-offset:1px}
-.dpanel{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-inline-start:5px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:12px}
-.dpanel.open{border-inline-start-color:var(--warn)} .dpanel.late{border-inline-start-color:var(--bad)} .dpanel.closed{border-inline-start-color:var(--ok)}
-.dphead{display:flex;align-items:center;gap:10px;flex-wrap:wrap} .dphead h3{margin:0;font-size:17px}
-.dpstats{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-inline-start:auto;font-size:12.5px;color:var(--muted)} .dpstats b{font-size:17px;margin-inline-end:4px;font-variant-numeric:tabular-nums}
-.dpstats .meter{width:140px;height:6px}
-.dpcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.dpcol{background:var(--surface-2);border-radius:10px;padding:8px;display:grid;gap:6px;align-content:start;min-width:0}
-.dpcol h4{margin:0 2px 2px;font-size:13px;display:flex;justify-content:space-between}
-.dpcard{display:grid;gap:4px;min-width:0;text-align:start;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer;font:inherit;color:inherit}
-.dpcard:hover{border-color:var(--accent)} .dpcard .ht{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dlayout{display:grid;grid-template-columns:minmax(340px,460px) minmax(0,1fr);gap:18px;align-items:start}
+.calcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;gap:12px;position:sticky;top:12px}
+.calhead{display:flex;align-items:center;gap:8px}
+.calhead h2{margin:0;font-size:20px;font-weight:800;flex:1;letter-spacing:-.01em}
+.icbtn{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);display:grid;place-items:center;cursor:pointer;font:inherit;font-size:16px}
+.icbtn:hover:not([disabled]){border-color:var(--accent);color:var(--accent)} .icbtn[disabled]{opacity:.3;cursor:default}
+.nowbtn{border:0;background:var(--accent-soft);color:var(--accent);font:inherit;font-size:12.5px;font-weight:700;border-radius:999px;padding:6px 12px;cursor:pointer}
+.msum{display:grid;grid-template-columns:repeat(3,1fr);background:var(--surface-2);border-radius:12px;padding:8px 4px}
+.msum div{text-align:center;display:grid;gap:1px} .msum div+div{border-inline-start:1px solid var(--line)}
+.msum b{font-size:18px;font-variant-numeric:tabular-nums} .msum span{font-size:11.5px;color:var(--muted)}
+.mwarn{display:grid;gap:6px}
+.mwarn button{display:flex;align-items:center;gap:8px;text-align:start;border:1px solid color-mix(in srgb,var(--bad) 35%,transparent);background:var(--bad-soft);color:var(--bad);border-radius:10px;padding:8px 12px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.calh{font-size:11.5px;color:var(--muted);text-align:center;padding-bottom:2px;font-weight:600}
+.calc{aspect-ratio:1/1;min-width:0;position:relative;overflow:hidden;border-radius:11px;border:1.5px solid transparent;background:var(--surface-2);padding:5px 7px;text-align:start;font:inherit;color:var(--fg);cursor:pointer;display:block}
+.calc .fill{position:absolute;inset-inline:0;bottom:0;background:color-mix(in srgb,var(--ok) 26%,transparent);transition:height .3s}
+.calc .dn{position:relative;z-index:1;font-size:15px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.calc .lf{position:absolute;z-index:1;bottom:5px;inset-inline-end:6px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;font-size:10.5px;font-weight:800;display:grid;place-items:center;color:#fff}
+.calc .tk{position:absolute;z-index:1;bottom:5px;inset-inline-start:6px;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.calc.none{background:transparent;border-color:var(--line)} .calc.none .dn{color:var(--muted);font-weight:600}
+.calc.future{background:transparent;border-color:transparent;cursor:default} .calc.future .dn{color:var(--line);font-weight:600}
+.calc.blank{visibility:hidden}
+.calc.open{background:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 55%,transparent)} .calc.open .lf{background:var(--warn)}
+.calc.late{background:var(--bad-soft);border-color:color-mix(in srgb,var(--bad) 55%,transparent)} .calc.late .lf{background:var(--bad)}
+.calc.closed{background:var(--ok-soft);border-color:color-mix(in srgb,var(--ok) 40%,transparent)} .calc.closed .lf{background:var(--ok)}
+.calc.today .dn::after{content:"";display:block;width:14px;height:3px;border-radius:2px;background:var(--accent);margin-top:3px}
+.calc.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.calc:not(.future):not(.blank):hover{border-color:var(--accent)}
+.calc:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mlegend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);justify-content:center}
+.mlegend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:5px;vertical-align:-1px}
+.dpanel{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.dptop{display:flex;align-items:center;gap:16px;padding:18px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.dpnum{font-size:52px;font-weight:800;line-height:.9;font-variant-numeric:tabular-nums;color:var(--accent);letter-spacing:-.03em}
+.dpname{display:grid;gap:3px;flex:1;min-width:160px} .dpname b{font-size:18px} .dpname span{font-size:13px;color:var(--muted)}
+.dpstate{border-radius:999px;padding:6px 14px;font-size:13px;font-weight:800;white-space:nowrap}
+.dpstate.open{background:var(--warn-soft);color:var(--warn)} .dpstate.late{background:var(--bad-soft);color:var(--bad)} .dpstate.closed{background:var(--ok-soft);color:var(--ok)} .dpstate.empty{background:var(--surface-2);color:var(--muted)}
+.dpbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(140px,1.4fr);gap:0;border-bottom:1px solid var(--line)}
+.dpbar>div{padding:12px 16px;display:grid;gap:2px} .dpbar>div+div{border-inline-start:1px solid var(--line)}
+.dpbar b{font-size:22px;font-variant-numeric:tabular-nums;line-height:1.1} .dpbar span{font-size:12px;color:var(--muted)}
+.dpbar .meter{height:8px;width:100%;margin-top:6px}
+.dpcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:16px 20px 20px}
+.dpcol{display:grid;gap:8px;align-content:start;min-width:0}
+.dpcol h4{margin:0;font-size:13.5px;display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+.dpcol h4 .num{margin-inline-start:auto;color:var(--muted);font-weight:600}
+.dpcard{display:grid;gap:5px;min-width:0;text-align:start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 11px;cursor:pointer;font:inherit;color:inherit}
+.dpcard:hover{border-color:var(--accent)} .dpcard .ht{font-size:13.5px;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .dpcard .dm{display:flex;align-items:center;gap:6px;min-width:0;font-size:11.5px;color:var(--muted)} .dpcard .dm .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.dpcard .av{width:18px;height:18px;font-size:9.5px;flex:none}
-.dpalert{font-size:13px;font-weight:600} .dpalert.open{color:var(--warn)} .dpalert.late{color:var(--bad)} .dpalert.closed{color:var(--ok)} .dpalert.empty{color:var(--muted);font-weight:500}
-@media (max-width:640px){ .calc{height:58px;padding:5px} .calc .ct{display:none} .calc .dn{font-size:13px;flex-direction:column;align-items:flex-start} .cal{gap:4px} .dpcols{grid-template-columns:minmax(0,1fr)} .mnav h2{min-width:0;font-size:16px} }
-#netBar{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:999;background:var(--warn);color:#fff;font-weight:700;font-size:13px;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.18);display:flex;gap:10px;align-items:center}
-#netBar[hidden]{display:none}
-#netBar button{background:#fff;color:var(--warn);border:0;border-radius:999px;padding:3px 10px;font:inherit;font-size:12px;cursor:pointer}
+.dpcard .av{width:20px;height:20px;font-size:10px;flex:none}
+.dpempty{padding:40px 20px;text-align:center;color:var(--muted);display:grid;gap:10px;justify-items:center}
+.dpnone{font-size:12.5px;color:var(--muted);padding:10px 2px}
+@media (max-width:1000px){ .dlayout{grid-template-columns:minmax(0,1fr)} .calcard{position:static} .dpbar{grid-template-columns:repeat(4,minmax(0,1fr))} .dpbar>div:last-child{grid-column:1/-1;border-inline-start:0;border-top:1px solid var(--line)} }
+@media (max-width:640px){ .dpcols{grid-template-columns:minmax(0,1fr)} .calc{border-radius:8px;padding:4px} .calc .tk{display:none} .calc .lf{bottom:3px;inset-inline-end:3px;height:15px;min-width:15px;font-size:9.5px;padding:0 3px} .dpnum{font-size:40px} .dpbar>div{padding:10px} .dpbar b{font-size:18px} }
 .daybanner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;border-radius:10px;padding:9px 14px;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:13.5px}
 .meter{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;min-width:60px;display:flex}
 .meter i{display:block;height:100%}
@@ -268,7 +285,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const I18N={
 en:{
  app:"Hotel Operations",tagline:"Tasks, time and approvals for every department",newTask:"+ New task",logout:"Log out",langBtn:"العربية",
- tabBoard:"Board",tabDays:"Days",doneMore:"Show {n} more ({m} hidden)",doneLess:"Show less",dyToday:"Today",dyYesterday:"Yesterday",dyTotal:"Total",dyNew:"New",dyPending:"Pending",dyDone:"Done",dyOpen:"Day still open — {n} task(s) not finished yet",dyLate:"This day has passed and {n} task(s) are still not finished!",dyClosed:"Day closed — all tasks are done",dyEmpty:"No tasks yet",dyShowDone:"Show finished ({n})",dyHideDone:"Hide finished",dyOnlyOpen:"Open days only",dyAll:"All days",dyHint:"Every task goes into the box of the day it was created. A day stays open (warning) until all its tasks are finished.",dyBanner:"⚠ {d} past day(s) still open with {n} unfinished task(s)",dyGo:"Open the days",dyNoneOpen:"No open days. Great work!",dyPillOpen:"Open",dyCellDone:"{d}/{n} done",dyPrevM:"Previous month",dyNextM:"Next month",dyThisM:"This month",dyOldMonth:"{m} still has {n} unfinished task(s)",dyPick:"Pick a day from the calendar to see its tasks.",dyPillLate:"Overdue",dyPillClosed:"Closed",tabList:"List",tabApprovals:"Approvals",tabReports:"Reports",tabTeam:"Team & access",tabDepts:"Departments",dpTitle:"Departments",dpHint:"Add, rename or remove departments. Changes show up right away for every hotel, in sign-up, task forms, filters and reports.",dpAddTitle:"Add a new department",dpNeedName:"Write the department name (English or Arabic).",dpExists:"A department with this name already exists.",dpPeople:"People",dpOpen:"Open tasks",dpOrder:"Order",dpInUse:"Move the {n} people in this department to another department first.",tDeptSaved:"Department saved",e_use_transfer:"Use “Transfer” to hand a task to someone.",e_dept_in_use:"This department still has people in it. Move them first.",
+ tabBoard:"Board",tabDays:"Days",doneMore:"Show {n} more ({m} hidden)",doneLess:"Show less",dyToday:"Today",dyYesterday:"Yesterday",dyTotal:"Total",dyNew:"New",dyPending:"Pending",dyDone:"Done",dyOpen:"Day still open — {n} task(s) not finished yet",dyLate:"This day has passed and {n} task(s) are still not finished!",dyClosed:"Day closed — all tasks are done",dyEmpty:"No tasks yet",dyShowDone:"Show finished ({n})",dyHideDone:"Hide finished",dyOnlyOpen:"Open days only",dyAll:"All days",dyHint:"Every task goes into the box of the day it was created. A day stays open (warning) until all its tasks are finished.",dyBanner:"⚠ {d} past day(s) still open with {n} unfinished task(s)",dyGo:"Open the days",dyNoneOpen:"No open days. Great work!",dyPillOpen:"Open",dyMTasks:"Tasks this month",dyMLate:"Late days",dyProgress:"Finished",dyColNone:"Nothing here",dyNoTasksDay:"No tasks were created on this day.",dyCellDone:"{d}/{n} done",dyPrevM:"Previous month",dyNextM:"Next month",dyThisM:"This month",dyOldMonth:"{m} still has {n} unfinished task(s)",dyPick:"Pick a day from the calendar to see its tasks.",dyPillLate:"Overdue",dyPillClosed:"Closed",tabList:"List",tabApprovals:"Approvals",tabReports:"Reports",tabTeam:"Team & access",tabDepts:"Departments",dpTitle:"Departments",dpHint:"Add, rename or remove departments. Changes show up right away for every hotel, in sign-up, task forms, filters and reports.",dpAddTitle:"Add a new department",dpNeedName:"Write the department name (English or Arabic).",dpExists:"A department with this name already exists.",dpPeople:"People",dpOpen:"Open tasks",dpOrder:"Order",dpInUse:"Move the {n} people in this department to another department first.",tDeptSaved:"Department saved",e_use_transfer:"Use “Transfer” to hand a task to someone.",e_dept_in_use:"This department still has people in it. Move them first.",
  search:"Search by title, number or room…",allDepts:"All departments",allPeople:"All people",unassigned:"Unassigned",allPri:"All priorities",allHotels:"All hotels",
  mine:"My tasks only",lateOnly:"Overdue only",loading:"Loading…",
  st_todo:"New",st_progress:"In progress",st_review:"Awaiting approval",st_rejected:"Rejected",st_done:"Done & approved",
@@ -332,7 +349,7 @@ en:{
 },
 ar:{
  app:"لوحة عمليات الفندق",tagline:"متابعة المهام والوقت والاعتماد لكل قسم",newTask:"+ مهمة جديدة",logout:"خروج",langBtn:"English",
- tabBoard:"لوحة المهام",tabDays:"الأيام",doneMore:"اعرض {n} كمان ({m} مخفية)",doneLess:"اعرض أقل",dyToday:"النهاردة",dyYesterday:"امبارح",dyTotal:"الكل",dyNew:"جديد",dyPending:"متعلق",dyDone:"خلصان",dyOpen:"اليوم لسه مفتوح — فيه {n} مهام لسه ماخلصتش",dyLate:"اليوم ده فات ولسه فيه {n} مهام لم تنتهِ!",dyClosed:"اليوم مقفول — كل المهام خلصت",dyEmpty:"مافيش مهام لسه",dyShowDone:"اعرض الخلصان ({n})",dyHideDone:"اخفي الخلصان",dyOnlyOpen:"الأيام المفتوحة بس",dyAll:"كل الأيام",dyHint:"كل مهمة بتتحط في بوكس اليوم اللي اتعملت فيه. اليوم بيفضل مفتوح وعليه تحذير لحد ما كل مهامه تخلص.",dyBanner:"⚠ فيه {d} أيام فاتت لسه مفتوحة وفيها {n} مهام لم تنتهِ",dyGo:"افتح الأيام",dyNoneOpen:"مافيش أيام مفتوحة. شغل عظيم!",dyPillOpen:"مفتوح",dyCellDone:"{d}/{n} خلصت",dyPrevM:"الشهر اللي فات",dyNextM:"الشهر اللي بعده",dyThisM:"الشهر الحالي",dyOldMonth:"شهر {m} لسه فيه {n} مهام متعلقة",dyPick:"اختار يوم من التقويم عشان تشوف مهامه.",dyPillLate:"متأخر",dyPillClosed:"مقفول",tabList:"القائمة",tabApprovals:"الموافقات",tabReports:"التقارير والأداء",tabTeam:"الفريق والصلاحيات",tabDepts:"الأقسام",dpTitle:"الأقسام",dpHint:"ضيف أو عدّل أو امسح الأقسام. التغيير بيظهر فورًا لكل الفنادق: في التسجيل، وفورم المهام، والفلاتر، والتقارير.",dpAddTitle:"إضافة قسم جديد",dpNeedName:"اكتب اسم القسم (إنجليزي أو عربي).",dpExists:"في قسم بنفس الاسم ده بالفعل.",dpPeople:"الموظفين",dpOpen:"مهام مفتوحة",dpOrder:"الترتيب",dpInUse:"انقل الـ {n} موظفين اللي في القسم ده لقسم تاني الأول.",tDeptSaved:"تم حفظ القسم",e_use_transfer:"استخدم «تحويل» عشان تدّي المهمة لحد.",e_dept_in_use:"القسم ده لسه فيه موظفين. انقلهم الأول.",
+ tabBoard:"لوحة المهام",tabDays:"الأيام",doneMore:"اعرض {n} كمان ({m} مخفية)",doneLess:"اعرض أقل",dyToday:"النهاردة",dyYesterday:"امبارح",dyTotal:"الكل",dyNew:"جديد",dyPending:"متعلق",dyDone:"خلصان",dyOpen:"اليوم لسه مفتوح — فيه {n} مهام لسه ماخلصتش",dyLate:"اليوم ده فات ولسه فيه {n} مهام لم تنتهِ!",dyClosed:"اليوم مقفول — كل المهام خلصت",dyEmpty:"مافيش مهام لسه",dyShowDone:"اعرض الخلصان ({n})",dyHideDone:"اخفي الخلصان",dyOnlyOpen:"الأيام المفتوحة بس",dyAll:"كل الأيام",dyHint:"كل مهمة بتتحط في بوكس اليوم اللي اتعملت فيه. اليوم بيفضل مفتوح وعليه تحذير لحد ما كل مهامه تخلص.",dyBanner:"⚠ فيه {d} أيام فاتت لسه مفتوحة وفيها {n} مهام لم تنتهِ",dyGo:"افتح الأيام",dyNoneOpen:"مافيش أيام مفتوحة. شغل عظيم!",dyPillOpen:"مفتوح",dyMTasks:"مهام الشهر",dyMLate:"أيام متأخرة",dyProgress:"نسبة الإنجاز",dyColNone:"مافيش",dyNoTasksDay:"مافيش مهام اتعملت في اليوم ده.",dyCellDone:"{d}/{n} خلصت",dyPrevM:"الشهر اللي فات",dyNextM:"الشهر اللي بعده",dyThisM:"الشهر الحالي",dyOldMonth:"شهر {m} لسه فيه {n} مهام متعلقة",dyPick:"اختار يوم من التقويم عشان تشوف مهامه.",dyPillLate:"متأخر",dyPillClosed:"مقفول",tabList:"القائمة",tabApprovals:"الموافقات",tabReports:"التقارير والأداء",tabTeam:"الفريق والصلاحيات",tabDepts:"الأقسام",dpTitle:"الأقسام",dpHint:"ضيف أو عدّل أو امسح الأقسام. التغيير بيظهر فورًا لكل الفنادق: في التسجيل، وفورم المهام، والفلاتر، والتقارير.",dpAddTitle:"إضافة قسم جديد",dpNeedName:"اكتب اسم القسم (إنجليزي أو عربي).",dpExists:"في قسم بنفس الاسم ده بالفعل.",dpPeople:"الموظفين",dpOpen:"مهام مفتوحة",dpOrder:"الترتيب",dpInUse:"انقل الـ {n} موظفين اللي في القسم ده لقسم تاني الأول.",tDeptSaved:"تم حفظ القسم",e_use_transfer:"استخدم «تحويل» عشان تدّي المهمة لحد.",e_dept_in_use:"القسم ده لسه فيه موظفين. انقلهم الأول.",
  search:"بحث بالعنوان أو الرقم أو الغرفة…",allDepts:"كل الأقسام",allPeople:"كل الموظفين",unassigned:"غير مُسند",allPri:"كل الأولويات",allHotels:"كل الفنادق",
  mine:"مهامي فقط",lateOnly:"المتأخرة فقط",loading:"جارٍ التحميل…",
  st_todo:"جديدة",st_progress:"قيد التنفيذ",st_review:"بانتظار الموافقة",st_rejected:"مرفوضة",st_done:"مكتملة ومعتمدة",
@@ -600,33 +617,46 @@ function daysHTML(){ const todayK=dayKey(Date.now()), curM=monthKey(todayK);
   const gs=dayGroups(filtered()); const G={}; gs.forEach(g=>G[g.k]=g);
   if(!S.dayMonth) S.dayMonth=curM; if(S.dayMonth>curM) S.dayMonth=curM;
   const mk=S.dayMonth; if(!S.daySel||monthKey(S.daySel)!==mk) S.daySel=mk===curM?todayK:null;
-  // older months that still have unfinished tasks
   const oldOpen={}; gs.forEach(g=>{ const m=monthKey(g.k); if(m<curM&&g.open) oldOpen[m]=(oldOpen[m]||0)+g.total-g.done; });
   const firstM=gs.length?monthKey(gs[gs.length-1].k):curM;
-  const [y,m]=mk.split("-").map(Number); const days=new Date(y,m,0).getDate(); const lead=(new Date(y,m-1,1).getDay()+1)%7; // week starts Saturday
+  const [y,m]=mk.split("-").map(Number); const days=new Date(y,m,0).getDate(); const lead=(new Date(y,m-1,1).getDay()+1)%7;
   const wk=[...Array(7)].map((_,i)=>new Intl.DateTimeFormat(loc(),{weekday:"short"}).format(new Date(2024,0,6+i)));
   const cls=g=>!g||!g.total?"":!g.open?"closed":g.past?"late":"open";
+  const inM=gs.filter(g=>monthKey(g.k)===mk); const mTot=inM.reduce((a,g)=>a+g.total,0), mDone=inM.reduce((a,g)=>a+g.done,0), mLate=inM.filter(g=>g.open&&g.past).length;
   let cells=wk.map(w=>`<div class="calh">${esc(w)}</div>`).join("")+`<div class="calc blank"></div>`.repeat(lead);
-  for(let d=1;d<=days;d++){ const k=mk+"-"+String(d).padStart(2,"0"); const g=G[k]; const c=cls(g); const fut=k>todayK;
-    const left=g?g.total-g.done:0;
-    cells+=`<button type="button" class="calc ${c}${k===todayK?" today":""}${k===S.daySel?" sel":""}${fut?" future":""}" data-day="${k}"${fut?" disabled":""}>
-      <span class="dn">${d}${g&&g.total?`<small>${c==="closed"?"✓":left}</small>`:""}</span>
-      ${g&&g.total?`<span class="ct">${esc(t("dyCellDone",{d:g.done,n:g.total}))}</span><span class="cbar"><i style="width:${g.done/g.total*100}%"></i></span>`:""}</button>`; }
+  for(let d=1;d<=days;d++){ const k=mk+"-"+String(d).padStart(2,"0"); const g=G[k]; const c=cls(g); const fut=k>todayK; const left=g?g.total-g.done:0;
+    const L=dayLabel(k); const tip=L.main+(g&&g.total?" — "+t("dyCellDone",{d:g.done,n:g.total}):"");
+    cells+=`<button type="button" class="calc ${fut?"future":(c||"none")}${k===todayK?" today":""}${k===S.daySel?" sel":""}" data-day="${k}"${fut?" disabled":""} title="${esc(tip)}" aria-label="${esc(tip)}">
+      ${g&&g.total?`<span class="fill" style="height:${Math.round(g.done/g.total*100)}%"></span>`:""}<span class="dn">${d}</span>
+      ${g&&g.total?`${left?`<span class="lf">${left}</span>`:`<span class="lf">✓</span>`}`:""}</button>`; }
   const mw=Object.keys(oldOpen).sort();
-  const head=`<div class="mbar"><div class="mnav"><button class="btn sm" data-mstep="-1"${mk<=firstM?" disabled":""} aria-label="${esc(t("dyPrevM"))}">${LANG==="ar"?"→":"←"}</button><h2>${esc(monthName(mk))}</h2><button class="btn sm" data-mstep="1"${mk>=curM?" disabled":""} aria-label="${esc(t("dyNextM"))}">${LANG==="ar"?"←":"→"}</button>${mk!==curM?`<button class="btn sm primary" data-mstep="0">${esc(t("dyThisM"))}</button>`:`<span class="chip info">${esc(t("dyThisM"))}</span>`}</div>
-    <div class="mlegend"><span><i style="background:var(--warn)"></i>${esc(t("dyPillOpen"))}</span><span><i style="background:var(--bad)"></i>${esc(t("dyPillLate"))}</span><span><i style="background:var(--ok)"></i>${esc(t("dyPillClosed"))}</span></div></div>
-   ${mw.length?`<div class="mwarn">${mw.map(x=>`<button type="button" data-mgo="${x}">⚠ ${esc(t("dyOldMonth",{m:monthName(x),n:oldOpen[x]}))}</button>`).join("")}</div>`:""}`;
-  return head+`<div class="cal">${cells}</div>`+dayPanel(S.daySel?G[S.daySel]||{k:S.daySel,ts:[],total:0,done:0,nw:0,pend:0,open:false,past:S.daySel<todayK}:null); }
-function dayPanel(g){ if(!g) return `<div class="dpanel"><div class="dpalert empty">${esc(t("dyPick"))}</div></div>`;
+  const prev=LANG==="ar"?"›":"‹", next=LANG==="ar"?"‹":"›";
+  const card=`<aside class="calcard">
+    <div class="calhead"><button class="icbtn" data-mstep="-1"${mk<=firstM?" disabled":""} aria-label="${esc(t("dyPrevM"))}">${prev}</button><h2>${esc(monthName(mk))}</h2>
+      ${mk!==curM?`<button class="nowbtn" data-mstep="0">${esc(t("dyThisM"))}</button>`:""}<button class="icbtn" data-mstep="1"${mk>=curM?" disabled":""} aria-label="${esc(t("dyNextM"))}">${next}</button></div>
+    <div class="msum"><div><b>${mTot}</b><span>${esc(t("dyMTasks"))}</span></div><div><b style="color:var(--ok)">${mDone}</b><span>${esc(t("dyDone"))}</span></div><div><b style="color:${mLate?"var(--bad)":"var(--muted)"}">${mLate}</b><span>${esc(t("dyMLate"))}</span></div></div>
+    ${mw.length?`<div class="mwarn">${mw.map(x=>`<button type="button" data-mgo="${x}">⚠ ${esc(t("dyOldMonth",{m:monthName(x),n:oldOpen[x]}))}</button>`).join("")}</div>`:""}
+    <div class="cal">${cells}</div>
+    <div class="mlegend"><span><i style="background:var(--warn)"></i>${esc(t("dyPillOpen"))}</span><span><i style="background:var(--bad)"></i>${esc(t("dyPillLate"))}</span><span><i style="background:var(--ok)"></i>${esc(t("dyPillClosed"))}</span></div>
+  </aside>`;
+  return `<div class="dlayout">${card}${dayPanel(S.daySel?G[S.daySel]||{k:S.daySel,ts:[],total:0,done:0,nw:0,pend:0,open:false,past:S.daySel<todayK}:null)}</div>`; }
+function dayPanel(g){ if(!g) return `<section class="dpanel"><div class="dpempty"><b>${esc(t("dyPick"))}</b></div></section>`;
+  const [y,mo,d]=g.k.split("-").map(Number); const dt=new Date(y,mo-1,d);
   const L=dayLabel(g.k); const c=!g.total?"empty":!g.open?"closed":g.past?"late":"open"; const pct=g.total?Math.round(g.done/g.total*100):0;
-  const card=x=>`<button type="button" class="dpcard" data-id="${x.id}" title="${esc(x.title)}"><span class="ht">${esc(x.title)}</span><span class="dm"><span class="mono">${esc(keyOf(x))}</span><span style="color:${ST[x.status].c};font-weight:600">● ${esc(stL(x.status))}</span>${x.assignee?`<span style="flex:1"></span>${av(x.assignee)}<span class="nm">${esc(nameOf(x.assignee))}</span>`:""}</span></button>`;
-  const col=(title,color,list)=>`<div class="dpcol"><h4><span style="color:${color}">${esc(title)}</span><span class="num">${list.length}</span></h4>${list.map(card).join("")||`<div class="meta" style="padding:6px 4px">—</div>`}</div>`;
+  const wd=new Intl.DateTimeFormat(loc(),{weekday:"long"}).format(dt), mn=new Intl.DateTimeFormat(loc(),{month:"long",year:"numeric"}).format(dt);
+  const card=x=>`<button type="button" class="dpcard" data-id="${x.id}" title="${esc(x.title)}"><span class="ht">${esc(x.title)}</span><span class="dm"><span class="mono">${esc(keyOf(x))}</span><span style="color:${ST[x.status].c};font-weight:700">${esc(stL(x.status))}</span>${x.assignee?`<span style="flex:1"></span>${av(x.assignee)}<span class="nm">${esc(nameOf(x.assignee))}</span>`:""}</span></button>`;
+  const col=(title,color,list)=>`<div class="dpcol"><h4 style="border-color:${color}"><span style="color:${color}">${esc(title)}</span><span class="num">${list.length}</span></h4>${list.map(card).join("")||`<div class="dpnone">${esc(t("dyColNone"))}</div>`}</div>`;
   const nw=g.ts.filter(x=>x.status==="todo"), pend=g.ts.filter(x=>x.status!=="todo"&&x.status!=="done"), dn=g.ts.filter(x=>x.status==="done");
-  return `<section class="dpanel ${c==="empty"?"":c}"><div class="dphead"><h3>${esc(L.main)}</h3>${L.tag?`<span class="chip info">${esc(L.tag)}</span>`:""}
-     <span class="dpalert ${c}">${esc(c==="empty"?t("dyEmpty"):c==="closed"?"✓ "+t("dyClosed"):"⚠ "+t(c==="late"?"dyLate":"dyOpen",{n:g.total-g.done}))}</span>
-     ${g.total?`<div class="dpstats"><span><b>${g.total}</b>${esc(t("dyTotal"))}</span><span><b style="color:var(--muted)">${g.nw}</b>${esc(t("dyNew"))}</span><span><b style="color:var(--warn)">${g.pend}</b>${esc(t("dyPending"))}</span><span><b style="color:var(--ok)">${g.done}</b>${esc(t("dyDone"))}</span><div class="meter"><i style="width:${pct}%;background:var(--ok)"></i></div><span class="num">${pct}%</span></div>`:""}</div>
-   ${g.total?`<div class="dpcols">${col(t("dyNew"),"var(--muted)",nw)}${col(t("dyPending"),"var(--warn)",pend)}${col(t("dyDone"),"var(--ok)",dn)}</div>`:""}</section>`; }
-function bindDays(){ const m=$("#main");
+  const state={empty:t("dyEmpty"),closed:"✓ "+t("dyPillClosed"),late:"⚠ "+t("dyPillLate"),open:"⚠ "+t("dyPillOpen")}[c];
+  const msg=c==="empty"?"":c==="closed"?t("dyClosed"):t(c==="late"?"dyLate":"dyOpen",{n:g.total-g.done});
+  return `<section class="dpanel">
+    <div class="dptop"><div class="dpnum">${d}</div><div class="dpname"><b>${esc(wd)}${L.tag?` <span class="chip info" style="vertical-align:middle">${esc(L.tag)}</span>`:""}</b><span>${esc(mn)}${msg?" — "+esc(msg):""}</span></div><span class="dpstate ${c}">${esc(state)}</span></div>
+    ${g.total?`<div class="dpbar"><div><b>${g.total}</b><span>${esc(t("dyTotal"))}</span></div><div><b style="color:var(--muted)">${g.nw}</b><span>${esc(t("dyNew"))}</span></div><div><b style="color:var(--warn)">${g.pend}</b><span>${esc(t("dyPending"))}</span></div><div><b style="color:var(--ok)">${g.done}</b><span>${esc(t("dyDone"))}</span></div>
+      <div><b>${pct}%</b><span>${esc(t("dyProgress"))}</span><div class="meter"><i style="width:${pct}%;background:var(--ok)"></i></div></div></div>
+    <div class="dpcols">${col(t("dyNew"),"var(--muted)",nw)}${col(t("dyPending"),"var(--warn)",pend)}${col(t("dyDone"),"var(--ok)",dn)}</div>`
+    :`<div class="dpempty"><span>${esc(t("dyNoTasksDay"))}</span>${g.past?"":`<button class="btn primary" id="dayNew">${esc(t("newTaskT"))}</button>`}</div>`}
+  </section>`; }
+function bindDays(){ const m=$("#main"); const dn=m.querySelector("#dayNew"); if(dn) dn.onclick=()=>openTask(null);
   m.querySelectorAll(".dpcard").forEach(b=>b.onclick=()=>openTask(b.dataset.id));
   m.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>{ if(b.disabled) return; S.daySel=b.dataset.day; renderMain(); });
   m.querySelectorAll("[data-mstep]").forEach(b=>b.onclick=()=>{ const n=+b.dataset.mstep; const cur=monthKey(dayKey(Date.now())); S.dayMonth=n===0?cur:shiftMonth(S.dayMonth,n); S.daySel=null; renderMain(); });
