@@ -791,7 +791,7 @@ const activeMembers=()=>Object.values(S.profiles).filter(p=>p.active&&p.role!=="
 const subordinates=()=>(isManager()||isSup()||isGM()||isAdmin())?activeMembers().filter(id=>isAbove(S.uid,id)):[];
 function canAssignTo(id,hotel){ const p=S.profiles[id]; if(!p||!p.active||p.role==="pending"||p.role==="admin") return false; if(isAdmin()) return !hotel||p.hotel===hotel;
   if(p.hotel!==myHotel()) return false; if(isGM()||id===S.uid) return true;
-  return (isManager()||isSup())&&(isAbove(S.uid,id)||inScope(id)||["manager","supervisor","gm"].includes(p.role)); }
+  return (isManager()||isSup())&&(isAbove(S.uid,id)||inScope(id)||p.role==="gm"); }
 const RANK={admin:5,gm:4,manager:3,supervisor:2,staff:1}; const rankOf=id=>RANK[(S.profiles[id]||{}).role]||0;
 const needsBoss=x=>!!x.assignee&&!!x.reporter&&x.assignee!==x.reporter&&(S.profiles[x.assignee]||{}).role==="supervisor"&&["manager","gm","admin"].includes((S.profiles[x.reporter]||{}).role);
 const canApprove=x=>isAdmin()||(x.hotel===myHotel()&&(isGM()||(!!x.assignee&&x.assignee!==S.uid&&(isAbove(S.uid,x.assignee)||(isDeptBoss(x.assignee)&&(RANK[myRole()]||0)>rankOf(x.assignee))||x.reporter===S.uid||(x.prevAssignees||[]).includes(S.uid)))));
@@ -842,7 +842,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v39";
+const BUILD="v40";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -1665,7 +1665,8 @@ async function demoteDialog(id){ const p=S.profiles[id]; const open=S.tasks.filt
   try{ const r=await call(S.sb.rpc("demote_supervisor",{p_sup:id,p_to:to})); toast(t("dmDone",{n:(r&&r.data)||0,m:nameOf(to)})); return true; }catch(e){ return false; } }
 
 /* ================= task sheet ================= */
-function assigneeOptions(hotel,cur,par,isNew){ let list=activeMembers().filter(id=>canAssignTo(id,hotel));
+function assigneeOptions(hotel,cur,par,isNew,dept){ let list=activeMembers().filter(id=>canAssignTo(id,hotel));
+  if(dept) list=list.filter(id=>{ const q=S.profiles[id]; return q.dept===dept||q.role==="gm"||(!q.dept&&id===S.uid); });
   if(par&&isNew&&par.assignee===S.uid&&subordinates().length) list=list.filter(id=>id!==S.uid);
   if(cur&&!list.includes(cur)) list.push(cur);
   return opt("",t("unassigned"),cur||"")+list.map(id=>{const p=S.profiles[id]; return opt(id,nameOf(id)+(p&&p.dept?" — "+deptL(p.dept):"")+(p&&["manager","supervisor","gm"].includes(p.role)?" ("+roleL(p.role)+")":"")+(isAdmin()&&!hotel&&p&&p.hotel?" · "+hotelL(p.hotel):""),cur||"");}).join(""); }
@@ -1685,7 +1686,7 @@ function openTask(id,parentId){ const x=id?T(id):null; if(id&&!x) return; closeS
       ${isAdmin()&&!x&&!par?`<label class="lb">${esc(t("hotel"))}<select class="field" id="fH" required>${hotelOpts(hotel,t("chooseHotel"))}</select></label>`:(isAdmin()?`<label class="lb">${esc(t("hotel"))}<input class="field" value="${esc(hotelL(hotel))}" disabled></label>`:"")}
       <label class="lb">${esc(t("dept"))}<select class="field" id="fD"${dis}>${deptOpts(x?x.dept:(par?par.dept:myDept()),"—")}</select></label>
       <label class="lb">${esc(t("location"))}<input class="field" id="fLoc" placeholder="${esc(t("locationPh"))}" value="${esc(x?x.location:"")}" maxlength="60"${dis}></label>
-      <label class="lb">${esc(t("assignee"))}<select class="field" id="fA"${dis}>${assigneeOptions(hotel,cur,par,!x)}</select></label>
+      <label class="lb">${esc(t("assignee"))}<select class="field" id="fA"${dis}>${assigneeOptions(hotel,cur,par,!x,x?x.dept:(par?par.dept:myDept()))}</select></label>
       <label class="lb">${esc(t("priority"))}<select class="field" id="fP"${dis}>${Object.keys(PRI).map(k=>opt(k,priL(k),x?x.priority:"normal")).join("")}</select></label>
       <label class="lb">${esc(t("dueAt"))}<input class="field" type="datetime-local" id="fDue" value="${toLocal(x&&x.due)}"${dis}></label>
       <label class="lb">${esc(t("shift"))}<select class="field" id="fSh"${dis}>${SHIFTS.map(k=>opt(k,t("sh_"+k),x?x.shift:"")).join("")}</select></label>
@@ -1703,7 +1704,8 @@ function openTask(id,parentId){ const x=id?T(id):null; if(id&&!x) return; closeS
   ov.addEventListener("click",e=>{ if(e.target===ov) closeSheet(); });
   ov.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!document.querySelector(".dlg")) closeSheet(); });
   $("#closeT").onclick=closeSheet; const c=$("#cancelT"); if(c) c.onclick=closeSheet;
-  const fh=$("#fH"); if(fh) fh.onchange=()=>{ $("#fA").innerHTML=assigneeOptions(fh.value,"",null,true); };
+  const fh=$("#fH"); if(fh) fh.onchange=()=>{ $("#fA").innerHTML=assigneeOptions(fh.value,"",null,true,$("#fD").value); };
+  const fdp=$("#fD"); if(fdp&&!fdp.disabled) fdp.onchange=()=>{ const keep=$("#fA").value; const h=fh?fh.value:hotel; $("#fA").innerHTML=assigneeOptions(h,"",par,!x,fdp.value); if([...$("#fA").options].some(o=>o.value===keep)) $("#fA").value=keep; };
   const dl=$("#delT"); if(dl) dl.onclick=async()=>{ const ok=await ask({title:t("delDlg",{k:keyOf(x)}),text:t("delDlgT"),noInput:true,okText:t("delOk"),danger:true}); if(ok==null) return;
     const r=await call(S.sb.from("tasks").delete().eq("id",x.id).select("id")).catch(()=>null); if(r&&r.data&&r.data.length){ toast(t("tDeleted")); closeSheet(); await loadTasks(); render(); } else if(r) toast(t("e_not_allowed"),true); };
   $("#tf").addEventListener("submit",saveTask); const cs=$("#cmSend"); if(cs) cs.onclick=addComment;
