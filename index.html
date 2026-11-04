@@ -447,6 +447,9 @@ tr.grp td{position:sticky;top:0;z-index:2} .grpin{display:flex;align-items:cente
 @media (max-width:1100px){ .lshero{grid-template-columns:1fr auto} .lsh-kpis,.lsh-spark{grid-column:1/-1} }
 @media (max-width:560px){ .lshero{padding:18px;gap:14px} .lsh-main h2{font-size:24px} .lsh-ring{width:92px;height:92px} .lsh-kpis b{font-size:18px} .gtrack{width:70px} }
 
+.tmail{white-space:nowrap;font-size:11.5px;color:var(--muted);margin-top:2px;margin-inline-start:30px;font-family:var(--f-mono)} .tacts{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.rpwbox{display:grid;gap:8px;justify-items:center;text-align:center;background:var(--bg);border-radius:14px;padding:14px} .rpwbox code{font-size:22px;font-weight:800;letter-spacing:.04em;background:var(--surface);border:1px dashed var(--accent);color:var(--accent);padding:6px 16px;border-radius:10px} .rpwbox small{color:var(--muted)}
+.fpw{text-align:start} .fpwic{width:52px;height:52px;border-radius:16px;background:var(--accent-soft);display:grid;place-items:center;font-size:24px}
 /* proof dialog */
 .proofsel{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface-2);border-radius:12px;padding:8px 10px} .proofsel>span{font-size:13px;font-weight:700} .proofsel .seg{background:var(--surface)} .proofsel .seg button[aria-selected="true"]{background:var(--accent);color:var(--accent-fg)}
 .pfmode{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-inline-start:auto;white-space:nowrap} .pfmode.req{background:var(--bad-soft);color:var(--bad)} .pfmode.opt{background:var(--surface-2);color:var(--muted)} .pfhead .pfmode{align-self:center}
@@ -624,7 +627,7 @@ en:{
  signUpHint:"After signing up, an administrator reviews your request. You can't enter until you're approved.",
  fullName:"Full name",jobTitle:"Job title",jobTitlePh:"e.g. Receptionist",hotel:"Hotel",chooseHotel:"Choose your hotel…",dept:"Department",chooseDept:"Choose your department…",
  email:"Email",password:"Password",createBtn:"Create account",signInBtn:"Sign in",sendLink:"Send link",forgotHint:"Enter your email and we'll send you a link to set a new password.",
- newPass:"New password",setPass:"Set new password",passChanged:"Password changed",
+ rpwBtn:"Reset password",rpwTip:"Set the password to the standard one; the person must choose a new one at next sign-in",rpwTitle:"Reset the password of {n}?",rpwText:"The password of {e} becomes the standard password and they are signed out everywhere. At their next sign-in they must choose a new password before anything else.",rpwDoneT:"Password reset",rpwDoneL:"Tell {n} to sign in with:",rpwDoneS:"They will be asked to choose a new password right away.",rpwPending:"Must set new password",fpwT:"Choose a new password",fpwP:"Your password was reset. Choose your own new password to continue. It must be at least 8 characters and different from the standard password.",fpwSave:"Save my new password",fpwAgain:"New password again",fpwShort:"At least 8 characters.",fpwMismatch:"The two passwords do not match.",fpwSame:"Choose a password different from the standard one.",newPass:"New password",setPass:"Set new password",passChanged:"Password changed",
  created:"Account created. Your request is now waiting for approval.",linkSent:"If this email is registered, a password reset link is on its way.",
  pendingTitle:"Your request is under review",pendingTxt:"An administrator will review your request and set your access. The board opens automatically once you're approved.",
  yourName:"Your name",updateMe:"Update my details",disabledTitle:"Access disabled",disabledTxt:"Your account is disabled. Contact your hotel's system administrator.",
@@ -690,7 +693,7 @@ ar:{
  signUpHint:"بعد التسجيل، الإدارة بتراجع طلبك. مش هتقدر تدخل غير بعد الموافقة.",
  fullName:"الاسم الكامل",jobTitle:"المسمى الوظيفي",jobTitlePh:"مثال: موظف استقبال",hotel:"الفندق",chooseHotel:"اختار الفندق…",dept:"القسم",chooseDept:"اختار القسم…",
  email:"الإيميل",password:"كلمة السر",createBtn:"إنشاء الحساب",signInBtn:"دخول",sendLink:"إرسال اللينك",forgotHint:"اكتب إيميلك وهيوصلك لينك لتغيير كلمة السر.",
- newPass:"كلمة السر الجديدة",setPass:"كلمة سر جديدة",passChanged:"تم تغيير كلمة السر",
+ rpwBtn:"Reset Password",rpwTip:"يرجّع الباسورد للباسورد الموحد، والشخص لازم يعمل باسورد جديد أول ما يدخل",rpwTitle:"ترجّع باسورد {n}؟",rpwText:"باسورد {e} هيبقى الباسورد الموحد، وهيتعمله خروج من كل الأجهزة. أول ما يدخل لازم يعمل باسورد جديد قبل أي حاجة.",rpwDoneT:"الباسورد اترجّع",rpwDoneL:"قول لـ {n} يدخل بالباسورد ده:",rpwDoneS:"هيطلب منه يعمل باسورد جديد على طول.",rpwPending:"لازم يعمل باسورد جديد",fpwT:"اعمل باسورد جديد",fpwP:"الباسورد بتاعك اترجّع. اعمل باسورد جديد خاص بيك عشان تكمل. لازم يكون 8 حروف أو أكتر ومختلف عن الباسورد الموحد.",fpwSave:"احفظ الباسورد الجديد",fpwAgain:"الباسورد الجديد تاني",fpwShort:"لازم 8 حروف أو أكتر.",fpwMismatch:"الباسوردين مش زي بعض.",fpwSame:"اختار باسورد غير الباسورد الموحد.",newPass:"كلمة السر الجديدة",setPass:"كلمة سر جديدة",passChanged:"تم تغيير كلمة السر",
  created:"تم إنشاء الحساب. طلبك دلوقتي مستني الموافقة.",linkSent:"لو الإيميل مسجّل عندنا، هيوصلك لينك تغيير كلمة السر.",
  pendingTitle:"طلبك قيد المراجعة",pendingTxt:"الإدارة هتراجع طلبك وتحدد صلاحيتك. اللوحة هتفتح لوحدها أول ما يتوافق عليك.",
  yourName:"اسمك",updateMe:"تحديث بياناتي",disabledTitle:"الوصول متوقف",disabledTxt:"حسابك موقوف. تواصل مع إدارة الفندق.",
@@ -800,7 +803,8 @@ function normTask(r){ return {id:r.id,num:r.id,title:r.title,desc:r.descr,dept:r
   lastReject:r.last_reject_at?{by:r.last_reject_by,at:ms(r.last_reject_at),note:r.last_reject_note}:null,
   approval:r.approval_at?{by:r.approval_by,at:ms(r.approval_at),note:r.approval_note}:null,
   parentId:r.parent_id||null,createdAt:ms(r.created_at),updatedAt:ms(r.updated_at),statusAt:ms(r.status_at),startedAt:ms(r.started_at),submittedAt:ms(r.submitted_at),completedAt:ms(r.completed_at)}; }
-async function loadProfiles(){ const {data,error}=await S.sb.from("profiles").select("*"); if(error) throw error; const m={}; data.forEach(p=>m[p.id]=p); S.profiles=m; S.me=m[S.uid]||null; }
+async function loadProfiles(){ const {data,error}=await S.sb.from("profiles").select("*"); if(error) throw error; const m={}; data.forEach(p=>m[p.id]=p); S.profiles=m; S.me=m[S.uid]||null;
+  if(S.me&&["admin","gm","manager"].includes(S.me.role)&&S.me.active){ try{ const r=await S.sb.rpc("team_emails"); if(!r.error){ S.emails={}; (r.data||[]).forEach(x=>S.emails[x.id]=x.email); } }catch(e){} } }
 async function loadTargets(){ try{ const [r,a,c]=await Promise.all([S.sb.from("sup_targets").select("*"),S.sb.from("sup_target_adj").select("*"),S.sb.from("role_changes").select("*").order("changed_at",{ascending:false})]);
   if(!r.error){ S.targets={}; (r.data||[]).forEach(x=>S.targets[x.supervisor]=x); } if(!a.error) S.tAdj=a.data||[]; if(!c.error) S.roleChg=c.data||[]; }catch(e){} }
 async function loadMeta(){ const [d,h,s]=await Promise.all([S.sb.from("departments").select("name,label_en,label_ar,sort").order("sort").order("name"),
@@ -829,7 +833,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v37";
+const BUILD="v38";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -950,6 +954,7 @@ function render(){
   if(!S.session){ hideShell(); $("#outBtn").hidden=true; $("#meBox").innerHTML=""; return renderAuth(); }
   if(!S.ready) return;
   $("#outBtn").hidden=false;
+  if(S.me&&S.me.must_change_password){ hideShell(); $("#meBox").innerHTML=""; return renderForcePw(); }
   if(!isMember()){ hideShell(); $("#meBox").innerHTML=""; return renderGate(); }
   if(S.builtView==="gate") S.builtView=null;
   $("#tabs").hidden=false; $("#newBtn").hidden=false; $("#teamTab").hidden=!canManageMembers(); $("#deptTab").hidden=!(isAdmin()||isGM()||isManager());
@@ -1133,6 +1138,19 @@ function renderDepts(){ const m=$("#main"); if(!(isAdmin()||isGM()||isManager())
     try{ await call(S.sb.from("departments").delete().eq("name",c),t("tDeptDel")); }catch(e){ return; } await reload(); });
   $("#tPrefixSave").onclick=async()=>{ const v=$("#tPrefix").value.trim().toUpperCase().replace(/[^A-Z0-9]/g,""); if(!v) return; try{ await call(S.sb.from("settings").update({prefix:v}).eq("id",1),t("tSavedS")); }catch(e){ return; } await reload(); };
 }
+
+/* ================= forced new password after a reset ================= */
+function renderForcePw(){ const m=$("#main"); S.builtView="forcepw";
+  m.innerHTML=`<form class="gate fpw" id="fpw"><div class="fpwic">🔑</div><h2>${esc(t("fpwT"))}</h2><p>${esc(t("fpwP"))}</p>
+    <label class="lb">${esc(t("newPass"))}<input class="field" id="fp1" type="password" minlength="8" required autocomplete="new-password" dir="ltr"></label>
+    <label class="lb">${esc(t("fpwAgain"))}<input class="field" id="fp2" type="password" minlength="8" required autocomplete="new-password" dir="ltr"></label>
+    <p class="err" id="fpErr" hidden></p><div><button class="btn primary" id="fpGo">${esc(t("fpwSave"))}</button></div></form>`;
+  $("#fpw").onsubmit=async e=>{ e.preventDefault(); const a=$("#fp1").value, b=$("#fp2").value, er=$("#fpErr"); er.hidden=true;
+    const bad=msg=>{ er.hidden=false; er.textContent=msg; };
+    if(a.length<8) return bad(t("fpwShort")); if(a!==b) return bad(t("fpwMismatch")); if(a.toLowerCase()==="workflow2050") return bad(t("fpwSame"));
+    $("#fpGo").disabled=true; const {error}=await S.sb.auth.updateUser({password:a}); if(error){ $("#fpGo").disabled=false; return bad(errText(error)); }
+    const r=await S.sb.rpc("password_changed"); if(r.error||!r.data){ $("#fpGo").disabled=false; return bad(t("e_generic")); }
+    toast(t("passChanged")); await loadProfiles(); S.builtView=null; await loadMeta(); await loadTasks().catch(()=>{}); render(); }; }
 
 /* ================= auth ================= */
 function renderAuth(){ const m=$("#main"); const mode=S.authMode;
@@ -1577,14 +1595,14 @@ function renderTeam(){ const m=$("#main");
   const mem=P.filter(p=>p.role!=="pending"||!p.active).sort((a,b)=>String(a.hotel||"").localeCompare(String(b.hotel||""))||(ord[a.role]-ord[b.role])||nameOf(a.id).localeCompare(nameOf(b.id),LANG));
   $("#tMembers").innerHTML=`<table><thead><tr><th>${esc(t("tName"))}</th>${isAdmin()?`<th>${esc(t("tHotel"))}</th>`:""}<th>${esc(t("tTitle"))}</th><th>${esc(t("tDept"))}</th><th>${esc(t("tBoss"))}</th><th>${esc(t("tUnder"))}</th><th>${esc(t("tRole"))}</th><th>${esc(t("tOpen"))}</th><th>${esc(t("tAccess"))}</th></tr></thead><tbody>
    ${mem.map(p=>{const self=p.id===S.uid; const ed=canEditRow(p)&&!self; const openN=S.tasks.filter(x=>x.assignee===p.id&&x.status!=="done").length; const dis=ed?"":" disabled";
-     return `<tr style="${p.active?"":"opacity:.55"}"><td>${who(p.id)}</td>
+     return `<tr style="${p.active?"":"opacity:.55"}"><td>${who(p.id)}${(S.emails||{})[p.id]?`<div class="tmail" dir="ltr">${esc(S.emails[p.id])}</div>`:""}</td>
      ${isAdmin()?`<td>${p.role==="admin"?"—":`<select class="field" data-mhotel="${p.id}"${dis}>${hotelOpts(p.hotel||"",t("chooseHotel"))}</select>`}</td>`:""}
      <td><input class="field" style="width:140px" data-mtitle="${p.id}" value="${esc(p.title)}"${dis}></td>
      <td><select class="field" data-mdept="${p.id}"${dis}>${ed?deptChoices(p.dept||"","—"):deptOpts(p.dept||"","—")}</select></td>
      <td>${p.role==="pending"||p.role==="admin"?"—":ed?bossSel(p,`data-mboss="${p.id}"`):esc(p.reports_to?nameOf(p.reports_to):"—")}</td>
      <td class="num">${Object.values(S.profiles).filter(x=>x.reports_to===p.id&&x.active).length||"—"}</td>
      <td>${p.role==="pending"?`<span class="chip">${esc(t("rejectedReq"))}</span>`:ed?`<select class="field" data-mrole="${p.id}">${roleOptsFor(p)}</select>`:`<span class="rolepill">${esc(roleL(p.role))}</span>`}</td><td class="num">${openN}</td>
-     <td>${self?`<span class="chip ok">${esc(t("you"))}</span>`:ed?`<button class="btn sm ${p.active?"bad":""}" data-mact="${p.id}">${esc(t(p.active?"disable":"enable"))}</button>`:""}</td></tr>`;}).join("")}</tbody></table>`;
+     <td>${self?`<span class="chip ok">${esc(t("you"))}</span>`:ed?`<div class="tacts"><button class="btn sm ${p.active?"bad":""}" data-mact="${p.id}">${esc(t(p.active?"disable":"enable"))}</button><button class="btn sm" data-mpw="${p.id}" title="${esc(t("rpwTip"))}">🔑 ${esc(t("rpwBtn"))}</button>${p.must_change_password?`<span class="chip warn">${esc(t("rpwPending"))}</span>`:""}</div>`:""}</td></tr>`;}).join("")}</tbody></table>`;
   const setM=async(id,patch,msg)=>{ const p=Object.assign({},S.profiles[id],patch);
     await call(S.sb.rpc("admin_set_member",{p_id:id,p_role:p.role,p_dept:p.dept||"",p_title:p.title||"",p_active:p.active,p_reports_to:p.reports_to||null,p_hotel:isAdmin()?(p.hotel||null):null}),msg||t("tSavedS")).catch(()=>{}); await loadProfiles(); render(); };
   const q=s=>m.querySelectorAll(s);
@@ -1595,6 +1613,8 @@ function renderTeam(){ const m=$("#main");
   q("[data-mhotel]").forEach(s=>s.onchange=()=>setM(s.dataset.mhotel,{hotel:s.value,reports_to:null}));
   q("[data-mtitle]").forEach(s=>s.onchange=()=>setM(s.dataset.mtitle,{title:s.value.trim()}));
   q("[data-mboss]").forEach(s=>s.onchange=()=>setM(s.dataset.mboss,{reports_to:s.value||null},t("tBoss")));
+  q("[data-mpw]").forEach(b=>b.onclick=async()=>{ const id=b.dataset.mpw; const ok=await ask({title:t("rpwTitle",{n:nameOf(id)}),text:t("rpwText",{e:(S.emails||{})[id]||nameOf(id)}),noInput:true,okText:t("rpwBtn"),danger:true}); if(ok==null) return;
+    try{ await call(S.sb.rpc("admin_reset_password",{p_id:id})); await loadProfiles(); render(); await ask({title:t("rpwDoneT"),html:`<div class="rpwbox"><span>${esc(t("rpwDoneL",{n:nameOf(id)}))}</span><code dir="ltr">workflow2050</code><small>${esc(t("rpwDoneS"))}</small></div>`,noInput:true,okText:t("ok")}); }catch(e){} });
   q("[data-mact]").forEach(b=>b.onclick=async()=>{ const id=b.dataset.mact, p=S.profiles[id];
     if(p.active){ const ok=await ask({title:t("confirmDisable",{n:nameOf(id)}),text:t("confirmDisableTxt"),noInput:true,okText:t("disable"),danger:true}); if(ok==null) return; }
     setM(id,{active:!p.active},t(p.active?"tDisabled":"tEnabled")); });
