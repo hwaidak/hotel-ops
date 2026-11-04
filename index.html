@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light only"><meta name="theme-color" content="#1E5A48">
 <title>Hotel Operations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,13 +29,10 @@ window.APP_CONFIG = {
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root{
-  --bg:#0E1412; --surface:#161F1B; --surface-2:#1D2824; --line:#2B3833; --fg:#E5ECE8; --muted:#98A69F;
-  --accent:#5DB592; --accent-fg:#08130F; --accent-soft:#1A372D; --brass:#D6A64B; --brass-soft:#382D16;
-  --ok:#5BC587; --ok-soft:#163224; --warn:#E3A13F; --warn-soft:#38290F; --bad:#EE786C; --bad-soft:#3B1C19; --info:#7FA7E3; --info-soft:#192940;
-  --shadow:0 10px 30px rgba(0,0,0,.5); color-scheme:dark }}
+/* one fixed light look on every device (no automatic dark mode) */
 *{box-sizing:border-box}
 html,body{background:var(--bg);color:var(--fg);margin:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:var(--f-body);font-size:14px;line-height:1.55;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
 [hidden]{display:none!important}
@@ -734,7 +732,7 @@ ar:{
  e_login:"الإيميل أو كلمة السر غير صحيحة.",e_confirm:"لازم تأكد الإيميل الأول.",e_exists:"الإيميل ده متسجل قبل كده. سجّل دخول بدل كده.",e_pass:"كلمة السر لازم تكون 6 حروف على الأقل.",e_net:"مفيش اتصال بالسيرفر. اتأكد من النت.",e_generic:"حصل خطأ. حاول تاني.",
  e_pickHotel:"اختار الفندق والقسم من فضلك."
 }};
-let LANG="en"; try{ LANG=localStorage.getItem("hotelops_lang")||"en"; }catch(e){}
+let LANG="en"; try{ LANG=localStorage.getItem("hotelops_lang2")||"en"; localStorage.removeItem("hotelops_lang"); }catch(e){}
 if(!I18N[LANG]) LANG="en";
 const t=(k,v)=>{ let s=(I18N[LANG][k]??I18N.en[k]??k); if(v) for(const x in v) s=s.split("{"+x+"}").join(v[x]); return s; };
 function applyLangChrome(){ const h=document.documentElement; h.lang=LANG; h.dir=LANG==="ar"?"rtl":"ltr";
@@ -742,7 +740,7 @@ function applyLangChrome(){ const h=document.documentElement; h.lang=LANG; h.dir
   $("#newBtn").textContent=t("newTask"); $("#outBtn").textContent=t("logout");
   document.querySelectorAll("[data-i18n]").forEach(el=>{ el.firstChild.nodeValue=t(el.dataset.i18n)+" "; });
   $("#fQ").placeholder=t("search"); $("#lblMine").lastChild.nodeValue=" "+t("mine"); $("#lblLate").lastChild.nodeValue=" "+t("lateOnly"); }
-function setLang(l){ LANG=l; try{localStorage.setItem("hotelops_lang",l);}catch(e){} applyLangChrome(); S.builtView=null; S.authBuilt=false;
+function setLang(l){ LANG=l; try{localStorage.setItem("hotelops_lang2",l);}catch(e){} applyLangChrome(); S.builtView=null; S.authBuilt=false;
   const reopen=S.openId; closeSheet(); render(); if(reopen) openTask(reopen); }
 
 /* ================= constants ================= */
@@ -842,7 +840,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v40";
+const BUILD="v41";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
