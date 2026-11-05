@@ -575,6 +575,80 @@ input.title{font-size:17px;font-weight:600;font-family:var(--f-display)}
 .hit:hover{border-color:var(--accent)}
 .hit .ht{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
 #langBtn{font-weight:600}
+/* ===== discipline (HR) ===== */
+.dchead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:18px 0 12px}
+.dchead h2{font-family:var(--f-display);font-size:22px;font-weight:700;margin:0} .dchead p{margin:4px 0 0;color:var(--muted);font-size:13px;max-width:62ch}
+.dcctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.dcvis{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:12px}
+.dcvis .lk{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--brass-soft);color:var(--brass);font-size:16px;flex:none}
+.dcvis.pub .lk{background:var(--ok-soft);color:var(--ok)}
+.dcvis .tx{flex:1 1 240px;display:grid;gap:2px} .dcvis .tx b{font-size:14px} .dcvis .tx span{font-size:12.5px;color:var(--muted)}
+.dcbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.dcbar .field{width:auto;min-width:140px;border-radius:10px} .dcbar .tfsearch{flex:1 1 220px}
+.dcmon{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px}
+.dcmon b{min-width:130px;text-align:center;font-size:14px} .dcmon .icbtn{border:0;background:var(--surface-2);border-radius:9px;width:32px;height:32px;cursor:pointer;font-size:16px;color:var(--fg)}
+.dcmon .icbtn:disabled{opacity:.35;cursor:default}
+.dckpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.dck{--c:var(--accent);--cs:var(--accent-soft);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:6px;position:relative;overflow:hidden;cursor:pointer;text-align:start;font:inherit;color:inherit}
+.dck::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:4px;background:var(--c)}
+.dck[aria-pressed="true"]{border-color:var(--c);box-shadow:0 0 0 2px var(--cs)}
+.dck .hd{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted)} .dck .hd i{font-style:normal;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--cs);color:var(--c);font-size:13px}
+.dck .n{font-family:var(--f-display);font-size:30px;font-weight:700;line-height:1;color:var(--c);font-variant-numeric:tabular-nums}
+.dck .s{font-size:12px;color:var(--muted)} .dck .dl{font-size:11.5px;font-weight:600} .dck .dl.up{color:var(--bad)} .dck .dl.dn{color:var(--ok)}
+.k-absence{--c:var(--info);--cs:var(--info-soft)} .k-notice{--c:var(--brass);--cs:var(--brass-soft)} .k-warning{--c:var(--warn);--cs:var(--warn-soft)} .k-penalty{--c:var(--bad);--cs:var(--bad-soft)}
+.dcdepts{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px;display:grid;gap:8px}
+.dcdepts h3{margin:0 0 2px;font-size:14px} .dcdepts .meta{margin:-4px 0 4px}
+.dcdr{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;font-size:13px;border:0;background:none;font:inherit;color:inherit;text-align:start;padding:3px 4px;border-radius:8px;cursor:pointer}
+.dcdr:hover,.dcdr[aria-pressed="true"]{background:var(--surface-2)} .dcdr b{text-align:end;font-variant-numeric:tabular-nums}
+.dcst{display:flex;height:14px;border-radius:6px;overflow:hidden;background:var(--surface-2)} .dcst i{display:block;height:100%;background:var(--c)}
+.dcleg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)} .dcleg span{display:inline-flex;align-items:center;gap:5px} .dcleg span::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--c)}
+.dcgrp{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.dcgh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 14px;background:var(--surface-2)} .dcgh h3{margin:0;font-size:15px;flex:1 1 auto} .dcgh .meta{font-size:12.5px}
+.dcrow,.dchrow{display:grid;grid-template-columns:minmax(180px,1.6fr) repeat(5,minmax(64px,.6fr));gap:6px;align-items:center;padding:10px 14px;border-top:1px solid var(--line)}
+.dchrow{font-size:12px;color:var(--muted);font-weight:600;padding-block:8px;background:var(--surface)} .dchrow span:not(:first-child){text-align:center}
+.dcrow{cursor:pointer;border:0;border-top:1px solid var(--line);background:none;font:inherit;color:inherit;width:100%;text-align:start}
+.dcrow:hover{background:color-mix(in srgb,var(--surface-2) 55%,transparent)} .dcrow[aria-expanded="true"]{background:var(--surface-2)}
+.dcrow.zero .dcwho .n{color:var(--muted)}
+.dcwho{display:flex;gap:10px;align-items:center;min-width:0} .dcwho>div{min-width:0;display:grid;gap:1px} .dcwho .n{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dcwho .r{font-size:11.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dcc{text-align:center;display:grid;gap:1px;justify-items:center} .dcc b{min-width:32px;padding:3px 8px;border-radius:8px;background:var(--cs);color:var(--c);font-variant-numeric:tabular-nums;font-size:14px}
+.dcc.z b{background:none;color:var(--line);font-weight:500} .dcc small{font-size:10.5px;color:var(--muted)}
+.dcc.tot b{background:var(--fg);color:var(--bg)} .dcc.tot.z b{background:none;color:var(--line)}
+.dcc .ml{display:none}
+.dcdet{padding:4px 14px 14px;background:var(--surface-2);display:grid;gap:8px}
+.dcyr{display:flex;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
+.dcyr b{color:var(--fg)}
+.dcrec{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;background:var(--surface);border-radius:12px;padding:10px 12px;border-inline-start:4px solid var(--c)}
+.dcrec .kd{font-size:12px;font-weight:700;color:var(--c);background:var(--cs);border-radius:8px;padding:3px 8px;white-space:nowrap}
+.dcrec .bd{display:grid;gap:3px;min-width:0} .dcrec .bd p{margin:0;font-size:13.5px;overflow-wrap:anywhere} .dcrec .bd span{font-size:11.5px;color:var(--muted)}
+.dcrec .x{border:0;background:none;color:var(--bad);cursor:pointer;font-size:12.5px;font-weight:600;padding:4px 6px;border-radius:6px} .dcrec .x:hover{background:var(--bad-soft)}
+.dcempty{background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:28px 16px;text-align:center;display:grid;gap:8px;justify-items:center;color:var(--muted)}
+.dcempty b{color:var(--fg);font-size:15px}
+/* year grid */
+.dcyg{overflow-x:auto} .dcyrow{display:grid;grid-template-columns:minmax(170px,1.4fr) repeat(12,minmax(34px,1fr)) minmax(44px,.6fr);gap:4px;align-items:center;padding:7px 14px;border-top:1px solid var(--line);min-width:720px}
+.dcyrow.h{font-size:11.5px;color:var(--muted);font-weight:600;border-top:0;background:var(--surface)} .dcyrow.h span{text-align:center}
+.dcym{border:0;font:inherit;border-radius:7px;height:30px;font-size:12.5px;font-weight:700;cursor:pointer;background:var(--surface-2);color:var(--muted);font-variant-numeric:tabular-nums}
+.dcym.l1{background:var(--warn-soft);color:var(--warn)} .dcym.l2{background:color-mix(in srgb,var(--warn) 45%,var(--warn-soft));color:#fff} .dcym.l3{background:var(--bad);color:#fff}
+.dcym.z{color:var(--line);font-weight:500} .dcym.cur{outline:2px solid var(--accent);outline-offset:1px}
+/* add dialog */
+.dlg.dcadd .in{width:min(520px,100%);max-height:92vh;overflow:auto}
+.dckinds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.dckinds button{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 4px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;display:grid;gap:4px;justify-items:center;color:var(--fg)}
+.dckinds button i{font-style:normal;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--cs);color:var(--c)}
+.dckinds button[aria-pressed="true"]{border-color:var(--c);background:var(--cs);color:var(--c)}
+.dc2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dcerr{color:var(--bad);font-size:12.5px;margin:0}
+@media (max-width:820px){ .dckpi{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:640px){
+  .dchrow{display:none}
+  .dcrow{grid-template-columns:repeat(5,minmax(0,1fr));row-gap:8px}
+  .dcrow .dcwho{grid-column:1/-1}
+  .dcc .ml{display:block;font-size:10.5px;color:var(--muted)}
+  .dcdr{grid-template-columns:100px 1fr 32px}
+  .dcbar .field{flex:1 1 45%;min-width:0}
+  .dckinds{grid-template-columns:repeat(2,minmax(0,1fr))} .dc2{grid-template-columns:1fr}
+  .dcmon b{min-width:0;flex:1}
+}
 </style>
 </head>
 <body>
@@ -594,6 +668,7 @@ input.title{font-size:17px;font-weight:600;font-family:var(--f-display)}
     <button class="tab" data-v="reports" role="tab"><span data-i18n="tabReports">Reports </span></button>
     <button class="tab" data-v="team" role="tab" id="teamTab" hidden><span data-i18n="tabTeam">Team </span><span class="badge" id="rqBadge" hidden>0</span></button>
     <button class="tab" data-v="depts" role="tab" id="deptTab" hidden><span data-i18n="tabDepts">Departments</span></button>
+    <button class="tab" data-v="disc" role="tab" id="discTab" hidden><span data-i18n="tabDisc">Discipline</span></button>
   </nav>
 </header>
 <div class="wrap toolbar" id="toolbar" hidden>
@@ -746,6 +821,33 @@ ar:{
  e_login:"الإيميل أو كلمة السر غير صحيحة.",e_confirm:"لازم تأكد الإيميل الأول.",e_exists:"الإيميل ده متسجل قبل كده. سجّل دخول بدل كده.",e_pass:"كلمة السر لازم تكون 6 حروف على الأقل.",e_net:"مفيش اتصال بالسيرفر. اتأكد من النت.",e_generic:"حصل خطأ. حاول تاني.",
  e_pickHotel:"اختار الفندق والقسم من فضلك."
 }};
+Object.assign(I18N.en,{tabDisc:"Discipline",dcTitle:"Discipline & absences",dcSub:"Absences, notices, warnings and penalties recorded by HR, counted per employee for each month.",
+ dcMonthly:"Monthly",dcYearly:"Yearly",dcExport:"Export Excel",dcAdd:"Add record",dcAddFor:"Add for {n}",dcSearch:"Search by employee name",dcAllDepts:"All departments",dcOnly:"Only people with records",
+ dk_absence:"Absence",dk_notice:"Notice",dk_warning:"Warning",dk_penalty:"Penalty",dcDaysN:"{n} day(s)",dcPeopleN:"{n} employee(s)",dcAbsDays:"{n} days absent",dcDedDays:"{n} days deducted",
+ dcVsPrev:"vs last month",dcSamePrev:"Same as last month",dcByDept:"By department",dcByDeptH:"Click a department to show only its people.",dcNoDept:"No department",
+ dcEmp:"Employee",dcTotal:"Total",dcGrpMeta:"{n} people · {p} with records · {r} records",dcSupL:"Supervisor: {n}",dcMgrL:"Manager: {n}",dcInactive:"inactive",
+ dcEmptyM:"Nothing recorded in {m}",dcEmptyW:"Add the month's absences, notices, warnings and penalties and the totals fill in by themselves.",dcEmptyR:"HR hasn't recorded anything for this month.",dcNoMatch:"No one matches these filters.",
+ dcYearSoFar:"{y} so far",dcNoReason:"No reason written",dcBy:"by {n}",dcDel:"Delete",dcNoneM:"Nothing recorded for this month.",dcDelQ:"Delete this record?",dcDeleted:"Record deleted",
+ dcInYear:"in {y}",dcEmptyY:"Nothing recorded in {y}",dcYearTitle:"{y} month by month",dcYearH:"Records per employee each month. Click a month to open it.",
+ dcVisPriv:"Only you can see this page",dcVisPrivH:"Nobody else sees the tab or the records until you open it to everyone.",dcVisPub:"Open to the team",dcVisPubH:"HR records for their hotel. Managers see their department, supervisors their team, and each person their own records.",
+ dcOnlyMe:"Only me",dcEveryone:"Everyone",dcNowPub:"The page is now open to the team",dcNowPriv:"The page is now visible to you only",dcLocked:"This page isn't available.",dcLoading:"Loading…",
+ dcAddTitle:"New record",dcKind:"Type",dcDate:"Date",dcAbsDaysL:"Days absent",dcDedDaysL:"Days deducted",dcReason:"Reason",dcReasonOpt:"Note (optional)",dcReasonPh:"What happened, briefly",
+ dcPickEmp:"Choose the employee",dcSave:"Save record",dcSaved:"Record saved",dcErrEmp:"Choose the employee.",dcErrDate:"Pick a date that isn't in the future.",dcErrDays:"Days must be between 0.5 and 60.",dcErrReason:"Write the reason.",
+ dcDept:"Department",dcRole:"Role",dcSupCol:"Supervisor",dcMgrCol:"Manager",dcDaysCol:"Days",dcByCol:"Recorded by",dcSheetSum:"Monthly totals",dcSheetDet:"All records"});
+Object.assign(I18N.ar,{tabDisc:"الجزاءات والغياب",dcTitle:"الجزاءات والغياب",dcSub:"الغياب ولفت النظر والإنذارات والجزاءات اللي بيسجلها الـHR، متجمعة لكل موظف في كل شهر.",
+ dcMonthly:"شهري",dcYearly:"سنوي",dcExport:"تصدير Excel",dcAdd:"تسجيل جديد",dcAddFor:"سجّل لـ {n}",dcSearch:"دوّر باسم الموظف",dcAllDepts:"كل الأقسام",dcOnly:"اللي عليهم تسجيلات بس",
+ dk_absence:"غياب",dk_notice:"لفت نظر",dk_warning:"إنذار",dk_penalty:"جزاء",dcDaysN:"{n} يوم",dcPeopleN:"{n} موظف",dcAbsDays:"{n} يوم غياب",dcDedDays:"{n} يوم خصم",
+ dcVsPrev:"عن الشهر اللي فات",dcSamePrev:"زي الشهر اللي فات",dcByDept:"على مستوى الأقسام",dcByDeptH:"دوس على قسم عشان تشوف موظفينه بس.",dcNoDept:"من غير قسم",
+ dcEmp:"الموظف",dcTotal:"الإجمالي",dcGrpMeta:"{n} موظف · {p} عليهم تسجيلات · {r} تسجيل",dcSupL:"المشرف: {n}",dcMgrL:"المدير: {n}",dcInactive:"موقوف",
+ dcEmptyM:"مافيش أي تسجيلات في {m}",dcEmptyW:"سجّل غياب الشهر ولفت النظر والإنذارات والجزاءات، والإجمالي بيتحسب لوحده.",dcEmptyR:"الـHR لسه ماسجلش حاجة للشهر ده.",dcNoMatch:"مافيش حد مطابق للفلاتر دي.",
+ dcYearSoFar:"سنة {y} لحد دلوقتي",dcNoReason:"من غير سبب مكتوب",dcBy:"سجّله {n}",dcDel:"امسح",dcNoneM:"مافيش تسجيلات للشهر ده.",dcDelQ:"تمسح التسجيل ده؟",dcDeleted:"اتمسح التسجيل",
+ dcInYear:"في {y}",dcEmptyY:"مافيش تسجيلات في {y}",dcYearTitle:"سنة {y} شهر بشهر",dcYearH:"عدد التسجيلات لكل موظف في كل شهر. دوس على أي شهر تفتحه.",
+ dcVisPriv:"الصفحة دي ظاهرة ليك انت بس",dcVisPrivH:"محدش تاني شايف التبويب ولا التسجيلات لحد ما تفتحها للكل.",dcVisPub:"الصفحة مفتوحة للفريق",dcVisPubH:"الـHR بيسجل لفندقه، ومدير القسم بيشوف قسمه، والمشرف فريقه، وكل موظف تسجيلاته هو بس.",
+ dcOnlyMe:"أنا بس",dcEveryone:"الكل",dcNowPub:"الصفحة بقت مفتوحة للفريق",dcNowPriv:"الصفحة بقت ظاهرة ليك انت بس",dcLocked:"الصفحة دي مش متاحة.",dcLoading:"بيحمّل…",
+ dcAddTitle:"تسجيل جديد",dcKind:"النوع",dcDate:"التاريخ",dcAbsDaysL:"أيام الغياب",dcDedDaysL:"أيام الخصم",dcReason:"السبب",dcReasonOpt:"ملاحظة (اختياري)",dcReasonPh:"إيه اللي حصل باختصار",
+ dcPickEmp:"اختار الموظف",dcSave:"احفظ التسجيل",dcSaved:"اتحفظ التسجيل",dcErrEmp:"اختار الموظف.",dcErrDate:"اختار تاريخ مش في المستقبل.",dcErrDays:"الأيام لازم تكون من 0.5 لـ 60.",dcErrReason:"اكتب السبب.",
+ dcDept:"القسم",dcRole:"الدور",dcSupCol:"المشرف",dcMgrCol:"المدير",dcDaysCol:"الأيام",dcByCol:"سجّله",dcSheetSum:"إجمالي الشهر",dcSheetDet:"كل التسجيلات"});
+
 let LANG="en"; try{ LANG=localStorage.getItem("hotelops_lang2")||"en"; localStorage.removeItem("hotelops_lang"); }catch(e){}
 if(!I18N[LANG]) LANG="en";
 const t=(k,v)=>{ let s=(I18N[LANG][k]??I18N.en[k]??k); if(v) for(const x in v) s=s.split("{"+x+"}").join(v[x]); return s; };
@@ -847,14 +949,14 @@ function subscribe(){ if(chan) return;
    .on("postgres_changes",{event:"INSERT",schema:"public",table:"task_comments"},p=>{ if(p.new&&p.new.task_id===S.openId) later("c",()=>loadThread(S.openId)); })
    .on("postgres_changes",{event:"INSERT",schema:"public",table:"task_events"},p=>{ if(p.new&&p.new.task_id===S.openId) later("c",()=>loadThread(S.openId)); })
    .subscribe();
-  if(!S.pollOn){ S.pollOn=true; setInterval(async()=>{ if(document.hidden) return; try{ const was=isMember(); await loadProfiles(); if(isMember()){ if(!was) await loadMeta(); await loadTasks(); } netState(true); render(); }catch(e){ netState(false); heal("poll"); } },60000); }
+  if(!S.pollOn){ S.pollOn=true; setInterval(async()=>{ if(document.hidden) return; try{ const was=isMember(); await loadProfiles(); if(isMember()){ if(!was) await loadMeta(); else { const st=await S.sb.from("settings").select("*").eq("id",1).maybeSingle(); if(!st.error&&st.data) S.settings=st.data; } await loadTasks(); } netState(true); render(); }catch(e){ netState(false); heal("poll"); } },60000); }
 }
 function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; }
   if(!b){ b=document.createElement("div"); b.id="netBar"; document.body.appendChild(b); }
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v43";
+const BUILD="v44";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -865,7 +967,7 @@ async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()
     if(!ses){ if(S.session){ S.session=null; S.uid=null; S.ready=false; render(); } netState(true); return; }
     S.session=ses;
     if(!S.ready){ await loadAll(); }
-    else { const was=isMember(); await loadProfiles(); if(isMember()){ if(!was) await loadMeta(); await loadTasks(); } render(); }
+    else { const was=isMember(); await loadProfiles(); if(isMember()){ if(!was) await loadMeta(); else { const st=await S.sb.from("settings").select("*").eq("id",1).maybeSingle(); if(!st.error&&st.data) S.settings=st.data; } await loadTasks(); } render(); }
     if(chan&&chan.state!=="joined"&&chan.state!=="joining"){ try{ S.sb.removeChannel(chan); }catch(e){} chan=null; subscribe(); }
     netState(true);
   }catch(e){ netState(false); clearTimeout(S.healT); S.healT=setTimeout(()=>heal("retry",true),10000); }
@@ -972,7 +1074,7 @@ function ask(o){ return new Promise(res=>{ const d=document.createElement("div")
   d.addEventListener("keydown",e=>{ if(e.key==="Escape") close(null); }); }); }
 
 /* ================= shell ================= */
-function setView(v){ S.view=v; S.builtView=null; try{history.replaceState(null,"","#"+v);}catch(e){} render(); }
+function setView(v){ S.view=v; S.builtView=null; if(v==="disc"){ S.disc=null; S.discErr=null; } try{history.replaceState(null,"","#"+v);}catch(e){} render(); }
 document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.v)));
 $("#newBtn").addEventListener("click",()=>openTask(null));
 $("#langBtn").addEventListener("click",()=>setLang(LANG==="en"?"ar":"en"));
@@ -997,11 +1099,11 @@ function render(){
   if(S.me&&S.me.must_change_password){ hideShell(); $("#meBox").innerHTML=""; return renderForcePw(); }
   if(!isMember()){ hideShell(); $("#meBox").innerHTML=""; return renderGate(); }
   if(S.builtView==="gate") S.builtView=null;
-  $("#tabs").hidden=false; $("#newBtn").hidden=false; $("#teamTab").hidden=!canManageMembers(); $("#deptTab").hidden=!(isAdmin()||isGM()||isManager());
+  $("#tabs").hidden=false; $("#newBtn").hidden=false; $("#teamTab").hidden=!canManageMembers(); $("#deptTab").hidden=!(isAdmin()||isGM()||isManager()); $("#discTab").hidden=!discCanSee();
   $("#meBox").innerHTML=`${av(S.uid)}<span class="nm">${esc(nameOf(S.uid))}</span><span class="rolepill">${esc(roleL(myRole()))}${myHotel()&&!isAdmin()?" · "+esc(hotelL(myHotel())):""}</span>`;
   const rev=S.tasks.filter(x=>x.status==="review"&&canApprove(x)).length; $("#apBadge").hidden=!rev; $("#apBadge").textContent=rev;
   const rq=Object.values(S.profiles).filter(p=>p.role==="pending"&&p.active).length; $("#rqBadge").hidden=!rq||!canManageMembers(); $("#rqBadge").textContent=rq;
-  if(S.view==="team"&&!canManageMembers()) S.view="board"; if(S.view==="depts"&&!(isAdmin()||isGM()||isManager())) S.view="board";
+  if(S.view==="team"&&!canManageMembers()) S.view="board"; if(S.view==="depts"&&!(isAdmin()||isGM()||isManager())) S.view="board"; if(S.view==="disc"&&!discCanSee()) S.view="board";
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===S.view));
   $("#toolbar").hidden=!(S.view==="board"||S.view==="list"||S.view==="days");
   { const od=dayGroups(S.tasks).filter(g=>g.open).length; $("#dayBadge").hidden=!od; $("#dayBadge").textContent=od; }
@@ -1010,7 +1112,7 @@ function renderMain(){ if(!isMember()) return; const v=S.view,m=$("#main");
   if(v==="board"){m.innerHTML=dayBanner()+boardHTML();bindBoard();bindBanner();} else if(v==="list"){m.innerHTML=dayBanner()+listHTML();bindList();bindBanner();}
   else if(v==="days"){m.innerHTML=daysHTML();bindDays();}
   else if(v==="approvals"){m.innerHTML=approvalsHTML();bindApprovals();} else if(v==="reports") renderReports();
-  else if(v==="team") renderTeam(); else if(v==="depts") renderDepts(); }
+  else if(v==="team") renderTeam(); else if(v==="depts") renderDepts(); else if(v==="disc") renderDisc(); }
 
 /* ================= days ================= */
 const dayKey=ms_=>{ const d=new Date(ms_); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
@@ -1706,6 +1808,179 @@ async function demoteDialog(id){ const p=S.profiles[id]; const open=S.tasks.filt
   const to=await ask({title:t("dmTitle",{n:nameOf(id)}),html,noInput:true,pick:"#dmTo",okText:t("dmGo")}); if(!to) return false;
   try{ const r=await call(S.sb.rpc("demote_supervisor",{p_sup:id,p_to:to})); toast(t("dmDone",{n:(r&&r.data)||0,m:nameOf(to)})); return true; }catch(e){ return false; } }
 
+/* ================= discipline (HR): absences, notices, warnings, penalties ================= */
+const DK=["absence","notice","warning","penalty"]; const DKI={absence:"⌀",notice:"!",warning:"!!",penalty:"✕"};
+const discPub=()=>!!(S.settings&&S.settings.disc_public);
+const discCanSee=()=>isAdmin()||(isMember()&&discPub());
+const discCanWrite=()=>isAdmin()||(discPub()&&myDept()==="hr");
+const dP=id=>(S.discPeople&&S.discPeople[id])||S.profiles[id]||null;
+const dName=id=>{ const p=dP(id); return (p&&p.full_name)||t("someone"); };
+const dAv=id=>`<span class="av" style="background:${colorOf(id)}">${esc((dName(id).trim().charAt(0))||"?")}</span>`;
+function dChain(id,role){ let cur=dP(id), n=0; while(cur&&cur.reports_to&&n<25){ const b=dP(cur.reports_to); if(!b) return null; if(b.role===role) return b.id; cur=b; n++; } return null; }
+const dCurM=()=>dayKey(Date.now()).slice(0,7);
+async function loadDisc(){ const y=(S.discMonth||dCurM()).slice(0,4);
+  const [p,r]=await Promise.all([S.sb.rpc("disc_people"),S.sb.from("disc_records").select("*").gte("on_date",y+"-01-01").lte("on_date",y+"-12-31").order("on_date",{ascending:false}).order("id",{ascending:false}).limit(5000)]);
+  if(p.error) throw p.error; if(r.error) throw r.error;
+  S.discPeople={}; (p.data||[]).forEach(x=>S.discPeople[x.id]=x); S.disc=r.data||[]; S.discYear=y; S.discErr=null; }
+function dAgg(recs){ const A={}; recs.forEach(r=>{ const a=A[r.employee]||(A[r.employee]={absence:{n:0,d:0},notice:{n:0,d:0},warning:{n:0,d:0},penalty:{n:0,d:0},tot:0});
+  a[r.kind].n++; a[r.kind].d+=Number(r.days)||0; a.tot++; }); return A; }
+const dNum=v=>{ const x=Math.round(v*100)/100; return String(x); };
+function dPeopleList(){ const q=(S.dq||"").trim().toLowerCase(); const hs=isAdmin()?(S.dHotel||""):myHotel();
+  const withRec=new Set((S.disc||[]).map(r=>r.employee));
+  return Object.values(S.discPeople||{}).filter(p=>(p.active||withRec.has(p.id))&&(!hs||p.hotel===hs)&&(!S.dDept||p.dept===S.dDept)&&(!q||(p.full_name||"").toLowerCase().includes(q)));
+}
+function dRecsIn(mk){ const hs=isAdmin()?(S.dHotel||""):""; return (S.disc||[]).filter(r=>r.on_date.slice(0,7)===mk&&(!hs||r.hotel===hs)&&(!S.dDept||r.dept===S.dDept)); }
+
+function renderDisc(){ const m=$("#main");
+  if(!discCanSee()){ m.innerHTML=`<div class="dcempty"><b>${esc(t("dcLocked"))}</b></div>`; return; }
+  S.discMonth=S.discMonth||dCurM(); S.dMode=S.dMode||"month";
+  if(!S.disc||S.discYear!==S.discMonth.slice(0,4)){
+    if(S.discErr){ m.innerHTML=`<div class="dcempty"><b>${esc(t("loadErr"))}</b><span>${esc(S.discErr)}</span><button class="btn" id="dcRetry">${esc(t("retry"))}</button></div>`; $("#dcRetry").onclick=()=>{ S.discErr=null; renderDisc(); }; return; }
+    if(!S.discLoading){ S.discLoading=true; if(S.builtView!=="disc") m.innerHTML=`<div class="dcempty"><span>${esc(t("dcLoading"))}</span></div>`;
+      loadDisc().catch(e=>{ S.discErr=errText(e); }).finally(()=>{ S.discLoading=false; if(S.view==="disc") renderDisc(); }); }
+    return; }
+  if(S.builtView!=="disc"){ S.builtView="disc";
+    m.innerHTML=`<div class="dchead"><div><h2>${esc(t("dcTitle"))}</h2><p>${esc(t("dcSub"))}</p></div>
+      <div class="dcctl"><div class="seg" role="tablist"><button type="button" data-dm="month">${esc(t("dcMonthly"))}</button><button type="button" data-dm="year">${esc(t("dcYearly"))}</button></div>
+      <button class="btn" id="dcXls">${esc(t("dcExport"))}</button>${discCanWrite()?`<button class="btn primary" id="dcAdd">+ ${esc(t("dcAdd"))}</button>`:""}</div></div>
+      <div id="dcVis"></div>
+      <div class="dcbar"><div class="dcmon"><button class="icbtn" data-mo="-1" aria-label="${esc(t("dyPrevM"))}">${LANG==="ar"?"›":"‹"}</button><b id="dcMonL"></b><button class="icbtn" data-mo="1" aria-label="${esc(t("dyNextM"))}">${LANG==="ar"?"‹":"›"}</button></div>
+        <div class="tfsearch"><span>⌕</span><input class="field" id="dcQ" type="search" placeholder="${esc(t("dcSearch"))}" value="${esc(S.dq||"")}"></div>
+        ${isAdmin()?`<select class="field" id="dcHotel">${hotelOpts(S.dHotel||"",t("allHotels"))}</select>`:""}
+        <select class="field" id="dcDept"></select>
+        <label class="meta" style="display:inline-flex;gap:6px;align-items:center"><input type="checkbox" id="dcOnly"${S.dOnly?" checked":""}> ${esc(t("dcOnly"))}</label></div>
+      <div id="dcBody"></div>`;
+    m.querySelectorAll("[data-dm]").forEach(b=>b.onclick=()=>{ S.dMode=b.dataset.dm; discBody(); });
+    m.querySelectorAll("[data-mo]").forEach(b=>b.onclick=()=>{ const step=S.dMode==="year"?12:1; const nm=shiftMonth(S.discMonth,Number(b.dataset.mo)*step); if(nm>dCurM()) S.discMonth=dCurM(); else S.discMonth=nm; S.dOpen=null; if(S.discYear!==S.discMonth.slice(0,4)){ S.disc=null; renderDisc(); } else discBody(); });
+    $("#dcQ").oninput=e=>{ S.dq=e.target.value; discBody(); };
+    $("#dcDept").onchange=e=>{ S.dDept=e.target.value; discBody(); };
+    $("#dcOnly").onchange=e=>{ S.dOnly=e.target.checked; discBody(); };
+    if($("#dcHotel")) $("#dcHotel").onchange=e=>{ S.dHotel=e.target.value; discBody(); };
+    if($("#dcAdd")) $("#dcAdd").onclick=()=>discAddDialog();
+    $("#dcXls").onclick=()=>discExport();
+  }
+  discBody(); }
+
+function discBody(){ const body=$("#dcBody"); if(!body) return; const mk=S.discMonth, Y=mk.slice(0,4);
+  document.querySelectorAll("[data-dm]").forEach(b=>b.setAttribute("aria-selected",b.dataset.dm===S.dMode));
+  $("#dcMonL").textContent=S.dMode==="year"?Y:monthName(mk);
+  document.querySelector('[data-mo="1"]').disabled=S.dMode==="year"?Y>=dCurM().slice(0,4):mk>=dCurM();
+  const depts=[...new Set(Object.values(S.discPeople||{}).map(p=>p.dept).filter(Boolean))].sort((a,b)=>deptL(a).localeCompare(deptL(b),LANG));
+  $("#dcDept").innerHTML=opt("",t("dcAllDepts"),S.dDept||"")+depts.map(d=>opt(d,deptL(d),S.dDept||"")).join("");
+  const vis=$("#dcVis"); vis.innerHTML=isAdmin()?`<div class="dcvis${discPub()?" pub":""}"><span class="lk">${discPub()?"◉":"🔒"}</span><div class="tx"><b>${esc(t(discPub()?"dcVisPub":"dcVisPriv"))}</b><span>${esc(t(discPub()?"dcVisPubH":"dcVisPrivH"))}</span></div>
+    <div class="seg"><button type="button" data-vis="0" aria-selected="${!discPub()}">${esc(t("dcOnlyMe"))}</button><button type="button" data-vis="1" aria-selected="${discPub()}">${esc(t("dcEveryone"))}</button></div></div>`:"";
+  vis.querySelectorAll("[data-vis]").forEach(b=>b.onclick=()=>discSetPublic(b.dataset.vis==="1"));
+  body.innerHTML=S.dMode==="year"?discYearHTML(Y):discMonthHTML(mk); bindDiscBody(); }
+
+function dCell(a,k,showDays){ const v=a?a[k]:{n:0,d:0}; const z=!v.n; return `<span class="dcc k-${k}${z?" z":""}"><span class="ml">${esc(t("dk_"+k))}</span><b>${z?"—":v.n}</b>${showDays&&v.d?`<small>${esc(t("dcDaysN",{n:dNum(v.d)}))}</small>`:""}</span>`; }
+function discMonthHTML(mk){ const recs=dRecsIn(mk), A=dAgg(recs); const prevA=mk.slice(0,4)===shiftMonth(mk,-1).slice(0,4)?dAgg(dRecsIn(shiftMonth(mk,-1))):null;
+  const people=dPeopleList(); const ids=new Set(people.map(p=>p.id));
+  const sumK=k=>{ let n=0,d=0,e=0; Object.entries(A).forEach(([id,a])=>{ if(!ids.has(id)) return; n+=a[k].n; d+=a[k].d; if(a[k].n) e++; }); return {n,d,e}; };
+  const sumP=k=>prevA?Object.entries(prevA).filter(([id])=>ids.has(id)).reduce((s,[,a])=>s+a[k].n,0):null;
+  const kpi=`<div class="dckpi">${DK.map(k=>{ const s=sumK(k), p=sumP(k); const dl=p==null?"":s.n>p?`<span class="dl up">▲ ${s.n-p} ${esc(t("dcVsPrev"))}</span>`:s.n<p?`<span class="dl dn">▼ ${p-s.n} ${esc(t("dcVsPrev"))}</span>`:`<span class="dl">${esc(t("dcSamePrev"))}</span>`;
+    return `<button type="button" class="dck k-${k}" data-kf="${k}" aria-pressed="${S.dKind===k}"><span class="hd"><i>${DKI[k]}</i>${esc(t("dk_"+k))}</span><span class="n">${s.n}</span><span class="s">${esc(t("dcPeopleN",{n:s.e}))}${(k==="absence"||k==="penalty")&&s.d?" · "+esc(t(k==="absence"?"dcAbsDays":"dcDedDays",{n:dNum(s.d)})):""}</span>${dl}</button>`; }).join("")}</div>`;
+  // department bars
+  const byD={}; recs.forEach(r=>{ if(!ids.has(r.employee)) return; const d=byD[r.dept]||(byD[r.dept]={absence:0,notice:0,warning:0,penalty:0,tot:0}); d[r.kind]++; d.tot++; });
+  const dl=Object.entries(byD).sort((a,b)=>b[1].tot-a[1].tot); const mx=Math.max(1,...dl.map(x=>x[1].tot));
+  const deptBox=dl.length?`<div class="dcdepts"><h3>${esc(t("dcByDept"))}</h3><p class="meta">${esc(t("dcByDeptH"))}</p>${dl.map(([d,v])=>`<button type="button" class="dcdr" data-df="${esc(d)}" aria-pressed="${S.dDept===d}"><span>${esc(deptL(d)||t("dcNoDept"))}</span><span class="dcst" style="width:${Math.max(8,v.tot/mx*100)}%">${DK.filter(k=>v[k]).map(k=>`<i class="k-${k}" style="flex:${v[k]}" title="${esc(t("dk_"+k))}: ${v[k]}"></i>`).join("")}</span><b>${v.tot}</b></button>`).join("")}
+    <div class="dcleg">${DK.map(k=>`<span class="k-${k}">${esc(t("dk_"+k))}</span>`).join("")}</div></div>`:"";
+  // employees grouped by dept
+  let list=people; if(S.dOnly) list=list.filter(p=>A[p.id]); if(S.dKind) list=list.filter(p=>A[p.id]&&A[p.id][S.dKind].n);
+  const G={}; list.forEach(p=>(G[(isAdmin()&&!S.dHotel?p.hotel+"|":"")+p.dept]=G[(isAdmin()&&!S.dHotel?p.hotel+"|":"")+p.dept]||[]).push(p));
+  const RO={manager:0,supervisor:1,staff:2,gm:-1};
+  const groups=Object.keys(G).sort((a,b)=>{ const ta=G[a].reduce((s,p)=>s+(A[p.id]?A[p.id].tot:0),0), tb=G[b].reduce((s,p)=>s+(A[p.id]?A[p.id].tot:0),0); return tb-ta||a.localeCompare(b); });
+  const hdr=`<div class="dchrow"><span>${esc(t("dcEmp"))}</span>${DK.map(k=>`<span>${esc(t("dk_"+k))}</span>`).join("")}<span>${esc(t("dcTotal"))}</span></div>`;
+  const rows=groups.map(g=>{ const ps=G[g].sort((a,b)=>((A[b.id]?A[b.id].tot:0)-(A[a.id]?A[a.id].tot:0))||((RO[a.role]??3)-(RO[b.role]??3))||(a.full_name||"").localeCompare(b.full_name||"",LANG));
+    const [h,d]=g.includes("|")?g.split("|"):["",g]; const gt=ps.reduce((s,p)=>s+(A[p.id]?A[p.id].tot:0),0), gp=ps.filter(p=>A[p.id]).length;
+    return `<section class="dcgrp"><div class="dcgh"><h3>${esc(deptL(d)||t("dcNoDept"))}${h?` <span class="meta">· ${esc(hotelL(h))}</span>`:""}</h3><span class="meta">${esc(t("dcGrpMeta",{n:ps.length,p:gp,r:gt}))}</span></div>${hdr}
+      ${ps.map(p=>{ const a=A[p.id]; const sup=p.role==="staff"?dChain(p.id,"supervisor"):null, mgr=["staff","supervisor"].includes(p.role)?dChain(p.id,"manager"):null;
+        const line=[roleL(p.role),sup?t("dcSupL",{n:dName(sup)}):"",mgr?t("dcMgrL",{n:dName(mgr)}):""].filter(Boolean).join(" · ");
+        const open=S.dOpen===p.id;
+        return `<button type="button" class="dcrow${a?"":" zero"}" data-emp="${p.id}" aria-expanded="${open}"><span class="dcwho">${dAv(p.id)}<div><span class="n">${esc(p.full_name||"")}${p.active?"":` <span class="meta">(${esc(t("dcInactive"))})</span>`}</span><span class="r">${esc(line)}</span></div></span>
+          ${dCell(a,"absence",1)}${dCell(a,"notice")}${dCell(a,"warning")}${dCell(a,"penalty",1)}<span class="dcc tot${a?"":" z"}"><span class="ml">${esc(t("dcTotal"))}</span><b>${a?a.tot:"—"}</b></span></button>${open?discDetail(p.id,mk):""}`; }).join("")}</section>`; }).join("");
+  const empty=!recs.length?`<div class="dcempty"><b>${esc(t("dcEmptyM",{m:monthName(mk)}))}</b><span>${esc(t(discCanWrite()?"dcEmptyW":"dcEmptyR"))}</span>${discCanWrite()?`<button class="btn primary" data-add="1">+ ${esc(t("dcAdd"))}</button>`:""}</div>`:"";
+  const none=!list.length&&recs.length?`<div class="dcempty"><b>${esc(t("dcNoMatch"))}</b></div>`:"";
+  return kpi+deptBox+empty+(recs.length||!S.dOnly?rows:"")+none; }
+
+function discDetail(id,mk){ const recs=(S.disc||[]).filter(r=>r.employee===id&&r.on_date.slice(0,7)===mk); const yr=dAgg((S.disc||[]).filter(r=>r.employee===id))[id];
+  const yl=yr?`<div class="dcyr">${esc(t("dcYearSoFar",{y:mk.slice(0,4)}))}: ${DK.map(k=>`<span><b>${yr[k].n}</b> ${esc(t("dk_"+k))}${yr[k].d?` (${esc(t("dcDaysN",{n:dNum(yr[k].d)}))})`:""}</span>`).join(" · ")}</div>`:"";
+  const fmt=d=>{ const [y,m,dd]=d.split("-").map(Number); return new Intl.DateTimeFormat(loc(),{weekday:"short",day:"numeric",month:"short"}).format(new Date(y,m-1,dd)); };
+  return `<div class="dcdet">${yl}${recs.length?recs.map(r=>`<div class="dcrec k-${r.kind}"><span class="kd">${esc(t("dk_"+r.kind))}${Number(r.days)?" · "+esc(t("dcDaysN",{n:dNum(Number(r.days))})):""}</span><div class="bd"><p>${esc(r.reason||t("dcNoReason"))}</p><span>${esc(fmt(r.on_date))}${r.created_by?" · "+esc(t("dcBy",{n:dName(r.created_by)})):""}</span></div>${discCanWrite()?`<button type="button" class="x" data-del="${r.id}">${esc(t("dcDel"))}</button>`:""}</div>`).join(""):`<p class="meta" style="margin:0">${esc(t("dcNoneM"))}</p>`}
+    ${discCanWrite()?`<div><button class="btn" data-add="${id}">+ ${esc(t("dcAddFor",{n:dName(id)}))}</button></div>`:""}</div>`; }
+
+function discYearHTML(Y){ const people=dPeopleList(); const hs=isAdmin()?(S.dHotel||""):"";
+  const recs=(S.disc||[]).filter(r=>(!hs||r.hotel===hs)&&(!S.dDept||r.dept===S.dDept)&&(!S.dKind||r.kind===S.dKind));
+  const M={}; recs.forEach(r=>{ const mo=Number(r.on_date.slice(5,7))-1; (M[r.employee]=M[r.employee]||Array(12).fill(0))[mo]++; });
+  const list=people.filter(p=>M[p.id]);
+  const mn=i=>new Intl.DateTimeFormat(loc(),{month:"short"}).format(new Date(Number(Y),i,1));
+  const lv=n=>!n?"z":n>=5?"l3":n>=3?"l2":"l1"; const curI=Y===dCurM().slice(0,4)?Number(dCurM().slice(5,7))-1:-1;
+  const kinds=`<div class="dckpi">${DK.map(k=>{ const n=(S.disc||[]).filter(r=>r.on_date.startsWith(Y)&&r.kind===k&&(!hs||r.hotel===hs)&&(!S.dDept||r.dept===S.dDept)).length; return `<button type="button" class="dck k-${k}" data-kf="${k}" aria-pressed="${S.dKind===k}"><span class="hd"><i>${DKI[k]}</i>${esc(t("dk_"+k))}</span><span class="n">${n}</span><span class="s">${esc(t("dcInYear",{y:Y}))}</span></button>`; }).join("")}</div>`;
+  if(!list.length) return kinds+`<div class="dcempty"><b>${esc(t("dcEmptyY",{y:Y}))}</b></div>`;
+  list.sort((a,b)=>M[b.id].reduce((s,x)=>s+x,0)-M[a.id].reduce((s,x)=>s+x,0));
+  return kinds+`<section class="dcgrp"><div class="dcgh"><h3>${esc(t("dcYearTitle",{y:Y}))}</h3><span class="meta">${esc(t("dcYearH"))}</span></div><div class="dcyg">
+    <div class="dcyrow h"><span style="text-align:start">${esc(t("dcEmp"))}</span>${Array.from({length:12},(_,i)=>`<span>${esc(mn(i))}</span>`).join("")}<span>${esc(t("dcTotal"))}</span></div>
+    ${list.map(p=>{ const a=M[p.id], tot=a.reduce((s,x)=>s+x,0); return `<div class="dcyrow"><span class="dcwho">${dAv(p.id)}<div><span class="n">${esc(p.full_name||"")}</span><span class="r">${esc(deptL(p.dept))}</span></div></span>${a.map((n,i)=>`<button type="button" class="dcym ${lv(n)}${i===curI?" cur":""}" data-ym="${Y}-${String(i+1).padStart(2,"0")}" data-emp="${p.id}" title="${esc(mn(i))}">${n||"·"}</button>`).join("")}<span class="dcc tot"><b>${tot}</b></span></div>`; }).join("")}</div></section>`; }
+
+function bindDiscBody(){ const b=$("#dcBody");
+  b.querySelectorAll("[data-kf]").forEach(x=>x.onclick=()=>{ S.dKind=S.dKind===x.dataset.kf?null:x.dataset.kf; discBody(); });
+  b.querySelectorAll("[data-df]").forEach(x=>x.onclick=()=>{ S.dDept=S.dDept===x.dataset.df?"":x.dataset.df; discBody(); });
+  b.querySelectorAll(".dcrow[data-emp]").forEach(x=>x.onclick=()=>{ S.dOpen=S.dOpen===x.dataset.emp?null:x.dataset.emp; discBody(); });
+  b.querySelectorAll("[data-ym]").forEach(x=>x.onclick=()=>{ S.discMonth=x.dataset.ym; S.dMode="month"; S.dOpen=x.dataset.emp; discBody(); const r=document.querySelector(`.dcrow[data-emp="${x.dataset.emp}"]`); if(r) r.scrollIntoView({block:"center"}); });
+  b.querySelectorAll("[data-add]").forEach(x=>x.onclick=e=>{ e.stopPropagation(); discAddDialog(x.dataset.add==="1"?null:x.dataset.add); });
+  b.querySelectorAll("[data-del]").forEach(x=>x.onclick=async e=>{ e.stopPropagation(); const r=(S.disc||[]).find(z=>String(z.id)===x.dataset.del); if(!r) return;
+    const ok=await ask({title:t("dcDelQ"),text:t("dk_"+r.kind)+" — "+dName(r.employee)+" — "+r.on_date,noInput:true,danger:true,okText:t("dcDel")}); if(ok===null) return;
+    try{ await call(S.sb.from("disc_records").delete().eq("id",r.id),t("dcDeleted")); S.disc=S.disc.filter(z=>z.id!==r.id); discBody(); }catch(err){} }); }
+
+async function discSetPublic(v){ if(!isAdmin()||v===discPub()) return;
+  try{ await call(S.sb.from("settings").update({disc_public:v}).eq("id",1),t(v?"dcNowPub":"dcNowPriv")); S.settings.disc_public=v; render(); }catch(e){} }
+
+function discAddDialog(pre){ const hs=isAdmin()?(S.dHotel||""):myHotel();
+  const ppl=Object.values(S.discPeople||{}).filter(p=>p.active&&(!hs||p.hotel===hs)).sort((a,b)=>deptL(a.dept).localeCompare(deptL(b.dept),LANG)||(a.full_name||"").localeCompare(b.full_name||"",LANG));
+  const G={}; ppl.forEach(p=>{ const k=(isAdmin()&&!hs?hotelL(p.hotel)+" — ":"")+(deptL(p.dept)||t("dcNoDept")); (G[k]=G[k]||[]).push(p); });
+  const empOpts=sel=>`<option value="">${esc(t("dcPickEmp"))}</option>`+Object.entries(G).map(([g,ps])=>`<optgroup label="${esc(g)}">${ps.map(p=>opt(p.id,p.full_name+" — "+roleL(p.role),sel||"")).join("")}</optgroup>`).join("");
+  const today=dayKey(Date.now()); const defD=S.discMonth&&S.discMonth!==dCurM()?S.discMonth+"-01":today;
+  const d=document.createElement("div"); d.className="dlg dcadd";
+  d.innerHTML=`<div class="in" role="dialog" aria-modal="true"><h4>${esc(t("dcAddTitle"))}</h4>
+    <label class="lb">${esc(t("dcEmp"))}<input class="field" id="daQ" type="search" placeholder="${esc(t("dcSearch"))}"><select class="field" id="daE">${empOpts(pre)}</select></label>
+    <div class="lb">${esc(t("dcKind"))}<div class="dckinds">${DK.map(k=>`<button type="button" class="k-${k}" data-k="${k}" aria-pressed="${k==="absence"}"><i>${DKI[k]}</i>${esc(t("dk_"+k))}</button>`).join("")}</div></div>
+    <div class="dc2"><label class="lb">${esc(t("dcDate"))}<input class="field" type="date" id="daD" value="${defD}" max="${today}"></label>
+      <label class="lb" id="daDaysL"><span id="daDaysT">${esc(t("dcAbsDaysL"))}</span><input class="field" type="number" id="daN" min="0.5" max="60" step="0.5" value="1"></label></div>
+    <label class="lb"><span id="daRT">${esc(t("dcReason"))}</span><textarea class="field" id="daR" rows="3" maxlength="1000" placeholder="${esc(t("dcReasonPh"))}"></textarea></label>
+    <p class="dcerr" id="daErr" hidden></p>
+    <div class="actions" style="justify-content:flex-end"><button class="btn" data-x>${esc(t("cancel"))}</button><button class="btn primary" data-ok>${esc(t("dcSave"))}</button></div></div>`;
+  document.body.appendChild(d); let kind="absence";
+  const sync=()=>{ d.querySelectorAll("[data-k]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===kind)); const hasDays=kind==="absence"||kind==="penalty";
+    d.querySelector("#daDaysL").hidden=!hasDays; d.querySelector("#daDaysT").textContent=t(kind==="absence"?"dcAbsDaysL":"dcDedDaysL");
+    d.querySelector("#daRT").textContent=t(kind==="absence"?"dcReasonOpt":"dcReason"); };
+  sync(); d.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{ kind=b.dataset.k; sync(); });
+  const sel=d.querySelector("#daE"); d.querySelector("#daQ").oninput=e=>{ const q=e.target.value.trim().toLowerCase(); const cur=sel.value;
+    sel.innerHTML=empOpts(cur); if(q){ sel.querySelectorAll("option[value]").forEach(o=>{ if(o.value&&!o.textContent.toLowerCase().includes(q)) o.remove(); }); sel.querySelectorAll("optgroup").forEach(g=>{ if(!g.children.length) g.remove(); });
+      const left=sel.querySelectorAll("option[value]:not([value=''])"); if(left.length===1) sel.value=left[0].value; } };
+  (pre?d.querySelector("#daR"):d.querySelector("#daQ")).focus();
+  const close=()=>d.remove(); const err=m=>{ const e=d.querySelector("#daErr"); e.textContent=m; e.hidden=false; };
+  d.addEventListener("keydown",e=>{ if(e.key==="Escape") close(); });
+  d.addEventListener("click",async e=>{ if(e.target===d||e.target.hasAttribute("data-x")) return close();
+    if(!e.target.hasAttribute("data-ok")) return;
+    const emp=sel.value, on=d.querySelector("#daD").value, reason=d.querySelector("#daR").value.trim(); const hasDays=kind==="absence"||kind==="penalty"; const days=hasDays?Number(d.querySelector("#daN").value):0;
+    if(!emp) return err(t("dcErrEmp")); if(!on||on>today) return err(t("dcErrDate")); if(hasDays&&!(days>0&&days<=60)) return err(t("dcErrDays")); if(kind!=="absence"&&!reason) return err(t("dcErrReason"));
+    const p=dP(emp); e.target.disabled=true;
+    try{ const r=await call(S.sb.from("disc_records").insert({employee:emp,kind,on_date:on,days,reason,hotel:p.hotel}).select().single(),t("dcSaved"));
+      close(); if(r&&r.data&&on.slice(0,4)===S.discYear){ S.disc=[r.data,...S.disc]; } S.discMonth=on.slice(0,7); S.dMode="month"; S.dOpen=emp; if(S.discYear!==on.slice(0,4)) S.disc=null; renderDisc(); }
+    catch(x){ e.target.disabled=false; err(errText(x)); } }); }
+
+async function discExport(){ const mk=S.discMonth; try{ await loadLib("xlsx","https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"); }catch(e){ return toast(t("loadErr"),true); }
+  const people=dPeopleList(); const ids=new Set(people.map(p=>p.id));
+  if(S.dMode==="year"){ const Y=mk.slice(0,4); const rows=[[t("dcEmp"),t("dcDept"),...Array.from({length:12},(_,i)=>monthName(Y+"-"+String(i+1).padStart(2,"0"))),t("dcTotal")]];
+    people.forEach(p=>{ const a=Array(12).fill(0); (S.disc||[]).forEach(r=>{ if(r.employee===p.id&&r.on_date.startsWith(Y)&&(!S.dKind||r.kind===S.dKind)) a[Number(r.on_date.slice(5,7))-1]++; }); const tot=a.reduce((s,x)=>s+x,0); if(tot) rows.push([p.full_name,deptL(p.dept),...a,tot]); });
+    const wb=XLSX.utils.book_new(); const ws=XLSX.utils.aoa_to_sheet(rows); if(LANG==="ar") ws["!views"]=[{RTL:true}]; XLSX.utils.book_append_sheet(wb,ws,Y); XLSX.writeFile(wb,`discipline-${Y}.xlsx`); return; }
+  const recs=dRecsIn(mk).filter(r=>ids.has(r.employee)); const A=dAgg(recs);
+  const sum=[[t("dcEmp"),t("dcDept"),t("dcRole"),t("dcSupCol"),t("dcMgrCol"),t("dk_absence"),t("dcAbsDaysL"),t("dk_notice"),t("dk_warning"),t("dk_penalty"),t("dcDedDaysL"),t("dcTotal")]];
+  people.filter(p=>A[p.id]||!S.dOnly).forEach(p=>{ const a=A[p.id]; const z={n:0,d:0}; const g=k=>a?a[k]:z; sum.push([p.full_name,deptL(p.dept),roleL(p.role),p.role==="staff"?(dChain(p.id,"supervisor")?dName(dChain(p.id,"supervisor")):""):"",dChain(p.id,"manager")?dName(dChain(p.id,"manager")):"",g("absence").n,g("absence").d,g("notice").n,g("warning").n,g("penalty").n,g("penalty").d,a?a.tot:0]); });
+  const det=[[t("dcDate"),t("dcEmp"),t("dcDept"),t("dcKind"),t("dcDaysCol"),t("dcReason"),t("dcByCol")]];
+  recs.slice().sort((a,b)=>a.on_date.localeCompare(b.on_date)).forEach(r=>det.push([r.on_date,dName(r.employee),deptL(r.dept),t("dk_"+r.kind),Number(r.days)||"",r.reason||"",r.created_by?dName(r.created_by):""]));
+  const wb=XLSX.utils.book_new(); [[sum,t("dcSheetSum")],[det,t("dcSheetDet")]].forEach(([rows,n])=>{ const ws=XLSX.utils.aoa_to_sheet(rows); if(LANG==="ar") ws["!views"]=[{RTL:true}]; XLSX.utils.book_append_sheet(wb,ws,n.slice(0,30)); });
+  XLSX.writeFile(wb,`discipline-${mk}.xlsx`); }
+
 /* ================= task sheet ================= */
 function assigneeOptions(hotel,cur,par,isNew,dept){ let list=activeMembers().filter(id=>canAssignTo(id,hotel));
   if(dept) list=list.filter(id=>{ const q=S.profiles[id]; return q.dept===dept||q.role==="gm"||(!q.dept&&id===S.uid); });
@@ -1811,7 +2086,7 @@ function renderSheetSide(){ const side=$("#sideP"); if(!side) return; const x=S.
 /* ================= boot ================= */
 function boot(){
   applyLangChrome();
-  const h=(location.hash||"").slice(1); if(["board","days","list","approvals","reports","team","depts"].includes(h)) S.view=h; { const mt=/^t=(\d+)$/.exec(h); if(mt) S.pendingOpen=+mt[1]; }
+  const h=(location.hash||"").slice(1); if(["board","days","list","approvals","reports","team","depts","disc"].includes(h)) S.view=h; { const mt=/^t=(\d+)$/.exec(h); if(mt) S.pendingOpen=+mt[1]; }
   if(!window.supabase||!CFG.SUPABASE_URL||CFG.SUPABASE_URL.includes("YOUR-PROJECT")){ $("#main").innerHTML=`<div class="gate"><h2>${esc(t("cfgTitle"))}</h2><p>${esc(t("cfgTxt"))}</p></div>`; return; }
   const tfetch=(u,o={})=>{ const c=new AbortController(); const tm=setTimeout(()=>c.abort(),20000); if(o.signal){ if(o.signal.aborted) c.abort(); else o.signal.addEventListener("abort",()=>c.abort()); } return fetch(u,Object.assign({},o,{signal:c.signal})).finally(()=>clearTimeout(tm)); };
   S.sb=supabase.createClient(CFG.SUPABASE_URL,CFG.SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true},global:{fetch:tfetch},realtime:{heartbeatIntervalMs:15000}});
