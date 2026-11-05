@@ -457,6 +457,10 @@ tr.grp td{position:sticky;top:0;z-index:2} .grpin{display:flex;align-items:cente
 .fvload{display:grid;gap:8px;justify-items:center;align-content:center;height:100%;color:var(--muted);text-align:center;padding:30px} .fvload.err{color:var(--bad)} .fvload small{color:var(--muted)}
 .spin{width:28px;height:28px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--accent);animation:spin .8s linear infinite} @keyframes spin{to{transform:rotate(360deg)}}
 .icbtn.sm{width:30px;height:30px;font-size:14px;border-radius:8px}
+.tfbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px;margin-bottom:12px}
+.tfbar .field{width:auto;min-width:150px;border-radius:10px} .tfsearch{position:relative;flex:1 1 260px} .tfsearch .field{width:100%;padding-inline-start:34px} .tfsearch span{position:absolute;inset-inline-start:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px}
+.tfcount{font-size:12.5px;color:var(--muted);font-weight:600;margin-inline-start:auto}
+@media (max-width:640px){ .tfbar .field{flex:1 1 45%;min-width:0} .tfcount{width:100%;margin:0} }
 /* proof dialog */
 .proofsel{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface-2);border-radius:12px;padding:8px 10px} .proofsel>span{font-size:13px;font-weight:700} .proofsel .seg{background:var(--surface)} .proofsel .seg button[aria-selected="true"]{background:var(--accent);color:var(--accent-fg)}
 .pfmode{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-inline-start:auto;white-space:nowrap} .pfmode.req{background:var(--bad-soft);color:var(--bad)} .pfmode.opt{background:var(--surface-2);color:var(--muted)} .pfhead .pfmode{align-self:center}
@@ -634,7 +638,7 @@ en:{
  signUpHint:"After signing up, an administrator reviews your request. You can't enter until you're approved.",
  fullName:"Full name",jobTitle:"Job title",jobTitlePh:"e.g. Receptionist",hotel:"Hotel",chooseHotel:"Choose your hotel…",dept:"Department",chooseDept:"Choose your department…",
  email:"Email",password:"Password",createBtn:"Create account",signInBtn:"Sign in",sendLink:"Send link",forgotHint:"Enter your email and we'll send you a link to set a new password.",
- rpwBtn:"Reset password",rpwTip:"Set the password to the standard one; the person must choose a new one at next sign-in",rpwTitle:"Reset the password of {n}?",rpwText:"The password of {e} becomes the standard password and they are signed out everywhere. At their next sign-in they must choose a new password before anything else.",rpwDoneT:"Password reset",rpwDoneL:"Tell {n} to sign in with:",rpwDoneS:"They will be asked to choose a new password right away.",rpwPending:"Must set new password",fpwT:"Choose a new password",fpwP:"Your password was reset. Choose your own new password to continue. It must be at least 8 characters and different from the standard password.",fpwSave:"Save my new password",fpwAgain:"New password again",fpwShort:"At least 8 characters.",fpwMismatch:"The two passwords do not match.",fpwSame:"Choose a password different from the standard one.",newPass:"New password",setPass:"Set new password",passChanged:"Password changed",
+ tfSearch:"Search by name, email, job title…",tfAllRoles:"All roles",tfAllStatus:"Any status",tfActive:"Active",tfDisabled:"Access stopped",tfClear:"Clear",tfCount:"{n} of {m}",tfNone:"Nobody matches these filters.",rpwBtn:"Reset password",rpwTip:"Set the password to the standard one; the person must choose a new one at next sign-in",rpwTitle:"Reset the password of {n}?",rpwText:"The password of {e} becomes the standard password and they are signed out everywhere. At their next sign-in they must choose a new password before anything else.",rpwDoneT:"Password reset",rpwDoneL:"Tell {n} to sign in with:",rpwDoneS:"They will be asked to choose a new password right away.",rpwPending:"Must set new password",fpwT:"Choose a new password",fpwP:"Your password was reset. Choose your own new password to continue. It must be at least 8 characters and different from the standard password.",fpwSave:"Save my new password",fpwAgain:"New password again",fpwShort:"At least 8 characters.",fpwMismatch:"The two passwords do not match.",fpwSame:"Choose a password different from the standard one.",newPass:"New password",setPass:"Set new password",passChanged:"Password changed",
  created:"Account created. Your request is now waiting for approval.",linkSent:"If this email is registered, a password reset link is on its way.",
  pendingTitle:"Your request is under review",pendingTxt:"An administrator will review your request and set your access. The board opens automatically once you're approved.",
  yourName:"Your name",updateMe:"Update my details",disabledTitle:"Access disabled",disabledTxt:"Your account is disabled. Contact your hotel's system administrator.",
@@ -700,7 +704,7 @@ ar:{
  signUpHint:"بعد التسجيل، الإدارة بتراجع طلبك. مش هتقدر تدخل غير بعد الموافقة.",
  fullName:"الاسم الكامل",jobTitle:"المسمى الوظيفي",jobTitlePh:"مثال: موظف استقبال",hotel:"الفندق",chooseHotel:"اختار الفندق…",dept:"القسم",chooseDept:"اختار القسم…",
  email:"الإيميل",password:"كلمة السر",createBtn:"إنشاء الحساب",signInBtn:"دخول",sendLink:"إرسال اللينك",forgotHint:"اكتب إيميلك وهيوصلك لينك لتغيير كلمة السر.",
- rpwBtn:"Reset Password",rpwTip:"يرجّع الباسورد للباسورد الموحد، والشخص لازم يعمل باسورد جديد أول ما يدخل",rpwTitle:"ترجّع باسورد {n}؟",rpwText:"باسورد {e} هيبقى الباسورد الموحد، وهيتعمله خروج من كل الأجهزة. أول ما يدخل لازم يعمل باسورد جديد قبل أي حاجة.",rpwDoneT:"الباسورد اترجّع",rpwDoneL:"قول لـ {n} يدخل بالباسورد ده:",rpwDoneS:"هيطلب منه يعمل باسورد جديد على طول.",rpwPending:"لازم يعمل باسورد جديد",fpwT:"اعمل باسورد جديد",fpwP:"الباسورد بتاعك اترجّع. اعمل باسورد جديد خاص بيك عشان تكمل. لازم يكون 8 حروف أو أكتر ومختلف عن الباسورد الموحد.",fpwSave:"احفظ الباسورد الجديد",fpwAgain:"الباسورد الجديد تاني",fpwShort:"لازم 8 حروف أو أكتر.",fpwMismatch:"الباسوردين مش زي بعض.",fpwSame:"اختار باسورد غير الباسورد الموحد.",newPass:"كلمة السر الجديدة",setPass:"كلمة سر جديدة",passChanged:"تم تغيير كلمة السر",
+ tfSearch:"ابحث بالاسم أو الإيميل أو المسمى الوظيفي…",tfAllRoles:"كل الأدوار",tfAllStatus:"أي حالة",tfActive:"شغال",tfDisabled:"موقوف",tfClear:"مسح",tfCount:"{n} من {m}",tfNone:"مفيش حد مطابق للفلاتر دي.",rpwBtn:"Reset Password",rpwTip:"يرجّع الباسورد للباسورد الموحد، والشخص لازم يعمل باسورد جديد أول ما يدخل",rpwTitle:"ترجّع باسورد {n}؟",rpwText:"باسورد {e} هيبقى الباسورد الموحد، وهيتعمله خروج من كل الأجهزة. أول ما يدخل لازم يعمل باسورد جديد قبل أي حاجة.",rpwDoneT:"الباسورد اترجّع",rpwDoneL:"قول لـ {n} يدخل بالباسورد ده:",rpwDoneS:"هيطلب منه يعمل باسورد جديد على طول.",rpwPending:"لازم يعمل باسورد جديد",fpwT:"اعمل باسورد جديد",fpwP:"الباسورد بتاعك اترجّع. اعمل باسورد جديد خاص بيك عشان تكمل. لازم يكون 8 حروف أو أكتر ومختلف عن الباسورد الموحد.",fpwSave:"احفظ الباسورد الجديد",fpwAgain:"الباسورد الجديد تاني",fpwShort:"لازم 8 حروف أو أكتر.",fpwMismatch:"الباسوردين مش زي بعض.",fpwSame:"اختار باسورد غير الباسورد الموحد.",newPass:"كلمة السر الجديدة",setPass:"كلمة سر جديدة",passChanged:"تم تغيير كلمة السر",
  created:"تم إنشاء الحساب. طلبك دلوقتي مستني الموافقة.",linkSent:"لو الإيميل مسجّل عندنا، هيوصلك لينك تغيير كلمة السر.",
  pendingTitle:"طلبك قيد المراجعة",pendingTxt:"الإدارة هتراجع طلبك وتحدد صلاحيتك. اللوحة هتفتح لوحدها أول ما يتوافق عليك.",
  yourName:"اسمك",updateMe:"تحديث بياناتي",disabledTitle:"الوصول متوقف",disabledTxt:"حسابك موقوف. تواصل مع إدارة الفندق.",
@@ -840,7 +844,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v41";
+const BUILD="v42";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -1598,10 +1602,18 @@ function bindReports(){ const m=$("#main");
 function renderTeam(){ const m=$("#main");
   if(S.builtView!=="team"){ S.builtView="team";
     m.innerHTML=`<h2 class="h2">${esc(t("reqTitle"))}</h2><p class="sub">${esc(t("reqHint"))}</p><div id="tRq"></div>
-    <div class="row" style="justify-content:space-between;align-items:end"><h2 class="h2">${esc(t("teamTitle"))}</h2>${isAdmin()?`<select class="field" id="tHotelF" style="width:auto;margin-bottom:10px">${hotelOpts(S.teamHotel||"",t("allHotels"))}</select>`:""}</div>
-    <p class="sub">${t("teamHint")}</p>
+    <h2 class="h2">${esc(t("teamTitle"))}</h2><p class="sub">${t("teamHint")}</p>
+    <div class="tfbar"><div class="tfsearch"><span>⌕</span><input class="field" id="tQ" type="search" placeholder="${esc(t("tfSearch"))}" value="${esc(S.teamQ||"")}"></div>
+      ${isAdmin()?`<select class="field" id="tHotelF">${hotelOpts(S.teamHotel||"",t("allHotels"))}</select>`:""}
+      <select class="field" id="tDeptF">${deptOpts(S.teamDept||"",t("allDepts"))}</select>
+      <select class="field" id="tRoleF">${opt("",t("tfAllRoles"),S.teamRole||"")}${ROLE_KEYS.filter(k=>isAdmin()||k!=="admin").map(k=>opt(k,roleL(k),S.teamRole||"")).join("")}</select>
+      <select class="field" id="tActF">${opt("",t("tfAllStatus"),S.teamAct||"")}${opt("on",t("tfActive"),S.teamAct||"")}${opt("off",t("tfDisabled"),S.teamAct||"")}${opt("pw",t("rpwPending"),S.teamAct||"")}</select>
+      <button class="btn sm" id="tClr" type="button">${esc(t("tfClear"))}</button><span class="tfcount" id="tCount"></span></div>
     <div class="panel tablewrap" id="tMembers"></div>`;
     const hf=$("#tHotelF"); if(hf) hf.onchange=()=>{ S.teamHotel=hf.value; renderTeam(); };
+    $("#tDeptF").onchange=e=>{ S.teamDept=e.target.value; renderTeam(); }; $("#tRoleF").onchange=e=>{ S.teamRole=e.target.value; renderTeam(); }; $("#tActF").onchange=e=>{ S.teamAct=e.target.value; renderTeam(); };
+    let tq; $("#tQ").oninput=e=>{ clearTimeout(tq); tq=setTimeout(()=>{ S.teamQ=e.target.value; renderTeam(); },150); };
+    $("#tClr").onclick=()=>{ S.teamQ=S.teamDept=S.teamRole=S.teamAct=""; S.teamHotel=""; S.builtView=null; renderTeam(); };
   }
   const roleOptsFor=(p)=>{ const keys=assignableRoles(); return keys.map(k=>opt(k,roleL(k),p.role)).join(""); };
   const underMe=p=>{ if(isAdmin()) return true; if(p.hotel!==myHotel()) return false;
@@ -1618,8 +1630,15 @@ function renderTeam(){ const m=$("#main");
      <select class="field" data-rqdept="${p.id}" style="width:auto">${deptChoices(p.requested_dept||p.dept||"",t("chooseDept"))}</select>${bossSel(p,`data-rqboss="${p.id}" style="width:auto"`,"")}
      <button class="btn ok sm" data-rqok="${p.id}">${esc(t("approveReq"))}</button><button class="btn bad sm" data-rqno="${p.id}">${esc(t("rejectReq"))}</button></div></div>`).join("")}</div>`:`<div class="empty-col">${esc(t("reqNone"))}</div>`;
   const ord={admin:0,gm:1,manager:2,supervisor:3,staff:4,pending:5};
-  const mem=P.filter(p=>p.role!=="pending"||!p.active).sort((a,b)=>String(a.hotel||"").localeCompare(String(b.hotel||""))||(ord[a.role]-ord[b.role])||nameOf(a.id).localeCompare(nameOf(b.id),LANG));
-  $("#tMembers").innerHTML=`<table><thead><tr><th>${esc(t("tName"))}</th>${isAdmin()?`<th>${esc(t("tHotel"))}</th>`:""}<th>${esc(t("tTitle"))}</th><th>${esc(t("tDept"))}</th><th>${esc(t("tBoss"))}</th><th>${esc(t("tUnder"))}</th><th>${esc(t("tRole"))}</th><th>${esc(t("tOpen"))}</th><th>${esc(t("tAccess"))}</th></tr></thead><tbody>
+  const nq=v=>String(v||"").toLowerCase(); const tq0=nq(S.teamQ).trim();
+  const fOk=p=>(!S.teamDept||p.dept===S.teamDept||(p.role==="pending"&&p.requested_dept===S.teamDept))&&(!S.teamRole||p.role===S.teamRole)
+    &&(!S.teamAct||(S.teamAct==="on"?p.active:S.teamAct==="off"?!p.active:!!p.must_change_password))
+    &&(!tq0||[nameOf(p.id),(S.emails||{})[p.id],p.title,deptL(p.dept),roleL(p.role),hotelL(p.hotel)].some(v=>nq(v).includes(tq0)));
+  const allMem=P.filter(p=>p.role!=="pending"||!p.active);
+  const mem=allMem.filter(fOk).sort((a,b)=>String(a.hotel||"").localeCompare(String(b.hotel||""))||(ord[a.role]-ord[b.role])||nameOf(a.id).localeCompare(nameOf(b.id),LANG));
+  const tc=$("#tCount"); if(tc) tc.textContent=t("tfCount",{n:mem.length,m:allMem.length});
+  if(!mem.length){ $("#tMembers").innerHTML=`<div class="lsempty" style="padding:30px;text-align:center">${esc(t("tfNone"))}</div>`; }
+  else $("#tMembers").innerHTML=`<table><thead><tr><th>${esc(t("tName"))}</th>${isAdmin()?`<th>${esc(t("tHotel"))}</th>`:""}<th>${esc(t("tTitle"))}</th><th>${esc(t("tDept"))}</th><th>${esc(t("tBoss"))}</th><th>${esc(t("tUnder"))}</th><th>${esc(t("tRole"))}</th><th>${esc(t("tOpen"))}</th><th>${esc(t("tAccess"))}</th></tr></thead><tbody>
    ${mem.map(p=>{const self=p.id===S.uid; const ed=canEditRow(p)&&!self; const openN=S.tasks.filter(x=>x.assignee===p.id&&x.status!=="done").length; const dis=ed?"":" disabled";
      return `<tr style="${p.active?"":"opacity:.55"}"><td>${who(p.id)}${(S.emails||{})[p.id]?`<div class="tmail" dir="ltr">${esc(S.emails[p.id])}</div>`:""}</td>
      ${isAdmin()?`<td>${p.role==="admin"?"—":`<select class="field" data-mhotel="${p.id}"${dis}>${hotelOpts(p.hotel||"",t("chooseHotel"))}</select>`}</td>`:""}
