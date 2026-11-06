@@ -1160,7 +1160,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v53";
+const BUILD="v54";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -2756,7 +2756,7 @@ function openTask(id,parentId){ const x=id?T(id):null; if(id&&!x) return; closeS
       <label class="lb">${esc(t("estimate"))}<input class="field num" type="number" min="0" step="0.25" id="fEst" value="${x&&x.estimate!=null?x.estimate:""}"${dis}></label>
       <label class="chk" style="align-self:end;padding-bottom:8px"><input type="checkbox" id="fNA"${(!x||x.needsApproval!==false)?" checked":""}${dis}> ${esc(t("needsAppr"))}</label>
       <label class="chk" style="align-self:end;padding-bottom:8px"><input type="checkbox" id="fNT"${x&&x.noTransfer?" checked":""}${dis}> ${esc(t("noTransfer"))}</label></div>
-      ${(isSup()||isManager()||isGM()||isAdmin())?(()=>{ const req=x?x.proofRequired!==false:(S.settings.proof_default!==false); const pd=isAdmin()||!x?"":dis;
+      ${(isSup()||isManager()||isGM()||isAdmin())?(()=>{ const req=x?x.proofRequired!==false:(S.settings.proof_default!==false); const pd="";
         return `<div class="proofsel"${x?` data-task="${x.id}"`:""}><span>${esc(t("pfSetL"))}</span><div class="seg"><button type="button" data-pf="1" aria-selected="${req}"${pd}>📎 ${esc(t("pfReq"))}</button><button type="button" data-pf="0" aria-selected="${!req}"${pd}>${esc(t("pfOpt"))}</button></div><input type="hidden" id="fPF" value="${req?"1":"0"}">${x?`<small class="meta">${esc(t("pfInstant"))}</small>`:""}</div>`; })():""}
      ${ed?`<div class="actions"><button class="btn primary" type="submit" id="saveT">${esc(t(x?"saveChanges":"create"))}</button>${x?"":`<button class="btn" type="button" id="cancelT">${esc(t("cancel"))}</button>`}</div>`:`<p class="meta" style="margin:0">${esc(t("editOnly"))}</p>`}
      ${x?transferBox(x):""}
