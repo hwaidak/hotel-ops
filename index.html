@@ -1159,7 +1159,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v51";
+const BUILD="v52";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -1198,16 +1198,26 @@ const FMAX=10*1024*1024, FKEEP=30;
 const kb=n=>n<1024?n+" B":n<1048576?(n/1024).toFixed(n<10240?1:0)+" KB":(n/1048576).toFixed(1)+" MB";
 const fIcon=(name,mime)=>/^image\//.test(mime)||/\.(png|jpe?g|webp|gif|heic)$/i.test(name)?"🖼":/pdf/i.test(mime+name)?"📕":/(xls|xlsx|csv|sheet)/i.test(mime+name)?"📗":/(doc|docx|word)/i.test(mime+name)?"📘":"📄";
 async function gz(blob){ return await new Response(blob.stream().pipeThrough(new CompressionStream("gzip"))).blob(); }
-async function shrink(file){ const orig=file.size; const isImg=/^image\/(jpeg|png|webp|bmp|gif)$/i.test(file.type);
-  if(isImg){ try{ let bmp; try{ bmp=await createImageBitmap(file,{resizeWidth:1600,resizeQuality:"medium"}); }catch(e){ bmp=null; }
-      if(!bmp||!bmp.width) bmp=await createImageBitmap(file);
-      const sc=Math.min(1,1600/Math.max(bmp.width,bmp.height)); const c=document.createElement("canvas"); c.width=Math.round(bmp.width*sc); c.height=Math.round(bmp.height*sc);
-      c.getContext("2d").drawImage(bmp,0,0,c.width,c.height); let b=await new Promise(r=>c.toBlob(r,"image/webp",0.6)); let mime="image/webp", ext="webp";
-      if(!b||b.type!=="image/webp"){ b=await new Promise(r=>c.toBlob(r,"image/jpeg",0.65)); mime="image/jpeg"; ext="jpg"; }
-      if(b&&b.size<orig) return {blob:b,mime,ext,gz:false,orig}; }catch(e){} }
-  const ext0=((file.name.match(/\.([A-Za-z0-9]{1,6})$/)||[])[1]||"bin").toLowerCase();
-  if(window.CompressionStream){ try{ const z=await gz(file); if(z.size<orig*0.95) return {blob:z,mime:file.type||"application/octet-stream",ext:ext0+".gz",gz:true,orig}; }catch(e){} }
-  return {blob:file,mime:file.type||"application/octet-stream",ext:ext0,gz:false,orig}; }
+/* any photo from any phone: fix rotation, convert HEIC, shrink to 1600px; fall back to the original if the phone can't decode it */
+const IMG_EXT=/\.(jpe?g|png|webp|gif|bmp|heic|heif|avif|tiff?)$/i;
+const isImgFile=f=>/^image\//i.test(f.type||"")||IMG_EXT.test(f.name||"");
+async function decodeImg(file){
+  try{ const b=await createImageBitmap(file,{imageOrientation:"from-image"}); if(b&&b.width) return b; }catch(e){}
+  try{ const u=URL.createObjectURL(file); const im=new Image(); im.decoding="async"; im.src=u; await im.decode(); URL.revokeObjectURL(u); if(im.naturalWidth) return im; }catch(e){}
+  if(/\.(heic|heif)$/i.test(file.name||"")||/hei[cf]/i.test(file.type||"")){ try{ await loadLib("heic","https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js");
+      let j=await window.heic2any({blob:file,toType:"image/jpeg",quality:0.8}); if(Array.isArray(j)) j=j[0]; const b=await createImageBitmap(j); if(b&&b.width) return b; }catch(e){} }
+  return null; }
+async function shrink(file){ const orig=file.size;
+  if(isImgFile(file)){ try{ const img=await decodeImg(file);
+      if(img){ const W=img.width||img.naturalWidth, H=img.height||img.naturalHeight; const sc=Math.min(1,1600/Math.max(W,H)); const c=document.createElement("canvas"); c.width=Math.max(1,Math.round(W*sc)); c.height=Math.max(1,Math.round(H*sc));
+        c.getContext("2d").drawImage(img,0,0,c.width,c.height); if(img.close) img.close();
+        let bl=await new Promise(r=>c.toBlob(r,"image/webp",0.6)); let mime="image/webp", ext="webp";
+        if(!bl||bl.type!=="image/webp"){ bl=await new Promise(r=>c.toBlob(r,"image/jpeg",0.7)); mime="image/jpeg"; ext="jpg"; }
+        if(bl&&bl.size) return {blob:bl,mime,ext,gz:false,orig}; } }catch(e){} }
+  const ext0=((file.name.match(/\.([A-Za-z0-9]{1,6})$/)||[])[1]||(isImgFile(file)?"jpg":"bin")).toLowerCase();
+  const mime0=file.type||(isImgFile(file)?"image/"+(ext0==="jpg"?"jpeg":ext0):"application/octet-stream");
+  if(!isImgFile(file)&&window.CompressionStream){ try{ const z=await gz(file); if(z.size<orig*0.95) return {blob:z,mime:mime0,ext:ext0+".gz",gz:true,orig}; }catch(e){} }
+  return {blob:file,mime:mime0,ext:ext0,gz:false,orig}; }
 async function fileBlob(f){ const {data,error}=await S.sb.storage.from("task-files").download(f.path); if(error) throw error; let b=data;
   if(f.gz) b=await new Response(b.stream().pipeThrough(new DecompressionStream("gzip"))).blob(); return new Blob([b],{type:f.mime||"application/octet-stream"}); }
 const libs={}; const loadLib=(k,url)=>libs[k]||(libs[k]=new Promise((ok,no)=>{ const sc=document.createElement("script"); sc.src=url; sc.onload=ok; sc.onerror=()=>{ delete libs[k]; no(new Error("lib")); }; document.head.appendChild(sc); }));
@@ -1253,7 +1263,7 @@ async function proofDialog(x,to){ const stage=to==="done"&&canApprove(x)&&x.assi
     const refresh=()=>{ const ready=(must?items.length:true)&&items.every(i=>i.r)&&!items.some(i=>i.bad); $$("#pfOk").disabled=!(ready&&$$("#pfAck").checked);
       $$("#pfList").innerHTML=items.map((i,n)=>`<div class="pfrow${i.bad?" bad":""}"><span class="fi">${fIcon(i.f.name,i.f.type)}</span><span class="fn">${esc(i.f.name)}</span><span class="fs">${i.r?`${kb(i.f.size)} → <b>${kb(i.r.blob.size)}</b>${i.r.blob.size<i.f.size?` <em>-${Math.min(99,Math.round((1-i.r.blob.size/i.f.size)*100))}%</em>`:""}`:esc(t("pfShrinking"))}${i.bad?` <em class="bad">${esc(t("pfTooBig"))}</em>`:""}</span><button type="button" class="x" data-rm="${n}" aria-label="${esc(t("del"))}">✕</button></div>`).join("");
       d.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ items.splice(+b.dataset.rm,1); refresh(); }); };
-    const okType=f=>/^image\//i.test(f.type)||/\.(pdf|docx?|xlsx?|csv|jpe?g|png|webp|heic|heif|gif|bmp)$/i.test(f.name)||/pdf|word|excel|spreadsheet|csv/i.test(f.type);
+    const okType=f=>isImgFile(f)||(!f.type&&!/\.[a-z0-9]+$/i.test(f.name||""))||/\.(pdf|docx?|xlsx?|csv|jpe?g|png|webp|heic|heif|gif|bmp)$/i.test(f.name)||/pdf|word|excel|spreadsheet|csv/i.test(f.type);
     const add=async fl=>{ try{ sessionStorage.removeItem("pfPending"); }catch(e){} let L=[...(fl||[])]; if(!L.length) return;
       const badT=L.filter(f=>!okType(f)); L=L.filter(okType); if(badT.length){ $$("#pfErr").hidden=false; $$("#pfErr").textContent=t("pfBadType",{n:badT.map(f=>f.name).join("، ")}); }
       for(const f of L.slice(0,5-items.length)){ const it={f,r:null}; items.push(it); refresh();
