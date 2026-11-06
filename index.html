@@ -660,6 +660,81 @@ input.title{font-size:17px;font-weight:600;font-family:var(--f-display)}
 .dchips .warn{background:var(--warn-soft);color:var(--warn)}
 .dcrule{font-size:12px;color:var(--muted);margin:-4px 0 12px}
 .dcc.tot small.pt{color:var(--bad);font-weight:600}
+/* ===== final evaluation ===== */
+.evtabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:4px 0 14px;overflow-x:auto;scrollbar-width:none}
+.evtabs button{border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--muted);padding:10px 12px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+.evtabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.evper{gap:6px;padding:4px 6px} .evper .field{width:auto;min-width:0;border:0;background:var(--surface-2)}
+.evk .n small{font-size:14px;color:var(--muted);font-weight:600}
+.evdist{display:flex;height:22px;border-radius:8px;overflow:hidden;margin:-4px 0 6px} .evdist i{display:grid;place-items:center;color:#fff;font-style:normal;font-size:11.5px;font-weight:700}
+.evact{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap;margin:10px 0 12px} .evact .meta{margin-inline-end:auto}
+.evrow{display:grid;grid-template-columns:minmax(200px,1.6fr) minmax(160px,1.4fr) minmax(90px,auto) 64px;gap:12px;align-items:center;padding:10px 14px;border:0;border-top:1px solid var(--line);background:none;font:inherit;color:inherit;width:100%;text-align:start;cursor:pointer}
+.evrow:hover{background:color-mix(in srgb,var(--surface-2) 55%,transparent)} div.evrow{cursor:default}
+.evrow.prob{grid-template-columns:minmax(200px,1.6fr) 90px 100px 100px minmax(90px,auto) 64px}
+.evbars{display:grid;gap:3px} .evbars>span{display:grid;grid-template-columns:96px 1fr;gap:6px;align-items:center} .evbars small{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.evbars i{display:block;height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden} .evbars b{display:block;height:100%;border-radius:4px}
+.evst em{font-style:normal;font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.evpend{background:var(--surface-2);color:var(--muted);font-style:normal;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px} .evflag{background:var(--bad-soft);color:var(--bad)} .evok{background:var(--ok-soft);color:var(--ok);font-style:normal;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px}
+.evrec.confirm{background:var(--ok-soft);color:var(--ok)} .evrec.extend{background:var(--warn-soft);color:var(--warn)} .evrec.terminate{background:var(--bad-soft);color:var(--bad)}
+.evsc{display:grid;justify-items:center;gap:1px} .evsc b{font-family:var(--f-display);font-size:22px;line-height:1;color:var(--c);font-variant-numeric:tabular-nums} .evsc small{font-size:10.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+.evpd{display:grid;gap:1px} .evpd small{font-size:10.5px;color:var(--muted)} .evpd b{font-size:13px;font-variant-numeric:tabular-nums}
+.evleft{font-size:12.5px;font-weight:700} .evleft.ok{color:var(--ok)} .evleft.warn{color:var(--warn)} .evleft.bad{color:var(--bad)}
+.evemp{display:grid;grid-template-columns:minmax(200px,1.5fr) minmax(140px,1.2fr) 100px minmax(120px,1fr) 110px;gap:10px;align-items:center;padding:9px 14px;border:0;border-top:1px solid var(--line);background:none;font:inherit;color:inherit;width:100%;text-align:start;cursor:pointer;font-size:13px}
+.evemp:hover{background:color-mix(in srgb,var(--surface-2) 55%,transparent)} .evemp.h{font-size:12px;color:var(--muted);font-weight:600;cursor:default;border-top:0} .evemp.h:hover{background:none}
+.evemp span small{display:block;font-size:11px;color:var(--muted)}
+.evkd{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px} .evkd button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;color:var(--fg);display:inline-flex;gap:6px;align-items:center}
+.evkd button small{font-size:11px;color:var(--muted)} .evkd button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff} .evkd button[aria-pressed="true"] small{color:#fff;opacity:.8}
+.evkgrid{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.6fr);gap:12px;align-items:start}
+.evlvh{padding:8px 14px 4px;font-size:12px;font-weight:700;color:var(--brass);border-top:1px solid var(--line)} .evlvh small{color:var(--muted);font-weight:600}
+.evpos{display:grid;grid-template-columns:1fr auto auto auto;gap:8px;align-items:center;padding:6px 14px;font-size:13px} .evpos.off{opacity:.5} .evpos.on{background:var(--accent-soft)}
+.evpos .t small{display:block;font-size:11px;color:var(--muted)} .evpos .n{font-size:11.5px;color:var(--muted);min-width:18px;text-align:center}
+.lnk{border:0;background:none;color:var(--accent);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;padding:2px 4px;border-radius:6px} .lnk:hover{background:var(--accent-soft)}
+.evwsum{margin:10px 14px 4px;font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:8px} .evwsum.ok{background:var(--ok-soft);color:var(--ok)} .evwsum.bad{background:var(--bad-soft);color:var(--bad)}
+.evkpi{margin:8px 14px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;display:grid;gap:5px} .evkpi.off{opacity:.5}
+.evkpi .hd{display:flex;justify-content:space-between;gap:10px} .evkpi .w{font-weight:700;color:var(--accent);white-space:nowrap} .evkpi p{margin:0;font-size:13px}
+.evkpi .chips{display:flex;gap:6px;flex-wrap:wrap} .evkpi .chips span{font-size:11.5px;background:var(--surface-2);border-radius:999px;padding:2px 8px} .evkpi .chips .auto{background:var(--info-soft);color:var(--info);font-weight:600} .evkpi .act{text-align:end}
+.evrules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px} .evrules .dcgrp{margin:0} .evrules .dcgrp:first-child{grid-column:1/-1}
+.evrb{padding:12px 14px;display:grid;gap:10px} .evrb p{margin:0;font-size:13.5px;line-height:1.7}
+.evrw{display:grid;gap:4px} .evwbar{height:24px;width:100%} .evwbar i{display:grid;place-items:center;color:#fff;font-style:normal;font-size:11.5px;font-weight:700} .evrw small{font-size:12px;color:var(--muted)}
+/* sheet */
+.dlg.evsheet .in{width:min(1180px,100%);max-height:94vh;overflow:auto;padding:16px}
+.evpaper{display:grid;gap:10px}
+.evph{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:#1f6b4f;color:#fff;border-radius:10px;padding:12px 16px}
+.evph h3{margin:0;font-size:20px;text-align:center} .evph .brand{font-size:12px;font-weight:700;letter-spacing:.06em;opacity:.9} .evph .brand:last-child{justify-self:end}
+.evinfo{width:100%;border-collapse:collapse;font-size:13px} .evinfo th,.evinfo td{border:1px solid var(--line);padding:6px 10px;text-align:start} .evinfo th{background:#1f6b4f;color:#fff;font-weight:600;width:16%;white-space:nowrap}
+.evtw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+.evtbl{width:100%;border-collapse:collapse;font-size:12.5px;min-width:980px} .evtbl th{background:#1f6b4f;color:#fff;padding:8px 6px;font-weight:600}
+.evtbl td{border-top:1px solid var(--line);border-inline-start:1px solid var(--line);padding:7px 6px;text-align:center;vertical-align:middle} .evtbl td.kn{font-weight:700;text-align:start;min-width:140px} .evtbl td.kd,.evtbl td.kf{text-align:start;font-size:12px;min-width:150px}
+.evtbl td.al{color:var(--bad);font-size:11.5px;min-width:110px} .evtbl td.tg{color:var(--bad);font-weight:600} .evtbl td.act{background:var(--surface-2);min-width:120px}
+.evtbl .kin{width:90px;text-align:center;padding:6px} .evtbl .knote{margin-top:4px;font-size:11.5px;padding:4px 6px}
+.evtbl td.res{font-weight:700;font-variant-numeric:tabular-nums} .evtbl td.res.g{background:var(--ok-soft);color:var(--ok)} .evtbl td.res.y{background:var(--warn-soft);color:var(--warn)} .evtbl td.res.r{background:var(--bad-soft);color:var(--bad)}
+.evtbl small.auto{display:block;font-size:10.5px;color:var(--info);font-weight:600} .evtbl tr.sys td{background:color-mix(in srgb,var(--info-soft) 45%,transparent)} .evtbl tr.sys td.kd em{font-style:normal;color:var(--muted)}
+.evtbl tfoot td{background:#1f6b4f;color:#fff;font-weight:700;padding:8px 6px}
+.evgrade{display:flex;align-items:center;gap:12px;justify-content:center;padding:6px} .evgrade b{font-family:var(--f-display);font-size:40px;color:var(--c);line-height:1} .evgrade span{font-size:16px;font-weight:700;color:var(--c)}
+.evtrend{display:flex;gap:10px;align-items:flex-end;height:110px;padding:8px 12px;background:var(--surface-2);border-radius:12px} .evtrend>b{align-self:center;font-size:13px}
+.evtrend span{flex:1;display:grid;grid-template-rows:1fr auto auto;justify-items:center;height:100%;gap:2px} .evtrend i{width:60%;max-width:40px;border-radius:6px 6px 0 0;align-self:end} .evtrend small{font-size:11px;color:var(--muted)} .evtrend em{font-style:normal;font-size:12px;font-weight:700}
+.evup{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:6px} .evup .hd{display:flex;gap:10px;align-items:center;flex-wrap:wrap} .evup .hd .meta{margin-inline-end:auto}
+.uq{display:grid;grid-template-columns:minmax(0,1.4fr) 1fr 48px;gap:8px;align-items:center;font-size:13px} .uq i{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden} .uq i b{display:block;height:100%;background:var(--info)} .uq em{font-style:normal;font-weight:700;text-align:end}
+.uqr{display:grid;gap:6px;padding:8px 0;border-top:1px solid var(--line);font-size:13.5px} .uqr .seg button{min-width:40px}
+.evflags{margin:0;padding:10px 28px;background:var(--warn-soft);border-radius:12px;font-size:13px;display:grid;gap:4px} .evflags li.bad{color:var(--bad);font-weight:600}
+.evrecs{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:14px} .evrecs label{display:inline-flex;gap:6px;align-items:center}
+.evsign{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:8px} .evsign div{display:grid;gap:26px;font-size:12px;color:var(--muted);text-align:center} .evsign i{border-bottom:1px solid var(--fg);display:block}
+.evsa{justify-content:flex-end;flex-wrap:wrap}
+.dc3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dlg.evkpid .in,.dlg.evempd .in{width:min(640px,100%)}
+@media (max-width:900px){ .evkgrid{grid-template-columns:1fr} .evrules{grid-template-columns:1fr} }
+@media (max-width:700px){
+  .evrow,.evrow.prob{grid-template-columns:1fr auto;row-gap:8px} .evrow .evbars{grid-column:1/-1;order:3} .evrow .evst{order:2;grid-column:1} .evrow .evsc{grid-row:1;grid-column:2}
+  .evrow.prob .evpd,.evrow.prob .evleft{grid-column:auto}
+  .evemp{grid-template-columns:1fr 1fr} .evemp .dcwho{grid-column:1/-1} .evemp.h{display:none}
+  .evinfo th{width:auto} .evinfo tr{display:grid;grid-template-columns:auto 1fr} .evph{grid-template-columns:1fr} .evph .brand{display:none}
+  .evsign{grid-template-columns:repeat(2,1fr)} .dc3{grid-template-columns:1fr 1fr}
+}
+@media print{
+  body.evprinting>*:not(.dlg){display:none!important} body.evprinting .dlg{position:static;background:none;padding:0} body.evprinting .dlg .in{box-shadow:none;max-height:none;overflow:visible;width:100%}
+  body.evprinting .evsa,body.evprinting .dcerr,body.evprinting #evUpPaper{display:none!important} body.evprinting .evtbl{min-width:0} body.evprinting .evph,body.evprinting .evinfo th,body.evprinting .evtbl th,body.evprinting .evtbl tfoot td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.evprinting .evtbl .kin{border:0;background:none} @page{size:A4 landscape;margin:10mm}
+}
 </style>
 </head>
 <body>
@@ -680,6 +755,7 @@ input.title{font-size:17px;font-weight:600;font-family:var(--f-display)}
     <button class="tab" data-v="team" role="tab" id="teamTab" hidden><span data-i18n="tabTeam">Team </span><span class="badge" id="rqBadge" hidden>0</span></button>
     <button class="tab" data-v="depts" role="tab" id="deptTab" hidden><span data-i18n="tabDepts">Departments</span></button>
     <button class="tab" data-v="disc" role="tab" id="discTab" hidden><span data-i18n="tabDisc">Discipline</span></button>
+    <button class="tab" data-v="eval" role="tab" id="evalTab" hidden><span data-i18n="tabEval">Final evaluation</span></button>
   </nav>
 </header>
 <div class="wrap toolbar" id="toolbar" hidden>
@@ -832,6 +908,92 @@ ar:{
  e_login:"الإيميل أو كلمة السر غير صحيحة.",e_confirm:"لازم تأكد الإيميل الأول.",e_exists:"الإيميل ده متسجل قبل كده. سجّل دخول بدل كده.",e_pass:"كلمة السر لازم تكون 6 حروف على الأقل.",e_net:"مفيش اتصال بالسيرفر. اتأكد من النت.",e_generic:"حصل خطأ. حاول تاني.",
  e_pickHotel:"اختار الفندق والقسم من فضلك."
 }};
+Object.assign(I18N.en,{tabEval:"Final evaluation",evTitle:"Final evaluation",evSub:"Each person's KPI sheet from their manager, plus discipline, team feedback and fairness from the system. Every quarter, half year and year, and at the end of probation.",
+ evTabRes:"Results",evTabProb:"Probation",evTabEmp:"Employees",evTabKpi:"Positions & KPIs",evTabRules:"How it's scored",evTabMine:"My evaluations",
+ evVisPub:"Open to the team",evVisPubH:"Managers and supervisors fill the sheets of their own people, each person rates their boss anonymously and fills a self review. Only published results are shown to them.",evVisPrivH:"Nobody else sees the tab, the sheets or the results until you open it to everyone.",
+ evLvM:"Managerial",evLvS:"Supervisory",evLvO:"Operational",evAllLv:"All levels",evNoPos:"No position",evKQ:"Quarterly",evKH:"Half-yearly",evKY:"Yearly",evQn:"Q{n}",evHn:"H{n}",evYear:"Year",
+ evResHint:"{p}. The quarter sheets are filled by the direct manager; a half or a full year averages its quarters, and discipline and the task system are read over the whole period.",
+ evDone:"Evaluated",evWaiting:"{n} waiting for the manager's sheet",evAvg:"Average",evGA:"Excellent",evTop90:"90 and above",evFlags:"Needs a second look",evFlagsH:"Scores that don't match the evidence",evDist:"Grades",
+
+ evGB:"Very good",evGC:"Good",evGD:"Fair",evGE:"Weak",evGrpMeta:"{n} people · {d} scored",evMgrL:"Manager: {n}",evKpiPart:"KPI sheet",evKpiShort:"KPIs",
+ evS_disc:"Discipline",evS_team:"Team discipline",evS_dept:"Department discipline",evS_up:"Team's rating",evS_fair:"Fair rating",
+ evSD_disc:"From absences, notices, warnings and penalties in the period",evSD_team:"Average discipline of him and everyone under him",evSD_dept:"Average discipline of the whole department",evSD_up:"Anonymous rating from the people under him (needs at least 3)",evSD_fair:"Did he evaluate his whole team, and do his sheets match their real record?",
+ evF_noSheet:"Waiting for the manager's sheet",evF_partial:"{a} of {b} KPIs filled",evF_inflate:"KPIs near 100% while discipline is weak, check the sheet",evF_selfGap:"Big gap between his self review ({s}) and his manager's ({m})",
+ evF_upFew:"Only {n} team rating(s), under 3 so it's left out to keep it anonymous",evF_lenient:"Gave almost everyone full marks",evF_notRated:"{n} of his team not evaluated yet",evF_noKpi:"No KPIs set for this position",
+ evPublish:"Approve & publish",evPublishQ:"Publish the results of {p}?",evPublishT:"{n} results will be frozen as they are now. People will see their own result once the page is open to everyone.",evPublished2:"{n} results published",evNothingPub:"No scores to publish yet",
+ evHired:"Hired",evProbEnd:"Probation ends",evDaysLeft:"{n} days left",evDaysOver:"{n} days over",evNotYet:"Not evaluated",evRec_confirm:"Confirm",evRec_extend:"Extend probation",evRec_terminate:"End employment",
+ evProbHint:"Everyone whose probation ends within the next weeks or ended recently. Probation = hire date + probation days (90 by default).",evNoHire:"{n} employees have no hire date, so they can't show here. Add it from the Employees tab.",
+ evProbEmpty:"Nobody is on probation right now",evProbEmptyH:"New hires show here automatically once their hire date is set.",
+ evEmpCount:"{n} employees",evNoPosN:"{n} without a position",evNoHireN:"{n} without a hire date",evNoMgrN:"{n} without a direct manager",evTemplate:"Download Excel template",evAddEmp:"Add employee",evEditEmp:"Edit employee",
+ evEmpHint:"This list is the whole workforce, including people who have no account on the site. People with an account are linked automatically.",evPosCol:"Position",evMgrCol:"Direct manager",evAcct:"Site account",evHasAcct:"Has account",evNoAcct:"No account",
+ evPositions:"Positions",evAddPos:"Add position",evEditPos:"Edit position",evOwnKpi:"Its own KPIs",evLvKpi:"KPIs",evEdit:"Edit",evKpiOfPos:"KPIs for {p}",evKpiOfLv:"{l} KPIs",evBackLv:"Back to level KPIs",
+ evWSum:"Total weight {w}% of 85%",evWFix:"adjust the weights so they add up to 85",evPosUsesLv:"This position uses its level's KPIs. Copy them to customise for this position only.",evCopyLv:"Copy level KPIs",evAddKpi:"Add KPI",evEditKpi:"Edit KPI",evNoLvKpi:"This level has no KPIs to copy",
+ evMonthly:"Monthly",evQuarterly:"Every 3 months",evTarget:"Target",evSrc_manual:"Entered by manager",evSrc_tasks_ontime:"Auto: tasks on time",evSrc_tasks_done:"Auto: tasks finished",evSrc_sup_target:"Auto: supervisor's target",
+ evNoMe:"Your name isn't in the employee list yet.",evMineHint:"Your evaluations for {q}: your team's KPI sheets, an anonymous rating of your boss, and your own self review.",evToDo:"To do",evRateTeam:"KPI sheet (you're the manager)",evRateBoss:"Rate your boss (anonymous)",evRateSelf:"Self review",evSaved:"Saved",evPublished:"Published results",
+ evRW:"Weights by level",evRW2:"If a part has no data (for example fewer than 3 team ratings), its weight is shared over the other parts instead of counting as zero.",
+ evR1t:"The KPI sheet",evR1:"Each KPI has a target. Achievement = actual ÷ target (or target ÷ actual when less is better, such as minutes), capped at 100%. Its result = weight × achievement. For error counts with a target of zero, every case takes 25% off that KPI.",
+ evR2t:"Colours",evR2:"Green, yellow and red come from each KPI's own thresholds. Any result in yellow or red needs a written example or evidence before the sheet can be saved.",
+ evR3t:"Discipline is linked to everyone above",evR3:"An employee's absences, notices, warnings and penalties lower his own score (operational 15%). The same records also lower his supervisor's team discipline and the department manager's department discipline, so leaders own the discipline of their people.",
+ evR4t:"Team rates the boss",evR4:"People rate their direct boss on 6 questions (fair work distribution, clear instructions, support, respect, solving problems, fair evaluation). Names are never shown; a period needs at least 3 ratings or it's left out, and with 5 or more the highest and lowest are dropped.",
+ evR5t:"Fair rating of the manager",evR5:"A managerial score includes whether he evaluated his whole team, whether he gave near-full KPIs to people with weak discipline, and whether he gave almost everyone full marks. Inflating scores costs the manager.",
+ evR6t:"Checks against bias",evR6:"Self review is shown next to the manager's sheet but doesn't count; a gap of 20 points or more is flagged. KPIs from the task system are read automatically and can't be typed. Sheets with full KPIs and weak discipline are flagged for HR.",
+ evR7t:"Periods",evR7:"Sheets are filled each quarter. Half year and year average their quarters, with discipline and system data read over the whole period, and show the trend quarter by quarter. Publishing freezes the result.",
+ evR8t:"Probation",evR8:"Probation ends at hire date + probation days. The manager fills the same KPI sheet and chooses: confirm, extend or end employment.",
+ evForm:"Performance evaluation",evSelfForm:"Self review",evProbForm:"Probation evaluation",evIName:"Employee name",evIPos:"Job title",evIDept:"Department",evILevel:"Job level",evIHire:"Hire date",evIMgr:"Direct manager",evIPeriod:"Evaluation period",evICode:"Employee code",
+ evProbPer:"Probation {a} → {b}",evH1:"KPI",evH2:"Definition",evH3:"Formula",evH4:"Frequency",evH5:"Target",evH6:"Alert",evH7:"Weight",evH8:"Actual",evH9:"Result",evSum:"Total",
+ evActual:"Actual",evEvidence:"Evidence / example",evFromSys:"from the system",evDiscPpl:"{p} people, {n} records",evUpN:"{n} ratings",evUpFew:"{n} rating(s), needs 3",evFairD:"evaluated {r} of {t}",evLenient:"almost all full marks",
+ evUpTitle:"Team's anonymous rating of him",evUpPaper:"Add a paper form",evUpHide:"Hidden until at least 3 people rate him, to keep it anonymous.",evTrend:"By quarter",evNoScore:"Not enough data",evNoKpiH:"Set the KPIs for this position in Positions & KPIs.",
+ evRecQ:"Recommendation",evNotes:"Manager's notes",evBy:"Saved by {n} on {d}",evOnBehalf:"on behalf of {n} (paper form)",evSgEmp:"Employee",evSgMgr:"Direct manager",evSgHead:"Department head",evSgHR:"Human Resources",evPrint:"Print",evSeeSelf:"His self review",
+ evNeedNote:"Write the evidence for “{k}”, it's below the target.",evNeedRec:"Choose the recommendation.",evSavedOk:"Saved",evSavedPart:"Saved, {n} KPI(s) still empty",
+ evUpFormT:"Rate {n}",evUpAnon:"Your name won't appear anywhere. Results show only when at least 3 people have rated.",evUpWho:"Who filled this paper form (kept hidden)",evScale:"1 = never · 3 = sometimes · 5 = always",evUpNote:"Anything else (optional)",evUpAll:"Answer all 6 questions.",
+ evQ1:"Distributes work and shifts fairly, without favouritism",evQ2:"Gives clear instructions",evQ3:"Supports and trains me when I need it",evQ4:"Treats everyone with respect",evQ5:"Listens to problems and solves them quickly",evQ6:"Evaluates people on their real work",
+ evProbDays:"Probation days",evAcctL:"Site account",evPhone:"Phone",evActive:"Active",evNeedName:"Write the name.",evNeedHotel:"Choose the hotel.",evPosEn:"Title (English)",evPosAr:"Title (Arabic)",evSection:"Section",evPosUsed:"{n} employee(s) in this position",evNeedTitle:"Write the name.",
+ evUnit:"Unit",evU_pct:"Percent",evU_min:"Minutes",evU_hours:"Hours",evU_days:"Days",evU_count:"Count",evDir:"Better when",evDirUp:"Higher",evDirDown:"Lower",evGreen:"Green from (% of target)",evYellow:"Yellow from (% of target)",evSource:"Actual comes from",evNeedThr:"Yellow must be lower than green.",
+ evAtMost:"≤ ",evAtLeast:"≥ ",evZero:"Zero",evAlUp:"Green ≥ {g} · Yellow ≥ {y} · Red below",evAlDown:"Green ≤ {g} · Yellow ≤ {y} · Red above",evAlZero:"Green = 0 · Yellow ≤ {n} · Red above",evAl2Up:"Green ≥ {g} · Red below",evAl2Down:"Green ≤ {g} · Red above",
+ evUMin:"{n} min",evUHr:"{n} h",evUDay:"{n} days",evFinal:"Final score",evGrade:"Grade"});
+Object.assign(I18N.ar,{tabEval:"التقييم النهائي",evTitle:"التقييم النهائي",evSub:"استمارة مؤشرات الأداء لكل موظف من مديره المباشر، ومعاها الانضباط وتقييم الفريق وعدالة التقييم من السيستم. كل 3 شهور و6 شهور وسنة، وفي آخر فترة الاختبار.",
+ evTabRes:"النتائج",evTabProb:"فترة الاختبار",evTabEmp:"الموظفين",evTabKpi:"الوظائف والمؤشرات",evTabRules:"طريقة الحساب",evTabMine:"تقييماتي",
+ evVisPub:"الصفحة مفتوحة للفريق",evVisPubH:"المدير والمشرف بيملوا استمارات موظفينهم، وكل موظف بيقيّم مسؤوله من غير اسم وبيعمل تقييم ذاتي. النتايج بتظهر لهم بعد ما تعتمدها بس.",evVisPrivH:"محدش تاني شايف التبويب ولا الاستمارات ولا النتايج لحد ما تفتحها للكل.",
+ evLvM:"إداري",evLvS:"إشرافي",evLvO:"تنفيذي",evAllLv:"كل المستويات",evNoPos:"من غير وظيفة",evKQ:"ربع سنوي",evKH:"نص سنوي",evKY:"سنوي",evQn:"الربع {n}",evHn:"النص {n}",evYear:"سنة",
+ evResHint:"{p}. استمارة كل ربع بيملاها المدير المباشر، والنص سنة والسنة متوسط أرباعها، والانضباط والسيستم بيتحسبوا على الفترة كلها.",
+ evDone:"اتقيّموا",evWaiting:"{n} مستنيين استمارة المدير",evAvg:"المتوسط",evGA:"ممتاز",evTop90:"90 وأكتر",evFlags:"محتاجين مراجعة",evFlagsH:"درجات مش متسقة مع الأداء الفعلي",evDist:"التقديرات",
+ evGB:"جيد جدًا",evGC:"جيد",evGD:"مقبول",evGE:"ضعيف",evGrpMeta:"{n} موظف · {d} ليهم درجة",evMgrL:"المدير: {n}",evKpiPart:"استمارة المؤشرات",evKpiShort:"المؤشرات",
+ evS_disc:"الانضباط",evS_team:"انضباط فريقه",evS_dept:"انضباط القسم",evS_up:"تقييم الفريق له",evS_fair:"عدالة تقييمه",
+ evSD_disc:"من الغياب ولفت النظر والإنذارات والجزاءات في الفترة",evSD_team:"متوسط انضباطه هو وكل اللي تحته",evSD_dept:"متوسط انضباط القسم كله",evSD_up:"تقييم الموظفين اللي تحته من غير أسماء (لازم 3 على الأقل)",evSD_fair:"قيّم كل فريقه؟ واستماراته متسقة مع سجلهم الحقيقي؟",
+ evF_noSheet:"مستني استمارة المدير",evF_partial:"{a} من {b} مؤشرات اتملت",evF_inflate:"مؤشرات قريبة من 100% مع انضباط ضعيف، راجع الاستمارة",evF_selfGap:"فرق كبير بين تقييمه لنفسه ({s}) وتقييم مديره ({m})",
+ evF_upFew:"{n} تقييم بس من الفريق، أقل من 3 فمش داخل في الحساب عشان السرية",evF_lenient:"إدّى الدرجة الكاملة لكل فريقه تقريبًا",evF_notRated:"{n} من فريقه لسه ماتقيّموش",evF_noKpi:"مفيش مؤشرات للوظيفة دي",
+ evPublish:"اعتماد ونشر",evPublishQ:"تعتمد نتايج {p}؟",evPublishT:"{n} نتيجة هتتحفظ زي ما هي دلوقتي، وكل موظف هيشوف نتيجته لما الصفحة تتفتح للكل.",evPublished2:"اتنشرت {n} نتيجة",evNothingPub:"لسه مفيش درجات تتنشر",
+ evHired:"التعيين",evProbEnd:"نهاية الاختبار",evDaysLeft:"فاضل {n} يوم",evDaysOver:"عدّى {n} يوم",evNotYet:"لسه ماتقيّمش",evRec_confirm:"تثبيت",evRec_extend:"مد فترة الاختبار",evRec_terminate:"إنهاء الخدمة",
+ evProbHint:"كل اللي فترة اختبارهم خلصانة قريب أو خلصت من وقت قريب. نهاية الاختبار = تاريخ التعيين + أيام الاختبار (90 يوم افتراضي).",evNoHire:"{n} موظف مالهمش تاريخ تعيين، فمش هيظهروا هنا. ضيفه من تبويب الموظفين.",
+ evProbEmpty:"مفيش حد في فترة اختبار دلوقتي",evProbEmptyH:"الموظفين الجداد بيظهروا هنا لوحدهم أول ما تاريخ تعيينهم يتسجل.",
+ evEmpCount:"{n} موظف",evNoPosN:"{n} من غير وظيفة",evNoHireN:"{n} من غير تاريخ تعيين",evNoMgrN:"{n} من غير مدير مباشر",evTemplate:"تحميل قالب Excel",evAddEmp:"إضافة موظف",evEditEmp:"تعديل موظف",
+ evEmpHint:"القائمة دي فيها كل العمالة، حتى اللي مالهمش حساب على الموقع. اللي ليهم حساب بيتربطوا لوحدهم.",evPosCol:"الوظيفة",evMgrCol:"المدير المباشر",evAcct:"حساب الموقع",evHasAcct:"ليه حساب",evNoAcct:"مالوش حساب",
+ evPositions:"الوظائف",evAddPos:"إضافة وظيفة",evEditPos:"تعديل وظيفة",evOwnKpi:"مؤشرات خاصة",evLvKpi:"المؤشرات",evEdit:"تعديل",evKpiOfPos:"مؤشرات {p}",evKpiOfLv:"مؤشرات المستوى ال{l}",evBackLv:"رجوع لمؤشرات المستوى",
+ evWSum:"مجموع الأوزان {w}% من 85%",evWFix:"عدّل الأوزان عشان مجموعها يبقى 85",evPosUsesLv:"الوظيفة دي بتستخدم مؤشرات مستواها. انسخها عشان تخصصها للوظيفة دي بس.",evCopyLv:"انسخ مؤشرات المستوى",evAddKpi:"إضافة مؤشر",evEditKpi:"تعديل مؤشر",evNoLvKpi:"المستوى ده مالوش مؤشرات تتنسخ",
+ evMonthly:"شهري",evQuarterly:"كل 3 شهور",evTarget:"المستهدف",evSrc_manual:"بيدخله المدير",evSrc_tasks_ontime:"أوتوماتيك: المهام في الموعد",evSrc_tasks_done:"أوتوماتيك: المهام المنجزة",evSrc_sup_target:"أوتوماتيك: هدف المشرف",
+ evNoMe:"اسمك لسه مش في قائمة الموظفين.",evMineHint:"تقييماتك لـ {q}: استمارات فريقك، وتقييم مسؤولك من غير اسم، وتقييمك لنفسك.",evToDo:"المطلوب منك",evRateTeam:"استمارة المؤشرات (انت مديره)",evRateBoss:"قيّم مسؤولك (من غير اسم)",evRateSelf:"تقييم ذاتي",evSaved:"اتحفظ",evPublished:"النتايج المعتمدة",
+ evRW:"الأوزان حسب المستوى",evRW2:"لو جزء مالوش بيانات (زي إن تقييمات الفريق أقل من 3)، وزنه بيتوزع على باقي الأجزاء بدل ما يتحسب صفر.",
+ evR1t:"استمارة المؤشرات",evR1:"كل مؤشر ليه مستهدف. نسبة الإنجاز = الفعلي ÷ المستهدف (أو المستهدف ÷ الفعلي لو الأقل أحسن زي الدقايق)، وأقصى حاجة 100%. النتيجة = الوزن × نسبة الإنجاز. ولو المؤشر عدد أخطاء ومستهدفه صفر، كل حالة بتخصم 25% منه.",
+ evR2t:"الألوان",evR2:"الأخضر والأصفر والأحمر من حدود كل مؤشر. أي نتيجة في الأصفر أو الأحمر لازم يتكتب لها دليل أو مثال قبل ما الاستمارة تتحفظ.",
+ evR3t:"الانضباط مربوط بكل اللي فوق",evR3:"غياب الموظف ولفت النظر والإنذارات والجزاءات بتقلل درجته (15% للتنفيذي). ونفس التسجيلات بتقلل انضباط فريق مشرفه وانضباط قسم مديره، فالمسؤول شايل انضباط ناسه.",
+ evR4t:"الفريق بيقيّم مسؤوله",evR4:"الموظفين بيقيّموا مسؤولهم المباشر في 6 أسئلة (توزيع الشغل بعدل، وضوح التعليمات، الدعم، الاحترام، حل المشاكل، عدالة التقييم). الأسماء مابتظهرش أبدًا، ولازم 3 تقييمات على الأقل في الفترة وإلا مابيدخلش، ولو 5 أو أكتر بيتشال أعلى وأقل تقييم.",
+ evR5t:"عدالة تقييم المدير",evR5:"درجة المستوى الإداري فيها: هل قيّم كل فريقه، وهل إدّى مؤشرات كاملة لناس انضباطهم ضعيف، وهل إدّى الكل تقريبًا الدرجة الكاملة. المدير اللي بينفخ الدرجات بيخسر هو.",
+ evR6t:"ضد الانحياز",evR6:"التقييم الذاتي بيظهر جنب استمارة المدير بس مابيتحسبش، ولو الفرق 20 نقطة أو أكتر بيتعلّم. المؤشرات اللي جاية من نظام المهام بتتحسب لوحدها ومحدش يقدر يكتبها. والاستمارة اللي فيها مؤشرات كاملة مع انضباط ضعيف بتتعلّم للـHR.",
+ evR7t:"الفترات",evR7:"الاستمارات بتتملي كل ربع سنة. النص سنة والسنة متوسط أرباعهم، والانضباط والسيستم بيتحسبوا على الفترة كلها، ومعاهم الاتجاه ربع بربع. الاعتماد بيحفظ النتيجة ومابتتغيرش.",
+ evR8t:"فترة الاختبار",evR8:"فترة الاختبار بتخلص بعد تاريخ التعيين + أيام الاختبار. المدير بيملا نفس استمارة المؤشرات ويختار: تثبيت أو مد الفترة أو إنهاء الخدمة.",
+ evForm:"تقييم الأداء",evSelfForm:"التقييم الذاتي",evProbForm:"تقييم فترة الاختبار",evIName:"اسم الموظف",evIPos:"المسمى الوظيفي",evIDept:"الإدارة",evILevel:"المستوى الوظيفي",evIHire:"تاريخ التعيين",evIMgr:"المدير المباشر",evIPeriod:"فترة تقييم الأداء",evICode:"كود الموظف",
+ evProbPer:"الاختبار من {a} لـ {b}",evH1:"اسم مؤشر الأداء الرئيسي",evH2:"تعريف مؤشر الأداء",evH3:"المعادلة",evH4:"التكرارية",evH5:"المستهدف",evH6:"إنذار",evH7:"الوزن",evH8:"الفعلي",evH9:"النتيجة",evSum:"المجموع",
+ evActual:"الفعلي",evEvidence:"الدليل أو المثال",evFromSys:"من السيستم",evDiscPpl:"{p} موظف، {n} تسجيل",evUpN:"{n} تقييم",evUpFew:"{n} تقييم، محتاج 3",evFairD:"قيّم {r} من {t}",evLenient:"الكل تقريبًا درجة كاملة",
+ evUpTitle:"تقييم فريقه له (من غير أسماء)",evUpPaper:"إدخال استمارة ورقية",evUpHide:"مستخبي لحد ما 3 على الأقل يقيّموه، عشان السرية.",evTrend:"ربع بربع",evNoScore:"البيانات مش كفاية",evNoKpiH:"حدد مؤشرات الوظيفة دي من تبويب الوظائف والمؤشرات.",
+ evRecQ:"التوصية",evNotes:"ملاحظات المدير",evBy:"اتحفظ بواسطة {n} يوم {d}",evOnBehalf:"نيابة عن {n} (استمارة ورقية)",evSgEmp:"الموظف",evSgMgr:"المدير المباشر",evSgHead:"مدير الإدارة",evSgHR:"الموارد البشرية",evPrint:"طباعة",evSeeSelf:"تقييمه لنفسه",
+ evNeedNote:"اكتب الدليل لـ «{k}»، لأنه تحت المستهدف.",evNeedRec:"اختار التوصية.",evSavedOk:"اتحفظ",evSavedPart:"اتحفظ، وفاضل {n} مؤشر فاضي",
+ evUpFormT:"قيّم {n}",evUpAnon:"اسمك مش هيظهر في أي حتة. النتيجة مابتظهرش غير لما 3 على الأقل يقيّموا.",evUpWho:"مين ملا الاستمارة الورقية دي (مش هيظهر)",evScale:"1 = أبدًا · 3 = أحيانًا · 5 = دايمًا",evUpNote:"أي حاجة تانية (اختياري)",evUpAll:"جاوب على الـ6 أسئلة.",
+ evQ1:"بيوزّع الشغل والورديات بعدل ومن غير محاباة",evQ2:"بيدّي تعليمات واضحة",evQ3:"بيدعمني ويدربني لما احتاج",evQ4:"بيتعامل مع الكل باحترام",evQ5:"بيسمع المشاكل ويحلها بسرعة",evQ6:"بيقيّم الناس على شغلهم الحقيقي",
+ evProbDays:"أيام فترة الاختبار",evAcctL:"حساب الموقع",evPhone:"الموبايل",evActive:"شغال",evNeedName:"اكتب الاسم.",evNeedHotel:"اختار الفندق.",evPosEn:"المسمى (إنجليزي)",evPosAr:"المسمى (عربي)",evSection:"القسم الفرعي",evPosUsed:"{n} موظف على الوظيفة دي",evNeedTitle:"اكتب الاسم.",
+ evUnit:"الوحدة",evU_pct:"نسبة",evU_min:"دقايق",evU_hours:"ساعات",evU_days:"أيام",evU_count:"عدد",evDir:"الأحسن",evDirUp:"الأعلى",evDirDown:"الأقل",evGreen:"الأخضر من (% من المستهدف)",evYellow:"الأصفر من (% من المستهدف)",evSource:"الفعلي جاي من",evNeedThr:"الأصفر لازم يكون أقل من الأخضر.",
+ evAtMost:"≤ ",evAtLeast:"≥ ",evZero:"صفر",evAlUp:"الأخضر ≥ {g} · الأصفر ≥ {y} · الأحمر أقل",evAlDown:"الأخضر ≤ {g} · الأصفر ≤ {y} · الأحمر أكتر",evAlZero:"الأخضر = 0 · الأصفر ≤ {n} · الأحمر أكتر",evAl2Up:"الأخضر ≥ {g} · الأحمر أقل",evAl2Down:"الأخضر ≤ {g} · الأحمر أكتر",
+ evUMin:"{n} دقيقة",evUHr:"{n} ساعة",evUDay:"{n} يوم",evFinal:"الدرجة النهائية",evGrade:"التقدير"});
+
 Object.assign(I18N.en,{evScore:"Score",evTasksOnly:"Score from tasks only",evNoTasks:"No score until there are tasks",dsDisc:"Discipline",dsNone:"No records",dsRecN:"{n} record(s)",dsDeptChip:"Discipline {s} ({n})",
  mgDisc:"Department discipline",mgDiscLine:"Discipline: {n} record(s) on {p} people in this period.",spEval:"Overall",spEvalW:"70% target + 30% discipline",spOwnDisc:"His discipline",spTeamDisc:"Team discipline",spNoTeam:"No team under him",
  dcPts:"−{n} pts",dcRule:"Every record takes points off the employee's discipline score (out of 100): absence −3 per day, notice −5, warning −10, penalty −15. Discipline is 30% of the staff score, 30% of the supervisor's overall score (him and his team) and 15% of the manager's score.",
@@ -973,7 +1135,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v45";
+const BUILD="v46";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -1091,7 +1253,7 @@ function ask(o){ return new Promise(res=>{ const d=document.createElement("div")
   d.addEventListener("keydown",e=>{ if(e.key==="Escape") close(null); }); }); }
 
 /* ================= shell ================= */
-function setView(v){ S.view=v; S.builtView=null; if(v==="disc"){ S.disc=null; S.discErr=null; } try{history.replaceState(null,"","#"+v);}catch(e){} render(); }
+function setView(v){ S.view=v; S.builtView=null; if(v==="disc"){ S.disc=null; S.discErr=null; } if(v==="eval"){ S.ev=null; S.evErr=null; } try{history.replaceState(null,"","#"+v);}catch(e){} render(); }
 document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.v)));
 $("#newBtn").addEventListener("click",()=>openTask(null));
 $("#langBtn").addEventListener("click",()=>setLang(LANG==="en"?"ar":"en"));
@@ -1116,11 +1278,11 @@ function render(){
   if(S.me&&S.me.must_change_password){ hideShell(); $("#meBox").innerHTML=""; return renderForcePw(); }
   if(!isMember()){ hideShell(); $("#meBox").innerHTML=""; return renderGate(); }
   if(S.builtView==="gate") S.builtView=null;
-  $("#tabs").hidden=false; $("#newBtn").hidden=false; $("#teamTab").hidden=!canManageMembers(); $("#deptTab").hidden=!(isAdmin()||isGM()||isManager()); $("#discTab").hidden=!discCanSee();
+  $("#tabs").hidden=false; $("#newBtn").hidden=false; $("#teamTab").hidden=!canManageMembers(); $("#deptTab").hidden=!(isAdmin()||isGM()||isManager()); $("#discTab").hidden=!discCanSee(); $("#evalTab").hidden=!evCanSee();
   $("#meBox").innerHTML=`${av(S.uid)}<span class="nm">${esc(nameOf(S.uid))}</span><span class="rolepill">${esc(roleL(myRole()))}${myHotel()&&!isAdmin()?" · "+esc(hotelL(myHotel())):""}</span>`;
   const rev=S.tasks.filter(x=>x.status==="review"&&canApprove(x)).length; $("#apBadge").hidden=!rev; $("#apBadge").textContent=rev;
   const rq=Object.values(S.profiles).filter(p=>p.role==="pending"&&p.active).length; $("#rqBadge").hidden=!rq||!canManageMembers(); $("#rqBadge").textContent=rq;
-  if(S.view==="team"&&!canManageMembers()) S.view="board"; if(S.view==="depts"&&!(isAdmin()||isGM()||isManager())) S.view="board"; if(S.view==="disc"&&!discCanSee()) S.view="board";
+  if(S.view==="team"&&!canManageMembers()) S.view="board"; if(S.view==="depts"&&!(isAdmin()||isGM()||isManager())) S.view="board"; if(S.view==="disc"&&!discCanSee()) S.view="board"; if(S.view==="eval"&&!evCanSee()) S.view="board";
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===S.view));
   $("#toolbar").hidden=!(S.view==="board"||S.view==="list"||S.view==="days");
   { const od=dayGroups(S.tasks).filter(g=>g.open).length; $("#dayBadge").hidden=!od; $("#dayBadge").textContent=od; }
@@ -1129,7 +1291,7 @@ function renderMain(){ if(!isMember()) return; const v=S.view,m=$("#main");
   if(v==="board"){m.innerHTML=dayBanner()+boardHTML();bindBoard();bindBanner();} else if(v==="list"){m.innerHTML=dayBanner()+listHTML();bindList();bindBanner();}
   else if(v==="days"){m.innerHTML=daysHTML();bindDays();}
   else if(v==="approvals"){m.innerHTML=approvalsHTML();bindApprovals();} else if(v==="reports") renderReports();
-  else if(v==="team") renderTeam(); else if(v==="depts") renderDepts(); else if(v==="disc") renderDisc(); }
+  else if(v==="team") renderTeam(); else if(v==="depts") renderDepts(); else if(v==="disc") renderDisc(); else if(v==="eval") renderEval(); }
 
 /* ================= days ================= */
 const dayKey=ms_=>{ const d=new Date(ms_); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
@@ -1848,11 +2010,11 @@ async function loadDisc(){ const y=(S.discMonth||dCurM()).slice(0,4);
   const [p,r]=await Promise.all([S.sb.rpc("disc_people"),S.sb.from("disc_records").select("*").gte("on_date",y+"-01-01").lte("on_date",y+"-12-31").order("on_date",{ascending:false}).order("id",{ascending:false}).limit(5000)]);
   if(p.error) throw p.error; if(r.error) throw r.error;
   S.discPeople={}; (p.data||[]).forEach(x=>S.discPeople[x.id]=x); S.disc=r.data||[]; S.discYear=y; S.discErr=null; }
-function dAgg(recs){ const A={}; recs.forEach(r=>{ const a=A[r.employee]||(A[r.employee]={absence:{n:0,d:0},notice:{n:0,d:0},warning:{n:0,d:0},penalty:{n:0,d:0},tot:0});
+function dAgg(recs){ const A={}; recs.forEach(r=>{ const a=A[r.emp_id]||(A[r.emp_id]={absence:{n:0,d:0},notice:{n:0,d:0},warning:{n:0,d:0},penalty:{n:0,d:0},tot:0});
   a[r.kind].n++; a[r.kind].d+=Number(r.days)||0; a.tot++; }); return A; }
 const dNum=v=>{ const x=Math.round(v*100)/100; return String(x); };
 function dPeopleList(){ const q=(S.dq||"").trim().toLowerCase(); const hs=isAdmin()?(S.dHotel||""):myHotel();
-  const withRec=new Set((S.disc||[]).map(r=>r.employee));
+  const withRec=new Set((S.disc||[]).map(r=>r.emp_id));
   return Object.values(S.discPeople||{}).filter(p=>(p.active||withRec.has(p.id))&&(!hs||p.hotel===hs)&&(!S.dDept||p.dept===S.dDept)&&(!q||(p.full_name||"").toLowerCase().includes(q)));
 }
 function dRecsIn(mk){ const hs=isAdmin()?(S.dHotel||""):""; return (S.disc||[]).filter(r=>r.on_date.slice(0,7)===mk&&(!hs||r.hotel===hs)&&(!S.dDept||r.dept===S.dDept)); }
@@ -1906,7 +2068,7 @@ function discMonthHTML(mk){ const recs=dRecsIn(mk), A=dAgg(recs); const prevA=mk
   const kpi=`<div class="dckpi">${DK.map(k=>{ const s=sumK(k), p=sumP(k); const dl=p==null?"":s.n>p?`<span class="dl up">▲ ${s.n-p} ${esc(t("dcVsPrev"))}</span>`:s.n<p?`<span class="dl dn">▼ ${p-s.n} ${esc(t("dcVsPrev"))}</span>`:`<span class="dl">${esc(t("dcSamePrev"))}</span>`;
     return `<button type="button" class="dck k-${k}" data-kf="${k}" aria-pressed="${S.dKind===k}"><span class="hd"><i>${DKI[k]}</i>${esc(t("dk_"+k))}</span><span class="n">${s.n}</span><span class="s">${esc(t("dcPeopleN",{n:s.e}))}${(k==="absence"||k==="penalty")&&s.d?" · "+esc(t(k==="absence"?"dcAbsDays":"dcDedDays",{n:dNum(s.d)})):""}</span>${dl}</button>`; }).join("")}</div>`;
   // department bars
-  const byD={}; recs.forEach(r=>{ if(!ids.has(r.employee)) return; const d=byD[r.dept]||(byD[r.dept]={absence:0,notice:0,warning:0,penalty:0,tot:0}); d[r.kind]++; d.tot++; });
+  const byD={}; recs.forEach(r=>{ if(!ids.has(r.emp_id)) return; const d=byD[r.dept]||(byD[r.dept]={absence:0,notice:0,warning:0,penalty:0,tot:0}); d[r.kind]++; d.tot++; });
   const dl=Object.entries(byD).sort((a,b)=>b[1].tot-a[1].tot); const mx=Math.max(1,...dl.map(x=>x[1].tot));
   const deptBox=dl.length?`<div class="dcdepts"><h3>${esc(t("dcByDept"))}</h3><p class="meta">${esc(t("dcByDeptH"))}</p>${dl.map(([d,v])=>`<button type="button" class="dcdr" data-df="${esc(d)}" aria-pressed="${S.dDept===d}"><span>${esc(deptL(d)||t("dcNoDept"))}</span><span class="dcst" style="width:${Math.max(8,v.tot/mx*100)}%">${DK.filter(k=>v[k]).map(k=>`<i class="k-${k}" style="flex:${v[k]}" title="${esc(t("dk_"+k))}: ${v[k]}"></i>`).join("")}</span><b>${v.tot}</b></button>`).join("")}
     <div class="dcleg">${DK.map(k=>`<span class="k-${k}">${esc(t("dk_"+k))}</span>`).join("")}</div></div>`:"";
@@ -1923,12 +2085,12 @@ function discMonthHTML(mk){ const recs=dRecsIn(mk), A=dAgg(recs); const prevA=mk
         const line=[roleL(p.role),sup?t("dcSupL",{n:dName(sup)}):"",mgr?t("dcMgrL",{n:dName(mgr)}):""].filter(Boolean).join(" · ");
         const open=S.dOpen===p.id;
         return `<button type="button" class="dcrow${a?"":" zero"}" data-emp="${p.id}" aria-expanded="${open}"><span class="dcwho">${dAv(p.id)}<div><span class="n">${esc(p.full_name||"")}${p.active?"":` <span class="meta">(${esc(t("dcInactive"))})</span>`}</span><span class="r">${esc(line)}</span></div></span>
-          ${dCell(a,"absence",1)}${dCell(a,"notice")}${dCell(a,"warning")}${dCell(a,"penalty",1)}<span class="dcc tot${a?"":" z"}"><span class="ml">${esc(t("dcTotal"))}</span><b>${a?a.tot:"—"}</b>${a?`<small class="pt">${esc(t("dcPts",{n:recs.filter(r=>r.employee===p.id).reduce((s,r)=>s+discRecPts(r),0)}))}</small>`:""}</span></button>${open?discDetail(p.id,mk):""}`; }).join("")}</section>`; }).join("");
+          ${dCell(a,"absence",1)}${dCell(a,"notice")}${dCell(a,"warning")}${dCell(a,"penalty",1)}<span class="dcc tot${a?"":" z"}"><span class="ml">${esc(t("dcTotal"))}</span><b>${a?a.tot:"—"}</b>${a?`<small class="pt">${esc(t("dcPts",{n:recs.filter(r=>r.emp_id===p.id).reduce((s,r)=>s+discRecPts(r),0)}))}</small>`:""}</span></button>${open?discDetail(p.id,mk):""}`; }).join("")}</section>`; }).join("");
   const empty=!recs.length?`<div class="dcempty"><b>${esc(t("dcEmptyM",{m:monthName(mk)}))}</b><span>${esc(t(discCanWrite()?"dcEmptyW":"dcEmptyR"))}</span>${discCanWrite()?`<button class="btn primary" data-add="1">+ ${esc(t("dcAdd"))}</button>`:""}</div>`:"";
   const none=!list.length&&recs.length?`<div class="dcempty"><b>${esc(t("dcNoMatch"))}</b></div>`:"";
   return kpi+deptBox+empty+(recs.length||!S.dOnly?rows:"")+none; }
 
-function discDetail(id,mk){ const recs=(S.disc||[]).filter(r=>r.employee===id&&r.on_date.slice(0,7)===mk); const yr=dAgg((S.disc||[]).filter(r=>r.employee===id))[id];
+function discDetail(id,mk){ const recs=(S.disc||[]).filter(r=>r.emp_id===id&&r.on_date.slice(0,7)===mk); const yr=dAgg((S.disc||[]).filter(r=>r.emp_id===id))[id];
   const yl=yr?`<div class="dcyr">${esc(t("dcYearSoFar",{y:mk.slice(0,4)}))}: ${DK.map(k=>`<span><b>${yr[k].n}</b> ${esc(t("dk_"+k))}${yr[k].d?` (${esc(t("dcDaysN",{n:dNum(yr[k].d)}))})`:""}</span>`).join(" · ")}</div>`:"";
   const fmt=d=>{ const [y,m,dd]=d.split("-").map(Number); return new Intl.DateTimeFormat(loc(),{weekday:"short",day:"numeric",month:"short"}).format(new Date(y,m-1,dd)); };
   return `<div class="dcdet">${yl}${recs.length?recs.map(r=>`<div class="dcrec k-${r.kind}"><span class="kd">${esc(t("dk_"+r.kind))}${Number(r.days)?" · "+esc(t("dcDaysN",{n:dNum(Number(r.days))})):""}</span><div class="bd"><p>${esc(r.reason||t("dcNoReason"))}</p><span>${esc(fmt(r.on_date))}${r.created_by?" · "+esc(t("dcBy",{n:dName(r.created_by)})):""}</span></div>${discCanWrite()?`<button type="button" class="x" data-del="${r.id}">${esc(t("dcDel"))}</button>`:""}</div>`).join(""):`<p class="meta" style="margin:0">${esc(t("dcNoneM"))}</p>`}
@@ -1936,7 +2098,7 @@ function discDetail(id,mk){ const recs=(S.disc||[]).filter(r=>r.employee===id&&r
 
 function discYearHTML(Y){ const people=dPeopleList(); const hs=isAdmin()?(S.dHotel||""):"";
   const recs=(S.disc||[]).filter(r=>(!hs||r.hotel===hs)&&(!S.dDept||r.dept===S.dDept)&&(!S.dKind||r.kind===S.dKind));
-  const M={}; recs.forEach(r=>{ const mo=Number(r.on_date.slice(5,7))-1; (M[r.employee]=M[r.employee]||Array(12).fill(0))[mo]++; });
+  const M={}; recs.forEach(r=>{ const mo=Number(r.on_date.slice(5,7))-1; (M[r.emp_id]=M[r.emp_id]||Array(12).fill(0))[mo]++; });
   const list=people.filter(p=>M[p.id]);
   const mn=i=>new Intl.DateTimeFormat(loc(),{month:"short"}).format(new Date(Number(Y),i,1));
   const lv=n=>!n?"z":n>=5?"l3":n>=3?"l2":"l1"; const curI=Y===dCurM().slice(0,4)?Number(dCurM().slice(5,7))-1:-1;
@@ -1954,7 +2116,7 @@ function bindDiscBody(){ const b=$("#dcBody");
   b.querySelectorAll("[data-ym]").forEach(x=>x.onclick=()=>{ S.discMonth=x.dataset.ym; S.dMode="month"; S.dOpen=x.dataset.emp; discBody(); const r=document.querySelector(`.dcrow[data-emp="${x.dataset.emp}"]`); if(r) r.scrollIntoView({block:"center"}); });
   b.querySelectorAll("[data-add]").forEach(x=>x.onclick=e=>{ e.stopPropagation(); discAddDialog(x.dataset.add==="1"?null:x.dataset.add); });
   b.querySelectorAll("[data-del]").forEach(x=>x.onclick=async e=>{ e.stopPropagation(); const r=(S.disc||[]).find(z=>String(z.id)===x.dataset.del); if(!r) return;
-    const ok=await ask({title:t("dcDelQ"),text:t("dk_"+r.kind)+" — "+dName(r.employee)+" — "+r.on_date,noInput:true,danger:true,okText:t("dcDel")}); if(ok===null) return;
+    const ok=await ask({title:t("dcDelQ"),text:t("dk_"+r.kind)+" — "+dName(r.emp_id)+" — "+r.on_date,noInput:true,danger:true,okText:t("dcDel")}); if(ok===null) return;
     try{ await call(S.sb.from("disc_records").delete().eq("id",r.id),t("dcDeleted")); S.disc=S.disc.filter(z=>z.id!==r.id); discBody(); }catch(err){} }); }
 
 async function discSetPublic(v){ if(!isAdmin()||v===discPub()) return;
@@ -1990,20 +2152,20 @@ function discAddDialog(pre){ const hs=isAdmin()?(S.dHotel||""):myHotel();
     const emp=sel.value, on=d.querySelector("#daD").value, reason=d.querySelector("#daR").value.trim(); const hasDays=kind==="absence"||kind==="penalty"; const days=hasDays?Number(d.querySelector("#daN").value):0;
     if(!emp) return err(t("dcErrEmp")); if(!on||on>today) return err(t("dcErrDate")); if(hasDays&&!(days>0&&days<=60)) return err(t("dcErrDays")); if(kind!=="absence"&&!reason) return err(t("dcErrReason"));
     const p=dP(emp); e.target.disabled=true;
-    try{ const r=await call(S.sb.from("disc_records").insert({employee:emp,kind,on_date:on,days,reason,hotel:p.hotel}).select().single(),t("dcSaved"));
+    try{ const r=await call(S.sb.from("disc_records").insert({emp_id:emp,kind,on_date:on,days,reason,hotel:p.hotel}).select().single(),t("dcSaved"));
       close(); if(r&&r.data&&on.slice(0,4)===S.discYear){ S.disc=[r.data,...S.disc]; } S.discMonth=on.slice(0,7); S.dMode="month"; S.dOpen=emp; if(S.discYear!==on.slice(0,4)) S.disc=null; renderDisc(); }
     catch(x){ e.target.disabled=false; err(errText(x)); } }); }
 
 async function discExport(){ const mk=S.discMonth; try{ await loadLib("xlsx","https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"); }catch(e){ return toast(t("loadErr"),true); }
   const people=dPeopleList(); const ids=new Set(people.map(p=>p.id));
   if(S.dMode==="year"){ const Y=mk.slice(0,4); const rows=[[t("dcEmp"),t("dcDept"),...Array.from({length:12},(_,i)=>monthName(Y+"-"+String(i+1).padStart(2,"0"))),t("dcTotal")]];
-    people.forEach(p=>{ const a=Array(12).fill(0); (S.disc||[]).forEach(r=>{ if(r.employee===p.id&&r.on_date.startsWith(Y)&&(!S.dKind||r.kind===S.dKind)) a[Number(r.on_date.slice(5,7))-1]++; }); const tot=a.reduce((s,x)=>s+x,0); if(tot) rows.push([p.full_name,deptL(p.dept),...a,tot]); });
+    people.forEach(p=>{ const a=Array(12).fill(0); (S.disc||[]).forEach(r=>{ if(r.emp_id===p.id&&r.on_date.startsWith(Y)&&(!S.dKind||r.kind===S.dKind)) a[Number(r.on_date.slice(5,7))-1]++; }); const tot=a.reduce((s,x)=>s+x,0); if(tot) rows.push([p.full_name,deptL(p.dept),...a,tot]); });
     const wb=XLSX.utils.book_new(); const ws=XLSX.utils.aoa_to_sheet(rows); if(LANG==="ar") ws["!views"]=[{RTL:true}]; XLSX.utils.book_append_sheet(wb,ws,Y); XLSX.writeFile(wb,`discipline-${Y}.xlsx`); return; }
-  const recs=dRecsIn(mk).filter(r=>ids.has(r.employee)); const A=dAgg(recs);
+  const recs=dRecsIn(mk).filter(r=>ids.has(r.emp_id)); const A=dAgg(recs);
   const sum=[[t("dcEmp"),t("dcDept"),t("dcRole"),t("dcSupCol"),t("dcMgrCol"),t("dk_absence"),t("dcAbsDaysL"),t("dk_notice"),t("dk_warning"),t("dk_penalty"),t("dcDedDaysL"),t("dcTotal")]];
   people.filter(p=>A[p.id]||!S.dOnly).forEach(p=>{ const a=A[p.id]; const z={n:0,d:0}; const g=k=>a?a[k]:z; sum.push([p.full_name,deptL(p.dept),roleL(p.role),p.role==="staff"?(dChain(p.id,"supervisor")?dName(dChain(p.id,"supervisor")):""):"",dChain(p.id,"manager")?dName(dChain(p.id,"manager")):"",g("absence").n,g("absence").d,g("notice").n,g("warning").n,g("penalty").n,g("penalty").d,a?a.tot:0]); });
   const det=[[t("dcDate"),t("dcEmp"),t("dcDept"),t("dcKind"),t("dcDaysCol"),t("dcReason"),t("dcByCol")]];
-  recs.slice().sort((a,b)=>a.on_date.localeCompare(b.on_date)).forEach(r=>det.push([r.on_date,dName(r.employee),deptL(r.dept),t("dk_"+r.kind),Number(r.days)||"",r.reason||"",r.created_by?dName(r.created_by):""]));
+  recs.slice().sort((a,b)=>a.on_date.localeCompare(b.on_date)).forEach(r=>det.push([r.on_date,dName(r.emp_id),deptL(r.dept),t("dk_"+r.kind),Number(r.days)||"",r.reason||"",r.created_by?dName(r.created_by):""]));
   const wb=XLSX.utils.book_new(); [[sum,t("dcSheetSum")],[det,t("dcSheetDet")]].forEach(([rows,n])=>{ const ws=XLSX.utils.aoa_to_sheet(rows); if(LANG==="ar") ws["!views"]=[{RTL:true}]; XLSX.utils.book_append_sheet(wb,ws,n.slice(0,30)); });
   XLSX.writeFile(wb,`discipline-${mk}.xlsx`); }
 
@@ -2021,6 +2183,430 @@ function discOf(id,a,b,recs){ const L=recs||S.repDisc; if(!L||!discSeesOf(id)) r
 function discAvg(ids,a,b){ const L=ids.map(u=>discOf(u,a,b)).filter(Boolean); if(!L.length) return null; return {score:L.reduce((s,x)=>s+x.score,0)/L.length,n:L.reduce((s,x)=>s+x.n,0),pts:L.reduce((s,x)=>s+x.pts,0),ppl:L.length}; }
 const discTxt=d=>!d||!d.n?t("dsNone"):DK.filter(k=>d.c[k].n).map(k=>t("dk_"+k)+" "+(k==="absence"?t("dcDaysN",{n:dNum(d.c[k].d||d.c[k].n)}):d.c[k].n)).join(" · ");
 const scoreCol=v=>v==null?"var(--line)":v>=80?"var(--ok)":v>=60?"var(--warn)":"var(--bad)";
+/* ================= final evaluation: KPI sheets, discipline, upward reviews, probation ================= */
+const EVL={managerial:"evLvM",supervisory:"evLvS",operational:"evLvO"};
+const EV_SYS={operational:[["disc",15]],supervisory:[["disc",5],["team",5],["up",5]],managerial:[["dept",5],["up",5],["fair",5]]};
+const EV_UPQ=["evQ1","evQ2","evQ3","evQ4","evQ5","evQ6"];
+const evPub=()=>!!(S.settings&&S.settings.eval_public);
+const evCanSee=()=>isAdmin()||(isMember()&&evPub());
+const E=()=>S.ev||{};
+const evEmp=id=>(E().emp||{})[id]||null;
+const evPos=id=>(E().pos||{})[id]||null;
+const evName=id=>{ const e=evEmp(id); return e?e.full_name:t("someone"); };
+const evAv=id=>`<span class="av" style="background:${colorOf(id)}">${esc((evName(id).trim().charAt(0))||"?")}</span>`;
+const evMine=()=>Object.values(E().emp||{}).find(e=>e.profile_id===S.uid)||null;
+function evLevel(e){ const p=evPos(e.position_id); if(p) return p.level; const r=(S.profiles[e.profile_id]||{}).role; return r==="manager"||r==="gm"?"managerial":r==="supervisor"?"supervisory":"operational"; }
+const evPosTitle=e=>{ const p=evPos(e.position_id); return p?(LANG==="ar"&&p.title_ar?p.title_ar:p.title):t("evNoPos"); };
+function evAbove(boss,emp){ let cur=evEmp(emp),n=0; while(cur&&cur.manager_id&&n<25){ if(cur.manager_id===boss) return true; cur=evEmp(cur.manager_id); n++; } return false; }
+const evGrade=v=>v==null?null:v>=90?"A":v>=80?"B":v>=70?"C":v>=60?"D":"E";
+const evGradeCol=g=>({A:"var(--ok)",B:"#3f8f6a",C:"var(--info)",D:"var(--warn)",E:"var(--bad)"})[g]||"var(--line)";
+
+/* ---------- periods ---------- */
+function evPeriod(){ const now=new Date(); const P=S.evP||(S.evP={kind:"Q",year:now.getFullYear(),idx:Math.floor(now.getMonth()/3)+1}); return P; }
+function evRange(P){ const y=P.year; let m0,m1; if(P.kind==="Q"){ m0=(P.idx-1)*3; m1=m0+3; } else if(P.kind==="H"){ m0=(P.idx-1)*6; m1=m0+6; } else { m0=0; m1=12; }
+  const qs=[]; for(let m=m0;m<m1;m+=3) qs.push(y+"-Q"+(m/3+1)); return {a:new Date(y,m0,1).getTime(),b:new Date(y,m1,1).getTime(),qs}; }
+function evPLabel(P){ const r=evRange(P); const f=new Intl.DateTimeFormat(loc(),{month:"short"}); const span=f.format(new Date(r.a))+" – "+f.format(new Date(r.b-864e5));
+  return (P.kind==="Q"?t("evQn",{n:P.idx}):P.kind==="H"?t("evHn",{n:P.idx}):t("evYear"))+" "+P.year+" ("+span+")"; }
+const evKey=P=>P.kind==="Q"?P.year+"-Q"+P.idx:P.kind==="H"?P.year+"-H"+P.idx:P.year+"-Y";
+
+/* ---------- KPI maths ---------- */
+function evKpis(e){ const L=(E().kpis||[]).filter(k=>k.active); const own=L.filter(k=>k.position_id&&k.position_id===e.position_id);
+  if(own.length) return own.sort((a,b)=>a.sort-b.sort||a.id-b.id); const lv=evLevel(e);
+  return L.filter(k=>!k.position_id&&k.dept===e.dept&&k.level===lv).sort((a,b)=>a.sort-b.sort||a.id-b.id); }
+const UN={pct:"%",min:"evUMin",hours:"evUHr",days:"evUDay",count:""};
+const evNum=v=>v==null||v===""?"—":String(Math.round(Number(v)*100)/100);
+function evVal(k,v){ const u=UN[k.unit]; return k.unit==="pct"?evNum(v)+"%":u?t(u,{n:evNum(v)}):evNum(v); }
+function evTargetTxt(k){ if(k.dir==="down"&&Number(k.target)===0) return t("evZero"); return (k.dir==="down"?t("evAtMost"):k.unit==="pct"?"":t("evAtLeast"))+evVal(k,k.target); }
+function evAlertTxt(k){ const g=Number(k.green), y=Number(k.yellow), T=Number(k.target);
+  if(g<=y&&!(k.dir==="down"&&T===0)) return t(k.dir==="up"?"evAl2Up":"evAl2Down",{g:evVal(k,k.dir==="up"?T*g/100:T*100/g)});
+  if(k.dir==="up") return t("evAlUp",{g:evVal(k,T*g/100),y:evVal(k,T*y/100)});
+  if(T===0){ const n=Math.floor((100-y)/25); return t("evAlZero",{n}); }
+  return t("evAlDown",{g:evVal(k,T*100/g),y:evVal(k,T*100/y)}); }
+function evAch(k,a){ if(a==null||a===""||isNaN(Number(a))) return null; a=Number(a); const T=Number(k.target);
+  let r; if(k.dir==="up") r=T>0?a/T:(a>0?1:0); else if(T===0) r=1-0.25*a; else r=a<=T?1:T/a; return Math.max(0,Math.min(1,r))*100; }
+const evCol=(k,p)=>p==null?"":p>=Number(k.green)?"g":p>=Number(k.yellow)?"y":"r";
+
+/* auto KPIs from the task system (only for people with an app account) */
+function evAuto(k,e,a,b){ if(k.source==="manual"||!e.profile_id) return null; const pid=e.profile_id, lv=evLevel(e); const T=RT()||[]; const now=Date.now(), bb=Math.min(b,now);
+  const inR=x=>(x.createdAt||0)>=a&&(x.createdAt||0)<bb;
+  const ts=T.filter(x=>inR(x)&&(lv==="managerial"?(x.hotel===e.hotel&&(!e.dept||x.dept===e.dept)):(x.assignee===pid)));
+  if(k.source==="tasks_ontime"){ const wd=ts.filter(x=>x.status==="done"&&x.due); if(wd.length<3) return null; return wd.filter(x=>(x.completedAt||0)<=x.due).length/wd.length*100; }
+  if(k.source==="tasks_done"){ if(ts.length<3) return null; return ts.filter(x=>x.status==="done").length/ts.length*100; }
+  if(k.source==="sup_target"){ const g=goalFor(pid,{a,b:bb}); const st=supStats(pid,{a,b:bb}); if(g) return Math.min(st.d,g)/g*100; return st.n>=3?st.d/st.n*100:null; }
+  return null; }
+
+/* discipline on the registry */
+function evDisc(id,a,b){ const L=E().disc; if(!L) return null; const c={absence:0,notice:0,warning:0,penalty:0}; let pts=0,n=0;
+  L.forEach(r=>{ if(r.emp_id!==id) return; const tm=dDay(r.on_date); if(tm<a||tm>=b) return; c[r.kind]++; pts+=discRecPts(r); n++; }); return {score:Math.max(0,100-pts),pts,n,c}; }
+function evDiscAvg(ids,a,b){ const L=ids.map(i=>evDisc(i,a,b)).filter(Boolean); if(!L.length) return null; return {score:L.reduce((s,x)=>s+x.score,0)/L.length,n:L.reduce((s,x)=>s+x.n,0),ppl:L.length}; }
+const evEntries=(id,kind,qs)=>(E().entries||[]).filter(x=>x.emp_id===id&&x.kind===kind&&qs.includes(x.period));
+
+/* the KPI block for one person: per KPI actual (avg of quarters, or auto), achievement, weighted result */
+function evKpiBlock(e,R,kind){ const ks=evKpis(e); const ents=kind==="prob"?(E().entries||[]).filter(x=>x.emp_id===e.id&&x.kind==="prob"):evEntries(e.id,kind||"down",R.qs);
+  const rows=ks.map(k=>{ const auto=kind==="self"?null:evAuto(k,e,R.a,R.b); let a=auto, notes=[];
+    if(a==null){ const vs=ents.map(x=>(x.vals||{})[k.id]).filter(v=>v&&v.a!=null&&v.a!==""); if(vs.length) a=vs.reduce((s,v)=>s+Number(v.a),0)/vs.length; vs.forEach(v=>{ if(v.n) notes.push(v.n); }); }
+    const p=evAch(k,a); return {k,a,auto:auto!=null,p,res:p==null?null:Number(k.weight)*p/100,notes}; });
+  const W=rows.reduce((s,r)=>s+Number(r.k.weight),0), Wd=rows.filter(r=>r.p!=null).reduce((s,r)=>s+Number(r.k.weight),0);
+  const val=Wd?rows.filter(r=>r.p!=null).reduce((s,r)=>s+Number(r.k.weight)*r.p,0)/Wd:null;
+  return {rows,W,val,filled:rows.filter(r=>r.p!=null).length,total:rows.length,entries:ents}; }
+
+function evUp(e,R){ const by={}; evEntries(e.id,"up",R.qs).forEach(x=>{ const v=Object.values(x.vals||{}).map(Number).filter(n=>n>=1&&n<=5); if(!v.length) return; (by[x.period]=by[x.period]||[]).push((v.reduce((s,n)=>s+n,0)/v.length-1)/4*100); });
+  let n=0; const per=Object.values(by).map(L=>{ n=Math.max(n,L.length); if(L.length<3) return null; const s=L.slice().sort((a,b)=>a-b); const u=s.length>=5?s.slice(1,-1):s; return u.reduce((a,b)=>a+b,0)/u.length; }).filter(v=>v!=null);
+  return {val:per.length?per.reduce((a,b)=>a+b,0)/per.length:null,n}; }
+function evTeam(e){ return Object.values(E().emp||{}).filter(x=>x.active&&x.id!==e.id&&evAbove(e.id,x.id)).map(x=>x.id); }
+function evDirect(e){ return Object.values(E().emp||{}).filter(x=>x.active&&x.manager_id===e.id).map(x=>x.id); }
+function evFair(e,R){ const team=evDirect(e); if(!team.length) return null;
+  const rated=team.filter(id=>evEntries(id,"down",R.qs).length); const comp=rated.length/team.length;
+  let inc=0, high=0; rated.forEach(id=>{ const x=evEmp(id); const kb=evKpiBlock(x,R); const d=evDisc(id,R.a,R.b); if(kb.val!=null&&kb.val>=95){ high++; if(d&&d.score<70) inc++; } });
+  const lenient=rated.length>=4&&high/rated.length>=0.9; const v=Math.max(0,Math.min(100,100*(0.5*comp+0.5*(rated.length?1-inc/rated.length:0))-(lenient?20:0)));
+  return {val:v,comp,inc,lenient,rated:rated.length,team:team.length}; }
+
+/* the full score for one employee in a period */
+function evScore(e,P){ const R=P.kind==="PROB"?evProbRange(e):evRange(P); const lv=evLevel(e); const kb=evKpiBlock(e,R,P.kind==="PROB"?"prob":"down");
+  const sys=[]; const flags=[];
+  (EV_SYS[lv]||[]).forEach(([k,w])=>{ let v=null, info=null;
+    if(k==="disc"){ const d=evDisc(e.id,R.a,R.b); v=d&&d.score; info=d; }
+    else if(k==="team"){ const d=evDiscAvg(evTeam(e).concat([e.id]),R.a,R.b); v=d&&d.score; info=d; }
+    else if(k==="dept"){ const ids=Object.values(E().emp||{}).filter(x=>x.active&&x.hotel===e.hotel&&x.dept===e.dept).map(x=>x.id); const d=evDiscAvg(ids,R.a,R.b); v=d&&d.score; info=d; }
+    else if(k==="up"&&P.kind!=="PROB"){ const u=evUp(e,R); v=u.val; info=u; if(u.val==null) flags.push(["upFew",{n:u.n}]); }
+    else if(k==="fair"&&P.kind!=="PROB"){ const f=evFair(e,R); v=f&&f.val; info=f; if(f&&f.lenient) flags.push(["lenient",{}]); if(f&&f.comp<1) flags.push(["notRated",{n:f.team-f.rated}]); }
+    sys.push({k,w,v,info}); });
+  const parts=[[kb.val,kb.W]].concat(sys.map(s=>[s.v,s.w])); const av=parts.filter(x=>x[0]!=null&&x[1]>0); const tw=av.reduce((s,x)=>s+x[1],0);
+  const score=kb.val!=null&&tw?av.reduce((s,x)=>s+x[0]*x[1],0)/tw:null;
+  if(!kb.entries.length&&kb.rows.some(r=>!r.auto)) flags.unshift(["noSheet",{}]); else if(kb.filled<kb.total) flags.push(["partial",{a:kb.filled,b:kb.total}]);
+  const d=sys.find(s=>s.k==="disc"); if(kb.val!=null&&kb.val>=95&&d&&d.v!=null&&d.v<70) flags.push(["inflate",{}]);
+  if(P.kind!=="PROB"){ const sb=evKpiBlock(e,R,"self"); if(sb.val!=null&&kb.val!=null&&Math.abs(sb.val-kb.val)>=20) flags.push(["selfGap",{s:Math.round(sb.val),m:Math.round(kb.val)}]); }
+  if(!kb.total) flags.unshift(["noKpi",{}]);
+  return {e,lv,kb,sys,score:score==null?null:Math.round(score*10)/10,grade:evGrade(score),flags,R}; }
+function evProbRange(e){ const h=e.hire_date?dDay(e.hire_date):dDay(dayKey(Date.now())); const b=h+(Number(e.probation_days)||90)*864e5; return {a:h,b,qs:["PROB"],end:b}; }
+
+/* ---------- loading ---------- */
+async function loadEval(){ const P=evPeriod(); const y=P.year;
+  const q=(tb,sel)=>S.sb.from(tb).select(sel||"*");
+  const [em,po,kp,en,rs,ds,rt]=await Promise.all([q("employees").order("full_name"),q("positions").order("dept").order("sort"),q("kpis").order("sort"),
+    q("eval_entries").or(`period.like.${y}-%,period.eq.PROB`),q("eval_results"),
+    q("disc_records","emp_id,kind,days,on_date").gte("on_date",(y-1)+"-01-01").limit(20000),
+    S.repTasks?Promise.resolve(null):S.sb.rpc("report_tasks",{p_hotel:null})]);
+  for(const r of [em,po,kp,en,rs]) if(r.error) throw r.error;
+  if(rt&&!rt.error&&rt.data) S.repTasks=rt.data.map(r=>({id:r.id,hotel:r.hotel,dept:r.dept,assignee:r.assignee,reporter:r.reporter,transfer:r.transferred_by?{by:r.transferred_by}:null,parentId:r.parent_id,parentAssignee:r.parent_assignee,status:r.status,due:ms(r.due),createdAt:ms(r.created_at),startedAt:ms(r.started_at),submittedAt:ms(r.submitted_at),completedAt:ms(r.completed_at),rejections:r.rejections}));
+  if(!S.targets) await loadTargets();
+  const emp={}; (em.data||[]).forEach(x=>emp[x.id]=x); const pos={}; (po.data||[]).forEach(x=>pos[x.id]=x);
+  S.ev={emp,pos,kpis:kp.data||[],entries:en.data||[],results:rs.data||[],disc:ds.error?null:(ds.data||[]),year:y}; S.evErr=null; }
+
+/* ---------- page ---------- */
+function renderEval(){ const m=$("#main");
+  if(!evCanSee()){ m.innerHTML=`<div class="dcempty"><b>${esc(t("dcLocked"))}</b></div>`; return; }
+  const P=evPeriod();
+  if(!S.ev||S.ev.year!==P.year){
+    if(S.evErr){ m.innerHTML=`<div class="dcempty"><b>${esc(t("loadErr"))}</b><span>${esc(S.evErr)}</span><button class="btn" id="evRetry">${esc(t("retry"))}</button></div>`; $("#evRetry").onclick=()=>{ S.evErr=null; renderEval(); }; return; }
+    if(!S.evLoading){ S.evLoading=true; if(S.builtView!=="eval") m.innerHTML=`<div class="dcempty"><span>${esc(t("dcLoading"))}</span></div>`;
+      loadEval().catch(e=>{ S.evErr=errText(e); }).finally(()=>{ S.evLoading=false; if(S.view==="eval") renderEval(); }); }
+    return; }
+  S.evTab=S.evTab||(isAdmin()?"res":"mine");
+  if(S.builtView!=="eval"){ S.builtView="eval";
+    const tabs=isAdmin()?[["res","evTabRes"],["prob","evTabProb"],["emp","evTabEmp"],["kpi","evTabKpi"],["rules","evTabRules"]]:[["mine","evTabMine"],["rules","evTabRules"]];
+    m.innerHTML=`<div class="dchead"><div><h2>${esc(t("evTitle"))}</h2><p>${esc(t("evSub"))}</p></div></div><div id="evVis"></div>
+      <div class="evtabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-et="${k}">${esc(t(l))}</button>`).join("")}</div><div id="evBody"></div>`;
+    m.querySelectorAll("[data-et]").forEach(b=>b.onclick=()=>{ S.evTab=b.dataset.et; evBody(); }); }
+  evBody(); }
+
+function evBody(){ const b=$("#evBody"); if(!b) return;
+  document.querySelectorAll("[data-et]").forEach(x=>x.setAttribute("aria-selected",x.dataset.et===S.evTab));
+  const vis=$("#evVis"); vis.innerHTML=isAdmin()?`<div class="dcvis${evPub()?" pub":""}"><span class="lk">${evPub()?"◉":"🔒"}</span><div class="tx"><b>${esc(t(evPub()?"evVisPub":"dcVisPriv"))}</b><span>${esc(t(evPub()?"evVisPubH":"evVisPrivH"))}</span></div>
+    <div class="seg"><button type="button" data-evis="0" aria-selected="${!evPub()}">${esc(t("dcOnlyMe"))}</button><button type="button" data-evis="1" aria-selected="${evPub()}">${esc(t("dcEveryone"))}</button></div></div>`:"";
+  vis.querySelectorAll("[data-evis]").forEach(x=>x.onclick=()=>evSetPublic(x.dataset.evis==="1"));
+  const T=S.evTab; b.innerHTML=T==="res"?evResHTML():T==="prob"?evProbHTML():T==="emp"?evEmpHTML():T==="kpi"?evKpiHTML():T==="mine"?evMineHTML():evRulesHTML(); evBind(); }
+
+async function evSetPublic(v){ if(!isAdmin()||v===evPub()) return; try{ await call(S.sb.from("settings").update({eval_public:v}).eq("id",1),t(v?"dcNowPub":"dcNowPriv")); S.settings.eval_public=v; render(); }catch(e){} }
+
+function evFilterBar(extra){ const depts=[...new Set(Object.values(E().emp||{}).map(x=>x.dept).filter(Boolean))].sort((a,b)=>deptL(a).localeCompare(deptL(b),LANG));
+  return `<div class="dcbar">${extra||""}<div class="tfsearch"><span>⌕</span><input class="field" id="evQ" type="search" placeholder="${esc(t("dcSearch"))}" value="${esc(S.evq||"")}"></div>
+    ${isAdmin()?`<select class="field" id="evHotel">${hotelOpts(S.evHotel||"",t("allHotels"))}</select>`:""}<select class="field" id="evDept">${opt("",t("dcAllDepts"),S.evDept||"")}${depts.map(d=>opt(d,deptL(d),S.evDept||"")).join("")}</select>
+    <select class="field" id="evLv">${opt("",t("evAllLv"),S.evLv||"")}${Object.keys(EVL).map(l=>opt(l,t(EVL[l]),S.evLv||"")).join("")}</select></div>`; }
+function evList(){ const q=(S.evq||"").trim().toLowerCase(); return Object.values(E().emp||{}).filter(e=>e.active&&(!S.evHotel||e.hotel===S.evHotel)&&(!S.evDept||e.dept===S.evDept)&&(!S.evLv||evLevel(e)===S.evLv)&&(!q||(e.full_name||"").toLowerCase().includes(q)||(e.code||"").toLowerCase().includes(q))); }
+
+/* results */
+function evResHTML(){ const P=evPeriod(); const cy=new Date().getFullYear();
+  const per=`<div class="dcmon evper"><div class="seg">${[["Q","evKQ"],["H","evKH"],["Y","evKY"]].map(([k,l])=>`<button type="button" data-pk="${k}" aria-selected="${P.kind===k}">${esc(t(l))}</button>`).join("")}</div>
+    ${P.kind!=="Y"?`<select class="field" id="evIdx">${(P.kind==="Q"?[1,2,3,4]:[1,2]).map(i=>opt(String(i),P.kind==="Q"?t("evQn",{n:i}):t("evHn",{n:i}),String(P.idx))).join("")}</select>`:""}
+    <select class="field" id="evYear">${[cy,cy-1,cy-2].map(y=>opt(String(y),String(y),String(P.year))).join("")}</select></div>`;
+  const L=evList().map(e=>evScore(e,P)); const sc=L.filter(x=>x.score!=null);
+  const avg=sc.length?Math.round(sc.reduce((s,x)=>s+x.score,0)/sc.length):null; const G={A:0,B:0,C:0,D:0,E:0}; sc.forEach(x=>G[x.grade]++);
+  const flagged=L.filter(x=>x.flags.some(f=>["inflate","selfGap","lenient"].includes(f[0]))).length; const waiting=L.filter(x=>x.flags.some(f=>f[0]==="noSheet")).length;
+  const kpi=`<div class="dckpi evk"><div class="dck" style="--c:var(--accent);--cs:var(--accent-soft)"><span class="hd">${esc(t("evDone"))}</span><span class="n">${sc.length}<small>/${L.length}</small></span><span class="s">${esc(t("evWaiting",{n:waiting}))}</span></div>
+    <div class="dck" style="--c:${evGradeCol(evGrade(avg))};--cs:var(--surface-2)"><span class="hd">${esc(t("evAvg"))}</span><span class="n">${avg==null?"—":avg}</span><span class="s">${avg==null?"":esc(t("evG"+evGrade(avg)))}</span></div>
+    <div class="dck" style="--c:var(--ok);--cs:var(--ok-soft)"><span class="hd">${esc(t("evGA"))}</span><span class="n">${G.A}</span><span class="s">${esc(t("evTop90"))}</span></div>
+    <div class="dck" style="--c:var(--bad);--cs:var(--bad-soft)"><span class="hd">${esc(t("evFlags"))}</span><span class="n">${flagged}</span><span class="s">${esc(t("evFlagsH"))}</span></div></div>
+    ${sc.length?`<div class="evdist" role="img" aria-label="${esc(t("evDist"))}">${["A","B","C","D","E"].filter(g=>G[g]).map(g=>`<i style="flex:${G[g]};background:${evGradeCol(g)}" title="${esc(t("evG"+g))}: ${G[g]}">${G[g]}</i>`).join("")}</div><div class="dcleg">${["A","B","C","D","E"].map(g=>`<span style="--c:${evGradeCol(g)}">${esc(t("evG"+g))} (${G[g]})</span>`).join("")}</div>`:""}`;
+  const groups={}; L.forEach(x=>(groups[(isAdmin()&&!S.evHotel?x.e.hotel+"|":"")+x.e.dept]=groups[(isAdmin()&&!S.evHotel?x.e.hotel+"|":"")+x.e.dept]||[]).push(x));
+  const LO={managerial:0,supervisory:1,operational:2};
+  const rows=Object.keys(groups).sort((a,b)=>deptL(a.split("|").pop()).localeCompare(deptL(b.split("|").pop()),LANG)).map(g=>{ const [h,d]=g.includes("|")?g.split("|"):["",g]; const xs=groups[g].sort((a,b)=>LO[a.lv]-LO[b.lv]||(b.score??-1)-(a.score??-1));
+    const gs=xs.filter(x=>x.score!=null); const ga=gs.length?Math.round(gs.reduce((s,x)=>s+x.score,0)/gs.length):null;
+    return `<section class="dcgrp"><div class="dcgh"><h3>${esc(deptL(d)||t("dcNoDept"))}${h?` <span class="meta">· ${esc(hotelL(h))}</span>`:""}</h3><span class="meta">${esc(t("evGrpMeta",{n:xs.length,d:gs.length}))}${ga!=null?" · "+esc(t("evAvg"))+" "+ga:""}</span></div>
+      ${xs.map(x=>{ const e=x.e; const mg=e.manager_id?evName(e.manager_id):"";
+        const bad=x.flags.filter(f=>["inflate","selfGap","lenient"].includes(f[0])).length; const st=x.flags.find(f=>f[0]==="noSheet"||f[0]==="noKpi");
+        return `<button type="button" class="evrow" data-ev="${e.id}"><span class="dcwho">${evAv(e.id)}<div><span class="n">${esc(e.full_name)}</span><span class="r">${esc(evPosTitle(e))} · ${esc(t(EVL[x.lv]))}${mg?" · "+esc(t("evMgrL",{n:mg})):""}</span></div></span>
+          <span class="evbars"><span title="${esc(t("evKpiPart"))}"><small>${esc(t("evKpiShort"))}</small><i><b style="width:${x.kb.val||0}%;background:${scoreCol(x.kb.val)}"></b></i></span>${x.sys.map(s=>`<span title="${esc(t("evS_"+s.k))}"><small>${esc(t("evS_"+s.k))}</small><i><b style="width:${s.v||0}%;background:${scoreCol(s.v)}"></b></i></span>`).join("")}</span>
+          <span class="evst">${st?`<em class="evpend">${esc(t("evF_"+st[0]))}</em>`:bad?`<em class="evflag">⚑ ${bad}</em>`:""}</span>
+          <span class="evsc" style="--c:${evGradeCol(x.grade)}"><b>${x.score==null?"—":Math.round(x.score)}</b><small>${x.grade?esc(t("evG"+x.grade)):""}</small></span></button>`; }).join("")}</section>`; }).join("");
+  return evFilterBar(per)+`<p class="dcrule">${esc(t("evResHint",{p:evPLabel(P)}))}</p>`+kpi+(isAdmin()?`<div class="evact"><button class="btn" id="evXls">${esc(t("dcExport"))}</button><button class="btn primary" id="evPublish">${esc(t("evPublish"))}</button></div>`:"")+(rows||`<div class="dcempty"><b>${esc(t("dcNoMatch"))}</b></div>`); }
+
+/* probation */
+function evProbHTML(){ const now=Date.now(); const L=evList().map(e=>{ const R=evProbRange(e); const ent=(E().entries||[]).find(x=>x.emp_id===e.id&&x.kind==="prob"); return {e,R,ent,left:Math.ceil((R.end-now)/864e5)}; })
+    .filter(x=>x.e.hire_date&&(x.left>-60||(x.ent&&x.ent.recommendation==="extend"))&&!(x.ent&&x.ent.recommendation&&x.ent.recommendation!=="extend"&&x.left<-60)).sort((a,b)=>a.left-b.left);
+  const noDate=evList().filter(e=>!e.hire_date).length;
+  const rows=L.map(x=>{ const sc=evScore(x.e,{kind:"PROB"}); const rec=x.ent&&x.ent.recommendation; const lc=x.left<0?"bad":x.left<=14?"warn":"ok";
+    return `<button type="button" class="evrow prob" data-evp="${x.e.id}"><span class="dcwho">${evAv(x.e.id)}<div><span class="n">${esc(x.e.full_name)}</span><span class="r">${esc(evPosTitle(x.e))} · ${esc(deptL(x.e.dept))}</span></div></span>
+      <span class="evpd"><small>${esc(t("evHired"))}</small><b>${esc(x.e.hire_date)}</b></span><span class="evpd"><small>${esc(t("evProbEnd"))}</small><b>${esc(dayKey(x.R.end))}</b></span>
+      <span class="evleft ${lc}">${x.left>=0?esc(t("evDaysLeft",{n:x.left})):esc(t("evDaysOver",{n:-x.left}))}</span>
+      <span class="evst">${rec?`<em class="evrec ${rec}">${esc(t("evRec_"+rec))}</em>`:`<em class="evpend">${esc(t("evNotYet"))}</em>`}</span>
+      <span class="evsc" style="--c:${evGradeCol(sc.grade)}"><b>${sc.score==null?"—":Math.round(sc.score)}</b><small>${sc.grade?esc(t("evG"+sc.grade)):""}</small></span></button>`; }).join("");
+  return evFilterBar()+`<p class="dcrule">${esc(t("evProbHint"))}</p>`+(noDate?`<div class="note">${esc(t("evNoHire",{n:noDate}))}</div>`:"")+(rows?`<section class="dcgrp">${rows}</section>`:`<div class="dcempty"><b>${esc(t("evProbEmpty"))}</b><span>${esc(t("evProbEmptyH"))}</span></div>`); }
+
+/* registry */
+function evEmpHTML(){ const L=evList().concat(Object.values(E().emp||{}).filter(e=>!e.active&&S.evShowOff)).sort((a,b)=>deptL(a.dept).localeCompare(deptL(b.dept),LANG)||(a.full_name||"").localeCompare(b.full_name||"",LANG));
+  const noPos=L.filter(e=>!e.position_id).length, noHire=L.filter(e=>!e.hire_date).length, noMgr=L.filter(e=>!e.manager_id&&evLevel(e)!=="managerial").length;
+  return evFilterBar()+`<div class="evact"><span class="meta">${esc(t("evEmpCount",{n:L.length}))}${noPos?" · "+esc(t("evNoPosN",{n:noPos})):""}${noHire?" · "+esc(t("evNoHireN",{n:noHire})):""}${noMgr?" · "+esc(t("evNoMgrN",{n:noMgr})):""}</span>
+    <button class="btn" id="evTpl">${esc(t("evTemplate"))}</button><button class="btn primary" id="evAddEmp">+ ${esc(t("evAddEmp"))}</button></div><p class="dcrule">${esc(t("evEmpHint"))}</p>
+    <section class="dcgrp"><div class="evemp h"><span>${esc(t("dcEmp"))}</span><span>${esc(t("evPosCol"))}</span><span>${esc(t("evHired"))}</span><span>${esc(t("evMgrCol"))}</span><span>${esc(t("evAcct"))}</span></div>
+    ${L.map(e=>`<button type="button" class="evemp" data-ee="${e.id}"><span class="dcwho">${evAv(e.id)}<div><span class="n">${esc(e.full_name)}${e.active?"":` <span class="meta">(${esc(t("dcInactive"))})</span>`}</span><span class="r">${esc([e.code,deptL(e.dept),isAdmin()&&!S.evHotel?hotelL(e.hotel):""].filter(Boolean).join(" · "))}</span></div></span>
+      <span>${e.position_id?esc(evPosTitle(e))+`<small>${esc(t(EVL[evLevel(e)]))}</small>`:`<em class="evpend">${esc(t("evNoPos"))}</em>`}</span><span>${e.hire_date?esc(e.hire_date):"<em class=\"evpend\">—</em>"}</span>
+      <span>${e.manager_id?esc(evName(e.manager_id)):"—"}</span><span>${e.profile_id?`<em class="evok">✓ ${esc(t("evHasAcct"))}</em>`:`<small>${esc(t("evNoAcct"))}</small>`}</span></button>`).join("")}</section>`; }
+
+/* positions & KPI sheets */
+function evKpiHTML(){ const depts=[...new Set((Object.values(E().pos||{})).map(p=>p.dept).concat((E().kpis||[]).map(k=>k.dept)))].sort((a,b)=>deptL(a).localeCompare(deptL(b),LANG));
+  const D=S.evKD=S.evKD&&depts.includes(S.evKD)?S.evKD:depts[0]; const LV=S.evKL=S.evKL||"supervisory";
+  const pos=Object.values(E().pos||{}).filter(p=>p.dept===D).sort((a,b)=>a.sort-b.sort||a.id-b.id);
+  const PO=S.evKP&&evPos(S.evKP)&&evPos(S.evKP).dept===D?S.evKP:null;
+  const ks=(E().kpis||[]).filter(k=>k.dept===D&&(PO?k.position_id===PO:(!k.position_id&&k.level===LV))).sort((a,b)=>a.sort-b.sort||a.id-b.id);
+  const W=ks.filter(k=>k.active).reduce((s,k)=>s+Number(k.weight),0);
+  const cnt=lv=>pos.filter(p=>p.level===lv).length;
+  return `<div class="evkd">${depts.map(d=>`<button type="button" data-kd="${esc(d)}" aria-pressed="${d===D}">${esc(deptL(d))}<small>${Object.values(E().pos||{}).filter(p=>p.dept===d).length}</small></button>`).join("")}</div>
+   <div class="evkgrid"><section class="dcgrp"><div class="dcgh"><h3>${esc(t("evPositions"))}</h3><button class="btn sm primary" id="evAddPos">+ ${esc(t("evAddPos"))}</button></div>
+     ${["managerial","supervisory","operational"].map(lv=>`<div class="evlvh">${esc(t(EVL[lv]))} <small>${cnt(lv)}</small></div>${pos.filter(p=>p.level===lv).map(p=>{ const own=(E().kpis||[]).some(k=>k.position_id===p.id);
+       return `<div class="evpos${p.active?"":" off"}${PO===p.id?" on":""}"><span class="t">${esc(p.title)}${p.title_ar?`<small>${esc(p.title_ar)}</small>`:""}${p.section?`<small>${esc(p.section)}</small>`:""}</span><span class="n">${Object.values(E().emp||{}).filter(e=>e.position_id===p.id&&e.active).length}</span>
+         <button type="button" class="lnk" data-kp="${p.id}">${esc(t(own?"evOwnKpi":"evLvKpi"))}</button><button type="button" class="lnk" data-pe="${p.id}">${esc(t("evEdit"))}</button></div>`; }).join("")||`<div class="meta" style="padding:6px 14px">—</div>`}`).join("")}</section>
+   <section class="dcgrp"><div class="dcgh"><h3>${esc(PO?t("evKpiOfPos",{p:evPos(PO).title}):t("evKpiOfLv",{l:t(EVL[LV])}))}</h3>
+     ${PO?`<button class="btn sm" id="evBackLv">${esc(t("evBackLv"))}</button>`:`<div class="seg">${["managerial","supervisory","operational"].map(l=>`<button type="button" data-kl="${l}" aria-selected="${l===LV}">${esc(t(EVL[l]))}</button>`).join("")}</div>`}</div>
+     <div class="evwsum ${W===85?"ok":"bad"}">${esc(t("evWSum",{w:evNum(W)}))}${W===85?"":" · "+esc(t("evWFix"))}</div>
+     ${PO&&!ks.length?`<div class="dcempty"><span>${esc(t("evPosUsesLv"))}</span><button class="btn primary" id="evCopyLv">${esc(t("evCopyLv"))}</button></div>`:""}
+     ${ks.map(k=>`<div class="evkpi${k.active?"":" off"}"><div class="hd"><b>${esc(k.name)}</b><span class="w">${evNum(k.weight)}%</span></div><p>${esc(k.definition)}</p>
+       <div class="meta">${esc(k.formula)}</div><div class="chips"><span>${esc(t(k.freq==="monthly"?"evMonthly":"evQuarterly"))}</span><span>${esc(t("evTarget"))}: ${esc(evTargetTxt(k))}</span><span>${esc(evAlertTxt(k))}</span>${k.source!=="manual"?`<span class="auto">${esc(t("evSrc_"+k.source))}</span>`:""}</div>
+       <div class="act"><button type="button" class="lnk" data-ke="${k.id}">${esc(t("evEdit"))}</button></div></div>`).join("")}
+     ${!PO||ks.length?`<div style="padding:10px 14px"><button class="btn" id="evAddKpi">+ ${esc(t("evAddKpi"))}</button></div>`:""}</section></div>`; }
+
+/* the person's own to-do (when the page is open to everyone) */
+function evMineHTML(){ const me=evMine(); if(!me) return `<div class="dcempty"><b>${esc(t("evNoMe"))}</b></div>`; const P=evPeriod(); const cur=new Date(); const qk=cur.getFullYear()+"-Q"+(Math.floor(cur.getMonth()/3)+1);
+  const team=Object.values(E().emp||{}).filter(x=>x.active&&x.manager_id===me.id); const boss=me.manager_id?evEmp(me.manager_id):null;
+  const has=(id,k)=>(E().entries||[]).some(x=>x.emp_id===id&&x.kind===k&&x.period===qk&&(k!=="up"||x.rater===S.uid));
+  const item=(id,k,l)=>`<button type="button" class="evrow" data-mine="${id}" data-mk="${k}"><span class="dcwho">${evAv(id)}<div><span class="n">${esc(evName(id))}</span><span class="r">${esc(t(l))}</span></div></span><span class="evst">${has(id,k)?`<em class="evok">✓ ${esc(t("evSaved"))}</em>`:`<em class="evpend">${esc(t("evNotYet"))}</em>`}</span></button>`;
+  const res=(E().results||[]).filter(r=>r.emp_id===me.id||team.some(x=>x.id===r.emp_id)).sort((a,b)=>b.period.localeCompare(a.period));
+  return `<p class="dcrule">${esc(t("evMineHint",{q:qk}))}</p><section class="dcgrp"><div class="dcgh"><h3>${esc(t("evToDo"))}</h3></div>
+    ${team.map(x=>item(x.id,"down","evRateTeam")).join("")}${boss?item(boss.id,"up","evRateBoss"):""}${item(me.id,"self","evRateSelf")}</section>
+    ${res.length?`<section class="dcgrp"><div class="dcgh"><h3>${esc(t("evPublished"))}</h3></div>${res.map(r=>`<div class="evrow"><span class="dcwho">${evAv(r.emp_id)}<div><span class="n">${esc(evName(r.emp_id))}</span><span class="r">${esc(r.period)}</span></div></span><span class="evsc" style="--c:${evGradeCol(r.grade)}"><b>${r.score==null?"—":Math.round(r.score)}</b><small>${r.grade?esc(t("evG"+r.grade)):""}</small></span></div>`).join("")}</section>`:""}`; }
+
+function evRulesHTML(){ const W=(lv)=>`<div class="evrw"><b>${esc(t(EVL[lv]))}</b><div class="dcst evwbar"><i style="flex:85;background:var(--accent)">${esc(t("evKpiShort"))} 85</i>${EV_SYS[lv].map(([k,w])=>`<i style="flex:${w};background:${k==="up"?"var(--info)":k==="fair"?"var(--brass)":"var(--warn)"}" title="${esc(t("evS_"+k))}">${w}</i>`).join("")}</div><small>${EV_SYS[lv].map(([k,w])=>esc(t("evS_"+k))+" "+w+"%").join(" · ")}</small></div>`;
+  return `<div class="evrules"><section class="dcgrp"><div class="dcgh"><h3>${esc(t("evRW"))}</h3></div><div class="evrb">${W("operational")}${W("supervisory")}${W("managerial")}<p>${esc(t("evRW2"))}</p></div></section>
+   ${["evR1","evR2","evR3","evR4","evR5","evR6","evR7","evR8"].map(k=>`<section class="dcgrp"><div class="dcgh"><h3>${esc(t(k+"t"))}</h3></div><div class="evrb"><p>${esc(t(k))}</p></div></section>`).join("")}</div>`; }
+
+function evBind(){ const b=$("#evBody");
+  const re=()=>evBody();
+  if($("#evQ")) $("#evQ").oninput=e=>{ S.evq=e.target.value; const pos=e.target.selectionStart; re(); const n=$("#evQ"); if(n){ n.focus(); try{ n.setSelectionRange(pos,pos); }catch(x){} } };
+  if($("#evHotel")) $("#evHotel").onchange=e=>{ S.evHotel=e.target.value; re(); };
+  if($("#evDept")) $("#evDept").onchange=e=>{ S.evDept=e.target.value; re(); };
+  if($("#evLv")) $("#evLv").onchange=e=>{ S.evLv=e.target.value; re(); };
+  b.querySelectorAll("[data-pk]").forEach(x=>x.onclick=()=>{ const P=evPeriod(); P.kind=x.dataset.pk; P.idx=P.kind==="Q"?Math.min(P.idx,4):P.kind==="H"?(P.idx>2?2:1):1; re(); });
+  if($("#evIdx")) $("#evIdx").onchange=e=>{ evPeriod().idx=Number(e.target.value); re(); };
+  if($("#evYear")) $("#evYear").onchange=e=>{ evPeriod().year=Number(e.target.value); renderEval(); };
+  b.querySelectorAll("[data-ev]").forEach(x=>x.onclick=()=>evSheet(x.dataset.ev,evPeriod()));
+  b.querySelectorAll("[data-evp]").forEach(x=>x.onclick=()=>evSheet(x.dataset.evp,{kind:"PROB"}));
+  b.querySelectorAll("[data-ee]").forEach(x=>x.onclick=()=>evEmpDialog(x.dataset.ee));
+  b.querySelectorAll("[data-mine]").forEach(x=>x.onclick=()=>{ const k=x.dataset.mk; const n=new Date(); const P={kind:"Q",year:n.getFullYear(),idx:Math.floor(n.getMonth()/3)+1}; if(k==="up") evUpDialog(x.dataset.mine,P); else evSheet(x.dataset.mine,P,k); });
+  if($("#evAddEmp")) $("#evAddEmp").onclick=()=>evEmpDialog(null);
+  if($("#evTpl")) $("#evTpl").onclick=()=>evTemplate();
+  if($("#evXls")) $("#evXls").onclick=()=>evExport();
+  if($("#evPublish")) $("#evPublish").onclick=()=>evPublish();
+  b.querySelectorAll("[data-kd]").forEach(x=>x.onclick=()=>{ S.evKD=x.dataset.kd; S.evKP=null; re(); });
+  b.querySelectorAll("[data-kl]").forEach(x=>x.onclick=()=>{ S.evKL=x.dataset.kl; re(); });
+  b.querySelectorAll("[data-kp]").forEach(x=>x.onclick=()=>{ S.evKP=Number(x.dataset.kp); re(); });
+  if($("#evBackLv")) $("#evBackLv").onclick=()=>{ S.evKP=null; re(); };
+  b.querySelectorAll("[data-pe]").forEach(x=>x.onclick=()=>evPosDialog(Number(x.dataset.pe)));
+  if($("#evAddPos")) $("#evAddPos").onclick=()=>evPosDialog(null);
+  b.querySelectorAll("[data-ke]").forEach(x=>x.onclick=()=>evKpiDialog(Number(x.dataset.ke)));
+  if($("#evAddKpi")) $("#evAddKpi").onclick=()=>evKpiDialog(null);
+  if($("#evCopyLv")) $("#evCopyLv").onclick=()=>evCopyLevel(S.evKP); }
+
+/* ---------- dialogs ---------- */
+function evModal(cls,html){ const d=document.createElement("div"); d.className="dlg "+cls; d.innerHTML=`<div class="in" role="dialog" aria-modal="true">${html}</div>`; document.body.appendChild(d);
+  const close=()=>d.remove(); d.addEventListener("keydown",e=>{ if(e.key==="Escape") close(); }); d.addEventListener("click",e=>{ if(e.target===d||e.target.hasAttribute("data-x")) close(); }); return {d,close}; }
+const evErr=(d,m)=>{ const e=d.querySelector(".dcerr"); if(e){ e.textContent=m; e.hidden=false; } };
+
+/* the evaluation sheet (same layout as the paper form) */
+function evSheet(id,P,kindIn){ const e=evEmp(id); if(!e) return; const kind=kindIn||(P.kind==="PROB"?"prob":"down"); const prob=P.kind==="PROB";
+  const sc=evScore(e,P); const R=sc.R; const editable=prob||P.kind==="Q"; const period=prob?"PROB":evRange(P).qs[0];
+  const ent=(E().entries||[]).find(x=>x.emp_id===id&&x.kind===kind&&x.period===period)||null;
+  const kb=kind==="self"?evKpiBlock(e,R,"self"):sc.kb; const pos=evPos(e.position_id); const mgr=e.manager_id?evEmp(e.manager_id):null;
+  const rows=kb.rows.map(r=>{ const k=r.k; const v=ent&&ent.vals&&ent.vals[k.id]; const cur=editable&&!r.auto?(v&&v.a!=null?v.a:""):r.a; const c=evCol(k,r.p);
+    return `<tr data-k="${k.id}"><td class="kn">${esc(k.name)}</td><td class="kd">${esc(k.definition)}</td><td class="kf">${esc(k.formula)}</td><td>${esc(t(k.freq==="monthly"?"evMonthly":"evQuarterly"))}</td>
+      <td class="tg">${esc(evTargetTxt(k))}</td><td class="al">${esc(evAlertTxt(k))}</td><td>${evNum(k.weight)}%</td>
+      <td class="act">${editable&&!r.auto?`<input class="field kin" type="number" step="any" min="0" data-ka="${k.id}" value="${cur===""?"":esc(String(cur))}" aria-label="${esc(t("evActual"))}"><input class="field knote" data-kn="${k.id}" placeholder="${esc(t("evEvidence"))}" value="${esc((v&&v.n)||"")}">`:`<b>${r.a==null?"—":esc(evVal(k,r.a))}</b>${r.auto?`<small class="auto">${esc(t("evFromSys"))}</small>`:""}`}</td>
+      <td class="res ${c}" data-res="${k.id}">${r.res==null?"—":evNum(r.res)+"%"}</td></tr>`; }).join("");
+  const sysRows=kind==="self"?"":sc.sys.map(s=>{ const lab=t("evS_"+s.k); let det="";
+    if(s.info&&(s.k==="disc"||s.k==="team"||s.k==="dept")) det=s.k==="disc"?(s.info.n?discTxt({c:Object.fromEntries(DK.map(k=>[k,{n:s.info.c[k],d:0}])),n:s.info.n}):t("dsNone")):t("evDiscPpl",{p:s.info.ppl,n:s.info.n});
+    if(s.k==="up") det=s.info&&s.info.val!=null?t("evUpN",{n:s.info.n}):t("evUpFew",{n:(s.info&&s.info.n)||0});
+    if(s.k==="fair"&&s.info) det=t("evFairD",{r:s.info.rated,t:s.info.team})+(s.info.lenient?" · "+t("evLenient"):"");
+    return `<tr class="sys"><td class="kn">${esc(lab)}</td><td class="kd" colspan="5">${esc(t("evSD_"+s.k))}${det?` <em>(${esc(det)})</em>`:""}</td><td>${s.w}%</td><td><b>${s.v==null?"—":Math.round(s.v)+"%"}</b><small class="auto">${esc(t("evFromSys"))}</small></td><td class="res">${s.v==null?"—":evNum(s.w*s.v/100)+"%"}</td></tr>`; }).join("");
+  const totW=kb.W+(kind==="self"?0:sc.sys.reduce((s,x)=>s+x.w,0));
+  const upBlock=kind!=="self"&&!prob&&sc.lv!=="operational"?(()=>{ const ups=evEntries(e.id,"up",R.qs); const n=ups.length;
+    const per=EV_UPQ.map((q,i)=>{ const v=ups.map(x=>Number((x.vals||{})["q"+(i+1)])).filter(v=>v>=1); return n>=3&&v.length?v.reduce((a,b)=>a+b,0)/v.length:null; });
+    return `<div class="evup"><div class="hd"><b>${esc(t("evUpTitle"))}</b><span class="meta">${esc(n>=3?t("evUpN",{n}):t("evUpFew",{n}))}</span>${isAdmin()&&P.kind==="Q"?`<button class="btn sm" id="evUpPaper">+ ${esc(t("evUpPaper"))}</button>`:""}</div>
+      ${n>=3?EV_UPQ.map((q,i)=>`<div class="uq"><span>${esc(t(q))}</span><i><b style="width:${per[i]==null?0:(per[i]-1)/4*100}%"></b></i><em>${per[i]==null?"—":per[i].toFixed(1)}/5</em></div>`).join(""):`<p class="meta">${esc(t("evUpHide"))}</p>`}</div>`; })():"";
+  const flags=kind==="self"?"":sc.flags.filter(f=>!["noSheet"].includes(f[0])).map(f=>`<li class="${["inflate","selfGap","lenient"].includes(f[0])?"bad":""}">${esc(t("evF_"+f[0],f[1]))}</li>`).join("");
+  const trend=!prob&&P.kind!=="Q"?(()=>{ const qs=evRange(P).qs.map(q=>{ const [y,i]=q.split("-Q"); const s=evScore(e,{kind:"Q",year:Number(y),idx:Number(i)}); return [q,s.score]; });
+    return `<div class="evtrend"><b>${esc(t("evTrend"))}</b>${qs.map(([q,v])=>`<span><i style="height:${v==null?4:Math.max(6,v)}%;background:${evGradeCol(evGrade(v))}"></i><small>${esc(q.split("-")[1])}</small><em>${v==null?"—":Math.round(v)}</em></span>`).join("")}</div>`; })():"";
+  const canEdit=editable&&(isAdmin()||(evPub()&&((kind==="self"&&e.profile_id===S.uid)||(kind!=="self"&&evMine()&&evAbove(evMine().id,e.id)))));
+  const title=t(prob?"evProbForm":kind==="self"?"evSelfForm":"evForm");
+  const hotelN=hotelL(e.hotel)||"";
+  const {d,close}=evModal("evsheet",`<div class="evpaper" id="evPaper"><div class="evph"><span class="brand">HWAIDAK HOTELS</span><h3>${esc(title)}</h3><span class="brand">${esc(hotelN)}</span></div>
+    <table class="evinfo"><tr><th>${esc(t("evIName"))}</th><td>${esc(e.full_name)}</td><th>${esc(t("evIPos"))}</th><td>${esc(pos?pos.title+(pos.title_ar?" ("+pos.title_ar+")":""):t("evNoPos"))}</td></tr>
+      <tr><th>${esc(t("evIDept"))}</th><td>${esc(deptL(e.dept))}</td><th>${esc(t("evILevel"))}</th><td>${esc(t(EVL[sc.lv]))}</td></tr>
+      <tr><th>${esc(t("evIHire"))}</th><td>${esc(e.hire_date||"—")}</td><th>${esc(t("evIMgr"))}</th><td>${esc(mgr?mgr.full_name:"—")}</td></tr>
+      <tr><th>${esc(t("evIPeriod"))}</th><td>${esc(prob?t("evProbPer",{a:dayKey(R.a),b:dayKey(R.b)}):evPLabel(P))}</td><th>${esc(t("evICode"))}</th><td>${esc(e.code||"—")}</td></tr></table>
+    ${kb.total?`<div class="evtw"><table class="evtbl"><thead><tr><th>${esc(t("evH1"))}</th><th>${esc(t("evH2"))}</th><th>${esc(t("evH3"))}</th><th>${esc(t("evH4"))}</th><th>${esc(t("evH5"))}</th><th>${esc(t("evH6"))}</th><th>${esc(t("evH7"))}</th><th>${esc(t("evH8"))}</th><th>${esc(t("evH9"))}</th></tr></thead>
+      <tbody>${rows}${sysRows}</tbody><tfoot><tr><td colspan="6">${esc(t("evSum"))}</td><td>${evNum(totW)}%</td><td></td><td id="evTot">${kind==="self"?(kb.val==null?"—":Math.round(kb.val)+"%"):(sc.score==null?"—":Math.round(sc.score)+"%")}</td></tr></tfoot></table></div>`:`<div class="dcempty"><b>${esc(t("evF_noKpi"))}</b><span>${esc(t("evNoKpiH"))}</span></div>`}
+    ${kind!=="self"?`<div class="evgrade" style="--c:${evGradeCol(sc.grade)}"><b>${sc.score==null?"—":Math.round(sc.score)}</b><span>${sc.grade?esc(t("evG"+sc.grade)):esc(t("evNoScore"))}</span></div>`:""}
+    ${trend}${upBlock}${flags?`<ul class="evflags">${flags}</ul>`:""}
+    ${prob?`<div class="evrecs"><b>${esc(t("evRecQ"))}</b>${["confirm","extend","terminate"].map(r=>`<label><input type="radio" name="evRec" value="${r}"${ent&&ent.recommendation===r?" checked":""}${canEdit?"":" disabled"}> ${esc(t("evRec_"+r))}</label>`).join("")}</div>`:""}
+    <label class="lb evnote">${esc(t("evNotes"))}<textarea class="field" id="evNote" rows="3" maxlength="3000"${canEdit?"":" disabled"}>${esc((ent&&ent.note)||"")}</textarea></label>
+    ${ent?`<p class="meta">${esc(t("evBy",{n:nameOf(ent.rater),d:fmtD(ms(ent.updated_at))}))}${ent.on_behalf?" · "+esc(t("evOnBehalf",{n:evName(ent.on_behalf)})):""}</p>`:""}
+    <div class="evsign">${["evSgEmp","evSgMgr","evSgHead","evSgHR"].map(k=>`<div><span>${esc(t(k))}</span><i></i></div>`).join("")}</div></div>
+    <p class="dcerr" hidden></p>
+    <div class="actions evsa"><button class="btn" data-x>${esc(t("close"))}</button><button class="btn" id="evPrint">${esc(t("evPrint"))}</button>${!prob&&kind==="down"&&isAdmin()?`<button class="btn" id="evSelfV">${esc(t("evSeeSelf"))}</button>`:""}${canEdit&&kb.total?`<button class="btn primary" id="evSave">${esc(t("save"))}</button>`:""}</div>`);
+  // live result while typing
+  d.querySelectorAll("[data-ka]").forEach(inp=>inp.oninput=()=>{ const k=kb.rows.find(r=>String(r.k.id)===inp.dataset.ka).k; const p=evAch(k,inp.value); const c=d.querySelector(`[data-res="${k.id}"]`); c.textContent=p==null?"—":evNum(Number(k.weight)*p/100)+"%"; c.className="res "+evCol(k,p); });
+  d.querySelector("#evPrint").onclick=()=>{ document.body.classList.add("evprinting"); window.print(); setTimeout(()=>document.body.classList.remove("evprinting"),500); };
+  if(d.querySelector("#evSelfV")) d.querySelector("#evSelfV").onclick=()=>{ close(); evSheet(id,P,"self"); };
+  if(d.querySelector("#evUpPaper")) d.querySelector("#evUpPaper").onclick=()=>{ close(); evUpDialog(id,P,true); };
+  if(d.querySelector("#evSave")) d.querySelector("#evSave").onclick=async ev=>{ const vals={}; let miss=0, needNote=null;
+    d.querySelectorAll("[data-ka]").forEach(inp=>{ const kid=inp.dataset.ka; const a=inp.value.trim(); const n=d.querySelector(`[data-kn="${kid}"]`).value.trim(); if(a===""){ miss++; return; }
+      const k=kb.rows.find(r=>String(r.k.id)===kid).k; const p=evAch(k,a); if(p!=null&&p<Number(k.yellow)&&!n&&!needNote) needNote=k.name; vals[kid]={a:Number(a),n}; });
+    if(needNote) return evErr(d,t("evNeedNote",{k:needNote}));
+    const rec=prob?(d.querySelector('[name="evRec"]:checked')||{}).value||null:null; if(prob&&!rec&&!miss) return evErr(d,t("evNeedRec"));
+    const note=d.querySelector("#evNote").value.trim(); ev.target.disabled=true;
+    const row={period,emp_id:id,kind,vals,note,recommendation:rec,rater:S.uid,on_behalf:isAdmin()&&kind!=="self"&&e.manager_id&&!(evMine()&&evMine().id===e.manager_id)?e.manager_id:null};
+    try{ const q=ent?S.sb.from("eval_entries").update({vals,note,recommendation:rec,on_behalf:row.on_behalf}).eq("id",ent.id).select().single():S.sb.from("eval_entries").insert(row).select().single();
+      const r=await call(q,t(miss?"evSavedPart":"evSavedOk",{n:miss})); if(r&&r.data){ const L=E().entries; const i=L.findIndex(x=>x.id===r.data.id); if(i>=0) L[i]=r.data; else L.push(r.data); }
+      close(); evBody(); evSheet(id,P,kindIn); }catch(x){ ev.target.disabled=false; evErr(d,errText(x)); } }; }
+
+/* upward review (team rates the boss); anonymous in every result */
+function evUpDialog(id,P,paper){ const e=evEmp(id); if(!e) return; const period=evRange(P).qs[0];
+  const team=Object.values(E().emp||{}).filter(x=>x.active&&evAbove(id,x.id)).sort((a,b)=>(a.full_name||"").localeCompare(b.full_name||"",LANG));
+  const mine=!paper?(E().entries||[]).find(x=>x.emp_id===id&&x.kind==="up"&&x.period===period&&x.rater===S.uid&&!x.on_behalf):null;
+  const done=new Set((E().entries||[]).filter(x=>x.emp_id===id&&x.kind==="up"&&x.period===period).map(x=>x.on_behalf).filter(Boolean));
+  const {d,close}=evModal("dcadd",`<h4>${esc(t("evUpFormT",{n:e.full_name}))}</h4><p class="meta">${esc(t("evUpAnon"))}</p>
+    ${paper?`<label class="lb">${esc(t("evUpWho"))}<select class="field" id="upWho"><option value="">${esc(t("dcPickEmp"))}</option>${team.filter(x=>!done.has(x.id)).map(x=>opt(x.id,x.full_name,"")).join("")}</select></label>`:""}
+    ${EV_UPQ.map((q,i)=>`<div class="uqr"><span>${esc(t(q))}</span><div class="seg">${[1,2,3,4,5].map(n=>`<button type="button" data-q="${i+1}" data-v="${n}" aria-selected="${mine&&Number(mine.vals["q"+(i+1)])===n}">${n}</button>`).join("")}</div></div>`).join("")}
+    <div class="meta">${esc(t("evScale"))}</div><label class="lb">${esc(t("evUpNote"))}<textarea class="field" id="upNote" rows="2" maxlength="1000">${esc((mine&&mine.note)||"")}</textarea></label>
+    <p class="dcerr" hidden></p><div class="actions" style="justify-content:flex-end"><button class="btn" data-x>${esc(t("cancel"))}</button><button class="btn primary" id="upSave">${esc(t("save"))}</button></div>`);
+  const vals=mine?Object.assign({},mine.vals):{};
+  d.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{ vals["q"+b.dataset.q]=Number(b.dataset.v); d.querySelectorAll(`[data-q="${b.dataset.q}"]`).forEach(x=>x.setAttribute("aria-selected",x===b)); });
+  d.querySelector("#upSave").onclick=async ev=>{ if(Object.keys(vals).length<EV_UPQ.length) return evErr(d,t("evUpAll")); const who=paper?d.querySelector("#upWho").value:null; if(paper&&!who) return evErr(d,t("dcErrEmp"));
+    ev.target.disabled=true; const note=d.querySelector("#upNote").value.trim();
+    try{ const q=mine?S.sb.from("eval_entries").update({vals,note}).eq("id",mine.id).select().single():S.sb.from("eval_entries").insert({period,emp_id:id,kind:"up",vals,note,rater:S.uid,on_behalf:who}).select().single();
+      const r=await call(q,t("evSavedOk",{n:0})); if(r&&r.data){ const L=E().entries; const i=L.findIndex(x=>x.id===r.data.id); if(i>=0) L[i]=r.data; else L.push(r.data); } close(); evBody(); }catch(x){ ev.target.disabled=false; evErr(d,errText(x)); } }; }
+
+/* registry editor */
+function evEmpDialog(id){ const e=id?evEmp(id):{full_name:"",code:"",hotel:S.evHotel||myHotel()||"titanic_pearl",dept:S.evDept||"",position_id:null,hire_date:"",manager_id:null,profile_id:null,probation_days:90,phone:"",active:true,notes:""};
+  const posOpts=(dept,cur)=>`<option value="">${esc(t("evNoPos"))}</option>`+["managerial","supervisory","operational"].map(lv=>{ const L=Object.values(E().pos||{}).filter(p=>p.dept===dept&&p.level===lv&&(p.active||p.id===cur)).sort((a,b)=>a.sort-b.sort); return L.length?`<optgroup label="${esc(t(EVL[lv]))}">${L.map(p=>opt(String(p.id),p.title,String(cur||""))).join("")}</optgroup>`:""; }).join("");
+  const mgrOpts=(hotel,cur)=>`<option value="">—</option>`+Object.values(E().emp||{}).filter(x=>x.active&&x.id!==id&&x.hotel===hotel&&!(id&&evAbove(id,x.id))).sort((a,b)=>deptL(a.dept).localeCompare(deptL(b.dept),LANG)||(a.full_name||"").localeCompare(b.full_name||"")).map(x=>opt(x.id,x.full_name+" — "+(deptL(x.dept)||"")+" · "+evPosTitle(x),cur||"")).join("");
+  const linked=new Set(Object.values(E().emp||{}).map(x=>x.profile_id).filter(Boolean));
+  const acctOpts=cur=>`<option value="">${esc(t("evNoAcct"))}</option>`+Object.values(S.profiles).filter(p=>p.role!=="pending"&&p.role!=="admin"&&(!linked.has(p.id)||p.id===cur)).map(p=>opt(p.id,p.full_name,cur||"")).join("");
+  const depts=(S.deptRows||[]).map(x=>x.name);
+  const {d,close}=evModal("dcadd evempd",`<h4>${esc(t(id?"evEditEmp":"evAddEmp"))}</h4>
+    <div class="dc2"><label class="lb">${esc(t("evIName"))}<input class="field" id="eeN" maxlength="120" value="${esc(e.full_name)}"></label><label class="lb">${esc(t("evICode"))}<input class="field" id="eeC" maxlength="30" value="${esc(e.code||"")}"></label></div>
+    <div class="dc2"><label class="lb">${esc(t("hotel"))}<select class="field" id="eeH">${hotelOpts(e.hotel||"")}</select></label><label class="lb">${esc(t("evIDept"))}<select class="field" id="eeD"><option value="">—</option>${depts.map(x=>opt(x,deptL(x),e.dept||"")).join("")}</select></label></div>
+    <label class="lb">${esc(t("evIPos"))}<select class="field" id="eeP">${posOpts(e.dept,e.position_id)}</select></label>
+    <div class="dc2"><label class="lb">${esc(t("evIHire"))}<input class="field" type="date" id="eeHD" value="${esc(e.hire_date||"")}"></label><label class="lb">${esc(t("evProbDays"))}<input class="field" type="number" min="0" max="365" id="eePD" value="${e.probation_days??90}"></label></div>
+    <label class="lb">${esc(t("evIMgr"))}<select class="field" id="eeM">${mgrOpts(e.hotel,e.manager_id)}</select></label>
+    <label class="lb">${esc(t("evAcctL"))}<select class="field" id="eeA"${e.profile_id&&id?" disabled":""}>${acctOpts(e.profile_id)}</select></label>
+    <div class="dc2"><label class="lb">${esc(t("evPhone"))}<input class="field" id="eeT" maxlength="30" value="${esc(e.phone||"")}"></label><label class="lb" style="align-self:end"><span><input type="checkbox" id="eeAc"${e.active?" checked":""}> ${esc(t("evActive"))}</span></label></div>
+    <p class="dcerr" hidden></p><div class="actions" style="justify-content:flex-end"><button class="btn" data-x>${esc(t("cancel"))}</button><button class="btn primary" id="eeS">${esc(t("save"))}</button></div>`);
+  d.querySelector("#eeD").onchange=ev=>{ d.querySelector("#eeP").innerHTML=posOpts(ev.target.value,null); };
+  d.querySelector("#eeH").onchange=ev=>{ d.querySelector("#eeM").innerHTML=mgrOpts(ev.target.value,null); };
+  d.querySelector("#eeS").onclick=async ev=>{ const v=x=>d.querySelector(x).value.trim(); const row={full_name:v("#eeN"),code:v("#eeC")||null,hotel:v("#eeH")||null,dept:v("#eeD"),position_id:v("#eeP")?Number(v("#eeP")):null,
+      hire_date:v("#eeHD")||null,probation_days:Number(v("#eePD"))||0,manager_id:v("#eeM")||null,phone:v("#eeT"),active:d.querySelector("#eeAc").checked};
+    if(!(e.profile_id&&id)) row.profile_id=v("#eeA")||null;
+    if(!row.full_name) return evErr(d,t("evNeedName")); if(!row.hotel) return evErr(d,t("evNeedHotel")); ev.target.disabled=true;
+    try{ const q=id?S.sb.from("employees").update(row).eq("id",id).select().single():S.sb.from("employees").insert(row).select().single(); const r=await call(q,t("evSavedOk",{n:0}));
+      if(r&&r.data) E().emp[r.data.id]=r.data; close(); evBody(); }catch(x){ ev.target.disabled=false; evErr(d,errText(x)); } }; }
+
+function evPosDialog(pid){ const p=pid?evPos(pid):{dept:S.evKD,title:"",title_ar:"",section:"",level:S.evKL||"operational",active:true,sort:999};
+  const used=pid?Object.values(E().emp||{}).filter(e=>e.position_id===pid).length:0;
+  const {d,close}=evModal("dcadd",`<h4>${esc(t(pid?"evEditPos":"evAddPos"))} · ${esc(deptL(p.dept))}</h4>
+    <label class="lb">${esc(t("evPosEn"))}<input class="field" id="ppT" maxlength="120" value="${esc(p.title)}"></label>
+    <div class="dc2"><label class="lb">${esc(t("evPosAr"))}<input class="field" id="ppA" maxlength="120" value="${esc(p.title_ar||"")}"></label><label class="lb">${esc(t("evSection"))}<input class="field" id="ppS" maxlength="60" value="${esc(p.section||"")}"></label></div>
+    <div class="lb">${esc(t("evILevel"))}<div class="seg">${Object.keys(EVL).map(l=>`<button type="button" data-pl="${l}" aria-selected="${l===p.level}">${esc(t(EVL[l]))}</button>`).join("")}</div></div>
+    <label class="lb"><span><input type="checkbox" id="ppAc"${p.active?" checked":""}> ${esc(t("evActive"))}</span></label>
+    ${pid?`<p class="meta">${esc(t("evPosUsed",{n:used}))}</p>`:""}<p class="dcerr" hidden></p>
+    <div class="actions" style="justify-content:space-between">${pid&&!used?`<button class="btn bad" id="ppDel">${esc(t("dcDel"))}</button>`:"<span></span>"}<span style="display:flex;gap:8px"><button class="btn" data-x>${esc(t("cancel"))}</button><button class="btn primary" id="ppS2">${esc(t("save"))}</button></span></div>`);
+  let lv=p.level; d.querySelectorAll("[data-pl]").forEach(b=>b.onclick=()=>{ lv=b.dataset.pl; d.querySelectorAll("[data-pl]").forEach(x=>x.setAttribute("aria-selected",x===b)); });
+  d.querySelector("#ppS2").onclick=async ev=>{ const row={dept:p.dept,title:d.querySelector("#ppT").value.trim(),title_ar:d.querySelector("#ppA").value.trim(),section:d.querySelector("#ppS").value.trim(),level:lv,active:d.querySelector("#ppAc").checked};
+    if(!row.title) return evErr(d,t("evNeedTitle")); ev.target.disabled=true;
+    if(!pid) row.sort=Object.values(E().pos).filter(x=>x.dept===p.dept).reduce((m,x)=>Math.max(m,x.sort),0)+1;
+    try{ const q=pid?S.sb.from("positions").update(row).eq("id",pid).select().single():S.sb.from("positions").insert(row).select().single(); const r=await call(q,t("evSavedOk",{n:0})); if(r&&r.data) E().pos[r.data.id]=r.data; close(); evBody(); }catch(x){ ev.target.disabled=false; evErr(d,errText(x)); } };
+  if(d.querySelector("#ppDel")) d.querySelector("#ppDel").onclick=async()=>{ try{ await call(S.sb.from("positions").delete().eq("id",pid),t("dcDeleted")); delete E().pos[pid]; E().kpis=E().kpis.filter(k=>k.position_id!==pid); close(); evBody(); }catch(x){ evErr(d,errText(x)); } }; }
+
+function evKpiDialog(kid){ const k=kid?(E().kpis||[]).find(x=>x.id===kid):{dept:S.evKD,level:S.evKL,position_id:S.evKP||null,name:"",definition:"",formula:"",freq:"monthly",target:100,unit:"pct",dir:"up",green:100,yellow:90,weight:10,source:"manual",active:true,sort:99};
+  const {d,close}=evModal("dcadd evkpid",`<h4>${esc(t(kid?"evEditKpi":"evAddKpi"))}</h4>
+    <label class="lb">${esc(t("evH1"))}<input class="field" id="kN" maxlength="200" value="${esc(k.name)}"></label>
+    <label class="lb">${esc(t("evH2"))}<textarea class="field" id="kD" rows="2">${esc(k.definition)}</textarea></label>
+    <label class="lb">${esc(t("evH3"))}<input class="field" id="kF" value="${esc(k.formula)}"></label>
+    <div class="dc3"><label class="lb">${esc(t("evH4"))}<select class="field" id="kQ">${opt("monthly",t("evMonthly"),k.freq)}${opt("quarterly",t("evQuarterly"),k.freq)}</select></label>
+      <label class="lb">${esc(t("evUnit"))}<select class="field" id="kU">${["pct","min","hours","days","count"].map(u=>opt(u,t("evU_"+u),k.unit)).join("")}</select></label>
+      <label class="lb">${esc(t("evDir"))}<select class="field" id="kR">${opt("up",t("evDirUp"),k.dir)}${opt("down",t("evDirDown"),k.dir)}</select></label></div>
+    <div class="dc3"><label class="lb">${esc(t("evH5"))}<input class="field" type="number" step="any" id="kT" value="${k.target}"></label><label class="lb">${esc(t("evGreen"))}<input class="field" type="number" id="kG" value="${k.green}"></label><label class="lb">${esc(t("evYellow"))}<input class="field" type="number" id="kY" value="${k.yellow}"></label></div>
+    <div class="dc3"><label class="lb">${esc(t("evH7"))} %<input class="field" type="number" step="any" min="0" max="100" id="kW" value="${k.weight}"></label>
+      <label class="lb">${esc(t("evSource"))}<select class="field" id="kS">${["manual","tasks_ontime","tasks_done","sup_target"].map(s=>opt(s,t("evSrc_"+s),k.source)).join("")}</select></label>
+      <label class="lb" style="align-self:end"><span><input type="checkbox" id="kA"${k.active?" checked":""}> ${esc(t("evActive"))}</span></label></div>
+    <p class="meta" id="kPrev"></p><p class="dcerr" hidden></p>
+    <div class="actions" style="justify-content:space-between">${kid?`<button class="btn bad" id="kDel">${esc(t("dcDel"))}</button>`:"<span></span>"}<span style="display:flex;gap:8px"><button class="btn" data-x>${esc(t("cancel"))}</button><button class="btn primary" id="kSv">${esc(t("save"))}</button></span></div>`);
+  const read=()=>({dept:k.dept,level:k.level,position_id:k.position_id,name:d.querySelector("#kN").value.trim(),definition:d.querySelector("#kD").value.trim(),formula:d.querySelector("#kF").value.trim(),freq:d.querySelector("#kQ").value,unit:d.querySelector("#kU").value,dir:d.querySelector("#kR").value,
+    target:Number(d.querySelector("#kT").value)||0,green:Number(d.querySelector("#kG").value)||100,yellow:Number(d.querySelector("#kY").value)||0,weight:Number(d.querySelector("#kW").value)||0,source:d.querySelector("#kS").value,active:d.querySelector("#kA").checked});
+  const prev=()=>{ const r=read(); d.querySelector("#kPrev").textContent=t("evTarget")+": "+evTargetTxt(r)+" · "+evAlertTxt(r); }; d.querySelectorAll("input,select").forEach(x=>x.addEventListener("input",prev)); prev();
+  d.querySelector("#kSv").onclick=async ev=>{ const row=read(); if(!row.name) return evErr(d,t("evNeedTitle")); if(row.yellow>row.green) return evErr(d,t("evNeedThr")); ev.target.disabled=true;
+    if(!kid) row.sort=(E().kpis||[]).filter(x=>x.dept===k.dept&&x.level===k.level&&x.position_id===k.position_id).reduce((m,x)=>Math.max(m,x.sort),0)+1;
+    try{ const q=kid?S.sb.from("kpis").update(row).eq("id",kid).select().single():S.sb.from("kpis").insert(row).select().single(); const r=await call(q,t("evSavedOk",{n:0}));
+      if(r&&r.data){ const L=E().kpis; const i=L.findIndex(x=>x.id===r.data.id); if(i>=0) L[i]=r.data; else L.push(r.data); } close(); evBody(); }catch(x){ ev.target.disabled=false; evErr(d,errText(x)); } };
+  if(d.querySelector("#kDel")) d.querySelector("#kDel").onclick=async()=>{ try{ await call(S.sb.from("kpis").delete().eq("id",kid),t("dcDeleted")); E().kpis=E().kpis.filter(x=>x.id!==kid); close(); evBody(); }catch(x){ evErr(d,errText(x)); } }; }
+
+async function evCopyLevel(pid){ const p=evPos(pid); if(!p) return; const src=(E().kpis||[]).filter(k=>!k.position_id&&k.dept===p.dept&&k.level===p.level);
+  const rows=src.map(k=>{ const r=Object.assign({},k); delete r.id; r.position_id=pid; return r; }); if(!rows.length) return toast(t("evNoLvKpi"),true);
+  try{ const r=await call(S.sb.from("kpis").insert(rows).select(),t("evSavedOk",{n:0})); if(r&&r.data) E().kpis.push(...r.data); evBody(); }catch(e){} }
+
+/* freeze the scores of the period so people can see a result that won't move */
+async function evPublish(){ const P=evPeriod(); const L=evList().map(e=>evScore(e,P)).filter(x=>x.score!=null);
+  if(!L.length) return toast(t("evNothingPub"),true);
+  const ok=await ask({title:t("evPublishQ",{p:evPLabel(P)}),text:t("evPublishT",{n:L.length}),noInput:true,okText:t("evPublish")}); if(ok===null) return;
+  const key=evKey(P); const rows=L.map(x=>({period:key,emp_id:x.e.id,score:x.score,grade:x.grade,data:{kpi:x.kb.val,sys:x.sys.map(s=>({k:s.k,w:s.w,v:s.v})),flags:x.flags.map(f=>f[0]),lv:x.lv}}));
+  try{ const r=await call(S.sb.from("eval_results").upsert(rows,{onConflict:"period,emp_id"}).select(),t("evPublished2",{n:rows.length})); if(r&&r.data){ E().results=E().results.filter(x=>x.period!==key).concat(r.data); } }catch(e){} }
+
+async function evExport(){ try{ await loadLib("xlsx","https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"); }catch(e){ return toast(t("loadErr"),true); }
+  const P=evPeriod(); const L=evList().map(e=>evScore(e,P));
+  const head=[t("evICode"),t("evIName"),t("evIDept"),t("evIPos"),t("evILevel"),t("evIMgr"),t("evKpiPart"),t("evS_disc"),t("evS_team"),t("evS_dept"),t("evS_up"),t("evS_fair"),t("evFinal"),t("evGrade"),t("evFlags")];
+  const sv=(x,k)=>{ const s=x.sys.find(y=>y.k===k); return s&&s.v!=null?Math.round(s.v):""; };
+  const rows=[head].concat(L.map(x=>[x.e.code||"",x.e.full_name,deptL(x.e.dept),evPosTitle(x.e),t(EVL[x.lv]),x.e.manager_id?evName(x.e.manager_id):"",x.kb.val==null?"":Math.round(x.kb.val),sv(x,"disc"),sv(x,"team"),sv(x,"dept"),sv(x,"up"),sv(x,"fair"),x.score==null?"":Math.round(x.score),x.grade?t("evG"+x.grade):"",x.flags.map(f=>t("evF_"+f[0],f[1])).join(" | ")]));
+  const wb=XLSX.utils.book_new(); const ws=XLSX.utils.aoa_to_sheet(rows); if(LANG==="ar") ws["!views"]=[{RTL:true}]; XLSX.utils.book_append_sheet(wb,ws,evKey(P)); XLSX.writeFile(wb,`evaluation-${evKey(P)}.xlsx`); }
+
+/* blank employee list template, with the current departments and positions as reference */
+async function evTemplate(){ try{ await loadLib("xlsx","https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"); }catch(e){ return toast(t("loadErr"),true); }
+  const head=["Employee Code","Full Name","Hotel","Department","Position","Hire Date (YYYY-MM-DD)","Direct Manager Code","Probation Days","Phone","App Email (if any)","Notes"];
+  const ex=["1001","Ahmed Mohamed Ali","titanic_pearl","security","Security Supervisor","2026-09-01","1000","90","01000000000","",""];
+  const pos=[["Department","Department name","Position","Level"]].concat(Object.values(E().pos||{}).filter(p=>p.active).sort((a,b)=>a.dept.localeCompare(b.dept)||a.sort-b.sort).map(p=>[p.dept,deptL(p.dept),p.title,p.level]));
+  const hot=[["Hotel code","Hotel"]].concat((S.hotelRows||[]).map(h=>[h.code,hotelL(h.code)]));
+  const wb=XLSX.utils.book_new(); const w1=XLSX.utils.aoa_to_sheet([head,ex]); w1["!cols"]=head.map(()=>({wch:22}));
+  XLSX.utils.book_append_sheet(wb,w1,"Employees"); XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(pos),"Positions"); XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(hot),"Hotels");
+  XLSX.writeFile(wb,"employees-template.xlsx"); }
+
 /* ================= task sheet ================= */
 function assigneeOptions(hotel,cur,par,isNew,dept){ let list=activeMembers().filter(id=>canAssignTo(id,hotel));
   if(dept) list=list.filter(id=>{ const q=S.profiles[id]; return q.dept===dept||q.role==="gm"||(!q.dept&&id===S.uid); });
@@ -2126,7 +2712,7 @@ function renderSheetSide(){ const side=$("#sideP"); if(!side) return; const x=S.
 /* ================= boot ================= */
 function boot(){
   applyLangChrome();
-  const h=(location.hash||"").slice(1); if(["board","days","list","approvals","reports","team","depts","disc"].includes(h)) S.view=h; { const mt=/^t=(\d+)$/.exec(h); if(mt) S.pendingOpen=+mt[1]; }
+  const h=(location.hash||"").slice(1); if(["board","days","list","approvals","reports","team","depts","disc","eval"].includes(h)) S.view=h; { const mt=/^t=(\d+)$/.exec(h); if(mt) S.pendingOpen=+mt[1]; }
   if(!window.supabase||!CFG.SUPABASE_URL||CFG.SUPABASE_URL.includes("YOUR-PROJECT")){ $("#main").innerHTML=`<div class="gate"><h2>${esc(t("cfgTitle"))}</h2><p>${esc(t("cfgTxt"))}</p></div>`; return; }
   const tfetch=(u,o={})=>{ const c=new AbortController(); const tm=setTimeout(()=>c.abort(),20000); if(o.signal){ if(o.signal.aborted) c.abort(); else o.signal.addEventListener("abort",()=>c.abort()); } return fetch(u,Object.assign({},o,{signal:c.signal})).finally(()=>clearTimeout(tm)); };
   S.sb=supabase.createClient(CFG.SUPABASE_URL,CFG.SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true},global:{fetch:tfetch},realtime:{heartbeatIntervalMs:15000}});
