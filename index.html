@@ -765,6 +765,7 @@ input.title{font-size:17px;font-weight:600;font-family:var(--f-display)}
 .instsheet p{margin:0;font-size:14px;line-height:1.7} .insteps{margin:0;padding-inline-start:22px;display:grid;gap:8px;font-size:14px;line-height:1.6} .insteps svg{color:var(--accent)}
 .instsheet .acts{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap} .instsheet .acts .btn{min-height:44px}
 @media (prefers-reduced-motion:reduce){ .instsheet{transition:none} }
+.evlive{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;border-top:1px dashed var(--line);padding-top:10px;margin-top:4px} .evlp{display:grid;gap:4px;min-width:0} .evlp>span{display:grid;grid-template-columns:minmax(0,1.2fr) 1fr 38px;gap:6px;align-items:center;font-size:11.5px} .evlp em{font-style:normal;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .evlp i{height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden} .evlp i b{display:block;height:100%} .evlp strong{text-align:end;font-variant-numeric:tabular-nums} .evlp small{font-size:11px}
 </style>
 </head>
 <body>
@@ -946,7 +947,7 @@ Object.assign(I18N.en,{tabEval:"Final evaluation",evTitle:"Final evaluation",evS
  evDone:"Evaluated",evWaiting:"{n} waiting for the manager's sheet",evAvg:"Average",evGA:"Excellent",evTop90:"90 and above",evFlags:"Needs a second look",evFlagsH:"Scores that don't match the evidence",evDist:"Grades",
 
  evGB:"Very good",evGC:"Good",evGD:"Fair",evGE:"Weak",evGrpMeta:"{n} people · {d} scored",evMgrL:"Manager: {n}",evKpiPart:"KPI sheet",evKpiShort:"KPIs",
- evS_tasks:"Task performance",evSD_tasks:"From the task system: finished, on time, speed to start, duration, rejections",evNoAcctT:"no site account, so no tasks",evTasksFew:"{n} task(s), needs at least 3",evTasksD:"{n} tasks · {d} finished · {l} late · {r} sent back",
+ evS_tasks:"Task performance",evLiveFin:"Final score",evLiveSys:"System score",evLiveFinH:"Live, same as the Final evaluation page.",evLiveWait:"From the system until the manager fills the KPI sheet.",evLiveSysH:"From tasks and discipline. The manager's KPI sheet adds the rest.",evS_teamres:"His team's results",evSD_teamres:"Average final score of the people who report to him (their system score until their sheet is filled)",evTeamResD:"{n} of {t} people, {f} with a filled sheet",evSD_tasks:"From the task system: finished, on time, speed to start, duration, rejections",evNoAcctT:"no site account, so no tasks",evTasksFew:"{n} task(s), needs at least 3",evTasksD:"{n} tasks · {d} finished · {l} late · {r} sent back",
  evF_fewTasks:"Only {n} task(s) in the period, not enough to judge task performance",evTasksTitle:"Task performance from the system",evTasksOwn:"Tasks assigned to him",evTasksSup:"Tasks he handled or handed to his team",evTasksDept:"All the department's tasks",
  evT_exec:"Execution",evT_ontime:"On time",evT_speed:"Speed to start",evT_dur:"Duration",evT_quality:"First-time quality",evT_execD:"{d} of {n} finished",evT_ontimeD:"{l} late of {n} with a due time",evT_speedD:"usually {a} · hotel {b}",
  evT_durD:"usually {a} · hotel {b}",evT_durE:"against the estimate on {n} tasks",evT_qualD:"{r} sent back",evSumKpi:"KPI sheet total",evFinalT:"Final score",evFC:"Part",evFD:"Details",evKpiPartD:"Manager's KPI sheet: {r}% out of {w}%",
@@ -969,7 +970,7 @@ Object.assign(I18N.en,{tabEval:"Final evaluation",evTitle:"Final evaluation",evS
  evR2t:"Colours",evR2:"Green, yellow and red come from each KPI's own thresholds. Any result in yellow or red needs a written example or evidence before the sheet can be saved.",
  evR3t:"Discipline is linked to everyone above",evR3:"An employee's absences, notices, warnings and penalties lower his own score. The same records also lower his supervisor's team discipline and the department manager's department discipline, so leaders own the discipline of their people.",
  evR4t:"Team rates the boss",evR4:"People rate their direct boss on 6 questions (fair work distribution, clear instructions, support, respect, solving problems, fair evaluation). Names are never shown; a period needs at least 3 ratings or it's left out, and with 5 or more the highest and lowest are dropped.",
- evR5t:"Fair rating of the manager",evR5:"Supervisors' and managers' scores include whether he evaluated his whole team, whether he gave near-full KPIs to people with weak discipline, and whether he gave almost everyone full marks. Inflating scores costs the manager.",
+ evR10t:"The chain",evR10:"Every leader carries his team: a supervisor's score includes his team's results (10%) and their discipline; an assistant manager, a department manager and the hotel manager include the results of the people right under them (15%) and the discipline of their department (or the whole hotel for the hotel manager). So an employee's tasks, absences and penalties move his supervisor, then the assistant manager, the department manager and the hotel manager.",evR5t:"Fair rating of the manager",evR5:"Supervisors' and managers' scores include whether he evaluated his whole team, whether he gave near-full KPIs to people with weak discipline, and whether he gave almost everyone full marks. Inflating scores costs the manager.",
  evR6t:"Checks against bias",evR6:"Self review is shown next to the manager's sheet but doesn't count; a gap of 20 points or more is flagged. KPIs from the task system are read automatically and can't be typed. Sheets with full KPIs and weak discipline are flagged for HR.",
  evR7t:"Periods",evR7:"No final score until the manager's sheet is filled. Sheets are filled each quarter. Half year and year average their quarters, with discipline and system data read over the whole period, and show the trend quarter by quarter. Publishing freezes the result.",
  evR8t:"Probation",evR8:"Probation ends at hire date + probation days. The manager fills the same KPI sheet and chooses: confirm, extend or end employment.",
@@ -992,7 +993,7 @@ Object.assign(I18N.ar,{tabEval:"التقييم النهائي",evTitle:"التق
  evResHint:"{p}. استمارة كل ربع بيملاها المدير المباشر، والنص سنة والسنة متوسط أرباعها، والانضباط والسيستم بيتحسبوا على الفترة كلها.",
  evDone:"اتقيّموا",evWaiting:"{n} مستنيين استمارة المدير",evAvg:"المتوسط",evGA:"ممتاز",evTop90:"90 وأكتر",evFlags:"محتاجين مراجعة",evFlagsH:"درجات مش متسقة مع الأداء الفعلي",evDist:"التقديرات",
  evGB:"جيد جدًا",evGC:"جيد",evGD:"مقبول",evGE:"ضعيف",evGrpMeta:"{n} موظف · {d} ليهم درجة",evMgrL:"المدير: {n}",evKpiPart:"استمارة المؤشرات",evKpiShort:"المؤشرات",
- evS_tasks:"أداء المهام",evSD_tasks:"من نظام المهام: اللي خلص، والموعد، وسرعة البدء، والمدة، والمرفوض",evNoAcctT:"مالوش حساب على الموقع، فمالوش مهام",evTasksFew:"{n} مهمة، محتاج 3 على الأقل",evTasksD:"{n} مهمة · خلص {d} · اتأخر {l} · اترفض {r}",
+ evS_tasks:"أداء المهام",evLiveFin:"التقييم النهائي",evLiveSys:"درجة السيستم",evLiveFinH:"لايف، نفس رقم صفحة التقييم النهائي.",evLiveWait:"من السيستم لحد ما المدير يملا استمارة المؤشرات.",evLiveSysH:"من المهام والانضباط. استمارة المدير بتكمّل الباقي.",evS_teamres:"نتيجة فريقه",evSD_teamres:"متوسط التقييم النهائي للناس اللي تحته مباشرة (ولو استمارتهم لسه ماتملتش بياخد درجة السيستم بتاعتهم)",evTeamResD:"{n} من {t} موظف، {f} منهم استمارتهم متملية",evSD_tasks:"من نظام المهام: اللي خلص، والموعد، وسرعة البدء، والمدة، والمرفوض",evNoAcctT:"مالوش حساب على الموقع، فمالوش مهام",evTasksFew:"{n} مهمة، محتاج 3 على الأقل",evTasksD:"{n} مهمة · خلص {d} · اتأخر {l} · اترفض {r}",
  evF_fewTasks:"{n} مهمة بس في الفترة، مش كفاية لتقييم أداء المهام",evTasksTitle:"أداء المهام من السيستم",evTasksOwn:"المهام اللي متسلمة له",evTasksSup:"المهام اللي ماسكها أو وزعها على فريقه",evTasksDept:"كل مهام القسم",
  evT_exec:"التنفيذ",evT_ontime:"في الموعد",evT_speed:"سرعة البدء",evT_dur:"مدة التنفيذ",evT_quality:"الجودة من أول مرة",evT_execD:"خلص {d} من {n}",evT_ontimeD:"اتأخر {l} من {n} ليهم موعد",evT_speedD:"عادةً {a} · الفندق {b}",
  evT_durD:"عادةً {a} · الفندق {b}",evT_durE:"مقارنة بالوقت المقدّر في {n} مهام",evT_qualD:"اترفض {r}",evSumKpi:"مجموع استمارة المؤشرات",evFinalT:"التقييم النهائي",evFC:"الجزء",evFD:"التفاصيل",evKpiPartD:"استمارة المدير: {r}% من {w}%",
@@ -1015,7 +1016,7 @@ Object.assign(I18N.ar,{tabEval:"التقييم النهائي",evTitle:"التق
  evR2t:"الألوان",evR2:"الأخضر والأصفر والأحمر من حدود كل مؤشر. أي نتيجة في الأصفر أو الأحمر لازم يتكتب لها دليل أو مثال قبل ما الاستمارة تتحفظ.",
  evR3t:"الانضباط مربوط بكل اللي فوق",evR3:"غياب الموظف ولفت النظر والإنذارات والجزاءات بتقلل درجته. ونفس التسجيلات بتقلل انضباط فريق مشرفه وانضباط قسم مديره، فالمسؤول شايل انضباط ناسه.",
  evR4t:"الفريق بيقيّم مسؤوله",evR4:"الموظفين بيقيّموا مسؤولهم المباشر في 6 أسئلة (توزيع الشغل بعدل، وضوح التعليمات، الدعم، الاحترام، حل المشاكل، عدالة التقييم). الأسماء مابتظهرش أبدًا، ولازم 3 تقييمات على الأقل في الفترة وإلا مابيدخلش، ولو 5 أو أكتر بيتشال أعلى وأقل تقييم.",
- evR5t:"عدالة تقييم المدير",evR5:"درجة المشرف والمدير فيها: هل قيّم كل فريقه، وهل إدّى مؤشرات كاملة لناس انضباطهم ضعيف، وهل إدّى الكل تقريبًا الدرجة الكاملة. المدير اللي بينفخ الدرجات بيخسر هو.",
+ evR10t:"السلسلة",evR10:"كل مسؤول شايل فريقه: درجة المشرف فيها نتيجة فريقه (10%) وانضباطهم، ومساعد مدير الإدارة ومدير الإدارة ومدير الفندق فيها نتيجة الناس اللي تحتهم مباشرة (15%) وانضباط القسم (أو الفندق كله لمدير الفندق). فمهام الموظف وغيابه وجزاءاته بتحرّك درجة مشرفه، وبعده مساعد المدير ومدير الإدارة ومدير الفندق.",evR5t:"عدالة تقييم المدير",evR5:"درجة المشرف والمدير فيها: هل قيّم كل فريقه، وهل إدّى مؤشرات كاملة لناس انضباطهم ضعيف، وهل إدّى الكل تقريبًا الدرجة الكاملة. المدير اللي بينفخ الدرجات بيخسر هو.",
  evR6t:"ضد الانحياز",evR6:"التقييم الذاتي بيظهر جنب استمارة المدير بس مابيتحسبش، ولو الفرق 20 نقطة أو أكتر بيتعلّم. المؤشرات اللي جاية من نظام المهام بتتحسب لوحدها ومحدش يقدر يكتبها. والاستمارة اللي فيها مؤشرات كاملة مع انضباط ضعيف بتتعلّم للـHR.",
  evR7t:"الفترات",evR7:"مفيش درجة نهائية قبل ما استمارة المدير تتملي. الاستمارات بتتملي كل ربع سنة. النص سنة والسنة متوسط أرباعهم، والانضباط والسيستم بيتحسبوا على الفترة كلها، ومعاهم الاتجاه ربع بربع. الاعتماد بيحفظ النتيجة ومابتتغيرش.",
  evR8t:"فترة الاختبار",evR8:"فترة الاختبار بتخلص بعد تاريخ التعيين + أيام الاختبار. المدير بيملا نفس استمارة المؤشرات ويختار: تثبيت أو مد الفترة أو إنهاء الخدمة.",
@@ -1174,7 +1175,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v58";
+const BUILD="v59";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -1804,7 +1805,8 @@ function bindApprovals(){ const m=$("#main");
 
 /* ================= reports ================= */
 let statsSeq=0;
-function renderReports(){ const m=$("#main"); const seq=++statsSeq;
+function renderReports(){ const m=$("#main"); const seq=++statsSeq; evResetMemo();
+  if(evCanSee()&&!S.ev&&!S.evLoading){ S.evLoading=true; loadEval().catch(()=>{}).finally(()=>{ S.evLoading=false; evResetMemo(); if(S.view==="reports"){ S.builtView=null; render(); } }); }
   const rk=S.rk||"month"; const rb=(v,l)=>`<button class="${rk===v?"on":""}" data-rk="${v}">${esc(t(l))}</button>`; const RG=repRange();
   const nav=["day","week","month"].includes(rk)?`<div class="mbar rnav"><button class="icbtn" data-ro="-1">${LANG==="ar"?"›":"‹"}</button>${rk==="day"?`<input class="field rdate" type="date" id="rDay" value="${dayKey(RG.a)}" max="${dayKey(Date.now())}">`:rk==="month"?`<input class="field rdate" type="month" id="rMon" value="${dayKey(RG.a).slice(0,7)}" max="${dayKey(Date.now()).slice(0,7)}">`:""}<b class="mbname">${esc(RG.label)}</b><button class="icbtn" data-ro="1"${(S.roff||0)>=0?" disabled":""}>${LANG==="ar"?"‹":"›"}</button></div>`:`<span class="rlbl">${esc(RG.label)}</span>`;
   const scope=isAdmin()?(S.repHotel?hotelL(S.repHotel)+".":t("repAll")):isGM()||(!myDept()&&(isSup()||isManager()||isAsst()))?t("repHotel"):t("repDept");
@@ -1878,7 +1880,7 @@ function statsHTML(rows){
     return `<article class="rpp${r.id===S.uid?" me":""}${!n?" idle":""}"><header>${n?`<span class="rank">${i+1}</span>`:""}${av(r.id,true)}<div class="pn"><b>${esc(nameOf(r.id))}</b><small>${esc([deptL(p.dept),isAdmin()?hotelL(p.hotel):""].filter(Boolean).join(" / "))}</small></div><div class="pt"><b>${n}</b><small>${esc(t("rpTasks"))}</small></div></header>
      <div class="pbar">${seg}</div><div class="pleg"><span class="ok">${r.done_count} ${esc(t("lgDone"))}</span><span class="info">${r.open_count} ${esc(t("lgOpen"))}</span>${r.late_count?`<span class="bad">${r.late_count} ${esc(t("lgLate"))}</span>`:""}</div>
      <div class="pstats"><div><small>${esc(t("psOn"))}</small><b class="${pc==null?"":pc>=80?"ok":pc>=50?"warn":"bad"}">${pc==null?"—":pc+"%"}</b></div><div><small>${esc(t("psAvg"))}</small><b>${r.avg_work_sec!=null?dur(r.avg_work_sec*1000):"—"}</b></div><div><small>${esc(t("psStart"))}</small><b>${r.avg_start_sec!=null?dur(r.avg_start_sec*1000):"—"}</b></div><div><small>${esc(t("psRej"))}</small><b class="${r.rejections?"bad":""}">${r.rejections}</b></div></div>
-     ${ev!=null||ds?`<div class="pdisc"><div class="pev"><b style="color:${scoreCol(ev)}">${ev==null?"—":ev}</b><small>${esc(t("evScore"))}</small></div>${ds?`<div class="pdb"><span>${esc(t("dsDisc"))} <b>${ds.score}/100</b></span><div class="rbar"><i style="width:${ds.score}%;background:${scoreCol(ds.score)}"></i></div><em class="${ds.n?"bad":""}">${esc(discTxt(ds))}</em></div>`:`<div class="pdb"><em>${esc(t("evTasksOnly"))}</em></div>`}</div>`:""}</article>`; }).join("");
+     ${evLiveHTML(r.id)}${ds&&ds.n?`<div class="pdb"><em class="bad">${esc(t("dsDisc"))}: ${esc(discTxt(ds))}</em></div>`:""}</article>`; }).join("");
   const dl=Object.entries(depts).sort((a,b)=>(b[1].open+b[1].done)-(a[1].open+a[1].done)).map(([d,x])=>{ const n=x.open+x.done; const pc=n?Math.round(x.done/n*100):0;
     return `<div class="rpd"><div class="dring" style="--p:${pc};--c:${x.late?"var(--warn)":"var(--ok)"}"><span>${pc}%</span></div><div class="dinfo"><b>${esc(deptL(d)||"—")}</b><small>${esc(t("rpDeptLine",{p:x.ppl,n}))}</small>${(()=>{ const L=R.map(r=>S.profiles[r.id]).filter(q=>q&&q.dept===d&&["manager","supervisor"].includes(q.role)).sort((a,b)=>(a.role==="manager"?0:1)-(b.role==="manager"?0:1)); return L.length?`<div class="dleads">${L.map(q=>`<span>${av(q.id)}${esc(nameOf(q.id))} <em>${esc(roleL(q.role))}</em></span>`).join("")}</div>`:""; })()}<div class="dchips"><span class="ok">${x.done} ${esc(t("lgDone"))}</span><span class="info">${x.open} ${esc(t("lgOpen"))}</span>${x.late?`<span class="bad">${x.late} ${esc(t("lgLate"))}</span>`:""}${(()=>{ const da=discAvg(R.filter(r=>((S.profiles[r.id]||{}).dept||"")===d).map(r=>r.id),RGp.a,RGp.b); return da?`<span class="${da.score>=80?"ok":da.score>=60?"warn":"bad"}">${esc(t("dsDeptChip",{s:Math.round(da.score),n:da.n}))}</span>`:""; })()}</div></div></div>`; }).join("");
   return `<div class="rphero"><div class="rpring" style="--p:${onPct||0};--c:${ringC}"><div><b>${onPct==null?"—":onPct+"%"}</b><span>${esc(t("kOnTime"))}</span></div></div>
@@ -1935,7 +1937,7 @@ function mgrHTML(){ if(!isMember()) return ""; const RG=repRange();
         ${direct.length?`<div class="stm mg">${av(id)}<span class="nm">${esc(t("mgDirect"))}<i>${esc(t("mgShare",{p:created.length?Math.round(direct.length/created.length*100):0}))}</i></span><div class="pbar"><i style="flex:${dirD};background:var(--ok)"></i><i style="flex:${direct.length-dirD};background:var(--info)"></i></div><b>${dirD}/${direct.length}</b></div>`:""}
         ${other.length?`<div class="stm mg"><span class="av" style="background:var(--line)"></span><span class="nm">${esc(t("mgOther"))}<i>${esc(t("mgShare",{p:Math.round(other.length/created.length*100)}))}</i></span><div class="pbar"><i style="flex:${othD};background:var(--ok)"></i><i style="flex:${other.length-othD};background:var(--info)"></i></div><b>${othD}/${other.length}</b></div>`:""}
         ${sN?`<div class="mgpool">${esc(t("mgPool",{d:sD,n:sN,p:Math.round(subAvg)}))}</div>`:""}${subs.some(x=>x.goal==null)?`<div class="meta" style="font-size:11px">${esc(t("mgNoGoalHint"))}</div>`:""}</div>`:""}
-      ${dA?`<div class="meta" style="font-size:11.5px">${esc(t("mgDiscLine",{n:dA.n,p:dA.ppl}))}</div>`:""}<div class="sppd">${esc(t("psAvg"))}: ${avgW!=null?esc(dur(avgW)):"—"}</div></article>`; }).join("");
+      ${dA?`<div class="meta" style="font-size:11.5px">${esc(t("mgDiscLine",{n:dA.n,p:dA.ppl}))}</div>`:""}${evLiveHTML(id)}<div class="sppd">${esc(t("psAvg"))}: ${avgW!=null?esc(dur(avgW)):"—"}</div></article>`; }).join("");
   return `<section class="spsec"><div class="sphead"><h3 class="rph3">${esc(t("mgTitle"))} <small>${mgrs.length}</small></h3></div><p class="aphint">${esc(t("mgHint"))}</p><div class="spgrid">${cards}</div></section>`; }
 
 /* supervisors: targets + everything they handle or hand out */
@@ -1975,9 +1977,7 @@ function supHTML(){ if(!isMember()) return "";
       <div class="spmain"><div class="dring big" style="--p:${Math.min(100,pct==null?(st.n?Math.round(st.d/st.n*100):0):pct)};--c:${pct==null?"var(--accent)":col}"><span><b>${pct==null?(st.n?Math.round(st.d/st.n*100)+"%":"—"):pct+"%"}</b><small>${esc(t(pct==null?"spDoneRate":"spOfTarget"))}</small></span></div>
        <div class="spnums"><div><b>${st.d}${tg?`<small>/${tgt}</small>`:""}</b><span>${esc(t("lgDone"))}</span></div><div><b>${st.n}</b><span>${esc(t("spHandled"))}${load!=null?` (${load}%)`:""}</span></div><div><b class="${st.late?"bad":""}">${st.late}</b><span>${esc(t("lgLate"))}</span></div>
         <div><b>${st.avgWork!=null?dur(st.avgWork):"—"}</b><span>${esc(t("psAvg"))}</span></div><div><b>${st.avgStart!=null?dur(st.avgStart):"—"}</b><span>${esc(t("psStart"))}</span></div><div><b>${st.onTime==null?"—":st.onTime+"%"}</b><span>${esc(t("psOn"))}</span></div></div></div>
-      ${(()=>{ const own=discOf(id,r.a,r.b); const tm=discAvg(activeMembers().filter(u=>u!==id&&isAbove(id,u)),r.a,r.b); if(!own&&!tm) return "";
-        const tp=pct!=null?Math.min(100,pct):(st.n?st.d/st.n*100:null); const dv=own&&tm?(own.score+tm.score)/2:own?own.score:tm.score; const P=[[tp,.7],[dv,.3]].filter(x=>x[0]!=null); const w=P.reduce((a,x)=>a+x[1],0); const ev=w&&tp!=null?Math.round(P.reduce((a,x)=>a+x[0]*x[1],0)/w):null;
-        return `<div class="spdisc"><div><b style="color:${scoreCol(ev)}">${ev==null?"—":ev}</b><span>${esc(t("spEval"))}</span><small>${esc(t("spEvalW"))}</small></div><div><b style="color:${scoreCol(own&&own.score)}">${own?own.score:"—"}</b><span>${esc(t("spOwnDisc"))}</span><small>${esc(own?discTxt(own):"")}</small></div><div><b style="color:${scoreCol(tm&&tm.score)}">${tm?Math.round(tm.score):"—"}</b><span>${esc(t("spTeamDisc"))}</span><small>${esc(tm?t("dsRecN",{n:tm.n}):t("spNoTeam"))}</small></div></div>`; })()}
+      ${evLiveHTML(id)}
       <div class="sppd">${esc(t(kind==="week"?"spThisWeek":"spThisMonth",{p:periodLabel(kind,r)}))}</div>
       ${teamRows?`<div class="steam"><small>${esc(t("spTeam"))}</small>${teamRows}</div>`:`<div class="meta">${esc(t("spNone"))}</div>`}
       <div class="shist">${hist}</div>${ctl}</article>`; }).join("");
@@ -2293,13 +2293,15 @@ const discTxt=d=>!d||!d.n?t("dsNone"):DK.filter(k=>d.c[k].n).map(k=>t("dk_"+k)+"
 const scoreCol=v=>v==null?"var(--line)":v>=80?"var(--ok)":v>=60?"var(--warn)":"var(--bad)";
 /* ================= final evaluation: KPI sheets, discipline, upward reviews, probation ================= */
 const EVL={managerial:"evLvM",supervisory:"evLvS",operational:"evLvO"};
-const EV_W={operational:[["kpi",60],["tasks",25],["disc",15]],supervisory:[["kpi",55],["tasks",20],["disc",5],["team",5],["up",10],["fair",5]],managerial:[["kpi",50],["tasks",20],["dept",10],["up",10],["fair",10]]};
+const EV_W={operational:[["kpi",60],["tasks",25],["disc",15]],supervisory:[["kpi",50],["tasks",15],["teamres",10],["disc",5],["team",5],["up",10],["fair",5]],managerial:[["kpi",45],["tasks",15],["teamres",15],["dept",10],["up",10],["fair",5]]};
+/* the hotel manager (or a top-management position) is judged on the whole hotel, not one department */
+const evHotelHead=e=>{ const r=(S.profiles[e.profile_id]||{}).role; if(r==="gm") return true; const p=evPos(e.position_id); return !!p&&p.dept==="administration"&&p.level==="managerial"; };
 const EV_SYS={operational:EV_W.operational.slice(1),supervisory:EV_W.supervisory.slice(1),managerial:EV_W.managerial.slice(1)};
 const EV_TW=[["exec",30],["ontime",25],["speed",15],["dur",15],["quality",15]];
 /* everything the task system knows about a person's work in the period: execution, deadlines, speed to start, duration, rejections */
 function evTaskSet(e,a,b){ if(!e.profile_id) return null; const pid=e.profile_id, lv=evLevel(e); const now=Date.now(), bb=Math.min(b,now); const T=RT()||[];
   const inR=x=>(x.createdAt||0)>=a&&(x.createdAt||0)<bb;
-  if(lv==="managerial") return T.filter(x=>inR(x)&&x.hotel===e.hotel&&(!e.dept||x.dept===e.dept));
+  if(lv==="managerial") return T.filter(x=>inR(x)&&x.hotel===e.hotel&&(evHotelHead(e)||!e.dept||x.dept===e.dept));
   if(lv==="supervisory") return T.filter(x=>inR(x)&&(x.assignee===pid||supOwns(pid,x)));
   return T.filter(x=>inR(x)&&x.assignee===pid); }
 const evMed=L=>{ if(!L.length) return null; const s=L.slice().sort((x,y)=>x-y); const m=Math.floor(s.length/2); return s.length%2?s[m]:(s[m-1]+s[m])/2; };
@@ -2368,7 +2370,7 @@ function evAuto(k,e,a,b){ if(k.source==="manual"||!e.profile_id) return null; co
   return null; }
 
 /* discipline on the registry */
-function evDisc(id,a,b){ const L=E().disc; if(!L) return null; const c={absence:0,notice:0,warning:0,penalty:0}; let pts=0,n=0;
+function evDisc(id,a,b){ const L=E().disc; if(!L){ const em=evEmp(id); if(em&&em.profile_id&&S.repDisc) return discOf(em.profile_id,a,b); const pid=String(id).startsWith("p_")?String(id).slice(2):null; return pid&&S.repDisc?discOf(pid,a,b):null; } const c={absence:0,notice:0,warning:0,penalty:0}; let pts=0,n=0;
   L.forEach(r=>{ if(r.emp_id!==id) return; const tm=dDay(r.on_date); if(tm<a||tm>=b) return; c[r.kind]++; pts+=discRecPts(r); n++; }); return {score:Math.max(0,100-pts),pts,n,c}; }
 function evDiscAvg(ids,a,b){ const L=ids.map(i=>evDisc(i,a,b)).filter(Boolean); if(!L.length) return null; return {score:L.reduce((s,x)=>s+x.score,0)/L.length,n:L.reduce((s,x)=>s+x.n,0),ppl:L.length}; }
 const evEntries=(id,kind,qs)=>(E().entries||[]).filter(x=>x.emp_id===id&&x.kind===kind&&qs.includes(x.period));
@@ -2387,20 +2389,37 @@ function evUp(e,R){ const by={}; evEntries(e.id,"up",R.qs).forEach(x=>{ const v=
   return {val:per.length?per.reduce((a,b)=>a+b,0)/per.length:null,n}; }
 function evTeam(e){ return Object.values(E().emp||{}).filter(x=>x.active&&x.id!==e.id&&evAbove(e.id,x.id)).map(x=>x.id); }
 function evDirect(e){ return Object.values(E().emp||{}).filter(x=>x.active&&x.manager_id===e.id).map(x=>x.id); }
-function evFair(e,R){ const team=evDirect(e); if(!team.length) return null;
+function evFair(e,R){ const team=evDirect(e); if(!team.length) return null; if(!(E().entries||[]).some(x=>x.kind==="down"&&R.qs.includes(x.period))) return null;
   const rated=team.filter(id=>evEntries(id,"down",R.qs).length); const comp=rated.length/team.length;
   let inc=0, high=0; rated.forEach(id=>{ const x=evEmp(id); const kb=evKpiBlock(x,R); const d=evDisc(id,R.a,R.b); if(kb.val!=null&&kb.val>=95){ high++; if(d&&d.score<70) inc++; } });
   const lenient=rated.length>=4&&high/rated.length>=0.9; const v=Math.max(0,Math.min(100,100*(0.5*comp+0.5*(rated.length?1-inc/rated.length:0))-(lenient?20:0)));
   return {val:v,comp,inc,lenient,rated:rated.length,team:team.length}; }
 
 /* the full score for one employee in a period */
-function evScore(e,P){ const R=P.kind==="PROB"?evProbRange(e):evRange(P); const lv=evLevel(e); const kb=evKpiBlock(e,R,P.kind==="PROB"?"prob":"down");
+const EV_MEMO={m:{},stack:new Set()};
+function evScore(e,P){ const R=P.R||(P.kind==="PROB"?evProbRange(e):evRange(P)); const mk=e.id+"|"+R.a+"|"+R.b+"|"+(P.kind||""); if(EV_MEMO.m[mk]) return EV_MEMO.m[mk];
+  if(EV_MEMO.stack.has(e.id)) return {e,lv:evLevel(e),kb:{rows:[],W:0,val:null,filled:0,total:0,entries:[]},kw:0,sys:[],score:null,sysScore:null,grade:null,flags:[],R};
+  EV_MEMO.stack.add(e.id); try{ return (EV_MEMO.m[mk]=evScore0(e,P,R)); } finally{ EV_MEMO.stack.delete(e.id); } }
+const evResetMemo=()=>{ EV_MEMO.m={}; };
+/* the reports page shows the same live score as the final evaluation, for the report's own period */
+function repEvRange(){ const RG=repRange(); const now=Date.now(); const a=RG.a||new Date(new Date().getFullYear(),0,1).getTime(); const b=RG.b||now+1; const qs=[];
+  for(let d=new Date(a); d.getTime()<b&&qs.length<12; d=new Date(d.getFullYear(),d.getMonth()+1,1)){ const q=d.getFullYear()+"-Q"+(Math.floor(d.getMonth()/3)+1); if(!qs.includes(q)) qs.push(q); } return {a,b,qs}; }
+function liveEval(pid){ const em=S.ev?Object.values(S.ev.emp).find(x=>x.profile_id===pid):null; const p=S.profiles[pid]||{};
+  const e=em||{id:"p_"+pid,profile_id:pid,hotel:p.hotel,dept:p.dept||"",position_id:null,manager_id:null,active:true}; return evScore(e,{kind:"R",R:repEvRange()}); }
+function evLiveHTML(pid){ const sc=liveEval(pid); const fin=sc.score!=null; const v=fin?sc.score:sc.sysScore; const parts=(fin?[{k:"kpi",w:sc.kw,v:sc.kb.val}]:[]).concat(sc.sys).filter(x=>x.v!=null);
+  if(v==null&&!parts.length) return "";
+  return `<div class="evlive"><div class="pev"><b style="color:${scoreCol(v)}">${v==null?"—":Math.round(v)}</b><small>${esc(t(fin?"evLiveFin":"evLiveSys"))}</small></div>
+    <div class="evlp">${parts.map(x=>`<span title="${esc(t(x.k==="kpi"?"evKpiPart":"evSD_"+x.k))}"><em>${esc(t(x.k==="kpi"?"evKpiPart":"evS_"+x.k))} ${x.w}%</em><i><b style="width:${Math.round(x.v)}%;background:${scoreCol(x.v)}"></b></i><strong>${Math.round(x.v)}%</strong></span>`).join("")}
+    <small class="meta">${esc(t(fin?"evLiveFinH":S.ev&&sc.kb.total?"evLiveWait":"evLiveSysH"))}</small></div></div>`; }
+function evScore0(e,P,R){ const lv=evLevel(e); const kb=evKpiBlock(e,R,P.kind==="PROB"?"prob":"down");
   const sys=[]; const flags=[];
   (EV_SYS[lv]||[]).forEach(([k,w])=>{ let v=null, info=null;
     if(k==="tasks"){ const x=evTasks(e,R.a,R.b); v=x&&x.val; info=x; if(x&&x.val==null&&x.n) flags.push(["fewTasks",{n:x.n}]); }
     else if(k==="disc"){ const d=evDisc(e.id,R.a,R.b); v=d&&d.score; info=d; }
     else if(k==="team"){ const d=evDiscAvg(evTeam(e).concat([e.id]),R.a,R.b); v=d&&d.score; info=d; }
-    else if(k==="dept"){ const ids=Object.values(E().emp||{}).filter(x=>x.active&&x.hotel===e.hotel&&x.dept===e.dept).map(x=>x.id); const d=evDiscAvg(ids,R.a,R.b); v=d&&d.score; info=d; }
+    else if(k==="dept"){ const ids=Object.values(E().emp||{}).filter(x=>x.active&&x.hotel===e.hotel&&(evHotelHead(e)||x.dept===e.dept)).map(x=>x.id); const d=evDiscAvg(ids,R.a,R.b); v=d&&d.score; info=d; }
+    else if(k==="teamres"){ const ds=evDirect(e).map(id=>evEmp(id)).filter(Boolean); const L=ds.map(x=>{ const z=evScore(x,P); return {id:x.id,v:z.score!=null?z.score:z.sysScore,fin:z.score!=null}; }).filter(z=>z.v!=null);
+      v=L.length?L.reduce((a,z)=>a+z.v,0)/L.length:null; info={n:L.length,team:ds.length,fin:L.filter(z=>z.fin).length}; }
     else if(k==="up"&&P.kind!=="PROB"){ const u=evUp(e,R); v=u.val; info=u; if(u.val==null) flags.push(["upFew",{n:u.n}]); }
     else if(k==="fair"&&P.kind!=="PROB"){ const f=evFair(e,R); v=f&&f.val; info=f; if(f&&f.lenient) flags.push(["lenient",{}]); if(f&&f.comp<1) flags.push(["notRated",{n:f.team-f.rated}]); }
     sys.push({k,w,v,info}); });
@@ -2408,11 +2427,12 @@ function evScore(e,P){ const R=P.kind==="PROB"?evProbRange(e):evRange(P); const 
   const parts=[[kb.val,kw]].concat(sys.map(s=>[s.v,s.w])); const av=parts.filter(x=>x[0]!=null&&x[1]>0); const tw=av.reduce((s,x)=>s+x[1],0);
   const manualMissing=kb.rows.some(r=>!r.auto)&&!kb.entries.length;
   const score=kb.val!=null&&!manualMissing&&tw?av.reduce((s,x)=>s+x[0]*x[1],0)/tw:null;
+  const sv=sys.filter(x=>x.v!=null&&x.w>0); const sw=sv.reduce((a,x)=>a+x.w,0); const sysScore=sw?Math.round(sv.reduce((a,x)=>a+x.v*x.w,0)/sw*10)/10:null;
   if(!kb.entries.length&&kb.rows.some(r=>!r.auto)) flags.unshift(["noSheet",{}]); else if(kb.filled<kb.total) flags.push(["partial",{a:kb.filled,b:kb.total}]);
   const d=sys.find(s=>s.k==="disc"); if(kb.val!=null&&kb.val>=95&&d&&d.v!=null&&d.v<70) flags.push(["inflate",{}]);
   if(P.kind!=="PROB"){ const sb=evKpiBlock(e,R,"self"); if(sb.val!=null&&kb.val!=null&&Math.abs(sb.val-kb.val)>=20) flags.push(["selfGap",{s:Math.round(sb.val),m:Math.round(kb.val)}]); }
   if(!kb.total) flags.unshift(["noKpi",{}]);
-  return {e,lv,kb,kw,sys,score:score==null?null:Math.round(score*10)/10,grade:evGrade(score),flags,R}; }
+  return {e,lv,kb,kw,sys,score:score==null?null:Math.round(score*10)/10,sysScore,grade:evGrade(score),flags,R}; }
 function evProbRange(e){ const h=e.hire_date?dDay(e.hire_date):dDay(dayKey(Date.now())); const b=h+(Number(e.probation_days)||90)*864e5; return {a:h,b,qs:["PROB"],end:b}; }
 
 /* ---------- loading ---------- */
@@ -2445,7 +2465,7 @@ function renderEval(){ const m=$("#main");
     m.querySelectorAll("[data-et]").forEach(b=>b.onclick=()=>{ S.evTab=b.dataset.et; evBody(); }); }
   evBody(); }
 
-function evBody(){ const b=$("#evBody"); if(!b) return;
+function evBody(){ const b=$("#evBody"); if(!b) return; evResetMemo();
   document.querySelectorAll("[data-et]").forEach(x=>x.setAttribute("aria-selected",x.dataset.et===S.evTab));
   const vis=$("#evVis"); vis.innerHTML=isAdmin()?`<div class="dcvis${evPub()?" pub":""}"><span class="lk">${evPub()?"◉":"🔒"}</span><div class="tx"><b>${esc(t(evPub()?"evVisPub":"dcVisPriv"))}</b><span>${esc(t(evPub()?"evVisPubH":"evVisPrivH"))}</span></div>
     <div class="seg"><button type="button" data-evis="0" aria-selected="${!evPub()}">${esc(t("dcOnlyMe"))}</button><button type="button" data-evis="1" aria-selected="${evPub()}">${esc(t("dcEveryone"))}</button></div></div>`:"";
@@ -2540,10 +2560,10 @@ function evMineHTML(){ const me=evMine(); if(!me) return `<div class="dcempty"><
     ${team.map(x=>item(x.id,"down","evRateTeam")).join("")}${boss?item(boss.id,"up","evRateBoss"):""}${item(me.id,"self","evRateSelf")}</section>
     ${res.length?`<section class="dcgrp"><div class="dcgh"><h3>${esc(t("evPublished"))}</h3></div>${res.map(r=>`<div class="evrow"><span class="dcwho">${evAv(r.emp_id)}<div><span class="n">${esc(evName(r.emp_id))}</span><span class="r">${esc(r.period)}</span></div></span><span class="evsc" style="--c:${evGradeCol(r.grade)}"><b>${r.score==null?"—":Math.round(r.score)}</b><small>${r.grade?esc(t("evG"+r.grade)):""}</small></span></div>`).join("")}</section>`:""}`; }
 
-function evRulesHTML(){ const C={kpi:"var(--accent)",tasks:"#3f8f6a",disc:"var(--warn)",team:"var(--warn)",dept:"var(--warn)",up:"var(--info)",fair:"var(--brass)"};
+function evRulesHTML(){ const C={kpi:"var(--accent)",teamres:"#6b5fb0",tasks:"#3f8f6a",disc:"var(--warn)",team:"var(--warn)",dept:"var(--warn)",up:"var(--info)",fair:"var(--brass)"};
   const W=(lv)=>`<div class="evrw"><b>${esc(t(EVL[lv]))}</b><div class="dcst evwbar">${EV_W[lv].map(([k,w])=>`<i style="flex:${w};background:${C[k]}" title="${esc(t(k==="kpi"?"evKpiPart":"evS_"+k))}">${w}</i>`).join("")}</div><small>${EV_W[lv].map(([k,w])=>esc(t(k==="kpi"?"evKpiPart":"evS_"+k))+" "+w+"%").join(" · ")}</small></div>`;
   return `<div class="evrules"><section class="dcgrp"><div class="dcgh"><h3>${esc(t("evRW"))}</h3></div><div class="evrb">${W("operational")}${W("supervisory")}${W("managerial")}<p>${esc(t("evRW2"))}</p></div></section>
-   ${["evR1","evR9","evR2","evR3","evR4","evR5","evR6","evR7","evR8"].map(k=>`<section class="dcgrp"><div class="dcgh"><h3>${esc(t(k+"t"))}</h3></div><div class="evrb"><p>${esc(t(k))}</p></div></section>`).join("")}</div>`; }
+   ${["evR10","evR1","evR9","evR2","evR3","evR4","evR5","evR6","evR7","evR8"].map(k=>`<section class="dcgrp"><div class="dcgh"><h3>${esc(t(k+"t"))}</h3></div><div class="evrb"><p>${esc(t(k))}</p></div></section>`).join("")}</div>`; }
 
 function evBind(){ const b=$("#evBody");
   const re=()=>evBody();
@@ -2590,6 +2610,7 @@ function evSheet(id,P,kindIn){ const e=evEmp(id); if(!e) return; const kind=kind
   const sysRows=kind==="self"?"":sc.sys.map(s=>{ const lab=t("evS_"+s.k); let det="";
     if(s.info&&(s.k==="disc"||s.k==="team"||s.k==="dept")) det=s.k==="disc"?(s.info.n?discTxt({c:Object.fromEntries(DK.map(k=>[k,{n:s.info.c[k],d:0}])),n:s.info.n}):t("dsNone")):t("evDiscPpl",{p:s.info.ppl,n:s.info.n});
     if(s.k==="up") det=s.info&&s.info.val!=null?t("evUpN",{n:s.info.n}):t("evUpFew",{n:(s.info&&s.info.n)||0});
+    if(s.k==="teamres") det=s.info?t("evTeamResD",{n:s.info.n,t:s.info.team,f:s.info.fin}):"";
     if(s.k==="tasks") det=!s.info?t("evNoAcctT"):s.info.n<3?t("evTasksFew",{n:s.info.n}):t("evTasksD",{n:s.info.n,d:s.info.done,l:s.info.late,r:s.info.rej});
     if(s.k==="fair"&&s.info) det=t("evFairD",{r:s.info.rated,t:s.info.team})+(s.info.lenient?" · "+t("evLenient"):"");
     return `<tr class="sys"><td class="kn">${esc(lab)}</td><td class="kd">${esc(t("evSD_"+s.k))}${det?` <em>(${esc(det)})</em>`:""}</td><td>${s.w}%</td><td><b>${s.v==null?"—":Math.round(s.v)+"%"}</b><small class="auto">${esc(t("evFromSys"))}</small></td><td class="res">${s.v==null?"—":evNum(s.w*s.v/100)+"%"}</td></tr>`; }).join("");
