@@ -1,7 +1,7 @@
 /* Hotel Ops service worker
    - network first for the page (updates show at once), last copy when offline
    - phone notifications for tasks, with the unread count on the app icon */
-const C = "hotelops-shell-v2";
+const C = "hotelops-shell-v3";
 self.addEventListener("install", () => { self.skipWaiting(); });
 self.addEventListener("activate", e => { e.waitUntil(self.clients.claim()); });
 self.addEventListener("fetch", e => {
@@ -16,7 +16,7 @@ self.addEventListener("push", e => {
   e.waitUntil((async () => {
     await self.registration.showNotification(d.title || "Hotel Ops", {
       body: d.body || "", icon: "icons/icon-192.png", badge: "icons/badge-96.png",
-      tag: "n" + (d.id || Date.now()), data: { url: d.url || "./" }, dir: "auto", lang: "ar", vibrate: [120, 60, 120]
+      tag: "n" + (d.id || Date.now()), data: { url: d.url || "./" }, dir: "auto", lang: "ar", vibrate: [200, 100, 200], renotify: true, requireInteraction: false, silent: false, timestamp: Date.now()
     });
     try { if (self.navigator.setAppBadge && d.badge != null) { d.badge ? await self.navigator.setAppBadge(d.badge) : await self.navigator.clearAppBadge(); } } catch (x) {}
     const cs = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
