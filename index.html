@@ -565,7 +565,7 @@ input.title{font-size:17px;font-weight:600;font-family:var(--f-display)}
 .hist .dt{width:7px;height:7px;border-radius:50%;background:var(--line);margin-top:7px}
 
 .dlg{position:fixed;inset:0;z-index:60;background:rgba(10,16,14,.5);display:grid;place-items:center;padding:16px}
-.dlg .in{background:var(--surface);border-radius:12px;padding:20px;width:min(440px,100%);display:grid;gap:12px;box-shadow:var(--shadow)}
+.dlg .in{background:var(--surface);border-radius:12px;padding:20px;width:min(440px,100%);display:grid;gap:12px;box-shadow:var(--shadow);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain} .dlg .in>.actions{position:sticky;bottom:-20px;margin:0 -20px -20px;padding:12px 20px;background:var(--surface);border-top:1px solid var(--line);z-index:1} .dlg .pfprev{max-height:min(42vh,360px);overflow:auto}
 .dlg h4{margin:0;font-family:var(--f-display);font-size:16px}
 .toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:8px;z-index:80;font-size:13.5px;max-width:calc(100% - 32px);box-shadow:var(--shadow)}
 .toast.err{background:var(--bad);color:#fff}
@@ -1195,7 +1195,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v66";
+const BUILD="v67";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
