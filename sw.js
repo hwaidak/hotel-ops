@@ -1,12 +1,19 @@
 /* Hotel Ops service worker
    - network first for the page (updates show at once), last copy when offline
    - phone notifications for tasks, with the unread count on the app icon */
-const C = "hotelops-shell-v3";
-self.addEventListener("install", () => { self.skipWaiting(); });
-self.addEventListener("activate", e => { e.waitUntil(self.clients.claim()); });
+const C = "hotelops-shell-v4";
+const LIB = "vendor/supabase-2.117.3.js";
+self.addEventListener("install", e => { self.skipWaiting(); e.waitUntil(caches.open(C).then(c => c.add(LIB)).catch(() => {})); });
+self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith("hotelops-shell-") && k !== C).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {
   const r = e.request;
-  if (r.method !== "GET" || r.mode !== "navigate") return;
+  if (r.method !== "GET") return;
+  /* versioned library files never change: serve the saved copy so a weak network can't break the app */
+  if (new URL(r.url).pathname.includes("/vendor/")) {
+    e.respondWith(caches.open(C).then(c => c.match(r, { ignoreSearch: true }).then(m => m || fetch(r).then(res => { if (res.ok) c.put(r, res.clone()); return res; }))));
+    return;
+  }
+  if (r.mode !== "navigate") return;
   e.respondWith(fetch(r).then(res => { const cp = res.clone(); caches.open(C).then(c => c.put("./", cp)); return res; })
     .catch(() => caches.open(C).then(c => c.match("./")).then(m => m || new Response("Offline", { status: 503 }))));
 });

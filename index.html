@@ -13,8 +13,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Hotel Ops">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+<script src="vendor/supabase-2.117.3.js"></script>
+<script>if(!window.supabase){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"><\/script>');}</script>
+<script>if(!window.supabase){document.write('<script src="https://unpkg.com/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"><\/script>');}</script>
 <script>
 /* Supabase project settings (Project Settings → API) */
 window.APP_CONFIG = {
@@ -865,7 +867,7 @@ en:{
  pendingTitle:"Your request is under review",pendingTxt:"An administrator will review your request and set your access. The board opens automatically once you're approved.",
  yourName:"Your name",updateMe:"Update my details",disabledTitle:"Access disabled",disabledTxt:"Your account is disabled. Contact your hotel's system administrator.",
  setupTitle:"Setting up your account",setupTxt:"If this message stays, make sure the database setup was run.",
- cfgTitle:"Setup needed",cfgTxt:"Add your Supabase URL and key at the top of index.html.",loadErr:"Couldn't load the data",netLost:"Connection lost — reconnecting…",netRetry:"Retry now",retry:"Try again",
+ bootWait:"Connecting…",bootWaitTxt:"The network is slow. The app keeps trying on its own.",bootRetry:"Try again",cfgTitle:"Setup needed",cfgTxt:"Add your Supabase URL and key at the top of index.html.",loadErr:"Couldn't load the data",netLost:"Connection lost — reconnecting…",netRetry:"Retry now",retry:"Try again",
  taskDetails:"Task details",newTaskT:"New task",delegateT:"Delegate a subtask",del:"Delete",close:"Close",open:"Open",
  partOf:"Part of task",titlePh:"Task title, e.g. Water leak in room 214 bathroom",descPh:"Details, steps, guest notes…",
  location:"Location / room",locationPh:"Room 214 · Lobby · Kitchen",assignee:"Assigned to",priority:"Priority",dueAt:"Due",shift:"Shift",estimate:"Estimated time (hours)",
@@ -931,7 +933,7 @@ ar:{
  pendingTitle:"طلبك قيد المراجعة",pendingTxt:"الإدارة هتراجع طلبك وتحدد صلاحيتك. اللوحة هتفتح لوحدها أول ما يتوافق عليك.",
  yourName:"اسمك",updateMe:"تحديث بياناتي",disabledTitle:"الوصول متوقف",disabledTxt:"حسابك موقوف. تواصل مع إدارة الفندق.",
  setupTitle:"جارٍ تجهيز حسابك",setupTxt:"لو الرسالة دي فضلت ظاهرة، اتأكد إن إعداد قاعدة البيانات اتشغّل.",
- cfgTitle:"البرنامج محتاج إعداد",cfgTxt:"حط رابط Supabase والمفتاح في أول ملف index.html.",loadErr:"تعذّر تحميل البيانات",netLost:"الاتصال اتقطع — بنرجّعه تلقائي…",netRetry:"حاول دلوقتي",retry:"إعادة المحاولة",
+ bootWait:"جاري الاتصال…",bootWaitTxt:"النت بطيء شوية. البرنامج بيحاول لوحده، استنى ثواني.",bootRetry:"حاول تاني",cfgTitle:"البرنامج محتاج إعداد",cfgTxt:"حط رابط Supabase والمفتاح في أول ملف index.html.",loadErr:"تعذّر تحميل البيانات",netLost:"الاتصال اتقطع — بنرجّعه تلقائي…",netRetry:"حاول دلوقتي",retry:"إعادة المحاولة",
  taskDetails:"تفاصيل المهمة",newTaskT:"مهمة جديدة",delegateT:"توزيع مهمة فرعية",del:"حذف",close:"إغلاق",open:"فتح",
  partOf:"جزء من المهمة",titlePh:"عنوان المهمة، مثال: تسريب مياه في حمام غرفة 214",descPh:"التفاصيل، الخطوات المطلوبة، ملاحظات الضيف…",
  location:"الموقع / رقم الغرفة",locationPh:"غرفة 214 · اللوبي · المطبخ",assignee:"المسؤول عن التنفيذ",priority:"الأولوية",dueAt:"موعد التسليم",shift:"الوردية",estimate:"الوقت المقدّر (ساعات)",
@@ -1195,7 +1197,7 @@ function netState(ok){ let b=$("#netBar"); if(ok){ if(b) b.hidden=true; return; 
   b.innerHTML=`<span>${esc(t("netLost"))}</span><button type="button">${esc(t("netRetry"))}</button>`; b.hidden=false; b.querySelector("button").onclick=()=>heal("manual",true); }
 let healing=false, lastHeal=0;
 /* auto-update: when a newer version is published, reload so nobody stays on an old copy */
-const BUILD="v68";
+const BUILD="v69";
 async function checkUpdate(){ try{ const r=await fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}); if(!r.ok) return; const tx=await r.text(); const m=/const BUILD="([^"]+)"/.exec(tx);
   if(m&&m[1]!==BUILD){ if(document.querySelector("#ov,.dlg")){ if(!document.querySelector(".updbar")){ const b=document.createElement("button"); b.className="updbar"; b.textContent=t("newVersion"); b.onclick=()=>location.reload(); document.body.appendChild(b); } return; } location.reload(); } }catch(e){} }
 async function heal(why,force){ if(!S.sb||healing) return; if(!force&&Date.now()-lastHeal<8000) return; healing=true; lastHeal=Date.now();
@@ -1256,7 +1258,10 @@ async function shrink(file){ const orig=file.size;
   return {blob:file,mime:mime0,ext:ext0,gz:false,orig}; }
 async function fileBlob(f){ const {data,error}=await S.sb.storage.from("task-files").download(f.path); if(error) throw error; let b=data;
   if(f.gz) b=await new Response(b.stream().pipeThrough(new DecompressionStream("gzip"))).blob(); return new Blob([b],{type:f.mime||"application/octet-stream"}); }
-const libs={}; const loadLib=(k,url)=>libs[k]||(libs[k]=new Promise((ok,no)=>{ const sc=document.createElement("script"); sc.src=url; sc.onload=ok; sc.onerror=()=>{ delete libs[k]; no(new Error("lib")); }; document.head.appendChild(sc); }));
+/* our own copy first (same site, always reachable), the public CDN only as a backup */
+const LIBLOCAL={"heic2any@0.0.4/dist/heic2any.min.js":"vendor/heic2any-0.0.4.min.js","xlsx@0.18.5/dist/xlsx.full.min.js":"vendor/xlsx-0.18.5.full.min.js","mammoth@1.6.0/mammoth.browser.min.js":"vendor/mammoth-1.6.0.browser.min.js"};
+const libs={}; const loadLib=(k,url)=>libs[k]||(libs[k]=new Promise((ok,no)=>{ const m=/\/npm\/(.+)$/.exec(url); const list=[m&&LIBLOCAL[m[1]],url].filter(Boolean);
+  const next=i=>{ if(i>=list.length){ delete libs[k]; no(new Error("lib")); return; } const sc=document.createElement("script"); sc.src=list[i]; sc.onload=ok; sc.onerror=()=>{ sc.remove(); next(i+1); }; document.head.appendChild(sc); }; next(0); }));
 const fKind=f=>{ const n=(f.name||"").toLowerCase(), m=f.mime||""; if(/^image\//.test(m)||/\.(png|jpe?g|webp|gif|bmp)$/.test(n)) return "img"; if(/pdf/.test(m)||n.endsWith(".pdf")) return "pdf";
   if(/\.(xlsx|xls|csv|ods)$/.test(n)) return "sheet"; if(n.endsWith(".docx")) return "docx"; return "other"; };
 const frameDoc=body=>`<!doctype html><html dir="auto"><head><meta charset="utf-8"><style>body{font:14px/1.6 system-ui,"Segoe UI",Tahoma,sans-serif;margin:18px;color:#16201C}table{border-collapse:collapse;font-size:13px}td,th{border:1px solid #D5DCD4;padding:5px 9px;vertical-align:top;white-space:nowrap}tr:nth-child(odd) td{background:#F6F8F5}img{max-width:100%}h1,h2,h3{line-height:1.3}</style></head><body>${body}</body></html>`;
@@ -3064,7 +3069,13 @@ function renderSheetSide(){ const side=$("#sideP"); if(!side) return; const x=S.
 function boot(){
   applyLangChrome();
   const h=(location.hash||"").slice(1); if(["board","days","list","approvals","reports","team","depts","disc","eval"].includes(h)) S.view=h; { const mt=/^t=(\d+)$/.exec(h); if(mt) S.pendingOpen=+mt[1]; }
-  if(!window.supabase||!CFG.SUPABASE_URL||CFG.SUPABASE_URL.includes("YOUR-PROJECT")){ $("#main").innerHTML=`<div class="gate"><h2>${esc(t("cfgTitle"))}</h2><p>${esc(t("cfgTxt"))}</p></div>`; return; }
+  if(!CFG||!CFG.SUPABASE_URL||CFG.SUPABASE_URL.includes("YOUR-PROJECT")){ $("#main").innerHTML=`<div class="gate"><h2>${esc(t("cfgTitle"))}</h2><p>${esc(t("cfgTxt"))}</p></div>`; return; }
+  /* the connection library didn't arrive (slow or blocked network): keep trying the copies, never strand people on an error */
+  if(!window.supabase){ S.bootTry=(S.bootTry||0)+1;
+    $("#main").innerHTML=`<div class="gate"><h2>${esc(t("bootWait"))}</h2><p>${esc(t("bootWaitTxt"))}</p><button class="btn primary" onclick="location.reload()">${esc(t("bootRetry"))}</button></div>`;
+    const srcs=["vendor/supabase-2.117.3.js?r="+Date.now(),"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js","https://unpkg.com/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"];
+    const src=srcs[(S.bootTry-1)%srcs.length]; const sc=document.createElement("script"); sc.src=src;
+    sc.onload=()=>{ if(window.supabase) boot(); else setTimeout(boot,1500); }; sc.onerror=()=>setTimeout(boot,Math.min(8000,1000*S.bootTry)); document.head.appendChild(sc); return; }
   const tfetch=(u,o={})=>{ const c=new AbortController(); const tm=setTimeout(()=>c.abort(),20000); if(o.signal){ if(o.signal.aborted) c.abort(); else o.signal.addEventListener("abort",()=>c.abort()); } return fetch(u,Object.assign({},o,{signal:c.signal})).finally(()=>clearTimeout(tm)); };
   S.sb=supabase.createClient(CFG.SUPABASE_URL,CFG.SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true},global:{fetch:tfetch},realtime:{heartbeatIntervalMs:15000}});
   document.addEventListener("visibilitychange",()=>{ if(!document.hidden){ heal("visible"); checkUpdate(); } });
