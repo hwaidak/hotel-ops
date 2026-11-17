@@ -4,6 +4,7 @@
   "description": "نظام شؤون العاملين – Titanic Pearl",
   "lang": "ar",
   "dir": "rtl",
+  "id": "/hotel-ops/hr/",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
